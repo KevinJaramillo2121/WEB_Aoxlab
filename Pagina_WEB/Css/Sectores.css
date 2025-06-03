@@ -1,0 +1,870 @@
+/* ===== ESTILOS ESPECÍFICOS PARA PÁGINA SECTORES ===== */
+/*Es importante recordad que todos y cada uno de los apartados deben estar debidamente comentados con el fin de facilitar la legibilidad de los apartadaos y la actualización*/
+/* Hero Section Sectores */
+.sectores-hero {
+    padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xxl);
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+}
+
+.sectores-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 0%, rgba(43, 161, 212, 0.05) 100%);
+    z-index: 1;
+}
+
+.sectores-hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.sectores-hero .hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.2;
+}
+
+.sectores-hero .highlight {
+    color: var(--secondary-color);
+    position: relative;
+}
+
+.sectores-hero .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    opacity: 0.7;
+}
+
+.sectores-hero .hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--medium-gray);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.6;
+}
+
+.sectores-hero .hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* Showcase de sectores en hero */
+.hero-visual {
+    position: relative;
+    height: 400px;
+}
+
+.sectors-showcase {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.sector-icon {
+    position: absolute;
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: 50%;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    text-align: center;
+    min-width: 100px;
+    transition: all var(--transition-medium);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.sector-icon.floating:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation: float 6s ease-in-out infinite;
+    border-color: var(--success-color);
+}
+
+.sector-icon.floating:nth-child(2) {
+    top: 25%;
+    right: 10%;
+    animation: float 6s ease-in-out infinite 1.5s;
+    border-color: var(--accent-color);
+}
+
+.sector-icon.floating:nth-child(3) {
+    bottom: 30%;
+    left: 10%;
+    animation: float 6s ease-in-out infinite 3s;
+    border-color: var(--success-color);
+}
+
+.sector-icon.floating:nth-child(4) {
+    bottom: 15%;
+    right: 25%;
+    animation: float 6s ease-in-out infinite 4.5s;
+    border-color: var(--accent-color);
+}
+
+.sector-icon.floating:nth-child(5) {
+    top: 45%;
+    left: 45%;
+    animation: float 6s ease-in-out infinite 6s;
+    border-color: var(--secondary-color);
+}
+
+.sector-icon i {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.sector-icon.floating:nth-child(1) i { color: var(--success-color); }
+.sector-icon.floating:nth-child(2) i { color: var(--accent-color); }
+.sector-icon.floating:nth-child(3) i { color: var(--success-color); }
+.sector-icon.floating:nth-child(4) i { color: var(--accent-color); }
+.sector-icon.floating:nth-child(5) i { color: var(--secondary-color); }
+
+.sector-icon span {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.sector-icon:hover {
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 20px 50px var(--shadow-medium);
+}
+
+/* Estadísticas Sectoriales */
+.sectores-stats {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-gray));
+    color: var(--white);
+}
+
+.sectores-stats .section-header h2 {
+    color: var(--white);
+}
+
+.sectores-stats .section-header p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: all var(--transition-medium);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--secondary-color);
+    line-height: 1;
+}
+
+.stat-plus,
+.stat-percent {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    margin-top: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+/* Filtros de Sectores */
+.sectores-filters {
+    padding: var(--spacing-xl) 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--shadow-light);
+}
+
+.filters-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.filters-header h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+.filters-header p {
+    color: var(--medium-gray);
+    font-size: 1.1rem;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: 2px solid var(--shadow-light);
+    background: var(--white);
+    color: var(--primary-color);
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    font-weight: var(--font-weight-bold);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--secondary-color);
+    color: var(--white);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.filter-btn i {
+    font-size: 1.1rem;
+}
+
+/* Grid de Sectores */
+.sectores-grid {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+}
+
+.sectors-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.sector-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 8px 30px var(--shadow-light);
+    transition: all var(--transition-medium);
+    position: relative;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.sector-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px var(--shadow-medium);
+    border-color: var(--secondary-color);
+}
+
+.sector-card.featured {
+    border-color: var(--accent-color);
+    position: relative;
+}
+
+.sector-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+    z-index: 2;
+}
+
+.sector-card.premium {
+    border-color: var(--success-color);
+    background: linear-gradient(135deg, var(--white), #f8fff8);
+}
+
+.sector-card.innovador {
+    border-color: var(--secondary-color);
+    background: linear-gradient(135deg, var(--white), #f0f8ff);
+}
+
+.sector-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+.sector-badge:not(.premium):not(.innovador) {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.sector-badge.premium {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.sector-badge.innovador {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.sector-header {
+    padding: var(--spacing-xl);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.sector-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.sector-icon.agro { background: linear-gradient(135deg, var(--success-color), var(--dark-green)); }
+.sector-icon.alimentos { background: linear-gradient(135deg, var(--accent-color), #ff6b6b); }
+.sector-icon.cannabis { background: linear-gradient(135deg, var(--success-color), var(--dark-green)); }
+.sector-icon.cosmeticos { background: linear-gradient(135deg, var(--accent-color), #ff6b6b); }
+.sector-icon.nutricion { background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); }
+.sector-icon.quimica { background: linear-gradient(135deg, var(--primary-color), var(--dark-gray)); }
+.sector-icon.plasticos { background: linear-gradient(135deg, var(--dark-green), var(--success-color)); }
+.sector-icon.ambiente { background: linear-gradient(135deg, var(--secondary-color), var(--accent-color)); }
+
+.sector-info h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-bold);
+}
+
+.sector-subtitle {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.sector-content {
+    padding: 0 var(--spacing-xl) var(--spacing-lg);
+    flex: 1;
+}
+
+.sector-description,
+.sector-solutions {
+    margin-bottom: var(--spacing-lg);
+}
+
+.sector-description h4,
+.sector-solutions h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+.sector-description p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+}
+
+.solutions-list {
+    list-style: none;
+}
+
+.solutions-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+    color: var(--primary-color);
+}
+
+.solutions-list i {
+    color: var(--success-color);
+    font-size: 0.9rem;
+    width: 16px;
+}
+
+.sector-stats {
+    display: flex;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--shadow-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.mini-stat {
+    text-align: center;
+    flex: 1;
+}
+
+.mini-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--secondary-color);
+    line-height: 1;
+}
+
+.mini-label {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sector-footer {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-top: 1px solid var(--shadow-light);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.sector-btn {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    transition: all var(--transition-medium);
+}
+
+.sector-btn.primary {
+    background: var(--secondary-color);
+    color: var(--white);
+    border: 2px solid var(--secondary-color);
+}
+
+.sector-btn.secondary {
+    background: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.sector-btn:hover {
+    transform: translateY(-2px);
+}
+
+.sector-btn.primary:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.sector-btn.secondary:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Casos de Éxito */
+.casos-exito {
+    padding: var(--spacing-xxl) 0;
+    background: var(--white);
+}
+
+.casos-slider {
+    position: relative;
+    margin: var(--spacing-xl) 0;
+}
+
+.caso-item {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.caso-item.active {
+    display: grid;
+}
+
+.caso-content {
+    padding: var(--spacing-xl);
+}
+
+.caso-sector {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    color: var(--secondary-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.caso-sector i {
+    font-size: 1.5rem;
+}
+
+.caso-item h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+}
+
+.caso-item p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+}
+
+.caso-stats {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.caso-stat {
+    text-align: center;
+}
+
+.caso-stat .numero {
+    display: block;
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--secondary-color);
+    line-height: 1;
+}
+
+.caso-stat .label {
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.caso-visual {
+    position: relative;
+}
+
+.caso-visual img {
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 20px 60px var(--shadow-medium);
+}
+
+.casos-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.caso-nav {
+    width: 50px;
+    height: 50px;
+    background: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caso-nav:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.casos-indicators {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--shadow-light);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+}
+
+.indicator.active,
+.indicator:hover {
+    background: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+/* Metodología Sectorial */
+.metodologia-sectores {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+}
+
+.metodologia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.metodo-item {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.metodo-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: transform var(--transition-medium);
+}
+
+.metodo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.metodo-item:hover::before {
+    transform: scaleX(1);
+}
+
+.metodo-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+}
+
+.metodo-content h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+.metodo-content p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+}
+
+/* CTA Sectores */
+.cta-sectores {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-gray));
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-sectores .cta-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+}
+
+.cta-sectores .cta-content p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+}
+
+.cta-sectores .cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-xl);
+}
+
+.cta-contact-info {
+    display: flex;
+    gap: var(--spacing-xl);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    opacity: 0.8;
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+}
+
+/* Animaciones para filtros */
+.sector-card.filtered-out {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.sector-card.filtered-in {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sectores-hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-visual {
+        height: 300px;
+        margin-top: var(--spacing-xl);
+    }
+    
+    .sector-icon {
+        min-width: 80px;
+        padding: var(--spacing-md);
+    }
+    
+    .sector-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .sector-icon span {
+        font-size: 0.8rem;
+    }
+    
+    .filter-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .sectors-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .metodologia-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .caso-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .sector-stats {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .sector-footer {
+        flex-direction: column;
+    }
+    
+    .cta-contact-info {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .sectores-hero .hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .sector-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .caso-stats {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}

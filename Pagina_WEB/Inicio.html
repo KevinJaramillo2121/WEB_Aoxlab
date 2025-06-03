@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><!--Es importante recordad que todos y cada uno de los apartados deben llevar comentarios y documentacion con el fin de mejora su legibilidad y posterior actualización-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOXLAB - Laboratorio de Análisis y Certificación | Medellín, Colombia</title>
+    <meta name="description" content="AOXLAB - Laboratorio de análisis especializado en Medellín que entrega valor a la industria y la ciencia con servicios analíticos confiables y certificaciones ISO">
+    <meta name="keywords" content="laboratorio Medellín, análisis microbiológicos, certificación ISO 17025, metales pesados, cannabinoides, aoxlab">
+    
+    <!-- Preconexiones para optimización -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Tipografía Aller según manual de identidad -->
+    <link href="https://fonts.cdnfonts.com/css/aller" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos -->   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="Css/inicio.css">
+    <script src="Js/Inicio.js"></script>
+</head>
+<body>
+    <!-- Header Principal -->
+    <header class="main-header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="Inicio.html" aria-label="AOXLAB - Ir a inicio">
+                    <img
+                    id="logo"
+                    src="Logo Aoxlab.jpg"
+                    data-logo-light="Logo Aoxlab.jpg"
+                    data-logo-dark="LOGO BLANCO (1).png"
+                    alt="AOXLAB Logo"
+                    width="180"
+                    height="60"
+                    >
+                    </a>
+                </div>
+
+                <!-- Navegación Principal -->
+                <nav class="main-nav" aria-label="Navegación principal">
+                    <ul class="nav-list">
+                        <li><a href="Inicio.html" class="nav-link active">INICIO</a></li>
+                        <li><a href="Somos.html" class="nav-link">SOMOS</a></li>
+                        <li><a href="Servicios.html" class="nav-link">SERVICIOS</a></li>
+                        <li><a href="Certifcaciones.html" class="nav-link">CERTIFICACIONES</a></li>
+                        <li><a href="Sectores.html" class="nav-link">SECTORES</a></li>
+                        <li><a href="cliente.html" class="nav-link">CLIENTES</a></li>
+                        <li><a href="Contacto.html" class="nav-link">CONTACTO</a></li>
+                        <li><a href="Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Acciones del Header -->
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Cambiar modo claro/oscuro">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="language-selector">
+                        <button id="language-btn" class="lang-btn" aria-expanded="false">
+                            <span class="flag-icon">🇪🇸</span> ES
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-options">
+                            <li><a href="#" data-lang="es"><span class="flag-icon">🇪🇸</span> Español</a></li>
+                            <li><a href="#" data-lang="en"><span class="flag-icon">🇺🇸</span> English</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Menú móvil -->
+                <button class="mobile-menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Sección Hero -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <img src="secuencia_Adn.png" alt="Equipos de laboratorio modernos AOXLAB" loading="eager">
+                        <div class="slide-content">
+                            <h1>Entregamos valor a la industria y a la ciencia</h1>
+                            <p>Con servicios analíticos confiables y certificaciones ISO</p>
+                            <a href="#contacto" class="cta-btn primary">Cotiza tu análisis</a>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <img src="ImagenMuestra.png" alt="Certificación ISO 17025 AOXLAB" loading="lazy">
+                        <div class="slide-content">
+                            <h1>Certificaciones ISO 17065</h1>
+                            <p>Certificamos el futuro de los productos que transforman el mundo</p>
+                            <a href="certificaciones.html" class="cta-btn secondary">Solicita tu certificación</a>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <img src="Microscopio.jpg" alt="Equipo científico AOXLAB" loading="lazy">
+                        <div class="slide-content">
+                            <h1>Únete a nuestra red</h1>
+                            <p>Crecemos con mentes brillantes comprometidas con la excelencia</p>
+                            <a href="trabaja-con-nosotros.html" class="cta-btn tertiary">Únete a nuestra red</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Controles del carrusel -->
+                <button class="carousel-btn prev" aria-label="Imagen anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn next" aria-label="Siguiente imagen">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Indicadores -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Ir a slide 1"></button>
+                    <button class="indicator" data-slide="1" aria-label="Ir a slide 2"></button>
+                    <button class="indicator" data-slide="2" aria-label="Ir a slide 3"></button>
+                </div>
+            </div>
+            
+            <!-- Overlay con mensaje principal -->
+            <div class="hero-overlay">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span><i class="fas fa-certificate"></i> Acreditación ISO/IEC 17025:2017</span>
+                        </div>
+                        <h2 class="hero-subtitle">Con Rigor, Eficiente y Flexible</h2>
+                        <div class="hero-ctas">
+                            <a href="#servicios" class="btn-scroll">
+                                <span>Descubre nuestros servicios</span>
+                                <i class="fas fa-arrow-down"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Estadísticas -->
+        <section class="stats-section" id="estadisticas">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Números que nos respaldan</h2>
+                    <p>Más de una década entregando resultados confiables y oportunos</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-number" data-count="13">0</div>
+                        <div class="stat-label">Años de experiencia</div>
+                    </div>
+                    
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="stat-number" data-count="300">0</div>
+                        <div class="stat-plus">+</div>
+                        <div class="stat-label">Equipos de laboratorio</div>
+                    </div>
+                    
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-number" data-count="2500">0</div>
+                        <div class="stat-plus">+</div>
+                        <div class="stat-label">Clientes satisfechos</div>
+                    </div>
+                    
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-number" data-count="2000000">0</div>
+                        <div class="stat-plus">+</div>
+                        <div class="stat-label">Resultados anuales</div>
+                    </div>
+                    
+                    <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-number" data-count="98">0</div>
+                        <div class="stat-percent">%</div>
+                        <div class="stat-label">Resultados a tiempo</div>
+                    </div>
+                </div>
+                
+                <!-- Certificaciones -->
+                <div class="certifications-section">
+                    <h3>Certificaciones y Acreditaciones</h3>
+                    <div class="cert-badges">
+                        <div class="cert-badge" data-aos="zoom-in" data-aos-delay="100">
+                            <img src="ISO.jpg" alt="ISO/IEC 17025:2017" loading="lazy">
+                            <span>ISO/IEC 17025:2017</span>
+                        </div>
+                        <div class="cert-badge" data-aos="zoom-in" data-aos-delay="200">
+                            <img src="Ica.png" alt="Certificación ICA" loading="lazy">
+                            <span>Certificación ICA</span>
+                        </div>
+                        <div class="cert-badge coming-soon" data-aos="zoom-in" data-aos-delay="300">
+                            <img src="Iso17065.jpg" alt="ISO 17065 Próximamente" loading="lazy">
+                            <span>ISO 17065 <small>(Próximamente)</small></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios Destacados -->
+        <section class="featured-services" id="servicios">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Servicios Destacados</h2>
+                    <p>Soluciones analíticas especializadas para cada sector</p>
+                </div>
+                
+                <div class="services-grid">
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="service-icon">
+                            <i class="fas fa-bacteria"></i>
+                        </div>
+                        <h3>Análisis Microbiológicos</h3>
+                        <p>Identificación y cuantificación precisa de microorganismos en sus productos con tecnología avanzada.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Recuento total de aerobios</li>
+                            <li><i class="fas fa-check"></i> Detección de patógenos</li>
+                            <li><i class="fas fa-check"></i> Análisis de agua</li>
+                        </ul>
+                        <a href="servicios.html#microbiologicos" class="service-link">
+                            <span>Ver más detalles</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3>Metales Pesados</h3>
+                        <p>Detección precisa de metales pesados y multielementos en alimentos, agua y materiales industriales.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Plomo, mercurio, cadmio</li>
+                            <li><i class="fas fa-check"></i> Análisis por ICP-MS</li>
+                            <li><i class="fas fa-check"></i> Límites detectables ultra bajos</li>
+                        </ul>
+                        <a href="servicios.html#metales-pesados" class="service-link">
+                            <span>Ver más detalles</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">
+                            <i class="fas fa-cannabis"></i>
+                        </div>
+                        <h3>Perfil de Cannabinoides</h3>
+                        <p>Análisis completo de CBD, THC y otros cannabinoides y terpenos para productos de cannabis medicinal.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> CBD, THC, CBG, CBN</li>
+                            <li><i class="fas fa-check"></i> Perfil de terpenos</li>
+                            <li><i class="fas fa-check"></i> Cumplimiento normativo</li>
+                        </ul>
+                        <a href="servicios.html#cannabinoides" class="service-link">
+                            <span>Ver más detalles</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                    
+                    <article class="service-card featured" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="service-badge">NUEVO</div>
+                        <h3>Certificación ISO 17065</h3>
+                        <p>Nuevo servicio de certificación de productos para acceso a mercados internacionales y confianza del consumidor.</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Productos ecológicos</li>
+                            <li><i class="fas fa-check"></i> Productos agroindustriales</li>
+                            <li><i class="fas fa-check"></i> Cosméticos y cannabis</li>
+                        </ul>
+                        <a href="certificaciones.html" class="service-link primary">
+                            <span>Solicitar certificación</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Final -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <h2>¿Listo para obtener resultados confiables?</h2>
+                    <p>Únete a más de 2,500 clientes que confían en AOXLAB para sus análisis y certificaciones</p>
+                    <div class="cta-buttons">
+                        <a href="contacto.html" class="btn-cta primary">
+                            <i class="fas fa-flask"></i>
+                            <span>Cotizar análisis</span>
+                        </a>
+                        <a href="portal-clientes.html" class="btn-cta secondary">
+                            <i class="fas fa-user"></i>
+                            <span>Portal clientes</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <img src="LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
+                    <p>Más que un laboratorio: un aliado en tu camino hacia la calidad.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (+57) 604 7454</p>
+                        <p><i class="fas fa-envelope"></i> comercial@aoxlab.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Colombia</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="certificaciones.html">Certificaciones</a></li>
+                        <li><a href="sectores.html">Sectores</a></li>
+                        <li><a href="portal-clientes.html">Portal Clientes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Políticas</h4>
+                    <ul>
+                        <li><a href="politicas.html">Tratamiento de datos</a></li>
+                        <li><a href="pqrs.html">PQRS</a></li>
+                        <li><a href="certificados.html">Certificados ISO</a></li>
+                        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Con Rigor, Eficiente y Flexible.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botones Flotantes -->
+    <!-- WhatsApp Flotante -->
+    <!--Tengo que cambiar el enlace de whasap para que me lleve al numero de la compañia y no al mío-->
+    <a href="https://w.app/prueba_aver-sifunciona"  
+        class="whatsapp-float" 
+        target="_blank" 
+        aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">¿Necesitas ayuda?</span>
+    </a>
+    <!-- Botón Scroll to Top -->
+    <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+
+    <!-- Botón flotante del chatbot -->
+<div class="chatbot-float" id="chatbot-toggle">
+    <i class="fas fa-comments"></i>
+    <span class="tooltip">¿Necesitas ayuda?</span>
+    <div class="notification-dot" id="chatbot-notification"></div>
+</div>
+
+<!-- Modal del chatbot -->
+<div class="chatbot-modal" id="chatbot-modal">
+    <div class="chatbot-header">
+        <div class="chatbot-avatar">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-info">
+            <h3>Asistente AOXLAB</h3>
+            <span class="status online">En línea</span>
+        </div>
+        <button class="chatbot-close" id="chatbot-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="chatbot-body" id="chatbot-body">
+        <div class="chat-message bot-message">
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                <p>¡Hola! Soy el asistente virtual de AOXLAB. Estoy aquí para ayudarte con información sobre nuestros servicios de análisis y certificaciones. ¿En qué puedo asistirte hoy?</p>
+                <div class="quick-actions">
+                    <button class="quick-btn" data-action="servicios">Ver servicios</button>
+                    <button class="quick-btn" data-action="cotizacion">Solicitar cotización</button>
+                    <button class="quick-btn" data-action="resultados">Consultar resultados</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="chatbot-footer">    
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." maxlength="500">
+            <button id="send-message" disabled>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="typing-indicator" id="typing-indicator" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

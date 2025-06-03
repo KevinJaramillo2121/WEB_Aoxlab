@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><!--Es importante recordar que cada apartado lleva su respectiva documentacion en este caso este apartado es sectores html-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOXLAB - Sectores que Atendemos | Especialización por Industria</title>
+    <meta name="description" content="AOXLAB atiende múltiples sectores: Agro, Alimentos, Cannabis Medicinal, Cosméticos, Nutrición Animal, Química, Plásticos y Ambiente con soluciones especializadas.">
+    <meta name="keywords" content="sectores aoxlab, agroindustria, alimentos bebidas, cannabis medicinal, cosmeticos, nutricion animal, industria quimica, laboratorio medellin">
+    
+    <!-- Preconexiones para optimización -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Tipografía Aller según manual de identidad -->
+    <link href="https://fonts.cdnfonts.com/css/aller" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos -->   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="Css/inicio.css">
+    <link rel="stylesheet" href="Css/Sectores.css">
+</head>
+<body>
+    <!-- Header Principal - Idéntico al de inicio -->
+    <header class="main-header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="Inicio.html" aria-label="AOXLAB - Ir a inicio">
+                    <img
+                    id="logo"
+                    src="Logo Aoxlab.jpg"
+                    data-logo-light="Logo Aoxlab.jpg"
+                    data-logo-dark="LOGO BLANCO (1).png"
+                    alt="AOXLAB Logo"
+                    width="180"
+                    height="60"
+                    >
+                    </a>
+                </div>
+
+                <!-- Navegación Principal -->
+                <nav class="main-nav" aria-label="Navegación principal">
+                    <ul class="nav-list">
+                        <li><a href="Inicio.html" class="nav-link">INICIO</a></li>
+                        <li><a href="Somos.html" class="nav-link">SOMOS</a></li>
+                        <li><a href="Servicios.html" class="nav-link">SERVICIOS</a></li>
+                        <li><a href="Certifcaciones.html" class="nav-link">CERTIFICACIONES</a></li>
+                        <li><a href="Sectores.html" class="nav-link active">SECTORES</a></li>
+                        <li><a href="cliente.html" class="nav-link">CLIENTES</a></li>
+                        <li><a href="Contacto.html" class="nav-link">CONTACTO</a></li>
+                        <li><a href="Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Acciones del Header -->
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Cambiar modo claro/oscuro">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="language-selector">
+                        <button id="language-btn" class="lang-btn" aria-expanded="false">
+                            <span class="flag-icon">🇪🇸</span> ES
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-options">
+                            <li><a href="#" data-lang="es"><span class="flag-icon">🇪🇸</span> Español</a></li>
+                            <li><a href="#" data-lang="en"><span class="flag-icon">🇺🇸</span> English</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Menú móvil -->
+                <button class="mobile-menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Hero Section Sectores -->
+        <section class="sectores-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span><i class="fas fa-industry"></i> 8 sectores especializados</span>
+                    </div>
+                    <h1>Soluciones analíticas especializadas<br><span class="highlight">para cada industria</span></h1>
+                    <p class="hero-subtitle">Entendemos los retos únicos de cada sector y entregamos valor con servicios analíticos innovadores y oportunos</p>
+                    <div class="hero-actions">
+                        <a href="#sectores-grid" class="cta-btn primary">
+                            <i class="fas fa-search"></i>
+                            <span>Explorar sectores</span>
+                        </a>
+                        <a href="contacto.html" class="cta-btn secondary">
+                            <i class="fas fa-handshake"></i>
+                            <span>Ser nuestro aliado</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="sectors-showcase">
+                        <div class="sector-icon floating" data-aos="fade-up" data-aos-delay="0">
+                            <i class="fas fa-seedling"></i>
+                            <span>Agro</span>
+                        </div>
+                        <div class="sector-icon floating" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-utensils"></i>
+                            <span>Alimentos</span>
+                        </div>
+                        <div class="sector-icon floating" data-aos="fade-up" data-aos-delay="400">
+                            <i class="fas fa-cannabis"></i>
+                            <span>Cannabis</span>
+                        </div>
+                        <div class="sector-icon floating" data-aos="fade-up" data-aos-delay="600">
+                            <i class="fas fa-heart"></i>
+                            <span>Cosméticos</span>
+                        </div>
+                        <div class="sector-icon floating" data-aos="fade-up" data-aos-delay="800">
+                            <i class="fas fa-paw"></i>
+                            <span>Nutrición Animal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estadísticas por Sectores -->
+        <section class="sectores-stats">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Impacto Sectorial</h2>
+                    <p>Números que demuestran nuestro compromiso con cada industria</p>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="8">0</span>
+                            <span class="stat-label">Sectores Especializados</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="150">0</span>
+                            <span class="stat-plus">+</span>
+                            <span class="stat-label">Empresas Líderes Atendidas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="stat-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="95">0</span>
+                            <span class="stat-percent">%</span>
+                            <span class="stat-label">Soluciones Personalizadas</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="48">0</span>
+                            <span class="stat-label">Horas Promedio de Respuesta</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtros de Sectores -->
+        <section class="sectores-filters">
+            <div class="container">
+                <div class="filters-header">
+                    <h2>Encuentra tu sector</h2>
+                    <p>Explora cómo AOXLAB aporta valor específico a tu industria</p>
+                </div>
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th"></i>
+                        <span>Todos los sectores</span>
+                    </button>
+                    <button class="filter-btn" data-filter="primarios">
+                        <i class="fas fa-seedling"></i>
+                        <span>Sectores Primarios</span>
+                    </button>
+                    <button class="filter-btn" data-filter="transformacion">
+                        <i class="fas fa-industry"></i>
+                        <span>Transformación</span>
+                    </button>
+                    <button class="filter-btn" data-filter="consumo">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Consumo</span>
+                    </button>
+                    <button class="filter-btn" data-filter="especializados">
+                        <i class="fas fa-flask"></i>
+                        <span>Especializados</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Sectores -->
+        <section class="sectores-grid" id="sectores-grid">
+            <div class="container">
+                <div class="sectors-container">
+                    <!-- Agro y Agroindustria -->
+                    <article class="sector-card featured" data-category="primarios" data-aos="fade-up" data-aos-delay="0">
+                        <div class="sector-badge">LÍDER</div>
+                        <div class="sector-header">
+                            <div class="sector-icon agro">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="sector-info">
+                                <h3>Agro y Agroindustria</h3>
+                                <span class="sector-subtitle">Desde el campo hasta el consumidor</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-content">
+                            <div class="sector-description">
+                                <h4>Retos del Sector</h4>
+                                <p>La agroindustria enfrenta desafíos de sostenibilidad, trazabilidad y cumplimiento de estándares internacionales. La demanda por productos orgánicos y la necesidad de optimizar rendimientos requieren análisis precisos y oportunos.</p>
+                            </div>
+                            
+                            <div class="sector-solutions">
+                                <h4>Nuestras Soluciones</h4>
+                                <ul class="solutions-list">
+                                    <li><i class="fas fa-check"></i>Análisis de suelos y aguas</li>
+                                    <li><i class="fas fa-check"></i>Residuos de plaguicidas</li>
+                                    <li><i class="fas fa-check"></i>Certificación de productos ecológicos</li>
+                                    <li><i class="fas fa-check"></i>Control de calidad nutricional</li>
+                                    <li><i class="fas fa-check"></i>Estudios de trazabilidad</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sector-stats">
+                                <div class="mini-stat">
+                                    <span class="mini-number">45%</span>
+                                    <span class="mini-label">de nuestros clientes</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="mini-number">300+</span>
+                                    <span class="mini-label">productos certificados</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-footer">
+                            <a href="contacto.html?sector=agro" class="sector-btn primary">Solicitar análisis</a>
+                            <a href="#" class="sector-btn secondary">Ver casos de éxito</a>
+                        </div>
+                    </article>
+
+                    <!-- Alimentos y Bebidas -->
+                    <article class="sector-card" data-category="transformacion" data-aos="fade-up" data-aos-delay="200">
+                        <div class="sector-header">
+                            <div class="sector-icon alimentos">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="sector-info">
+                                <h3>Alimentos y Bebidas</h3>
+                                <span class="sector-subtitle">Seguridad e innovación alimentaria</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-content">
+                            <div class="sector-description">
+                                <h4>Retos del Sector</h4>
+                                <p>La industria alimentaria necesita garantizar la inocuidad, extender la vida útil y desarrollar productos funcionales. Los consumidores demandan transparencia en etiquetado nutricional y origen de ingredientes.</p>
+                            </div>
+                            
+                            <div class="sector-solutions">
+                                <h4>Nuestras Soluciones</h4>
+                                <ul class="solutions-list">
+                                    <li><i class="fas fa-check"></i>Análisis microbiológicos completos</li>
+                                    <li><i class="fas fa-check"></i>Estudios de vida útil</li>
+                                    <li><i class="fas fa-check"></i>Perfiles nutricionales</li>
+                                    <li><i class="fas fa-check"></i>Detección de alérgenos</li>
+                                    <li><i class="fas fa-check"></i>Control de micotoxinas</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sector-stats">
+                                <div class="mini-stat">
+                                    <span class="mini-number">800+</span>
+                                    <span class="mini-label">productos analizados/mes</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="mini-number">98%</span>
+                                    <span class="mini-label">cumplimiento normativo</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-footer">
+                            <a href="contacto.html?sector=alimentos" class="sector-btn primary">Solicitar análisis</a>
+                            <a href="#" class="sector-btn secondary">Ver casos de éxito</a>
+                        </div>
+                    </article>
+
+                    <!-- Cannabis Medicinal -->
+                    <article class="sector-card premium" data-category="especializados" data-aos="fade-up" data-aos-delay="400">
+                        <div class="sector-badge premium">ESPECIALIZADO</div>
+                        <div class="sector-header">
+                            <div class="sector-icon cannabis">
+                                <i class="fas fa-cannabis"></i>
+                            </div>
+                            <div class="sector-info">
+                                <h3>Cannabis Medicinal</h3>
+                                <span class="sector-subtitle">Pioneros en análisis de cannabinoides</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-content">
+                            <div class="sector-description">
+                                <h4>Retos del Sector</h4>
+                                <p>El cannabis medicinal requiere análisis de alta precisión para cumplir regulaciones estrictas. La industria necesita certificar potencia, pureza y ausencia de contaminantes para garantizar eficacia terapéutica.</p>
+                            </div>
+                            
+                            <div class="sector-solutions">
+                                <h4>Nuestras Soluciones</h4>
+                                <ul class="solutions-list">
+                                    <li><i class="fas fa-check"></i>Perfil completo de cannabinoides</li>
+                                    <li><i class="fas fa-check"></i>Análisis de terpenos</li>
+                                    <li><i class="fas fa-check"></i>Metales pesados</li>
+                                    <li><i class="fas fa-check"></i>Residuos de plaguicidas</li>
+                                    <li><i class="fas fa-check"></i>Contaminantes microbiológicos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sector-stats">
+                                <div class="mini-stat">
+                                    <span class="mini-number">15+</span>
+                                    <span class="mini-label">cannabinoides analizados</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="mini-number">100%</span>
+                                    <span class="mini-label">cumplimiento regulatorio</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-footer">
+                            <a href="contacto.html?sector=cannabis" class="sector-btn primary">Solicitar análisis</a>
+                            <a href="#" class="sector-btn secondary">Ver casos de éxito</a>
+                        </div>
+                    </article>
+
+                    <!-- Cosméticos y Cuidado Personal -->
+                    <article class="sector-card" data-category="consumo" data-aos="fade-up" data-aos-delay="600">
+                        <div class="sector-header">
+                            <div class="sector-icon cosmeticos">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="sector-info">
+                                <h3>Cosméticos y Cuidado Personal</h3>
+                                <span class="sector-subtitle">Belleza segura y sostenible</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-content">
+                            <div class="sector-description">
+                                <h4>Retos del Sector</h4>
+                                <p>Los cosméticos enfrentan regulaciones cambiantes sobre seguridad e ingredientes. La tendencia hacia productos naturales y sostenibles requiere validación científica de claims y certificación de origen.</p>
+                            </div>
+                            
+                            <div class="sector-solutions">
+                                <h4>Nuestras Soluciones</h4>
+                                <ul class="solutions-list">
+                                    <li><i class="fas fa-check"></i>Análisis de metales pesados</li>
+                                    <li><i class="fas fa-check"></i>Microbiología cosmética</li>
+                                    <li><i class="fas fa-check"></i>Certificación de ingredientes naturales</li>
+                                    <li><i class="fas fa-check"></i>Estudios de estabilidad</li>
+                                    <li><i class="fas fa-check"></i>Validación de claims</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sector-stats">
+                                <div class="mini-stat">
+                                    <span class="mini-number">200+</span>
+                                    <span class="mini-label">formulaciones analizadas</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="mini-number">25</span>
+                                    <span class="mini-label">marcas certificadas</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-footer">
+                            <a href="contacto.html?sector=cosmeticos" class="sector-btn primary">Solicitar análisis</a>
+                            <a href="#" class="sector-btn secondary">Ver casos de éxito</a>
+                        </div>
+                    </article>
+
+                    <!-- Nutrición Animal -->
+                    <article class="sector-card" data-category="primarios" data-aos="fade-up" data-aos-delay="800">
+                        <div class="sector-header">
+                            <div class="sector-icon nutricion">
+                                <i class="fas fa-paw"></i>
+                            </div>
+                            <div class="sector-info">
+                                <h3>Nutrición Animal</h3>
+                                <span class="sector-subtitle">Alimentación óptima y segura</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-content">
+                            <div class="sector-description">
+                                <h4>Retos del Sector</h4>
+                                <p>La nutrición animal requiere balance nutricional preciso y ausencia de contaminantes. Las regulaciones sobre antibióticos y la demanda por productos orgánicos impulsan la necesidad de análisis especializados.</p>
+                            </div>
+                            
+                            <div class="sector-solutions">
+                                <h4>Nuestras Soluciones</h4>
+                                <ul class="solutions-list">
+                                    <li><i class="fas fa-check"></i>Análisis nutricional completo</li>
+                                    <li><i class="fas fa-check"></i>Detección de micotoxinas</li>
+                                    <li><i class="fas fa-check"></i>Metales pesados</li>
+                                    <li><i class="fas fa-check"></i>Análisis microbiológicos</li>
+                                    <li><i class="fas fa-check"></i>Residuos de medicamentos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sector-stats">
+                                <div class="mini-stat">
+                                    <span class="mini-number">500+</span>
+                                    <span class="mini-label">alimentos analizados</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="mini-number">85%</span>
+                                    <span class="mini-label">mejora en calidad</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-footer">
+                            <a href="contacto.html?sector=nutricion-animal" class="sector-btn primary">Solicitar análisis</a>
+                            <a href="#" class="sector-btn secondary">Ver casos de éxito</a>
+                        </div>
+                    </article>
+
+                    <!-- Industria Química y Pinturas -->
+                    <article class="sector-card" data-category="transformacion" data-aos="fade-up" data-aos-delay="1000">
+                        <div class="sector-header">
+                            <div class="sector-icon quimica">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="sector-info">
+                                <h3>Industria Química y Pinturas</h3>
+                                <span class="sector-subtitle">Innovación química sostenible</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-content">
+                            <div class="sector-description">
+                                <h4>Retos del Sector</h4>
+                                <p>La industria química busca desarrollar productos más seguros y sostenibles. Las regulaciones ambientales estrictas requieren análisis de composición y estudios de impacto ambiental precisos.</p>
+                            </div>
+                            
+                            <div class="sector-solutions">
+                                <h4>Nuestras Soluciones</h4>
+                                <ul class="solutions-list">
+                                    <li><i class="fas fa-check"></i>Análisis de composición química</li>
+                                    <li><i class="fas fa-check"></i>Metales pesados en formulaciones</li>
+                                    <li><i class="fas fa-check"></i>Estudios de biodegradabilidad</li>
+                                    <li><i class="fas fa-check"></i>Control de calidad de materias primas</li>
+                                    <li><i class="fas fa-check"></i>Análisis de emisiones</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sector-stats">
+                                <div class="mini-stat">
+                                    <span class="mini-number">150+</span>
+                                    <span class="mini-label">formulaciones analizadas</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="mini-number">90%</span>
+                                    <span class="mini-label">reducción de rechazos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-footer">
+                            <a href="contacto.html?sector=quimica" class="sector-btn primary">Solicitar análisis</a>
+                            <a href="#" class="sector-btn secondary">Ver casos de éxito</a>
+                        </div>
+                    </article>
+
+                    <!-- Plásticos y Bioplásticos -->
+                    <article class="sector-card innovador" data-category="especializados" data-aos="fade-up" data-aos-delay="1200">
+                        <div class="sector-badge innovador">INNOVADOR</div>
+                        <div class="sector-header">
+                            <div class="sector-icon plasticos">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <div class="sector-info">
+                                <h3>Plásticos y Bioplásticos</h3>
+                                <span class="sector-subtitle">El futuro de los materiales</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-content">
+                            <div class="sector-description">
+                                <h4>Retos del Sector</h4>
+                                <p>Los bioplásticos representan el futuro sostenible de la industria. Requieren certificación de biodegradabilidad y compostabilidad para acceder a mercados eco-conscientes y cumplir regulaciones ambientales.</p>
+                            </div>
+                            
+                            <div class="sector-solutions">
+                                <h4>Nuestras Soluciones</h4>
+                                <ul class="solutions-list">
+                                    <li><i class="fas fa-check"></i>Estudios de biodegradabilidad</li>
+                                    <li><i class="fas fa-check"></i>Certificación de compostabilidad</li>
+                                    <li><i class="fas fa-check"></i>Análisis de migración</li>
+                                    <li><i class="fas fa-check"></i>Caracterización de materiales</li>
+                                    <li><i class="fas fa-check"></i>Certificación OK compost</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sector-stats">
+                                <div class="mini-stat">
+                                    <span class="mini-number">75+</span>
+                                    <span class="mini-label">materiales certificados</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="mini-number">60%</span>
+                                    <span class="mini-label">son bioplásticos</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-footer">
+                            <a href="contacto.html?sector=plasticos" class="sector-btn primary">Solicitar análisis</a>
+                            <a href="#" class="sector-btn secondary">Ver casos de éxito</a>
+                        </div>
+                    </article>
+
+                    <!-- Agua y Ambiente -->
+                    <article class="sector-card" data-category="especializados" data-aos="fade-up" data-aos-delay="1400">
+                        <div class="sector-header">
+                            <div class="sector-icon ambiente">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="sector-info">
+                                <h3>Agua y Ambiente</h3>
+                                <span class="sector-subtitle">Protegiendo nuestro futuro</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-content">
+                            <div class="sector-description">
+                                <h4>Retos del Sector</h4>
+                                <p>El monitoreo ambiental es crucial para la sostenibilidad. Los análisis de agua potable, residual y ambiental requieren precisión extrema para proteger la salud pública y el ecosistema.</p>
+                            </div>
+                            
+                            <div class="sector-solutions">
+                                <h4>Nuestras Soluciones</h4>
+                                <ul class="solutions-list">
+                                    <li><i class="fas fa-check"></i>Análisis fisicoquímicos de agua</li>
+                                    <li><i class="fas fa-check"></i>Microbiología ambiental</li>
+                                    <li><i class="fas fa-check"></i>Metales pesados en agua</li>
+                                    <li><i class="fas fa-check"></i>Análisis de suelos</li>
+                                    <li><i class="fas fa-check"></i>Monitoreo de contaminantes</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="sector-stats">
+                                <div class="mini-stat">
+                                    <span class="mini-number">1000+</span>
+                                    <span class="mini-label">muestras de agua/mes</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <span class="mini-number">99%</span>
+                                    <span class="mini-label">precisión analítica</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sector-footer">
+                            <a href="contacto.html?sector=ambiente" class="sector-btn primary">Solicitar análisis</a>
+                            <a href="#" class="sector-btn secondary">Ver casos de éxito</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Casos de Éxito Destacados -->
+        <section class="casos-exito">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Casos de Éxito</h2>
+                    <p>Cómo hemos ayudado a empresas líderes a alcanzar la excelencia</p>
+                </div>
+                
+                <div class="casos-slider">
+                    <div class="caso-item active" data-aos="fade-up">
+                        <div class="caso-content">
+                            <div class="caso-sector">
+                                <i class="fas fa-cannabis"></i>
+                                <span>Cannabis Medicinal</span>
+                            </div>
+                            <h3>Certificación Internacional de Cannabis</h3>
+                            <p>Ayudamos a una empresa líder en cannabis medicinal a obtener certificaciones internacionales, incrementando sus exportaciones en 300% y accediendo a 15 nuevos mercados.</p>
+                            <div class="caso-stats">
+                                <div class="caso-stat">
+                                    <span class="numero">300%</span>
+                                    <span class="label">Incremento en exportaciones</span>
+                                </div>
+                                <div class="caso-stat">
+                                    <span class="numero">15</span>
+                                    <span class="label">Nuevos mercados</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="caso-visual">
+                            <img src="secuencia_Adn.png" alt="Caso de éxito cannabis medicinal">
+                        </div>
+                    </div>
+                    
+                    <div class="caso-item" data-aos="fade-up">
+                        <div class="caso-content">
+                            <div class="caso-sector">
+                                <i class="fas fa-recycle"></i>
+                                <span>Bioplásticos</span>
+                            </div>
+                            <h3>Innovación en Empaques Biodegradables</h3>
+                            <p>Certificamos la biodegradabilidad de una nueva línea de empaques, permitiendo a nuestro cliente posicionarse como líder en sostenibilidad y aumentar ventas 150%.</p>
+                            <div class="caso-stats">
+                                <div class="caso-stat">
+                                    <span class="numero">150%</span>
+                                    <span class="label">Incremento en ventas</span>
+                                </div>
+                                <div class="caso-stat">
+                                    <span class="numero">45</span>
+                                    <span class="label">Días de certificación</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="caso-visual">
+                            <img src="Microscopio.jpg" alt="Caso de éxito bioplásticos">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="casos-navigation">
+                    <button class="caso-nav prev" aria-label="Caso anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="casos-indicators">
+                        <button class="indicator active" data-slide="0"></button>
+                        <button class="indicator" data-slide="1"></button>
+                    </div>
+                    <button class="caso-nav next" aria-label="Siguiente caso">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metodología de Trabajo -->
+        <section class="metodologia-sectores">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nuestra Metodología Sectorial</h2>
+                    <p>Un enfoque especializado para cada industria</p>
+                </div>
+                
+                <div class="metodologia-grid">
+                    <div class="metodo-item" data-aos="fade-right" data-aos-delay="0">
+                        <div class="metodo-number">01</div>
+                        <div class="metodo-content">
+                            <h3>Análisis Sectorial</h3>
+                            <p>Estudiamos las normativas específicas, tendencias del mercado y retos únicos de cada sector para adaptar nuestros servicios.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="metodo-item" data-aos="fade-left" data-aos-delay="200">
+                        <div class="metodo-number">02</div>
+                        <div class="metodo-content">
+                            <h3>Personalización de Servicios</h3>
+                            <p>Desarrollamos protocolos específicos y paquetes de análisis diseñados para las necesidades particulares de cada industria.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="metodo-item" data-aos="fade-right" data-aos-delay="400">
+                        <div class="metodo-number">03</div>
+                        <div class="metodo-content">
+                            <h3>Innovación Continua</h3>
+                            <p>Mantenemos equipos especializados por sector e invertimos en nuevas tecnologías para estar a la vanguardia de cada industria.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="metodo-item" data-aos="fade-left" data-aos-delay="600">
+                        <div class="metodo-number">04</div>
+                        <div class="metodo-content">
+                            <h3>Soporte Especializado</h3>
+                            <p>Nuestros consultores sectoriales brindan asesoría técnica y acompañamiento en el desarrollo de productos y procesos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Sectorial -->
+        <section class="cta-sectores">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <h2>¿Tu sector necesita soluciones analíticas especializadas?</h2>
+                    <p>Conecta con nuestros expertos sectoriales y descubre cómo podemos impulsar el crecimiento de tu empresa</p>
+                    <div class="cta-buttons">
+                        <a href="contacto.html" class="btn-cta primary">
+                            <i class="fas fa-users"></i>
+                            <span>Hablar con un experto</span>
+                        </a>
+                        <a href="servicios.html" class="btn-cta secondary">
+                            <i class="fas fa-microscope"></i>
+                            <span>Ver todos los servicios</span>
+                        </a>
+                    </div>
+                    <div class="cta-contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(+57) 604 7454</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>comercial@aoxlab.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Respuesta en 24 horas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer - Idéntico al de inicio -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <img src="LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
+                    <p>Más que un laboratorio: un aliado en tu camino hacia la calidad.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (+57) 604 7454</p>
+                        <p><i class="fas fa-envelope"></i> comercial@aoxlab.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Colombia</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="certificaciones.html">Certificaciones</a></li>
+                        <li><a href="sectores.html">Sectores</a></li>
+                        <li><a href="portal-clientes.html">Portal Clientes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Políticas</h4>
+                    <ul>
+                        <li><a href="politicas.html">Tratamiento de datos</a></li>
+                        <li><a href="pqrs.html">PQRS</a></li>
+                        <li><a href="certificados.html">Certificados ISO</a></li>
+                        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Con Rigor, Eficiente y Flexible.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botones Flotantes - Idénticos al inicio -->
+    <a href="https://w.app/prueba_aver-sifunciona"  
+        class="whatsapp-float" 
+        target="_blank" 
+        aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">¿Necesitas ayuda?</span>
+    </a>
+
+    <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Botón flotante del chatbot -->
+    <div class="chatbot-float" id="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+        <span class="tooltip">¿Necesitas ayuda?</span>
+        <div class="notification-dot" id="chatbot-notification"></div>
+    </div>
+
+    <!-- Modal del chatbot -->
+    <div class="chatbot-modal" id="chatbot-modal">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-info">
+                <h3>Asistente AOXLAB</h3>
+                <span class="status online">En línea</span>
+            </div>
+            <button class="chatbot-close" id="chatbot-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chat-message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>¡Hola! Soy el asistente virtual de AOXLAB. ¿Te interesa conocer cómo atendemos tu sector específico? ¿En qué industria trabajas?</p>
+                    <div class="quick-actions">
+                        <button class="quick-btn" data-action="agro">Agro y Agroindustria</button>
+                        <button class="quick-btn" data-action="alimentos">Alimentos y Bebidas</button>
+                        <button class="quick-btn" data-action="cannabis">Cannabis Medicinal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chatbot-footer">    
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." maxlength="500">
+                <button id="send-message" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Js/Inicio.js"></script>
+    <script src="Js/Sectores.js"></script>
+</body>
+</html>

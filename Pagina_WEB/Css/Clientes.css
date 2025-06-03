@@ -1,0 +1,552 @@
+/* Estilos específicos para el Portal de Clientes */
+/* Mantiene cohesión con inicio.css y sigue manual de identidad AOXLAB */
+
+/* === PORTAL HERO SECTION === */
+.portal-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.portal-hero .hero-overlay {
+    background: linear-gradient(45deg, rgba(35, 31, 32, 0.4), rgba(43, 161, 212, 0.2));
+}
+
+.portal-hero .slide-content h1 {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.portal-hero .slide-content p {
+    font-size: 1.3rem;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* === PORTAL ACCESO SECTION === */
+.portal-acceso {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 50%, var(--light-gray) 100%);
+}
+
+.acceso-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: start;
+}
+
+/* Formulario de acceso */
+.acceso-form-container {
+    position: relative;
+}
+
+.acceso-form {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xxl);
+    box-shadow: 0 8px 30px var(--shadow-medium);
+    border: 1px solid rgba(43, 161, 212, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.acceso-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.form-header i {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.form-header h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.input-group {
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--shadow-light);
+    border-radius: var(--border-radius);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: all var(--transition-medium);
+    background: var(--white);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(43, 161, 212, 0.1);
+}
+
+.input-group input::placeholder {
+    color: var(--medium-gray);
+    opacity: 0.8;
+}
+
+.toggle-password {
+    position: absolute;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--medium-gray);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    transition: color var(--transition-fast);
+}
+
+.toggle-password:hover {
+    color: var(--secondary-color);
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--shadow-light);
+    border-radius: 4px;
+    position: relative;
+    transition: all var(--transition-fast);
+}
+
+.checkbox-container input:checked + .checkmark {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.checkbox-container input:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    font-size: 12px;
+}
+
+.full-width {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.links-acceso {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    text-align: center;
+}
+
+.links-acceso a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius);
+}
+
+.links-acceso a:hover {
+    background: rgba(43, 161, 212, 0.1);
+    color: var(--primary-color);
+}
+
+/* Beneficios del portal */
+.acceso-beneficios {
+    padding: var(--spacing-lg);
+}
+
+.acceso-beneficios h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+}
+
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+.beneficio-card {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    border: 1px solid rgba(43, 161, 212, 0.1);
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.beneficio-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.beneficio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow-medium);
+}
+
+.beneficio-card:hover::before {
+    opacity: 0.05;
+}
+
+.beneficio-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 2;
+}
+
+.beneficio-icon i {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.beneficio-card h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+    position: relative;
+    z-index: 2;
+}
+
+.beneficio-card p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* === FUNCIONALIDADES SECTION === */
+.portal-funcionalidades {
+    padding: var(--spacing-xxl) 0;
+    background: var(--white);
+}
+
+.funcionalidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.funcionalidad-card {
+    background: var(--white);
+    border: 1px solid var(--shadow-light);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.funcionalidad-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.funcionalidad-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+    border-color: var(--secondary-color);
+}
+
+.funcionalidad-card:hover::before {
+    opacity: 0.05;
+}
+
+.funcionalidad-card.featured {
+    border: 2px solid var(--secondary-color);
+    position: relative;
+}
+
+.funcionalidad-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: var(--accent-color);
+    color: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
+    z-index: 2;
+}
+
+.funcionalidad-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+    transition: all var(--transition-medium);
+    position: relative;
+    z-index: 2;
+}
+
+.funcionalidad-card:hover .funcionalidad-icon {
+    transform: scale(1.1);
+}
+
+.funcionalidad-icon i {
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.funcionalidad-card h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+    position: relative;
+    z-index: 2;
+}
+
+.funcionalidad-card p {
+    color: var(--medium-gray);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+.funcionalidad-features {
+    list-style: none;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
+}
+
+.funcionalidad-features li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--medium-gray);
+    margin-bottom: var(--spacing-xs);
+}
+
+.funcionalidad-features i {
+    color: var(--success-color);
+    font-size: 0.9rem;
+}
+
+/* === STATS SECTION ESPECÍFICA === */
+.portal-stats {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+}
+
+.portal-stats .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.portal-stats .stat-card {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    box-shadow: 0 4px 20px var(--shadow-light);
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(43, 161, 212, 0.1);
+}
+
+.portal-stats .stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    transform: scaleX(0);
+    transition: transform var(--transition-medium);
+}
+
+.portal-stats .stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px var(--shadow-medium);
+}
+
+.portal-stats .stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    .acceso-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+    
+    .acceso-form {
+        padding: var(--spacing-lg);
+    }
+    
+    .portal-hero {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .beneficios-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .funcionalidades-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .portal-stats .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .portal-hero .slide-content h1 {
+        font-size: 2rem;
+    }
+    
+    .acceso-form {
+        padding: var(--spacing-md);
+    }
+    
+    .funcionalidad-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .beneficio-card {
+        padding: var(--spacing-md);
+    }
+}
+
+/* === MODO OSCURO === */
+.dark-mode .acceso-form {
+    background: #2d2d2d !important;
+    border-color: #404040 !important;
+}
+
+.dark-mode .input-group input {
+    background: #404040 !important;
+    border-color: #555 !important;
+    color: #fafafa !important;
+}
+
+.dark-mode .input-group input:focus {
+    border-color: var(--secondary-color) !important;
+}
+
+.dark-mode .beneficio-card,
+.dark-mode .funcionalidad-card {
+    background: #2d2d2d !important;
+    border-color: #404040 !important;
+}
+
+.dark-mode .portal-stats .stat-card {
+    background: #2d2d2d !important;
+    border-color: #404040 !important;
+}
+
+.dark-mode .form-header h3,
+.dark-mode .funcionalidad-card h3,
+.dark-mode .beneficio-card h4 {
+    color: #fafafa !important;
+}
+
+.dark-mode .links-acceso a:hover {
+    background: rgba(43, 161, 212, 0.2) !important;
+    color: #fafafa !important;
+}

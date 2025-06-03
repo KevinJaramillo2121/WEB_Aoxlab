@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><!--Es importante recorar que todos y cada uno de los apartados deben ir debidamente comentados con el fin de mejorar su legibilida y posterior actualización-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AOXLAB - Servicios de Análisis de Laboratorio | Medellín, Colombia</title>
+    <meta name="description" content="Servicios especializados de análisis de laboratorio en Medellín. Microbiológicos, fisicoquímicos, metales pesados, cannabinoides y más. Acreditación ISO 17025.">
+    <meta name="keywords" content="servicios laboratorio, análisis microbiológicos, metales pesados, cannabinoides, fisicoquímicos, aoxlab medellín">
+    
+    <!-- Preconexiones para optimización -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Tipografía Aller según manual de identidad -->
+    <link href="https://fonts.cdnfonts.com/css/aller" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos -->   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="Css/inicio.css">
+    <link rel="stylesheet" href="Css/Servicios.css">
+</head>
+<body>
+    <!-- Header Principal - Idéntico al de inicio -->
+    <header class="main-header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="Inicio.html" aria-label="AOXLAB - Ir a inicio">
+                    <img
+                    id="logo"
+                    src="Logo Aoxlab.jpg"
+                    data-logo-light="Logo Aoxlab.jpg"
+                    data-logo-dark="LOGO BLANCO (1).png"
+                    alt="AOXLAB Logo"
+                    width="180"
+                    height="60"
+                    >
+                    </a>
+                </div>
+
+                <!-- Navegación Principal -->
+                <nav class="main-nav" aria-label="Navegación principal">
+                    <ul class="nav-list">
+                        <li><a href="Inicio.html" class="nav-link">INICIO</a></li>
+                        <li><a href="Somos.html" class="nav-link">SOMOS</a></li>
+                        <li><a href="Servicios.html" class="nav-link active">SERVICIOS</a></li>
+                        <li><a href="Certifcaciones.html" class="nav-link">CERTIFICACIONES</a></li>
+                        <li><a href="Sectores.html" class="nav-link">SECTORES</a></li>
+                        <li><a href="cliente.html" class="nav-link">CLIENTES</a></li>
+                        <li><a href="Contacto.html" class="nav-link">CONTACTO</a></li>
+                        <li><a href="Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Acciones del Header -->
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Cambiar modo claro/oscuro">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="language-selector">
+                        <button id="language-btn" class="lang-btn" aria-expanded="false">
+                            <span class="flag-icon">🇪🇸</span> ES
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-options">
+                            <li><a href="#" data-lang="es"><span class="flag-icon">🇪🇸</span> Español</a></li>
+                            <li><a href="#" data-lang="en"><span class="flag-icon">🇺🇸</span> English</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Menú móvil -->
+                <button class="mobile-menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Hero Section para Servicios -->
+        <section class="servicios-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span><i class="fas fa-flask"></i> +11 tipos de análisis</span>
+                    </div>
+                    <h1>Servicios de análisis<br><span class="highlight">especializados para cada industria</span></h1>
+                    <p class="hero-subtitle">Desde microbiológicos hasta cannabinoides, ofrecemos soluciones analíticas precisas y confiables</p>
+                    <div class="hero-actions">
+                        <a href="#servicios-grid" class="cta-btn primary">Explorar servicios</a>
+                        <a href="#contacto" class="cta-btn secondary">Solicitar cotización</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-icons">
+                        <div class="icon-item" data-aos="fade-up" data-aos-delay="0">
+                            <i class="fas fa-bacteria"></i>
+                            <span>Microbiológicos</span>
+                        </div>
+                        <div class="icon-item" data-aos="fade-up" data-aos-delay="100">
+                            <i class="fas fa-atom"></i>
+                            <span>Metales Pesados</span>
+                        </div>
+                        <div class="icon-item" data-aos="fade-up" data-aos-delay="200">
+                            <i class="fas fa-cannabis"></i>
+                            <span>Cannabinoides</span>
+                        </div>
+                        <div class="icon-item" data-aos="fade-up" data-aos-delay="300">
+                            <i class="fas fa-seedling"></i>
+                            <span>Residuos de Plaguicidas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filtros y Búsqueda -->
+        <section class="servicios-filters">
+            <div class="container">
+                <div class="filters-header">
+                    <h2>Encuentra tu análisis ideal</h2>
+                    <p>Filtra por categoría o busca un análisis específico</p>
+                </div>
+                
+                <div class="filters-controls">
+                    <div class="search-box">
+                        <input type="text" id="service-search" placeholder="Buscar análisis...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">
+                            <i class="fas fa-th"></i>
+                            <span>Todos</span>
+                        </button>
+                        <button class="filter-btn" data-filter="microbiologicos">
+                            <i class="fas fa-bacteria"></i>
+                            <span>Microbiológicos</span>
+                        </button>
+                        <button class="filter-btn" data-filter="fisicoquimicos">
+                            <i class="fas fa-flask"></i>
+                            <span>Físico-Químicos</span>
+                        </button>
+                        <button class="filter-btn" data-filter="metales">
+                            <i class="fas fa-atom"></i>
+                            <span>Metales</span>
+                        </button>
+                        <button class="filter-btn" data-filter="cannabinoides">
+                            <i class="fas fa-cannabis"></i>
+                            <span>Cannabis</span>
+                        </button>
+                        <button class="filter-btn" data-filter="contaminantes">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Contaminantes</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid de Servicios -->
+        <section class="servicios-grid" id="servicios-grid">
+            <div class="container">
+                <div class="services-container">
+                    <!-- Microbiológicos -->
+                    <article class="service-card" data-category="microbiologicos" data-aos="fade-up" data-aos-delay="0">
+                        <div class="service-icon">
+                            <i class="fas fa-bacteria"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Análisis Microbiológicos</h3>
+                            <p>Detección e identificación precisa de microorganismos patógenos y de interés para garantizar la seguridad alimentaria.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>Recuento total de aerobios</li>
+                                <li><i class="fas fa-check"></i>Coliformes totales y fecales</li>
+                                <li><i class="fas fa-check"></i>Salmonella spp.</li>
+                                <li><i class="fas fa-check"></i>E. coli</li>
+                                <li><i class="fas fa-check"></i>Listeria monocytogenes</li>
+                                <li><i class="fas fa-check"></i>Hongos y levaduras</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 3-5 días</span>
+                                <span class="service-price">Desde $45.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote">Cotizar</a>
+                        </div>
+                    </article>
+
+                    <!-- Físico-Químicos -->
+                    <article class="service-card" data-category="fisicoquimicos" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Análisis Físico-Químicos</h3>
+                            <p>Determinación de propiedades físicas y composición química para control de calidad y desarrollo de productos.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>Humedad</li>
+                                <li><i class="fas fa-check"></i>Cenizas totales</li>
+                                <li><i class="fas fa-check"></i>Proteínas</li>
+                                <li><i class="fas fa-check"></i>Grasas totales</li>
+                                <li><i class="fas fa-check"></i>Fibra cruda</li>
+                                <li><i class="fas fa-check"></i>pH y acidez</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 2-4 días</span>
+                                <span class="service-price">Desde $35.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote">Cotizar</a>
+                        </div>
+                    </article>
+
+                    <!-- Nutricionales -->
+                    <article class="service-card" data-category="fisicoquimicos" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Análisis Nutricionales</h3>
+                            <p>Análisis completos para elaboración de tablas nutricionales y etiquetado de alimentos conforme a normativas.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>Perfil completo de vitaminas</li>
+                                <li><i class="fas fa-check"></i>Minerales esenciales</li>
+                                <li><i class="fas fa-check"></i>Carbohidratos totales</li>
+                                <li><i class="fas fa-check"></i>Azúcares</li>
+                                <li><i class="fas fa-check"></i>Valor energético</li>
+                                <li><i class="fas fa-check"></i>Tabla nutricional completa</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 5-7 días</span>
+                                <span class="service-price">Desde $180.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote">Cotizar</a>
+                        </div>
+                    </article>
+
+                    <!-- Metales Pesados -->
+                    <article class="service-card featured" data-category="metales" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-badge">DESTACADO</div>
+                        <div class="service-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Metales Pesados y Multielementos</h3>
+                            <p>Cuantificación precisa de metales pesados y elementos traza utilizando tecnología ICP-MS de última generación.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>Plomo (Pb)</li>
+                                <li><i class="fas fa-check"></i>Cadmio (Cd)</li>
+                                <li><i class="fas fa-check"></i>Arsénico (As)</li>
+                                <li><i class="fas fa-check"></i>Mercurio (Hg)</li>
+                                <li><i class="fas fa-check"></i>Cromo (Cr)</li>
+                                <li><i class="fas fa-check"></i>Panel de 20+ elementos</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 5-8 días</span>
+                                <span class="service-price">Desde $120.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote primary">Cotizar</a>
+                        </div>
+                    </article>
+
+                    <!-- Cannabinoides -->
+                    <article class="service-card" data-category="cannabinoides" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-icon">
+                            <i class="fas fa-cannabis"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Perfil de Cannabinoides y Terpenos</h3>
+                            <p>Análisis especializado en productos de cannabis medicinal con tecnología HPLC y GC-MS para máxima precisión.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>THC total y Δ9-THC</li>
+                                <li><i class="fas fa-check"></i>CBD total y CBD</li>
+                                <li><i class="fas fa-check"></i>CBG, CBN, CBC</li>
+                                <li><i class="fas fa-check"></i>Perfil completo de terpenos</li>
+                                <li><i class="fas fa-check"></i>Potencia y pureza</li>
+                                <li><i class="fas fa-check"></i>Cumplimiento normativo</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 3-6 días</span>
+                                <span class="service-price">Desde $180.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote">Cotizar</a>
+                        </div>
+                    </article>
+
+                    <!-- Micotoxinas -->
+                    <article class="service-card" data-category="contaminantes" data-aos="fade-up" data-aos-delay="500">
+                        <div class="service-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Micotoxinas</h3>
+                            <p>Detección y cuantificación de micotoxinas en alimentos y piensos para garantizar seguridad alimentaria.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>Aflatoxinas (B1, B2, G1, G2)</li>
+                                <li><i class="fas fa-check"></i>Ocratoxina A</li>
+                                <li><i class="fas fa-check"></i>Deoxinivalenol (DON)</li>
+                                <li><i class="fas fa-check"></i>Fumonisinas</li>
+                                <li><i class="fas fa-check"></i>Zearalenona</li>
+                                <li><i class="fas fa-check"></i>T-2 y HT-2</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 5-7 días</span>
+                                <span class="service-price">Desde $90.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote">Cotizar</a>
+                        </div>
+                    </article>
+
+                    <!-- Alérgenos -->
+                    <article class="service-card" data-category="contaminantes" data-aos="fade-up" data-aos-delay="600">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Alérgenos</h3>
+                            <p>Identificación de alérgenos principales en productos alimenticios para etiquetado correcto y protección del consumidor.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>Gluten</li>
+                                <li><i class="fas fa-check"></i>Proteínas de leche</li>
+                                <li><i class="fas fa-check"></i>Proteínas de huevo</li>
+                                <li><i class="fas fa-check"></i>Maní y frutos secos</li>
+                                <li><i class="fas fa-check"></i>Soja</li>
+                                <li><i class="fas fa-check"></i>Crustáceos</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 3-5 días</span>
+                                <span class="service-price">Desde $65.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote">Cotizar</a>
+                        </div>
+                    </article>
+
+                    <!-- Residuos de Plaguicidas -->
+                    <article class="service-card" data-category="contaminantes" data-aos="fade-up" data-aos-delay="700">
+                        <div class="service-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Residuos de Plaguicidas</h3>
+                            <p>Determinación de residuos de plaguicidas en productos agrícolas para cumplimiento de LMR internacionales.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>Análisis multiresiduos (250+ compuestos)</li>
+                                <li><i class="fas fa-check"></i>Glifosato y AMPA</li>
+                                <li><i class="fas fa-check"></i>Organoclorados</li>
+                                <li><i class="fas fa-check"></i>Organofosforados</li>
+                                <li><i class="fas fa-check"></i>Piretroides</li>
+                                <li><i class="fas fa-check"></i>Carbamatos</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 7-10 días</span>
+                                <span class="service-price">Desde $250.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote">Cotizar</a>
+                        </div>
+                    </article>
+
+                    <!-- Vida Útil y Estabilidad -->
+                    <article class="service-card" data-category="fisicoquimicos" data-aos="fade-up" data-aos-delay="800">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Estudios de Vida Útil y Estabilidad</h3>
+                            <p>Determinación del período de validez y estabilidad de productos bajo diversas condiciones de almacenamiento.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>Estudios acelerados</li>
+                                <li><i class="fas fa-check"></i>Estudios en tiempo real</li>
+                                <li><i class="fas fa-check"></i>Estabilidad microbiológica</li>
+                                <li><i class="fas fa-check"></i>Estabilidad fisicoquímica</li>
+                                <li><i class="fas fa-check"></i>Análisis sensorial</li>
+                                <li><i class="fas fa-check"></i>Modelado matemático</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 30-90 días</span>
+                                <span class="service-price">Desde $800.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote">Cotizar</a>
+                        </div>
+                    </article>
+
+                    <!-- Biodegradabilidad -->
+                    <article class="service-card" data-category="fisicoquimicos" data-aos="fade-up" data-aos-delay="900">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Biodegradabilidad</h3>
+                            <p>Evaluación de la capacidad de degradación ambiental de productos y materiales para sostenibilidad.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i>Biodegradación aeróbica</li>
+                                <li><i class="fas fa-check"></i>Biodegradación anaeróbica</li>
+                                <li><i class="fas fa-check"></i>Compostabilidad industrial</li>
+                                <li><i class="fas fa-check"></i>Compostabilidad doméstica</li>
+                                <li><i class="fas fa-check"></i>Desintegración en suelo</li>
+                                <li><i class="fas fa-check"></i>Certificación OK compost</li>
+                            </ul>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 90-180 días</span>
+                                <span class="service-price">Desde $1.200.000</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#" class="btn-detail">Ver detalles</a>
+                            <a href="#" class="btn-quote">Cotizar</a>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Mensaje cuando no hay resultados -->
+                <div class="no-results" id="no-results" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No se encontraron servicios</h3>
+                    <p>Intenta con otros términos de búsqueda o filtra por categoría</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metodología de Trabajo -->
+        <section class="metodologia-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nuestra Metodología</h2>
+                    <p>Un proceso estandarizado que garantiza precisión y confiabilidad en cada análisis</p>
+                </div>
+                
+                <div class="metodologia-steps">
+                    <div class="step-item" data-aos="fade-up" data-aos-delay="0">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Solicitar Cotización</h3>
+                            <p>Contáctanos a través de nuestros canales disponibles para solicitar tu cotización personalizada.</p>
+                            <a href="#contacto" class="step-link">Contactar <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Aprobar la Cotización</h3>
+                            <p>Revisa y aprueba la cotización mediante correo electrónico o envío de orden de compra.</p>
+                            <a href="#" class="step-link">Portal Cliente <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Diligenciar Formato</h3>
+                            <p>Completa el formato de solicitud de servicio que será enviado junto con la cotización.</p>
+                            <a href="#" class="step-link">Descargar formato <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Enviar Muestras</h3>
+                            <p>Envía las muestras al laboratorio junto con el formato diligenciado y firmado.</p>
+                            <a href="#" class="step-link">Ver resultados <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tecnología y Equipos -->
+        <section class="tecnologia-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Tecnología de Primer Nivel</h2>
+                    <p>Equipos de última generación para análisis precisos y confiables</p>
+                </div>
+                
+                <div class="tecnologia-grid">
+                    <div class="tech-card" data-aos="zoom-in" data-aos-delay="0">
+                        <div class="tech-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3>ICP-MS</h3>
+                        <p>Espectrometría de masas con plasma acoplado inductivamente para análisis de metales pesados con límites de detección ultra-bajos.</p>
+                    </div>
+                    
+                    <div class="tech-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="tech-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3>HPLC-MS/MS</h3>
+                        <p>Cromatografía líquida de alta resolución con espectrometría de masas en tándem para análisis de cannabinoides y micotoxinas.</p>
+                    </div>
+                    
+                    <div class="tech-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="tech-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>GC-MS</h3>
+                        <p>Cromatografía de gases con espectrometría de masas para análisis de pesticidas, terpenos y compuestos volátiles.</p>
+                    </div>
+                    
+                    <div class="tech-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="tech-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>LIMS</h3>
+                        <p>Sistema de gestión de información de laboratorio para trazabilidad completa y gestión de resultados en tiempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-servicios">
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <h2>¿Necesitas un análisis específico?</h2>
+                    <p>Nuestro equipo de expertos está listo para ayudarte con soluciones personalizadas</p>
+                    <div class="cta-buttons">
+                        <a href="contacto.html" class="btn-cta primary">
+                            <i class="fas fa-flask"></i>
+                            <span>Solicitar cotización</span>
+                        </a>
+                        <a href="tel:+5760047454" class="btn-cta secondary">
+                            <i class="fas fa-phone"></i>
+                            <span>Llamar ahora</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer - Idéntico al de inicio -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <img src="LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
+                    <p>Más que un laboratorio: un aliado en tu camino hacia la calidad.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (+57) 604 7454</p>
+                        <p><i class="fas fa-envelope"></i> comercial@aoxlab.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Colombia</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="certificaciones.html">Certificaciones</a></li>
+                        <li><a href="sectores.html">Sectores</a></li>
+                        <li><a href="portal-clientes.html">Portal Clientes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Políticas</h4>
+                    <ul>
+                        <li><a href="politicas.html">Tratamiento de datos</a></li>
+                        <li><a href="pqrs.html">PQRS</a></li>
+                        <li><a href="certificados.html">Certificados ISO</a></li>
+                        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Con Rigor, Eficiente y Flexible.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botones Flotantes - Idénticos al inicio -->
+    <a href="https://w.app/prueba_aver-sifunciona"  
+        class="whatsapp-float" 
+        target="_blank" 
+        aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">¿Necesitas ayuda?</span>
+    </a>
+
+    <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Botón flotante del chatbot -->
+    <div class="chatbot-float" id="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+        <span class="tooltip">¿Necesitas ayuda?</span>
+        <div class="notification-dot" id="chatbot-notification"></div>
+    </div>
+
+    <!-- Modal del chatbot -->
+    <div class="chatbot-modal" id="chatbot-modal">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-info">
+                <h3>Asistente AOXLAB</h3>
+                <span class="status online">En línea</span>
+            </div>
+            <button class="chatbot-close" id="chatbot-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chat-message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>¡Hola! Soy el asistente virtual de AOXLAB. ¿Te interesa conocer más sobre nuestros servicios de análisis? ¿En qué puedo ayudarte?</p>
+                    <div class="quick-actions">
+                        <button class="quick-btn" data-action="microbiologicos">Análisis microbiológicos</button>
+                        <button class="quick-btn" data-action="metales">Metales pesados</button>
+                        <button class="quick-btn" data-action="cannabinoides">Cannabinoides</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chatbot-footer">    
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." maxlength="500">
+                <button id="send-message" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Js/Inicio.js"></script>
+    <script src="Js/Servicios.js"></script>
+</body>
+</html>
+
+
+
+

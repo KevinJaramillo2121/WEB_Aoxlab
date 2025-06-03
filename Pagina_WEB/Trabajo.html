@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabaja con Nosotros - AOXLAB | Únete a nuestro equipo</title>
+    <meta name="description" content="Únete al equipo de AOXLAB. Buscamos talentos apasionados por la ciencia y la calidad analítica. Envía tu hoja de vida y forma parte de nuestro laboratorio">
+    
+    <!-- Enlaces comunes -->
+    <link href="https://fonts.cdnfonts.com/css/aller" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/trabajo.css">
+</head>
+<body>
+    <!-- Header idéntico al inicio -->
+    <header class="main-header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="Inicio.html" aria-label="AOXLAB - Ir a inicio">
+                        <img src="Logo Aoxlab.jpg" 
+                                    data-logo-light="Logo Aoxlab.jpg" 
+                                    data-logo-dark="LOGO BLANCO (1).png" 
+                                    alt="AOXLAB Logo" 
+                                    width="180" 
+                                    height="60">
+                    </a>
+                </div>
+
+                <!-- Navegación Principal -->
+                <nav class="main-nav" aria-label="Navegación principal">
+                    <ul class="nav-list">
+                        <li><a href="Inicio.html" class="nav-link">INICIO</a></li>
+                        <li><a href="Somos.html" class="nav-link">SOMOS</a></li>
+                        <li><a href="Servicios.html" class="nav-link">SERVICIOS</a></li>
+                        <li><a href="Certifcaciones.html" class="nav-link">CERTIFICACIONES</a></li>
+                        <li><a href="Sectores.html" class="nav-link">SECTORES</a></li>
+                        <li><a href="cliente.html" class="nav-link">CLIENTES</a></li>
+                        <li><a href="Contacto.html" class="nav-link">CONTACTO</a></li>
+                        <li><a href="Trabajo.html" class="nav-link active">TRABAJA CON NOSOTROS</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Acciones del Header -->
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Cambiar modo claro/oscuro">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="language-selector">
+                        <button id="language-btn" class="lang-btn" aria-expanded="false">
+                            <span class="flag-icon">🇪🇸</span> ES
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-options">
+                            <li><a href="#" data-lang="es"><span class="flag-icon">🇪🇸</span> Español</a></li>
+                            <li><a href="#" data-lang="en"><span class="flag-icon">🇺🇸</span> English</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Menú móvil -->
+                <button class="mobile-menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="trabaja-main">
+        <!-- Sección Hero -->
+        <section class="hero-section trabajo-hero">
+            <div class="hero-carousel">
+                <div class="carousel-slide active">
+                    <img src="trabajoavif.avif" alt="Equipo de AOXLAB trabajando" loading="eager">
+                    <div class="slide-content">
+                        <h1>Transforma tu pasión por la ciencia en carrera profesional</h1>
+                        <p>Únete al laboratorio líder en análisis y certificación de calidad</p>
+                        <a href="#vacantes" class="cta-btn primary">Ver vacantes disponibles</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-overlay">
+                <div class="container">
+                    <div class="hero-badge">
+                        <span><i class="fas fa-users"></i> 98% de satisfacción laboral</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Vacantes -->
+        <section class="vacantes-section" id="vacantes">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Oportunidades Laborales</h2>
+                    <p>Descubre las posiciones disponibles en nuestro equipo científico y administrativo</p>
+                </div>
+                
+                <div class="vacantes-grid">
+                    <!-- Vacante 1 -->
+                    <article class="vacante-card" data-aos="fade-up">
+                        <div class="vacante-header">
+                            <h3>Analista de Laboratorio Senior</h3>
+                            <div class="vacante-meta">
+                                <span class="badge full-time">Tiempo Completo</span>
+                                <span class="ubicacion"><i class="fas fa-map-marker-alt"></i> Medellín</span>
+                            </div>
+                        </div>
+                        <div class="vacante-body">
+                            <div class="vacante-detalle">
+                                <h4>Requisitos:</h4>
+                                <ul class="lista-requisitos">
+                                    <li>Profesional en Química, Biología o afines</li>
+                                    <li>3+ años de experiencia en laboratorios de análisis</li>
+                                    <li>Conocimiento en técnicas instrumentales (HPLC, GC)</li>
+                                </ul>
+                            </div>
+                            <div class="vacante-detalle">
+                                <h4>Beneficios:</h4>
+                                <ul class="lista-beneficios">
+                                    <li><i class="fas fa-dumbbell"></i> Gimnasio corporativo</li>
+                                    <li><i class="fas fa-book"></i> Programa de capacitación continua</li>
+                                    <li><i class="fas fa-stethoscope"></i> Plan de salud premium</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vacante-footer">
+                            <button class="btn-aplicar" data-vacante="analista-senior">
+                                <i class="fas fa-file-upload"></i> Aplicar ahora
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Vacante 2 -->
+                    <article class="vacante-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="vacante-header">
+                            <h3>Especialista en Control de Calidad</h3>
+                            <div class="vacante-meta">
+                                <span class="badge full-time">Tiempo Completo</span>
+                                <span class="ubicacion"><i class="fas fa-map-marker-alt"></i> Medellín</span>
+                            </div>
+                        </div>
+                        <div class="vacante-body">
+                            <div class="vacante-detalle">
+                                <h4>Requisitos:</h4>
+                                <ul class="lista-requisitos">
+                                    <li>Ingeniero Químico o afín</li>
+                                    <li>Experiencia en sistemas de gestión de calidad</li>
+                                    <li>Conocimiento en normativas ISO 17025</li>
+                                </ul>
+                            </div>
+                            <div class="vacante-detalle">
+                                <h4>Beneficios:</h4>
+                                <ul class="lista-beneficios">
+                                    <li><i class="fas fa-car"></i> Parqueadero subsidiado</li>
+                                    <li><i class="fas fa-graduation-cap"></i> Apoyo para estudios de posgrado</li>
+                                    <li><i class="fas fa-briefcase-medical"></i> Seguro de vida</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="vacante-footer">
+                            <button class="btn-aplicar" data-vacante="control-calidad">
+                                <i class="fas fa-file-upload"></i> Aplicar ahora
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Proceso -->
+        <section class="proceso-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Nuestro Proceso de Selección</h2>
+                    <p>Conoce las etapas para unirte a nuestro equipo científico</p>
+                </div>
+                
+                <div class="proceso-steps">
+                    <div class="step-card" data-aos="fade-up">
+                        <div class="step-icon">
+                            <i class="fas fa-file-alt"></i>
+                            <div class="step-number">1</div>
+                        </div>
+                        <h3>Envío de Documentos</h3>
+                        <p>Completa el formulario y adjunta tu CV y documentos soporte</p>
+                    </div>
+                    
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                            <div class="step-number">2</div>
+                        </div>
+                        <h3>Revisión de Perfil</h3>
+                        <p>Nuestro equipo de talento humano evaluará tu aplicación</p>
+                    </div>
+                    
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="step-icon">
+                            <i class="fas fa-comments"></i>
+                            <div class="step-number">3</div>
+                        </div>
+                        <h3>Entrevista Técnica</h3>
+                        <p>Conversación con nuestro equipo científico y de calidad</p>
+                    </div>
+                    
+                    <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="step-icon">
+                            <i class="fas fa-handshake"></i>
+                            <div class="step-number">4</div>
+                        </div>
+                        <h3>Incorporación</h3>
+                        <p>Programa de inducción y bienvenida al equipo AOXLAB</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Aplicación -->
+        <section class="formulario-section" id="formulario">
+            <div class="container">
+                <div class="form-container" data-aos="fade-up">
+                    <h2>Envía tu Hoja de Vida</h2>
+                    <form id="formTrabajo" class="form-aplicacion">
+                        <div class="input-duo">
+                            <div class="input-group">
+                                <label for="nombre"><i class="fas fa-user"></i> Nombre Completo</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="input-duo">
+                            <div class="input-group">
+                                <label for="telefono"><i class="fas fa-phone"></i> Teléfono de Contacto</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="vacante"><i class="fas fa-briefcase"></i> Vacante a la que aplica</label>
+                                <select id="vacante" name="vacante" required>
+                                    <option value="">Seleccione una vacante</option>
+                                    <option value="analista-senior">Analista de Laboratorio Senior</option>
+                                    <option value="control-calidad">Especialista en Control de Calidad</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="cv"><i class="fas fa-file-pdf"></i> Adjuntar CV (PDF, máximo 5MB)</label>
+                            <input type="file" id="cv" name="cv" accept=".pdf" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="mensaje"><i class="fas fa-comment"></i> Mensaje Adicional</label>
+                            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="cta-btn primary">
+                                <i class="fas fa-paper-plane"></i> Enviar Aplicación
+                            </button>
+                            <p class="disclaimer">Al enviar, aceptas nuestro <a href="politicas.html">tratamiento de datos</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="testimonios-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Testimonios de Nuestro Equipo</h2>
+                    <p>Conoce la experiencia de quienes ya forman parte de AOXLAB</p>
+                </div>
+                
+                <div class="testimonios-grid">
+                    <article class="testimonio-card" data-aos="fade-up">
+                        <div class="testimonio-header">
+                            <img src="img/empleado1.jpg" alt="Ana María Pérez">
+                            <div class="testimonio-info">
+                                <h3>Ana María Pérez</h3>
+                                <span>Analista Químico Senior</span>
+                            </div>
+                        </div>
+                        <div class="testimonio-body">
+                            <p>"En AOXLAB he encontrado un ambiente que fomenta la investigación y el crecimiento profesional. La inversión en tecnología de vanguardia nos permite entregar resultados confiables a nuestros clientes."</p>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonio-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="testimonio-header">
+                            <img src="img/empleado2.jpg" alt="Carlos Andrés Gómez">
+                            <div class="testimonio-info">
+                                <h3>Carlos Andrés Gómez</h3>
+                                <span>Coordinador de Calidad</span>
+                            </div>
+                        </div>
+                        <div class="testimonio-body">
+                            <p>"Lo que más valoro es el compromiso con la excelencia y las oportunidades de capacitación continua. Trabajar aquí ha sido clave para mi desarrollo profesional en el ámbito de certificaciones."</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer idéntico al inicio -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <img src="LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
+                    <p>Más que un laboratorio: un aliado en tu camino hacia la calidad.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (+57) 604 7454</p>
+                        <p><i class="fas fa-envelope"></i> comercial@aoxlab.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Colombia</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="certificaciones.html">Certificaciones</a></li>
+                        <li><a href="sectores.html">Sectores</a></li>
+                        <li><a href="portal-clientes.html">Portal Clientes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Políticas</h4>
+                    <ul>
+                        <li><a href="politicas.html">Tratamiento de datos</a></li>
+                        <li><a href="pqrs.html">PQRS</a></li>
+                        <li><a href="certificados.html">Certificados ISO</a></li>
+                        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Con Rigor, Eficiente y Flexible.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botones Flotantes - Idénticos al inicio -->
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/573007199046"  
+        class="whatsapp-float" 
+        target="_blank" 
+        aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">¿Necesitas ayuda?</span>
+    </a>
+
+    <!-- Botón Scroll to Top -->
+    <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Botón flotante del chatbot -->
+    <div class="chatbot-float" id="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+        <span class="tooltip">¿Necesitas ayuda?</span>
+        <div class="notification-dot" id="chatbot-notification"></div>
+    </div>
+
+    <!-- Modal del chatbot -->
+    <div class="chatbot-modal" id="chatbot-modal">
+        <div class="chatbot-header">
+            <div class="chatbot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-info">
+                <h3>Asistente AOXLAB</h3>
+                <span class="status online">En línea</span>
+            </div>
+            <button class="chatbot-close" id="chatbot-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chat-message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>¡Hola! Soy el asistente virtual de AOXLAB. Puedo ayudarte con el portal de clientes, acceso a resultados y soporte técnico. ¿En qué puedo asistirte?</p>
+                    <div class="quick-actions">
+                        <button class="quick-btn" data-action="portal">Ayuda con el portal</button>
+                        <button class="quick-btn" data-action="resultados">Consultar resultados</button>
+                        <button class="quick-btn" data-action="soporte">Soporte técnico</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chatbot-footer">    
+            <div class="chat-input-container">
+                <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." maxlength="500">
+                <button id="send-message" disabled>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/Inicio.js"></script>
+    <script src="js/Trabajo.js"></script>
+</body>
+</html>

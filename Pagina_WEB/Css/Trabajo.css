@@ -1,0 +1,410 @@
+/* trabajo.css */
+/* Estilos específicos para Trabaja con Nosotros - Cohesión con inicio.css */
+.trabajo-hero .slide-content h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    text-shadow: 2px 2px 8px rgba(35, 31, 32, 0.8);
+}
+
+.vacantes-section {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(to bottom, var(--light-gray) 0%, var(--white) 30%);
+}
+
+.vacantes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.vacante-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-medium);
+}
+
+.vacante-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow-medium);
+}
+
+.vacante-header {
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.badge.full-time {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.ubicacion {
+    color: var(--medium-gray);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.lista-requisitos {
+    list-style: none;
+    margin: var(--spacing-md) 0;
+}
+
+.lista-requisitos li {
+    padding-left: var(--spacing-md);
+    position: relative;
+    margin-bottom: var(--spacing-xs);
+}
+
+.lista-requisitos li::before {
+    content: "•";
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+}
+
+.lista-beneficios {
+    list-style: none;
+}
+
+.lista-beneficios li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.btn-aplicar {
+    background: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    width: 100%;
+}
+
+.btn-aplicar:hover {
+    background: var(--primary-color);
+}
+
+.proceso-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--white);
+}
+
+.proceso-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.step-card {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--light-gray);
+    border-radius: var(--border-radius-lg);
+}
+
+.step-icon {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto var(--spacing-md);
+}
+
+.step-icon i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.step-number {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: var(--accent-color);
+    color: var(--white);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+}
+
+.testimonios-section .section-header h2,
+.testimonios-section .section-header p {
+    color: #fff !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25); /* Opcional: mejora la legibilidad */
+}
+
+.testimonios-section {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-gray));
+    color: var(--white);
+}
+
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.testimonio-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+}
+
+.testimonio-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.testimonio-header img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.formulario-section {
+    padding: var(--spacing-xxl) 0;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 30px var(--shadow-light);
+}
+
+.form-aplicacion .input-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-aplicacion label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-bold);
+}
+
+.form-aplicacion input,
+.form-aplicacion select,
+.form-aplicacion textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 2px solid var(--shadow-light);
+    border-radius: var(--border-radius);
+}
+
+.form-aplicacion input[type="file"] {
+    padding: var(--spacing-xs);
+}
+
+.disclaimer {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    margin-top: var(--spacing-md);
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .input-duo {
+        grid-template-columns: 1fr;
+    }
+    
+    .vacantes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Mejoras generales */
+.vacante-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-medium);
+    border: 1px solid transparent; /* Para mejor hover */
+}
+
+.vacante-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow-medium);
+    border-color: var(--secondary-color); /* Mejora visual */
+}
+
+/* Mejorar el formulario */
+.form-aplicacion input:focus,
+.form-aplicacion select:focus,
+.form-aplicacion textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+/* Input de archivo mejorado */
+.input-group input[type="file"] {
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border: 2px dashed var(--shadow-light);
+    background: var(--light-gray);
+    transition: all var(--transition-medium);
+}
+
+.input-group input[type="file"]:hover {
+    border-color: var(--secondary-color);
+    background: rgba(74, 144, 226, 0.05);
+}
+
+
+/* Mejoras en el formulario */
+.form-aplicacion input.error,
+.form-aplicacion select.error,
+.form-aplicacion textarea.error {
+    border-color: var(--error-color, #e74c3c);
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.field-error {
+    color: var(--error-color, #e74c3c);
+    font-size: 0.8rem;
+    margin-top: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.field-error::before {
+    content: "⚠️";
+}
+
+/* Mejoras en las tarjetas de vacantes */
+.vacante-card {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-medium);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.vacante-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow-medium);
+    border-left-color: var(--primary-color);
+}
+
+/* Mejora en el diseño responsivo */
+.input-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .input-duo {
+        grid-template-columns: 1fr;
+    }
+    
+    .vacante-card {
+        padding: var(--spacing-md);
+    }
+    
+    .proceso-steps {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+}
+
+/* Animaciones suaves */
+.vacante-card,
+.step-card,
+.testimonio-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo para el botón de scroll hacia arriba */
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    opacity: 0;
+    transform: scale(0);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.scroll-top:hover {
+    background: var(--primary-color);
+    transform: scale(1.1);
+}
+.trabajo-hero {
+    position: relative; /* Asegúrate de que no sea fixed */
+    height: 100vh; /* O la altura que necesites */
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute; /* No fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Menor que el header */
+}
+
+.slide-content {
+    position: relative;
+    z-index: 3;
+}
+.vacantes-section {
+    margin-top: 0; /* Elimina márgenes que puedan causar solapamiento */
+    position: relative;
+    z-index: 1;
+}
+
+/* Si tu header es fijo, ajusta el scroll para anclas */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Altura del header si es fijo */
+}
