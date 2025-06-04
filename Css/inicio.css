@@ -676,6 +676,225 @@ body {
 }
 
 /* Servicios Destacados */
+/* Estilos para la sección de certificados */
+.certificates-section {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+/* Estilos base del botón de certificado */
+.certificate-btn {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: all var(--transition-medium);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid transparent;
+}
+
+/* Efecto hover general para todos los botones */
+.certificate-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px var(--shadow-medium);
+}
+
+/* Estilos para el icono principal */
+.certificate-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: var(--spacing-md);
+    transition: all var(--transition-medium);
+    background: var(--light-gray);
+    color: var(--primary-color);
+}
+
+/* Estilos para la información del certificado */
+.certificate-info {
+    flex: 1;
+}
+
+.certificate-info h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-bold);
+    transition: all var(--transition-medium);
+}
+
+.download-text {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+    transition: all var(--transition-medium);
+    display: block;
+}
+
+/* Icono de descarga */
+.download-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-medium);
+    color: var(--medium-gray);
+    opacity: 0.7;
+}
+
+/* Estilos específicos para cada tipo de certificado */
+.certificate-btn.food {
+    border-left-color: var(--success-color);
+}
+
+.certificate-btn.cannabis {
+    border-left-color: var(--dark-green);
+}
+
+.certificate-btn.cannabis-en {
+    border-left-color: var(--accent-color);
+}
+
+.certificate-btn.air {
+    border-left-color: var(--secondary-color);
+}
+
+/* Efectos hover específicos para cada tipo de certificado */
+.certificate-btn.food:hover .certificate-icon {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.certificate-btn.cannabis:hover .certificate-icon {
+    background: var(--dark-green);
+    color: var(--white);
+}
+
+.certificate-btn.cannabis-en:hover .certificate-icon {
+    background: var(--accent-color);
+    color: var(--white);
+}
+
+.certificate-btn.air:hover .certificate-icon {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Efectos hover comunes */
+.certificate-btn:hover .download-icon {
+    transform: scale(1.2) rotate(360deg);
+    background: var(--secondary-color);
+    color: var(--white);
+    opacity: 1;
+}
+
+.certificate-btn:hover .download-text {
+    color: var(--secondary-color);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Animación de brillo al pasar el mouse */
+.certificate-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transition: all 0.8s ease;
+}
+
+.certificate-btn:hover::before {
+    left: 100%;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .certificates-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .certificate-btn {
+        padding: var(--spacing-md);
+    }
+    
+    .certificate-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
+
+/* Estilos específicos para los nuevos botones */
+.certificate-btn.general {
+    border-left-color: var(--primary-color);
+}
+
+.certificate-btn.general-en {
+    border-left-color: var(--accent-color-dark);
+}
+
+.certificate-btn.cosmetics {
+    border-left-color: var(--pink);
+}
+
+.certificate-btn.bio {
+    border-left-color: var(--teal);
+}
+
+/* Efectos hover para los nuevos botones */
+.certificate-btn.general:hover .certificate-icon {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.certificate-btn.general-en:hover .certificate-icon {
+    background: var(--accent-color-dark);
+    color: var(--white);
+}
+
+.certificate-btn.cosmetics:hover .certificate-icon {
+    background: var(--pink);
+    color: var(--white);
+}
+
+.certificate-btn.bio:hover .certificate-icon {
+    background: var(--teal);
+    color: var(--white);
+}
+
+/* Variables de color adicionales (si no las tienes) */
+:root {
+    --pink: #ff6b9d;
+    --teal: #20c997;
+    --accent-color-dark: #3a5a78;
+}
+
 .featured-services {
     padding: var(--spacing-xxl) 0;
     background: var(--white);

@@ -968,3 +968,37 @@ INSTRUCCIONES:
 - Si no tienes información específica, dirige al cliente a contactar directamente
 - Usa un tono técnico pero accesible
 - Máximo 100 palabras por respuesta`;
+// Función para mostrar notificación de descarga
+function showDownloadNotification(certificateName) {
+    const notification = document.createElement('div');
+    notification.className = 'download-notification';
+    notification.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        <p>¡Descargando certificado de ${certificateName}!</p>
+    `;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 500);
+    }, 3000);
+}
+
+// Agregar evento de clic a todos los botones de certificado
+document.addEventListener('DOMContentLoaded', () => {
+    const certificateButtons = document.querySelectorAll('.certificate-btn');
+    
+    certificateButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // No interrumpimos la descarga, solo mostramos notificación
+            const certificateName = this.querySelector('h3').textContent;
+            showDownloadNotification(certificateName);
+        });
+    });
+});
