@@ -1,38 +1,116 @@
-// JavaScript principal para AOXLAB
-// Es importante recorar que todos los apartados deben llevar su debida documentacion y comentarios con el fin de hacer más facil la legibilidad de cada uno de los apartados y la actualización de todo
+/**
+ * AOXLAB Website - Sistema Completo de Interacciones
+ * Versión: 2.0
+ * Descripción: Código JavaScript principal para el sitio web de AOXLAB
+ * Incluye: Carrusel, servicios expandibles, chatbot, efectos de scroll, tema oscuro
+ * Autor: Equipo AOXLAB
+ * Fecha: 2025
+ */
+
+// ====================================================================
+// CONFIGURACIONES GLOBALES
+// ====================================================================
+
+/**
+ * Configuración del chatbot con OpenAI
+ */
+const OPENAI_CONFIG = {
+    apiKey: '', // Configurar con tu API key de OpenAI
+    model: 'gpt-3.5-turbo',
+    maxTokens: 150,
+    temperature: 0.7
+};
+
+/**
+ * Prompt del sistema para el chatbot de AOXLAB
+ */
+const CHATBOT_SYSTEM_PROMPT = `Eres un asistente virtual especializado de AOXLAB, un laboratorio de análisis y certificación en Medellín, Colombia. 
+
+INFORMACIÓN SOBRE AOXLAB:
+- Laboratorio especializado en análisis microbiológicos, metales pesados y cannabinoides
+- Certificaciones ISO/IEC 17025:2017 y próximamente ISO 17065
+- 13 años de experiencia, más de 300 equipos, 2500+ clientes satisfechos
+- Ubicación: Calle 32F #74B-122, Laureles, Medellín
+- Teléfono: (+57) 604 7454
+- Email: comercial@aoxlab.com
+
+SERVICIOS PRINCIPALES:
+1. Análisis Microbiológicos (recuento de aerobios, detección de patógenos, análisis de agua)
+2. Metales Pesados (plomo, mercurio, cadmio por ICP-MS)
+3. Perfil de Cannabinoides (CBD, THC, CBG, CBN, terpenos)
+4. Certificación ISO 17065 (productos ecológicos, agroindustriales, cosméticos)
+
+INSTRUCCIONES:
+- Responde de manera profesional, amigable y concisa
+- Enfócate en los servicios y capacidades de AOXLAB
+- Si no tienes información específica, dirige al cliente a contactar directamente
+- Usa un tono técnico pero accesible
+- Máximo 100 palabras por respuesta`;
+
+// ====================================================================
+// CLASE PRINCIPAL DEL SITIO WEB
+// ====================================================================
+
+/**
+ * Clase principal que maneja todas las funcionalidades del sitio web de AOXLAB
+ */
 class AoxlabWebsite {
+    /**
+     * Constructor - Inicializa las propiedades del sitio web
+     */
     constructor() {
         this.currentSlide = 0;
         this.totalSlides = 0;
         this.isScrolling = false;
+        this.autoplayInterval = null;
+        this.autoplayPaused = false;
+        this.manuallyPaused = false;
+        this.chatbotOpen = false;
+        this.isTyping = false;
+        this.slideViewStartTime = Date.now();
+        
         this.init();
     }
     
+    /**
+     * Inicializa todas las funcionalidades del sitio
+     */
     init() {
-        this.setupEventListeners();
-        this.initCarousel();
-        this.initScrollEffects();
-        this.initCounters();
-        this.initChatbot();
-        this.initThemeToggle();
-        this.initLanguageSelector();
-        this.initMobileMenu();
-        this.initFloatingButtons();
+    this.setupEventListeners();
+    this.initCarousel();
+    this.initScrollEffects();
+    this.initCounters();
+    this.initChatbot();
+    this.initThemeToggle();
+    this.initLanguageSelector();
+    this.initMobileMenu();
+    this.initFloatingButtons();
+    this.initExpandableServices(); // Mantener solo esta línea
+    this.initKeyboardNavigation();
+    this.initAnalyticsTracking();
+    this.preloadCarouselImages();
     }
     
+    /**
+     * Configura los event listeners principales del sitio
+     */
     setupEventListeners() {
-        // Event listeners principales
         window.addEventListener('load', () => this.onPageLoad());
         window.addEventListener('scroll', () => this.onScroll());
         window.addEventListener('resize', () => this.onResize());
         
-        // Prevenir comportamiento por defecto en ciertos elementos
         document.addEventListener('DOMContentLoaded', () => {
             this.preloadImages();
         });
     }
-    
-    // === CARRUSEL DE IMÁGENES ===
+
+    // ====================================================================
+    // SISTEMA DE CARRUSEL DE IMÁGENES
+    // ====================================================================
+
+    /**
+     * Inicializa el carrusel de imágenes del hero section
+     */
     initCarousel() {
         const carousel = document.querySelector('.hero-carousel');
         if (!carousel) return;
@@ -46,11 +124,14 @@ class AoxlabWebsite {
         
         if (this.totalSlides === 0) return;
         
+        // Configurar tooltips para indicadores
+        this.setupIndicatorTooltips();
+        
         // Event listeners del carrusel
         this.prevBtn?.addEventListener('click', () => this.prevSlide());
         this.nextBtn?.addEventListener('click', () => this.nextSlide());
         
-        // Indicadores
+        // Indicadores con navegación directa
         this.indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => this.goToSlide(index));
         });
@@ -65,27 +146,53 @@ class AoxlabWebsite {
         // Soporte para touch/swipe en móviles
         this.initTouchControls(carousel);
     }
-     // Nueva función:
-            restartAutoplay() {
-                this.pauseAutoplay();
-                this.startAutoplay();
-                }
-    
+
+    /**
+     * Configura tooltips informativos para los indicadores del carrusel
+     */
+    setupIndicatorTooltips() {
+        this.indicators.forEach((indicator, index) => {
+            const slideData = this.slides[index]?.getAttribute('data-slide');
+            const tooltips = {
+                'vida-util': 'Vida Útil',
+                'microbiologia-anual': 'Microbiología',
+                'biodegradabilidad': 'Biodegradabilidad'
+            };
+            indicator.setAttribute('data-tooltip', tooltips[slideData] || `Slide ${index + 1}`);
+        });
+    }
+
+    /**
+     * Navega al slide anterior
+     */
     prevSlide() {
         this.currentSlide = this.currentSlide === 0 ? this.totalSlides - 1 : this.currentSlide - 1;
         this.updateCarousel();
+        this.trackSlideInteraction('manual_navigation', 'previous');
     }
     
+    /**
+     * Navega al siguiente slide
+     */
     nextSlide() {
         this.currentSlide = this.currentSlide === this.totalSlides - 1 ? 0 : this.currentSlide + 1;
         this.updateCarousel();
+        this.trackSlideInteraction('manual_navigation', 'next');
     }
     
+    /**
+     * Navega directamente a un slide específico
+     * @param {number} index - Índice del slide
+     */
     goToSlide(index) {
         this.currentSlide = index;
         this.updateCarousel();
+        this.trackSlideInteraction('indicator_click', index);
     }
     
+    /**
+     * Actualiza la visualización del carrusel
+     */
     updateCarousel() {
         // Actualizar slides
         this.slides.forEach((slide, index) => {
@@ -97,47 +204,92 @@ class AoxlabWebsite {
             indicator.classList.toggle('active', index === this.currentSlide);
         });
         
+        // Tracking de visualización
+        const currentSlideData = this.slides[this.currentSlide]?.getAttribute('data-slide');
+        if (currentSlideData) {
+            this.trackSlideViewTime(currentSlideData);
+        }
+        
         // Animar contenido del slide
         this.animateSlideContent();
     }
     
+    /**
+     * Anima el contenido del slide activo
+     */
     animateSlideContent() {
         const activeSlide = this.slides[this.currentSlide];
         const content = activeSlide.querySelector('.slide-content');
         
         if (content) {
-            // Reset animations
+            // Pausar animaciones en slides no activos
+            this.slides.forEach((slide, index) => {
+                if (index !== this.currentSlide) {
+                    const slideContent = slide.querySelector('.slide-content');
+                    if (slideContent) {
+                        slideContent.style.animationPlayState = 'paused';
+                    }
+                }
+            });
+            
+            // Activar animación del slide actual
             content.style.animation = 'none';
             content.offsetHeight; // Trigger reflow
             content.style.animation = 'fadeInUp 1s ease';
+            content.style.animationPlayState = 'running';
         }
     }
     
-        // Mejorar la función startAutoplay
+    /**
+     * Inicia la reproducción automática del carrusel
+     */
     startAutoplay() {
         if (this.autoplayInterval) {
             clearInterval(this.autoplayInterval);
         }
         
+        // Tiempo ajustado a 4 segundos para mejor flujo con más slides
         this.autoplayInterval = setInterval(() => {
             if (!this.autoplayPaused && !this.manuallyPaused) {
                 this.nextSlide();
             }
-        }, 5000);
+        }, 4000);
     }
-    // Mejorar pauseAutoplay
+    
+    /**
+     * Pausa la reproducción automática del carrusel
+     */
     pauseAutoplay() {
+        this.autoplayPaused = true;
         if (this.autoplayInterval) {
             clearInterval(this.autoplayInterval);
             this.autoplayInterval = null;
         }
     }
-    pauseAutoplay() {
-        if (this.autoplayInterval) {
-            clearInterval(this.autoplayInterval);
-        }
+    
+    /**
+     * Reanuda la reproducción automática del carrusel
+     */
+    resumeAutoplay() {
+        this.autoplayPaused = false;
+        this.startAutoplay();
     }
     
+    /**
+     * Reinicia completamente el autoplay del carrusel
+     */
+    restartAutoplay() {
+        this.pauseAutoplay();
+        setTimeout(() => {
+            this.autoplayPaused = false;
+            this.startAutoplay();
+        }, 100);
+    }
+
+    /**
+     * Inicializa controles táctiles para dispositivos móviles
+     * @param {Element} carousel - Elemento del carrusel
+     */
     initTouchControls(carousel) {
         let startX = 0;
         let currentX = 0;
@@ -169,25 +321,42 @@ class AoxlabWebsite {
             }
             
             isMoving = false;
-            this.startAutoplay();
+            this.resumeAutoplay();
         });
     }
-    
-    // === EFECTOS DE SCROLL ===
+
+    // ====================================================================
+    // SERVICIOS EXPANDIBLES
+    // ====================================================================
+
+    /**
+     * Inicializa los servicios expandibles
+     */
+    initExpandableServices() {
+    // Eliminar el método duplicado y usar solo esta versión
+    setTimeout(() => {
+        new ExpandableServices();
+    }, 100); // Pequeño delay para asegurar que el DOM esté listo
+}
+    // ====================================================================
+    // EFECTOS DE SCROLL
+    // ====================================================================
+
+    /**
+     * Inicializa todos los efectos relacionados con el scroll
+     */
     initScrollEffects() {
-        // Header scroll effect
         this.initHeaderScroll();
-        
-        // Scroll to top button
         this.initScrollToTop();
-        
-        // Smooth scrolling para enlaces ancla
         this.initSmoothScrolling();
-        
-        // Intersection Observer para animaciones
         this.initScrollAnimations();
     }
-    
+    initExpandableServices() {
+    new ExpandableServices(); // Esta función debe existir
+    }
+    /**
+     * Maneja el efecto del header al hacer scroll
+     */
     initHeaderScroll() {
         const header = document.querySelector('.main-header');
         let lastScrollY = window.scrollY;
@@ -201,7 +370,7 @@ class AoxlabWebsite {
                 header.classList.remove('scrolled');
             }
             
-            // Hide/show header on scroll
+            // Ocultar/mostrar header en scroll
             if (currentScrollY > lastScrollY && currentScrollY > 200) {
                 header.style.transform = 'translateY(-100%)';
             } else {
@@ -212,14 +381,17 @@ class AoxlabWebsite {
         });
     }
     
+    /**
+     * Inicializa el botón de scroll hacia arriba
+     */
     initScrollToTop() {
         const scrollTopBtn = document.getElementById('scroll-top');
         
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
-                scrollTopBtn.classList.add('visible');
+                scrollTopBtn?.classList.add('visible');
             } else {
-                scrollTopBtn.classList.remove('visible');
+                scrollTopBtn?.classList.remove('visible');
             }
         });
         
@@ -231,6 +403,9 @@ class AoxlabWebsite {
         });
     }
     
+    /**
+     * Configura el scroll suave para enlaces ancla
+     */
     initSmoothScrolling() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -250,6 +425,9 @@ class AoxlabWebsite {
         });
     }
     
+    /**
+     * Inicializa las animaciones activadas por scroll
+     */
     initScrollAnimations() {
         const observerOptions = {
             threshold: 0.1,
@@ -271,8 +449,14 @@ class AoxlabWebsite {
             observer.observe(el);
         });
     }
-    
-    // === CONTADORES ANIMADOS ===
+
+    // ====================================================================
+    // CONTADORES ANIMADOS
+    // ====================================================================
+
+    /**
+     * Inicializa los contadores animados de estadísticas
+     */
     initCounters() {
         const counters = document.querySelectorAll('.stat-number');
         const counterObserver = new IntersectionObserver((entries) => {
@@ -289,6 +473,10 @@ class AoxlabWebsite {
         });
     }
     
+    /**
+     * Anima un contador específico
+     * @param {Element} element - Elemento del contador
+     */
     animateCounter(element) {
         const target = parseInt(element.getAttribute('data-count'));
         const duration = 2000; // 2 segundos
@@ -314,15 +502,23 @@ class AoxlabWebsite {
         
         requestAnimationFrame(updateCounter);
     }
-    
-    // === CHATBOT ===
+
+    // ====================================================================
+    // SISTEMA DE CHATBOT
+    // ====================================================================
+
+    /**
+     * Inicializa el sistema de chatbot
+     */
     initChatbot() {
         const chatbotToggle = document.getElementById('chatbot-toggle');
         const chatbotModal = document.getElementById('chatbot-modal');
         const chatbotClose = document.getElementById('chatbot-close');
         const chatInput = document.getElementById('chat-input');
         const sendButton = document.getElementById('send-message');
-        const chatBody = document.getElementById('chatbot-body');
+        
+        this.chatbotOpen = false;
+        this.isTyping = false;
         
         // Toggle chatbot
         chatbotToggle?.addEventListener('click', () => this.toggleChatbot());
@@ -331,17 +527,25 @@ class AoxlabWebsite {
         // Enviar mensaje
         sendButton?.addEventListener('click', () => this.sendChatMessage());
         chatInput?.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
+            if (e.key === 'Enter' && !this.isTyping) {
                 this.sendChatMessage();
             }
         });
         
+        // Habilitar/deshabilitar botón de envío
+        chatInput?.addEventListener('input', (e) => {
+            const sendBtn = document.getElementById('send-message');
+            if (sendBtn) {
+                sendBtn.disabled = e.target.value.trim().length === 0;
+            }
+        });
+        
         // Botones de acción rápida
-        document.querySelectorAll('.quick-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('quick-btn')) {
                 const action = e.target.getAttribute('data-action');
                 this.handleQuickAction(action);
-            });
+            }
         });
         
         // Cerrar con escape
@@ -352,70 +556,116 @@ class AoxlabWebsite {
         });
     }
     
+    /**
+     * Alterna la visibilidad del chatbot
+     */
     toggleChatbot() {
         const chatbotModal = document.getElementById('chatbot-modal');
         this.chatbotOpen = !this.chatbotOpen;
         
         if (this.chatbotOpen) {
-            chatbotModal.classList.add('active');
+            chatbotModal?.classList.add('active');
             document.getElementById('chat-input')?.focus();
             
             // Ocultar notificación
-            const notificationDot = document.querySelector('.notification-dot');
+            const notificationDot = document.getElementById('chatbot-notification');
             if (notificationDot) {
                 notificationDot.style.display = 'none';
             }
         } else {
-            chatbotModal.classList.remove('active');
+            chatbotModal?.classList.remove('active');
         }
     }
     
+    /**
+     * Cierra el chatbot
+     */
     closeChatbot() {
         this.chatbotOpen = false;
-        document.getElementById('chatbot-modal').classList.remove('active');
+        const chatbotModal = document.getElementById('chatbot-modal');
+        chatbotModal?.classList.remove('active');
     }
     
-    sendChatMessage() {
+    /**
+     * Envía un mensaje del chat
+     */
+    async sendChatMessage() {
+        if (this.isTyping) return;
+        
         const chatInput = document.getElementById('chat-input');
-        const message = chatInput.value.trim();
+        const message = chatInput?.value.trim();
         
         if (message) {
+            // Agregar mensaje del usuario
             this.addChatMessage(message, 'user');
             chatInput.value = '';
             
-            // Simular respuesta del bot después de un delay
-            setTimeout(() => {
-                this.generateBotResponse(message);
-            }, 1000);
+            const sendBtn = document.getElementById('send-message');
+            if (sendBtn) sendBtn.disabled = true;
+            
+            // Mostrar indicador de escritura
+            this.showTypingIndicator();
+            
+            try {
+                // Llamar a la API de OpenAI (si está configurada)
+                let response;
+                if (OPENAI_CONFIG.apiKey) {
+                    response = await this.callOpenAI(message);
+                } else {
+                    response = this.generateBotResponse(message);
+                }
+                
+                // Ocultar indicador y mostrar respuesta
+                this.hideTypingIndicator();
+                this.addChatMessage(response, 'bot');
+                
+            } catch (error) {
+                console.error('Error al comunicarse con la IA:', error);
+                this.hideTypingIndicator();
+                this.addChatMessage(
+                    'Disculpa, tengo dificultades técnicas. Por favor contacta directamente a comercial@aoxlab.com o llama al (+57) 604 7454.',
+                    'bot'
+                );
+            }
         }
     }
     
-    addChatMessage(message, sender) {
-        const chatBody = document.getElementById('chatbot-body');
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `chat-message ${sender}-message`;
+    /**
+     * Llama a la API de OpenAI para generar respuestas
+     * @param {string} userMessage - Mensaje del usuario
+     * @returns {Promise<string>} - Respuesta del bot
+     */
+    async callOpenAI(userMessage) {
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${OPENAI_CONFIG.apiKey}`
+            },
+            body: JSON.stringify({
+                model: OPENAI_CONFIG.model,
+                messages: [
+                    { role: 'system', content: CHATBOT_SYSTEM_PROMPT },
+                    { role: 'user', content: userMessage }
+                ],
+                max_tokens: OPENAI_CONFIG.maxTokens,
+                temperature: OPENAI_CONFIG.temperature
+            })
+        });
         
-        if (sender === 'user') {
-            messageDiv.innerHTML = `
-                <div class="message-content user-content">
-                    <p>${message}</p>
-                </div>
-            `;
-        } else {
-            messageDiv.innerHTML = `
-                <div class="message-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="message-content">
-                    <p>${message}</p>
-                </div>
-            `;
+        if (!response.ok) {
+            throw new Error(`Error ${response.status}: ${response.statusText}`);
         }
         
-        chatBody.appendChild(messageDiv);
-        chatBody.scrollTop = chatBody.scrollHeight;
+        const data = await response.json();
+        return data.choices[0].message.content;
     }
     
+    /**
+     * Genera respuestas automáticas del bot (fallback)
+     * @param {string} userMessage - Mensaje del usuario
+     * @returns {string} - Respuesta del bot
+     */
     generateBotResponse(userMessage) {
         const responses = {
             'servicios': '¡Excelente! Ofrecemos análisis microbiológicos, metales pesados, cannabinoides, certificaciones ISO y mucho más. ¿Qué tipo de análisis necesitas?',
@@ -440,57 +690,130 @@ class AoxlabWebsite {
             response = responses.tiempo;
         }
         
-        this.addChatMessage(response, 'bot');
+        return response;
     }
     
+    /**
+     * Agrega un mensaje al chat
+     * @param {string} message - Contenido del mensaje
+     * @param {string} sender - Tipo de remitente ('user' o 'bot')
+     */
+    addChatMessage(message, sender) {
+        const chatBody = document.getElementById('chatbot-body');
+        if (!chatBody) return;
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${sender}-message`;
+        
+        if (sender === 'user') {
+            messageDiv.innerHTML = `
+                <div class="message-content">
+                    <p>${this.escapeHtml(message)}</p>
+                </div>
+            `;
+        } else {
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>${this.escapeHtml(message)}</p>
+                </div>
+            `;
+        }
+        
+        chatBody.appendChild(messageDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+    
+    /**
+     * Muestra el indicador de escritura
+     */
+    showTypingIndicator() {
+        this.isTyping = true;
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+            typingIndicator.style.display = 'flex';
+        }
+    }
+    
+    /**
+     * Oculta el indicador de escritura
+     */
+    hideTypingIndicator() {
+        this.isTyping = false;
+        const typingIndicator = document.getElementById('typing-indicator');
+        if (typingIndicator) {
+            typingIndicator.style.display = 'none';
+        }
+    }
+    
+    /**
+     * Maneja las acciones rápidas del chatbot
+     * @param {string} action - Acción a ejecutar
+     */
     handleQuickAction(action) {
         const actions = {
-            'servicios': () => {
-                this.addChatMessage('Quiero conocer los servicios disponibles', 'user');
-                setTimeout(() => this.generateBotResponse('servicios'), 500);
-            },
-            'cotizacion': () => {
-                this.addChatMessage('Necesito una cotización', 'user');
-                setTimeout(() => this.generateBotResponse('cotizacion'), 500);
-            },
-            'resultados': () => {
-                this.addChatMessage('Quiero consultar mis resultados', 'user');
-                setTimeout(() => this.generateBotResponse('resultados'), 500);
-            }
+            'servicios': 'Quiero conocer más sobre los servicios de análisis que ofrecen',
+            'cotizacion': 'Necesito solicitar una cotización para análisis de laboratorio',
+            'resultados': 'Quiero consultar los resultados de mis análisis'
         };
         
         if (actions[action]) {
-            actions[action]();
-        }
-    }
-    
-    // === TEMA OSCURO/CLARO ===
-    initThemeToggle() {
-        const themeToggle = document.getElementById('theme-toggle');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Aplicar tema guardado
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-        function updateLogo(theme) {
-        if (logo) {
-            if (theme === 'dark') {
-                logo.src = logo.getAttribute('data-logo-dark');
-            } else {
-                logo.src = logo.getAttribute('data-logo-light');
+            const chatInput = document.getElementById('chat-input');
+            if (chatInput) {
+                chatInput.value = actions[action];
+                this.sendChatMessage();
             }
         }
     }
-    // Aplicar tema guardado y logo correcto al cargar
-    if (currentTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        updateLogo('dark');
-    } else {
-        updateLogo('light');
+    
+    /**
+     * Escapa caracteres HTML para prevenir XSS
+     * @param {string} text - Texto a escapar
+     * @returns {string} - Texto escapado
+     */
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
     }
+
+    // ====================================================================
+    // TEMA OSCURO/CLARO
+    // ====================================================================
+
+    /**
+     * Inicializa el sistema de tema oscuro/claro
+     */
+    initThemeToggle() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        const logo = document.querySelector('.logo img');
+        
+        /**
+         * Actualiza el logo según el tema
+         * @param {string} theme - Tema actual ('dark' o 'light')
+         */
+        const updateLogo = (theme) => {
+            if (logo) {
+                if (theme === 'dark') {
+                    logo.src = logo.getAttribute('data-logo-dark') || logo.src;
+                } else {
+                    logo.src = logo.getAttribute('data-logo-light') || logo.src;
+                }
+            }
+        };
+        
+        // Aplicar tema guardado al cargar
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            updateLogo('dark');
+        } else {
+            if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            updateLogo('light');
+        }
         
         themeToggle?.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
@@ -506,12 +829,15 @@ class AoxlabWebsite {
             }
         });
     }
-    
-    // === SELECTOR DE IDIOMA ===
+
+    // ====================================================================
+    // SELECTOR DE IDIOMA
+    // ====================================================================
+
+    /**
+     * Inicializa el selector de idioma
+     */
     initLanguageSelector() {
-        const languageBtn = document.getElementById('language-btn');
-        const languageOptions = document.querySelector('.language-options');
-        
         document.querySelectorAll('[data-lang]').forEach(option => {
             option.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -521,37 +847,45 @@ class AoxlabWebsite {
         });
     }
     
+    /**
+     * Cambia el idioma del sitio
+     * @param {string} lang - Código del idioma ('es' o 'en')
+     */
     changeLanguage(lang) {
-        // Implementación básica del cambio de idioma
         const langBtn = document.getElementById('language-btn');
         
         if (lang === 'en') {
-            langBtn.innerHTML = '<span class="flag-icon">🇺🇸</span> EN <i class="fas fa-chevron-down"></i>';
-            // Aquí se implementaría la traducción completa
+            if (langBtn) langBtn.innerHTML = '<span class="flag-icon">🇺🇸</span> EN <i class="fas fa-chevron-down"></i>';
             this.showNotification('Language changed to English');
         } else {
-            langBtn.innerHTML = '<span class="flag-icon">🇪🇸</span> ES <i class="fas fa-chevron-down"></i>';
+            if (langBtn) langBtn.innerHTML = '<span class="flag-icon">🇪🇸</span> ES <i class="fas fa-chevron-down"></i>';
             this.showNotification('Idioma cambiado a Español');
         }
         
         localStorage.setItem('language', lang);
     }
-    
-    // === MENÚ MÓVIL ===
+
+    // ====================================================================
+    // MENÚ MÓVIL
+    // ====================================================================
+
+    /**
+     * Inicializa el menú móvil
+     */
     initMobileMenu() {
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
         const navList = document.querySelector('.nav-list');
         
         mobileToggle?.addEventListener('click', () => {
             mobileToggle.classList.toggle('active');
-            navList.classList.toggle('mobile-open');
+            navList?.classList.toggle('mobile-open');
             
             // Animar hamburguesa
             const spans = mobileToggle.querySelectorAll('span');
             if (mobileToggle.classList.contains('active')) {
-                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                if (spans[0]) spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                if (spans[1]) spans[1].style.opacity = '0';
+                if (spans[2]) spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
             } else {
                 spans.forEach(span => {
                     span.style.transform = '';
@@ -563,13 +897,19 @@ class AoxlabWebsite {
         // Cerrar menú al hacer clic en enlace
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                mobileToggle.classList.remove('active');
-                navList.classList.remove('mobile-open');
+                mobileToggle?.classList.remove('active');
+                navList?.classList.remove('mobile-open');
             });
         });
     }
-    
-    // === BOTONES FLOTANTES ===
+
+    // ====================================================================
+    // BOTONES FLOTANTES
+    // ====================================================================
+
+    /**
+     * Inicializa los botones flotantes (WhatsApp, etc.)
+     */
     initFloatingButtons() {
         const whatsappBtn = document.querySelector('.whatsapp-float');
         const chatbotBtn = document.querySelector('.chatbot-float');
@@ -592,8 +932,168 @@ class AoxlabWebsite {
             this.trackEvent('whatsapp_click', 'floating_button');
         });
     }
+
+    // ====================================================================
+    // NAVEGACIÓN POR TECLADO
+    // ====================================================================
+
+    /**
+     * Inicializa la navegación por teclado
+     */
+    initKeyboardNavigation() {
+        document.addEventListener('keydown', (e) => {
+            if (this.chatbotOpen) return; // No interferir con el chatbot
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    this.prevSlide();
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    this.nextSlide();
+                    break;
+                case ' ': // Barra espaciadora
+                    e.preventDefault();
+                    this.toggleAutoplay();
+                    break;
+            }
+        });
+    }
     
-    // === UTILIDADES ===
+    /**
+     * Alterna el autoplay del carrusel
+     */
+    toggleAutoplay() {
+        if (this.autoplayPaused) {
+            this.resumeAutoplay();
+        } else {
+            this.pauseAutoplay();
+        }
+    }
+
+    // ====================================================================
+    // ANALYTICS Y TRACKING
+    // ====================================================================
+
+    /**
+     * Inicializa el tracking de analytics
+     */
+    initAnalyticsTracking() {
+        // Tracking de clics en CTAs del carrusel
+        document.querySelectorAll('.carousel-slide .cta-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const slide = e.target.closest('.carousel-slide');
+                const slideData = slide?.getAttribute('data-slide');
+                const buttonType = e.target.classList.contains('primary') ? 'primary' : 'secondary';
+                
+                this.trackEvent(`CTA_${buttonType}_${slideData}`, 'hero_interactions');
+            });
+        });
+        
+        // Inicializar tiempo de visualización
+        this.slideViewStartTime = Date.now();
+    }
+    
+    /**
+     * Rastrea interacciones con slides
+     * @param {string} slideData - Datos del slide
+     * @param {string} action - Acción realizada
+     */
+    trackSlideInteraction(slideData, action) {
+        const trackingData = {
+            'vida-util': 'Estudios_Vida_Util',
+            'microbiologia-anual': 'Cronograma_Microbiologia',
+            'biodegradabilidad': 'Biodegradabilidad_Acreditada'
+        };
+        
+        this.trackEvent(`${trackingData[slideData]}_${action}`, 'hero_carousel');
+    }
+    
+    /**
+     * Rastrea tiempo de visualización de slides
+     * @param {string} slideData - Datos del slide
+     */
+    trackSlideViewTime(slideData) {
+        const viewTime = Date.now() - this.slideViewStartTime;
+        this.trackEvent(`slide_view_time_${slideData}`, 'engagement', viewTime);
+        this.slideViewStartTime = Date.now();
+    }
+    
+    /**
+     * Función genérica para tracking de eventos
+     * @param {string} eventName - Nombre del evento
+     * @param {string} category - Categoría del evento
+     * @param {number} value - Valor opcional del evento
+     */
+    trackEvent(eventName, category, value = null) {
+        // Implementación con Google Analytics
+        if (typeof gtag !== 'undefined') {
+            const eventData = {
+                event_category: category,
+                event_label: 'AOXLAB Website'
+            };
+            
+            if (value !== null) {
+                eventData.value = value;
+            }
+            
+            gtag('event', eventName, eventData);
+        }
+        
+        console.log(`Event tracked: ${eventName} - ${category}`, value ? `Value: ${value}` : '');
+    }
+
+    // ====================================================================
+    // PRELOADER Y OPTIMIZACIÓN
+    // ====================================================================
+
+    /**
+     * Precarga las imágenes del carrusel
+     */
+    preloadCarouselImages() {
+        const imageUrls = [
+            'img/hero-vida-util.jpg',
+            'img/hero-microbiologia-anual.jpg',
+            'img/hero-biodegradabilidad.jpg'
+        ];
+        
+        imageUrls.forEach((url, index) => {
+            const img = new Image();
+            img.onload = () => {
+                console.log(`Imagen ${index + 1} precargada: ${url}`);
+            };
+            img.onerror = () => {
+                console.warn(`Error al precargar imagen: ${url}`);
+            };
+            img.src = url;
+        });
+    }
+    
+    /**
+     * Precarga imágenes generales del sitio
+     */
+    preloadImages() {
+        const images = [
+            'img/hero-lab-equipment.jpg',
+            'img/hero-certification.jpg',
+            'img/hero-team.jpg',
+            'img/aoxlab-logo.png'
+        ];
+        
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
+
+    // ====================================================================
+    // EVENTOS DE SISTEMA
+    // ====================================================================
+
+    /**
+     * Maneja el evento de carga de página
+     */
     onPageLoad() {
         // Ocultar loader si existe
         const loader = document.querySelector('.page-loader');
@@ -612,20 +1112,25 @@ class AoxlabWebsite {
         }
     }
     
+    /**
+     * Maneja el evento de scroll
+     */
     onScroll() {
         if (this.isScrolling) return;
         
         this.isScrolling = true;
         requestAnimationFrame(() => {
-            // Efectos de parallax sutiles
             this.updateParallax();
             this.isScrolling = false;
         });
     }
     
+    /**
+     * Maneja el evento de redimensión de ventana
+     */
     onResize() {
         // Recalcular dimensiones del carrusel
-        if (this.slides.length > 0) {
+        if (this.slides && this.slides.length > 0) {
             this.updateCarousel();
         }
         
@@ -637,30 +1142,28 @@ class AoxlabWebsite {
         }
     }
     
+    /**
+     * Actualiza efectos de parallax
+     */
     updateParallax() {
         const scrolled = window.pageYOffset;
         const heroSection = document.querySelector('.hero-section');
         
         if (heroSection) {
-            const speed = scrolled * 0.5;
+            const speed = scrolled * 0.2; // Reducido para efecto más sutil
             heroSection.style.transform = `translateY(${speed}px)`;
         }
     }
-    
-    preloadImages() {
-        const images = [
-            'img/hero-lab-equipment.jpg',
-            'img/hero-certification.jpg',
-            'img/hero-team.jpg',
-            'img/aoxlab-logo.png'
-        ];
-        
-        images.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-    }
-    
+
+    // ====================================================================
+    // UTILIDADES
+    // ====================================================================
+
+    /**
+     * Muestra una notificación temporal
+     * @param {string} message - Mensaje a mostrar
+     * @param {string} type - Tipo de notificación ('info', 'success', 'error')
+     */
     showNotification(message, type = 'info') {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
@@ -684,218 +1187,284 @@ class AoxlabWebsite {
             setTimeout(() => notification.remove(), 300);
         }, 3000);
     }
+}
+
+// ====================================================================
+// CLASE DE SERVICIOS EXPANDIBLES
+// ====================================================================
+
+/**
+ * Clase para manejar los servicios expandibles
+ */
+class ExpandableServices {
+
+    constructor() {
+        this.expandedCards = new Set(); // Para trackear cuáles están expandidas
+        this.init();
+    }
+
+        bindEvents() {
+        // Event listeners para las cartas completas
+        const serviceCards = document.querySelectorAll('.service-card.expandable');
+        serviceCards.forEach((card, index) => {
+            card.addEventListener('click', (e) => {
+                // Ignorar clics en el botón de expandir
+                if (!e.target.closest('.expand-btn')) {
+                    this.toggleService(e, index);
+                }
+            });
+        });
+
+        // Event listeners para el botón de expandir
+        const expandButtons = document.querySelectorAll('.expand-btn');
+        expandButtons.forEach((btn, index) => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.toggleService(e, index);
+            });
+        });
+    }
+
+
+    /**
+     * Inicializa los servicios expandibles
+     */
+    init() {
+        // Esperar un momento para asegurar que el DOM esté completamente cargado
+        setTimeout(() => {
+            this.bindEvents();
+            this.setupAccessibility();
+            console.log('ExpandableServices initialized'); // Para debug
+        }, 100);
+    }
+
+    /**
+     * Vincula los eventos de los servicios expandibles
+     */
+    bindEvents() {
+        // Event listeners para los headers expandibles
+        const serviceHeaders = document.querySelectorAll('.service-card.expandable .service-header');
+        console.log(`Found ${serviceHeaders.length} expandable service headers`); // Para debug
+        
+        serviceHeaders.forEach((header, index) => {
+            header.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.toggleService(e, index);
+            });
+            header.addEventListener('keydown', (e) => this.handleKeydown(e, index));
+        });
+
+        // Event listeners para los botones de expandir
+        const expandButtons = document.querySelectorAll('.expand-btn');
+        console.log(`Found ${expandButtons.length} expand buttons`); // Para debug
+        
+        expandButtons.forEach((btn, index) => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                this.toggleService(e, index);
+            });
+        });
+    }
+
+    /**
+     * Configura la accesibilidad para los servicios expandibles
+     */
+    setupAccessibility() {
+    const serviceCards = document.querySelectorAll('.service-card.expandable');
     
-    trackEvent(eventName, category) {
-        // Implementación de tracking para analytics
+    serviceCards.forEach((card, index) => {
+        const details = card.querySelector('.service-details');
+        const expandBtn = card.querySelector('.expand-btn');
+        
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('aria-controls', `service-details-${index + 1}`);
+        card.setAttribute('aria-expanded', 'false');
+        
+        if (details) {
+            details.id = `service-details-${index + 1}`;
+            details.setAttribute('aria-labelledby', `service-card-${index + 1}`);
+        }
+        
+        if (expandBtn) {
+            expandBtn.setAttribute('aria-label', 'Alternar detalles del servicio');
+        }
+    });
+}
+
+    /**
+     * Alterna el estado expandido de un servicio
+     * @param {Event} e - Evento del click
+     * @param {number} index - Índice del servicio
+     */
+    toggleService(e, index) {
+        e.preventDefault();
+        
+        const serviceCards = document.querySelectorAll('.service-card.expandable');
+        const card = serviceCards[index];
+        
+        if (!card) {
+            console.warn(`Service card at index ${index} not found`);
+            return;
+        }
+        
+        const header = card.querySelector('.service-header');
+        const expandBtn = card.querySelector('.expand-btn');
+        const details = card.querySelector('.service-details');
+        const isExpanded = card.classList.contains('expanded');
+        
+        console.log(`Toggling service ${index}, currently expanded: ${isExpanded}`); // Para debug
+        
+        // Toggle expanded state
+        if (isExpanded) {
+            card.classList.remove('expanded');
+            this.expandedCards.delete(index);
+        } else {
+            card.classList.add('expanded');
+            this.expandedCards.add(index);
+        }
+        
+        const newExpandedState = !isExpanded;
+        
+        // Update ARIA attributes
+        if (header) {
+            header.setAttribute('aria-expanded', newExpandedState.toString());
+        }
+        if (expandBtn) {
+            expandBtn.setAttribute('aria-expanded', newExpandedState.toString());
+        }
+        
+        // Update button text
+        const buttonText = expandBtn?.querySelector('span');
+        if (buttonText) {
+            buttonText.textContent = newExpandedState ? 'Ver menos detalles' : 'Ver más detalles';
+        }
+        
+        // Scroll to card if expanding
+        if (newExpandedState) {
+            setTimeout(() => {
+                const headerHeight = document.querySelector('.main-header')?.offsetHeight || 80;
+                const elementPosition = card.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+            }, 200); // Esperar a que termine la animación de expansión
+        }
+        
+        // Track analytics
+        this.trackServiceInteraction(index, newExpandedState ? 'expand' : 'collapse');
+    }
+
+    /**
+     * Maneja la navegación por teclado
+     * @param {KeyboardEvent} e - Evento del teclado
+     * @param {number} index - Índice del servicio
+     */
+    handleKeydown(e, index) {
+        // Support for Enter and Space keys
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            this.toggleService(e, index);
+        }
+    }
+
+    /**
+     * Rastrea interacciones con los servicios
+     * @param {number} index - Índice del servicio
+     * @param {string} action - Acción realizada
+     */
+    trackServiceInteraction(index, action) {
+        const serviceNames = [
+            'Cronograma_Microbiologia',
+            'Estudios_Vida_Util',
+            'Biodegradabilidad_Acreditados'
+        ];
+        
         if (typeof gtag !== 'undefined') {
-            gtag('event', eventName, {
-                event_category: category,
-                event_label: 'AOXLAB Website'
+            gtag('event', `service_${action}`, {
+                event_category: 'expandable_services',
+                event_label: serviceNames[index] || `Service_${index}`,
+                value: index + 1
             });
         }
         
-        console.log(`Event tracked: ${eventName} - ${category}`);
-    }
-
-    // Método mejorado para inicializar el chatbot
-initChatbot() {
-    const chatbotToggle = document.getElementById('chatbot-toggle');
-    const chatbotModal = document.getElementById('chatbot-modal');
-    const chatbotClose = document.getElementById('chatbot-close');
-    const chatInput = document.getElementById('chat-input');
-    const sendButton = document.getElementById('send-message');
-    const chatBody = document.getElementById('chatbot-body');
-    
-    this.chatbotOpen = false;
-    this.isTyping = false;
-    
-    // Toggle chatbot
-    chatbotToggle?.addEventListener('click', () => this.toggleChatbot());
-    chatbotClose?.addEventListener('click', () => this.closeChatbot());
-    
-    // Enviar mensaje
-    sendButton?.addEventListener('click', () => this.sendChatMessage());
-    chatInput?.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && !this.isTyping) {
-            this.sendChatMessage();
-        }
-    });
-    
-    // Habilitar/deshabilitar botón de envío
-    chatInput?.addEventListener('input', (e) => {
-        const sendBtn = document.getElementById('send-message');
-        sendBtn.disabled = e.target.value.trim().length === 0;
-    });
-    
-    // Botones de acción rápida
-    document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('quick-btn')) {
-            const action = e.target.getAttribute('data-action');
-            this.handleQuickAction(action);
-        }
-    });
-    
-    // Cerrar con escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && this.chatbotOpen) {
-            this.closeChatbot();
-        }
-    });
-}
-
-toggleChatbot() {
-    const chatbotModal = document.getElementById('chatbot-modal');
-    this.chatbotOpen = !this.chatbotOpen;
-    
-    if (this.chatbotOpen) {
-        chatbotModal.classList.add('active');
-        document.getElementById('chat-input')?.focus();
-        
-        // Ocultar notificación
-        const notificationDot = document.getElementById('chatbot-notification');
-        if (notificationDot) {
-            notificationDot.style.display = 'none';
-        }
-    } else {
-        chatbotModal.classList.remove('active');
+        console.log(`Service ${action}: ${serviceNames[index] || `Service_${index}`}`);
     }
 }
 
-closeChatbot() {
-    this.chatbotOpen = false;
-    document.getElementById('chatbot-modal').classList.remove('active');
-}
+// ====================================================================
+// FUNCIONES UTILITARIAS GLOBALES
+// ====================================================================
 
-async sendChatMessage() {
-    if (this.isTyping) return;
+/**
+ * Muestra notificación de descarga de certificados
+ * @param {string} certificateName - Nombre del certificado
+ */
+function showDownloadNotification(certificateName) {
+    const notification = document.createElement('div');
+    notification.className = 'download-notification';
+    notification.innerHTML = `
+        <i class="fas fa-check-circle"></i>
+        <p>¡Descargando certificado de ${certificateName}!</p>
+    `;
     
-    const chatInput = document.getElementById('chat-input');
-    const message = chatInput.value.trim();
+    notification.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--success-color);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        z-index: 10000;
+        animation: fadeInUp 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    `;
     
-    if (message) {
-        // Agregar mensaje del usuario
-        this.addChatMessage(message, 'user');
-        chatInput.value = '';
-        document.getElementById('send-message').disabled = true;
-        
-        // Mostrar indicador de escritura
-        this.showTypingIndicator();
-        
-        try {
-            // Llamar a la API de OpenAI
-            const response = await this.callOpenAI(message);
-            
-            // Ocultar indicador y mostrar respuesta
-            this.hideTypingIndicator();
-            this.addChatMessage(response, 'bot');
-            
-        } catch (error) {
-            console.error('Error al comunicarse con la IA:', error);
-            this.hideTypingIndicator();
-            this.addChatMessage(
-                'Disculpa, tengo dificultades técnicas. Por favor contacta directamente a comercial@aoxlab.com o llama al (+57) 604 7454.',
-                'bot'
-            );
-        }
-    }
-}
-
-
-async callOpenAI(userMessage) {
-    const response = await fetch('', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${OPENAI_CONFIG.apiKey}`
-        },
-        body: JSON.stringify({
-            model: OPENAI_CONFIG.model,
-            messages: [
-                { role: 'system', content: CHATBOT_SYSTEM_PROMPT },
-                { role: 'user', content: userMessage }
-            ],
-            max_tokens: OPENAI_CONFIG.maxTokens,
-            temperature: OPENAI_CONFIG.temperature
-        })
-    });
+    document.body.appendChild(notification);
     
-    if (!response.ok) {
-        throw new Error(`Error ${response.status}: ${response.statusText}`);
-    }
-    
-    const data = await response.json();
-    return data.choices[0].message.content;
-}
-
-addChatMessage(message, sender) {
-    const chatBody = document.getElementById('chatbot-body');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `chat-message ${sender}-message`;
-    
-    if (sender === 'user') {
-        messageDiv.innerHTML = `
-            <div class="message-content">
-                <p>${this.escapeHtml(message)}</p>
-            </div>
-        `;
-    } else {
-        messageDiv.innerHTML = `
-            <div class="message-avatar">
-                <i class="fas fa-robot"></i>
-            </div>
-            <div class="message-content">
-                <p>${this.escapeHtml(message)}</p>
-            </div>
-        `;
-    }
-    
-    chatBody.appendChild(messageDiv);
-    chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-showTypingIndicator() {
-    this.isTyping = true;
-    const typingIndicator = document.getElementById('typing-indicator');
-    typingIndicator.style.display = 'flex';
-}
-
-hideTypingIndicator() {
-    this.isTyping = false;
-    const typingIndicator = document.getElementById('typing-indicator');
-    typingIndicator.style.display = 'none';
-}
-
-handleQuickAction(action) {
-    const actions = {
-        'servicios': 'Quiero conocer más sobre los servicios de análisis que ofrecen',
-        'cotizacion': 'Necesito solicitar una cotización para análisis de laboratorio',
-        'resultados': 'Quiero consultar los resultados de mis análisis'
-    };
-    
-    if (actions[action]) {
-        document.getElementById('chat-input').value = actions[action];
-        this.sendChatMessage();
-    }
-}
-
-escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
-
-
-
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Inicializar después de asegurar que el DOM está listo
     setTimeout(() => {
-        const website = new AoxlabWebsite();
+        notification.classList.add('show');
     }, 100);
+    
+    setTimeout(() => {
+        notification.style.animation = 'fadeOut 0.3s ease';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// ====================================================================
+// INICIALIZACIÓN Y ESTILOS
+// ====================================================================
+
+/**
+ * Inicialización principal del sitio web
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    // Esperar un momento para asegurar que todo el DOM esté listo
+    setTimeout(() => {
+        new AoxlabWebsite();
+    }, 100);
+    
+    // Agregar event listeners para certificados
+    const certificateButtons = document.querySelectorAll('.certificate-btn');
+    certificateButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const certificateName = this.querySelector('h3')?.textContent || 'Certificado';
+            showDownloadNotification(certificateName);
+        });
+    });
 });
 
-// Registrar Service Worker para PWA (opcional)
+/**
+ * Registro de Service Worker para PWA (opcional)
+ */
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
@@ -908,7 +1477,9 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// Añadir estilos CSS para notificaciones
+/**
+ * Estilos CSS adicionales para notificaciones
+ */
 const notificationStyles = document.createElement('style');
 notificationStyles.textContent = `
     @keyframes slideInRight {
@@ -933,72 +1504,45 @@ notificationStyles.textContent = `
         }
     }
     
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        to {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.9);
+        }
+    }
+    
     .notification {
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         font-family: var(--font-primary);
         font-weight: 500;
     }
+    
+    .download-notification {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .download-notification i {
+        font-size: 1.2rem;
+    }
 `;
+
 document.head.appendChild(notificationStyles);
 
-//Aqui estara el apartado completo del chatbot
-
-
-
-// Prompt inicial para el chatbot de AOXLAB
-const CHATBOT_SYSTEM_PROMPT = `Eres un asistente virtual especializado de AOXLAB, un laboratorio de análisis y certificación en Medellín, Colombia. 
-
-INFORMACIÓN SOBRE AOXLAB:
-- Laboratorio especializado en análisis microbiológicos, metales pesados y cannabinoides
-- Certificaciones ISO/IEC 17025:2017 y próximamente ISO 17065
-- 13 años de experiencia, más de 300 equipos, 2500+ clientes satisfechos
-- Ubicación: Calle 32F #74B-122, Laureles, Medellín
-- Teléfono: (+57) 604 7454
-- Email: comercial@aoxlab.com
-
-SERVICIOS PRINCIPALES:
-1. Análisis Microbiológicos (recuento de aerobios, detección de patógenos, análisis de agua)
-2. Metales Pesados (plomo, mercurio, cadmio por ICP-MS)
-3. Perfil de Cannabinoides (CBD, THC, CBG, CBN, terpenos)
-4. Certificación ISO 17065 (productos ecológicos, agroindustriales, cosméticos)
-
-INSTRUCCIONES:
-- Responde de manera profesional, amigable y concisa
-- Enfócate en los servicios y capacidades de AOXLAB
-- Si no tienes información específica, dirige al cliente a contactar directamente
-- Usa un tono técnico pero accesible
-- Máximo 100 palabras por respuesta`;
-// Función para mostrar notificación de descarga
-function showDownloadNotification(certificateName) {
-    const notification = document.createElement('div');
-    notification.className = 'download-notification';
-    notification.innerHTML = `
-        <i class="fas fa-check-circle"></i>
-        <p>¡Descargando certificado de ${certificateName}!</p>
-    `;
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 100);
-    
-    setTimeout(() => {
-        notification.classList.remove('show');
-        setTimeout(() => {
-            notification.remove();
-        }, 500);
-    }, 3000);
-}
-
-// Agregar evento de clic a todos los botones de certificado
-document.addEventListener('DOMContentLoaded', () => {
-    const certificateButtons = document.querySelectorAll('.certificate-btn');
-    
-    certificateButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // No interrumpimos la descarga, solo mostramos notificación
-            const certificateName = this.querySelector('h3').textContent;
-            showDownloadNotification(certificateName);
-        });
-    });
+/**
+ * Manejo de errores globales
+ */
+window.addEventListener('error', (e) => {
+    console.error('Error en AOXLAB Website:', e.error);
 });
+
+window.addEventListener('unhandledrejection', (e) => {
+    console.error('Promise rechazada en AOXLAB Website:', e.reason);
+});
+
+console.log('🧪 AOXLAB Website - Sistema cargado exitosamente v2.0');
