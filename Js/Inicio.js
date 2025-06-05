@@ -1197,34 +1197,10 @@ class AoxlabWebsite {
  * Clase para manejar los servicios expandibles
  */
 class ExpandableServices {
-
     constructor() {
         this.expandedCards = new Set(); // Para trackear cuáles están expandidas
         this.init();
     }
-
-        bindEvents() {
-        // Event listeners para las cartas completas
-        const serviceCards = document.querySelectorAll('.service-card.expandable');
-        serviceCards.forEach((card, index) => {
-            card.addEventListener('click', (e) => {
-                // Ignorar clics en el botón de expandir
-                if (!e.target.closest('.expand-btn')) {
-                    this.toggleService(e, index);
-                }
-            });
-        });
-
-        // Event listeners para el botón de expandir
-        const expandButtons = document.querySelectorAll('.expand-btn');
-        expandButtons.forEach((btn, index) => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.toggleService(e, index);
-            });
-        });
-    }
-
 
     /**
      * Inicializa los servicios expandibles
@@ -1242,25 +1218,46 @@ class ExpandableServices {
      * Vincula los eventos de los servicios expandibles
      */
     bindEvents() {
-        // Event listeners para los headers expandibles
-        const serviceHeaders = document.querySelectorAll('.service-card.expandable .service-header');
-        console.log(`Found ${serviceHeaders.length} expandable service headers`); // Para debug
+        // Event listeners para las tarjetas completas
+        const serviceCards = document.querySelectorAll('.service-card.expandable');
+        console.log(`Found ${serviceCards.length} expandable service cards`); // Para debug
         
-        serviceHeaders.forEach((header, index) => {
-            header.addEventListener('click', (e) => {
+        serviceCards.forEach((card, index) => {
+            // Hacer toda la tarjeta clickeable
+            card.addEventListener('click', (e) => {
+                // Prevenir el comportamiento por defecto
                 e.preventDefault();
+                
+                // Ignorar clics en enlaces o botones específicos dentro de la tarjeta
+                if (e.target.closest('a') || e.target.closest('button:not(.expand-btn)')) {
+                    return;
+                }
+                
                 this.toggleService(e, index);
             });
-            header.addEventListener('keydown', (e) => this.handleKeydown(e, index));
+
+            // Soporte para navegación por teclado
+            card.addEventListener('keydown', (e) => this.handleKeydown(e, index));
+            
+            // Mejorar la experiencia visual al pasar el mouse
+            card.addEventListener('mouseenter', () => {
+                if (!card.classList.contains('expanded')) {
+                    card.style.cursor = 'pointer';
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.cursor = 'default';
+            });
         });
 
-        // Event listeners para los botones de expandir
+        // Event listeners específicos para el botón de expandir (para mejor UX)
         const expandButtons = document.querySelectorAll('.expand-btn');
         console.log(`Found ${expandButtons.length} expand buttons`); // Para debug
         
         expandButtons.forEach((btn, index) => {
             btn.addEventListener('click', (e) => {
-                e.stopPropagation();
+                e.stopPropagation(); // Evitar que se dispare dos veces
                 e.preventDefault();
                 this.toggleService(e, index);
             });
@@ -1271,27 +1268,31 @@ class ExpandableServices {
      * Configura la accesibilidad para los servicios expandibles
      */
     setupAccessibility() {
-    const serviceCards = document.querySelectorAll('.service-card.expandable');
-    
-    serviceCards.forEach((card, index) => {
-        const details = card.querySelector('.service-details');
-        const expandBtn = card.querySelector('.expand-btn');
+        const serviceCards = document.querySelectorAll('.service-card.expandable');
         
-        card.setAttribute('role', 'button');
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('aria-controls', `service-details-${index + 1}`);
-        card.setAttribute('aria-expanded', 'false');
-        
-        if (details) {
-            details.id = `service-details-${index + 1}`;
-            details.setAttribute('aria-labelledby', `service-card-${index + 1}`);
-        }
-        
-        if (expandBtn) {
-            expandBtn.setAttribute('aria-label', 'Alternar detalles del servicio');
-        }
-    });
-}
+        serviceCards.forEach((card, index) => {
+            const details = card.querySelector('.service-details');
+            const expandBtn = card.querySelector('.expand-btn');
+            
+            // Configurar la tarjeta como elemento interactivo
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-controls', `service-details-${index + 1}`);
+            card.setAttribute('aria-expanded', 'false');
+            card.setAttribute('aria-label', 'Expandir información del servicio');
+            
+            if (details) {
+                details.id = `service-details-${index + 1}`;
+                details.setAttribute('aria-labelledby', `service-card-${index + 1}`);
+            }
+            
+            if (expandBtn) {
+                expandBtn.setAttribute('aria-label', 'Alternar detalles del servicio');
+                // Hacer que el botón no sea tabulable ya que la tarjeta completa lo es
+                expandBtn.setAttribute('tabindex', '-1');
+            }
+        });
+    }
 
     /**
      * Alterna el estado expandido de un servicio
@@ -1299,8 +1300,6 @@ class ExpandableServices {
      * @param {number} index - Índice del servicio
      */
     toggleService(e, index) {
-        e.preventDefault();
-        
         const serviceCards = document.querySelectorAll('.service-card.expandable');
         const card = serviceCards[index];
         
@@ -1309,36 +1308,61 @@ class ExpandableServices {
             return;
         }
         
-        const header = card.querySelector('.service-header');
         const expandBtn = card.querySelector('.expand-btn');
         const details = card.querySelector('.service-details');
         const isExpanded = card.classList.contains('expanded');
         
         console.log(`Toggling service ${index}, currently expanded: ${isExpanded}`); // Para debug
         
-        // Toggle expanded state
+        // Toggle expanded state con animación suave
         if (isExpanded) {
             card.classList.remove('expanded');
             this.expandedCards.delete(index);
+            
+            // Animar el cierre
+            if (details) {
+                details.style.maxHeight = details.scrollHeight + 'px';
+                details.offsetHeight; // Force reflow
+                details.style.maxHeight = '0px';
+            }
         } else {
             card.classList.add('expanded');
             this.expandedCards.add(index);
+            
+            // Animar la apertura
+            if (details) {
+                details.style.maxHeight = '0px';
+                details.offsetHeight; // Force reflow
+                details.style.maxHeight = details.scrollHeight + 'px';
+                
+                // Limpiar el estilo después de la animación
+                setTimeout(() => {
+                    if (card.classList.contains('expanded')) {
+                        details.style.maxHeight = 'none';
+                    }
+                }, 300);
+            }
         }
         
         const newExpandedState = !isExpanded;
         
         // Update ARIA attributes
-        if (header) {
-            header.setAttribute('aria-expanded', newExpandedState.toString());
-        }
+        card.setAttribute('aria-expanded', newExpandedState.toString());
+        
         if (expandBtn) {
             expandBtn.setAttribute('aria-expanded', newExpandedState.toString());
-        }
-        
-        // Update button text
-        const buttonText = expandBtn?.querySelector('span');
-        if (buttonText) {
-            buttonText.textContent = newExpandedState ? 'Ver menos detalles' : 'Ver más detalles';
+            
+            // Update button text and icon
+            const buttonText = expandBtn.querySelector('span');
+            const buttonIcon = expandBtn.querySelector('i');
+            
+            if (buttonText) {
+                buttonText.textContent = newExpandedState ? 'Ver menos detalles' : 'Ver más detalles';
+            }
+            
+            if (buttonIcon) {
+                buttonIcon.className = newExpandedState ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+            }
         }
         
         // Scroll to card if expanding
@@ -1351,7 +1375,7 @@ class ExpandableServices {
                     top: elementPosition,
                     behavior: 'smooth'
                 });
-            }, 200); // Esperar a que termine la animación de expansión
+            }, 150); // Reducido el tiempo para mejor UX
         }
         
         // Track analytics
@@ -1368,6 +1392,21 @@ class ExpandableServices {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             this.toggleService(e, index);
+        }
+        
+        // Soporte para navegación con flechas
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            const serviceCards = document.querySelectorAll('.service-card.expandable');
+            let nextIndex;
+            
+            if (e.key === 'ArrowDown') {
+                nextIndex = index < serviceCards.length - 1 ? index + 1 : 0;
+            } else {
+                nextIndex = index > 0 ? index - 1 : serviceCards.length - 1;
+            }
+            
+            serviceCards[nextIndex]?.focus();
         }
     }
 
