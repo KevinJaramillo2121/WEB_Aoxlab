@@ -704,52 +704,142 @@ body {
 .certifications-section {
     text-align: center;
     margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
 }
 
 .certifications-section h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
-    margin-bottom: var(--spacing-lg);
-}
+    margin-bottom: var(--spacing-xl);
+    font-weight: var(--font-weight-bold);
+} 
 
 .cert-badges {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas para la fila inferior */
+    grid-template-rows: auto auto; /* Dos filas */
     gap: var(--spacing-lg);
-    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
 }
 
+/* Estilos base para todas las certificaciones */
 .cert-badge {
     background: var(--white);
-    padding: var(--spacing-lg);
     border-radius: var(--border-radius-lg);
-    box-shadow: 0 4px 15px var(--shadow-light);
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: all var(--transition-medium);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 3px solid transparent;
+    padding: var(--spacing-lg);
+    min-height: 160px;
+}
+
+
+.cert-badge img {
+    width: auto;
+    max-width: 100%;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: var(--spacing-md);
+    transition: all var(--transition-medium);
+}
+
+.cert-badge:hover img {
+    transform: scale(1.05);
+}
+
+.cert-badge span {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+    margin-bottom: var(--spacing-sm);
+}
+
+.download-link {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    font-size: 0.9rem;
     transition: all var(--transition-medium);
     text-align: center;
     min-width: 150px;
 }
 
+.download-link:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+
+.download-link.disabled {
+    background: var(--medium-gray);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.download-link.disabled:hover {
+    background: var(--medium-gray);
+    transform: none;
+    box-shadow: none;
+}
+
 .cert-badge:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px var(--shadow-medium);
-}
-
-.cert-badge img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: var(--spacing-sm);
-}
-
-.cert-badge span {
-    font-size: 0.9rem;
-    color: var(--primary-color);
-    font-weight: var(--font-weight-bold);
-}
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+    border-color: var(--secondary-color);
+} 
 
 .cert-badge.coming-soon {
     opacity: 0.8;
     position: relative;
+} 
+
+.cert-badge.coming-soon::after {
+    content: 'PRÓXIMAMENTE';
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: var(--accent-color);
+    color: var(--white);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-size: 0.7rem;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para certificación próxima */
+.cert-badge.coming-soon .download-link {
+    background: var(--medium-gray);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Estilo especial para certificación próxima */
+.cert-badge.coming-soon .download-link {
+    background: var(--medium-gray);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.cert-badge.coming-soon .download-link:hover {
+    background: var(--medium-gray);
+    transform: none;
+    box-shadow: none;
 }
 
 .cert-badge.coming-soon::after {
@@ -763,6 +853,99 @@ body {
     border-radius: 4px;
     font-size: 0.7rem;
     font-weight: var(--font-weight-bold);
+}
+
+/* Certificación ONAC - Diseño horizontal especial */
+.cert-badge:nth-child(1) {
+    border-top: 4px solid var(--secondary-color);
+    background: linear-gradient(135deg, rgba(43, 161, 212, 0.03), var(--white));
+}
+
+/* Estilos específicos para certificación ISO/IEC 17025 */
+.cert-badge:nth-child(1) {
+    grid-column: 1 / -1; /* Ocupa ambas columnas */
+    grid-row: 1;
+    max-width: 100%;
+    min-height: 200px; /* Altura mayor para ONAC */
+    display: flex;
+    flex-direction: row; /* Diseño horizontal */
+    align-items: center;
+    text-align: left;
+    padding: var(--spacing-xl) var(--spacing-xxl);
+}
+
+.cert-badge:nth-child(1) img {
+    width: auto;
+    max-width: 400px; /* Ancho máximo mayor */
+    height: 140px; /* Altura fija más grande */
+    object-fit: contain;
+    margin-right: var(--spacing-xl); /* Margen derecho en lugar de inferior */
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.cert-badge:nth-child(1):hover {
+    background: linear-gradient(135deg, rgba(43, 161, 212, 0.05), var(--white));
+}
+
+.cert-badge:nth-child(1):hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 15px 40px rgba(43, 161, 212, 0.3);
+}
+
+.cert-badge:nth-child(1) .cert-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    flex: 1;
+}
+
+.cert-badge:nth-child(1) span {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+}
+
+.cert-badge:nth-child(1) .download-link {
+    align-self: flex-start;
+    margin-top: var(--spacing-sm);
+}
+
+/* Estilos específicos para certificación ICA */
+.cert-badge:nth-child(2) {
+    border-top: 4px solid var(--success-color);
+}
+
+.cert-badge:nth-child(2):hover {
+    background: linear-gradient(135deg, rgba(141, 178, 61, 0.05), var(--white));
+}
+/* Estilos específicos para ISO 17065 (Próximamente) */
+.cert-badge:nth-child(3) {
+    border-top: 4px solid var(--accent-color);
+}
+
+.cert-badge:nth-child(3):hover {
+    background: linear-gradient(135deg, rgba(243, 119, 40, 0.05), var(--white));
+}
+
+.cert-badge:nth-child(2) img,
+.cert-badge:nth-child(3) img {
+    width: auto;
+    max-width: 100%;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: var(--spacing-md);
+}
+
+.cert-badge:nth-child(2),
+.cert-badge:nth-child(3) {
+    min-height: 180px;
+    flex-direction: column;
+    text-align: center;
 }
 
 /* Servicios Destacados */
@@ -2638,6 +2821,62 @@ input:focus {
     .chatbot-float {
         left: calc(var(--spacing-sm) + 70px);
         bottom: var(--spacing-md);
+    }
+}
+
+
+@media (max-width: 992px) {
+    .cert-badges {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-lg);
+    }
+    
+    .cert-badge {
+        min-height: 260px;
+        padding: var(--spacing-lg);
+    }
+    
+    .cert-badge img {
+        height: 100px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cert-badges {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .cert-badge {
+        min-height: 240px;
+        padding: var(--spacing-md);
+    }
+    
+    .cert-badge img {
+        height: 90px;
+    }
+    
+    .certifications-section h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile pequeño */
+@media (max-width: 480px) {
+    .cert-badge {
+        min-height: 220px;
+        padding: var(--spacing-sm);
+    }
+    
+    .cert-badge img {
+        height: 80px;
+    }
+    
+    .download-link {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.8rem;
     }
 }
 
