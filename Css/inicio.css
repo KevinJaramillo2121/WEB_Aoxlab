@@ -872,6 +872,7 @@ body {
     align-items: center;
     text-align: left;
     padding: var(--spacing-xl) var(--spacing-xxl);
+    background-color: #fff ;
 }
 
 .cert-badge:nth-child(1) img {
@@ -885,12 +886,12 @@ body {
 }
 
 .cert-badge:nth-child(1):hover {
-    background: linear-gradient(135deg, rgba(43, 161, 212, 0.05), var(--white));
+    background: linear-gradient(135deg, #fff, var(--white));
 }
 
 .cert-badge:nth-child(1):hover {
     border-color: var(--secondary-color);
-    box-shadow: 0 15px 40px rgba(43, 161, 212, 0.3);
+    box-shadow: 0 15px 40px #fff;
 }
 
 .cert-badge:nth-child(1) .cert-content {
