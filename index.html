@@ -90,36 +90,39 @@
     <main>
         <!-- Sección Hero --><!--Este apartado debe  ser modificado para que se puedan poner 5 apartados nuevos con los cambios acutales-->
         <section id="inicio" class="hero-section">
-            <div class="hero-carousel">
-                <div class="carousel-container">
-                    <div class="carousel-slide active">
-                        <img src="img/entregamos valor.jpg" alt="Equipos de laboratorio modernos AOXLAB" loading="eager">
-                        <div class="slide-content">
-                            <h1>Entregamos valor a la industria y a la ciencia con servicios analíticos</h1>
-                            <a href="#contacto" class="cta-btn primary">Cotiza tu análisis</a>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-slide">
-                        <img src="img/certificación de producto.jpg" alt="Certificación ISO 17025 AOXLAB" loading="lazy">
-                        <div class="slide-content">
-                            <h1>Somos certificadores de productos bajo ISO/IEC 17065:2012</h1>
-                            <a href="certificaciones.html" class="cta-btn secondary">Solicita tu certificación</a>
-                        </div>
-                    </div>
-                    
-                    <div class="carousel-slide">
-                        <img src="img/Trabaja con nostros.jpg" alt="Equipo científico AOXLAB" loading="lazy">
-                        <div class="slide-content">
-                            <h1>Únete a nuestro equipo</h1>
-                            <p>Crecemos con mentes brillantes comprometidas con la excelencia</p>
-                            <a href="trabaja-con-nosotros.html" class="cta-btn tertiary">Trabaja con nosotros</a>
-                        </div>
+        <div class="hero-carousel">
+            <div class="carousel-container">
+                <!-- Slide 1: Entregamos valor -->
+                <div class="carousel-slide active">
+                    <img src="img/entregamos valor.jpg" alt="Equipos de laboratorio modernos AOXLAB" loading="eager">
+                    <div class="slide-content">
+                        <h1>Entregamos valor a la industria y a la ciencia con servicios analíticos</h1>
+                        <a href="#contacto" class="cta-btn primary">Cotiza tu análisis</a>
                     </div>
                 </div>
-                                
+                
+                <!-- Slide 2: Certificación de producto -->
+                <div class="carousel-slide">
+                    <img src="img/certificación de producto.jpg" alt="Certificación ISO 17025 AOXLAB" loading="lazy">
+                    <div class="slide-content">
+                        <h1>Somos certificadores de productos bajo ISO/IEC 17065:2012</h1>
+                        <a href="certificaciones.html" class="cta-btn secondary">Solicita tu certificación</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 3: Trabaja con nosotros -->
+                <div class="carousel-slide">
+                    <img src="img/Trabaja con nostros.jpg" alt="Equipo científico AOXLAB" loading="lazy">
+                    <div class="slide-content">
+                        <h1>Únete a nuestro equipo</h1>
+                        <p>Crecemos con mentes brillantes comprometidas con la excelencia</p>
+                        <a href="trabaja-con-nosotros.html" class="cta-btn tertiary">Trabaja con nosotros</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 4: Vida Útil -->
                 <div class="carousel-slide" data-slide="vida-util">
-                    <img src="img/vida útil.jpg" alt="Estudios de Vida Útil - Laboratorio AOXLAB">
+                    <img src="img/vida útil.jpg" alt="Estudios de Vida Útil - Laboratorio AOXLAB" loading="lazy">
                     <div class="slide-content">
                         <div class="hero-badge">
                             <i class="fas fa-clock"></i> Estudios Especializados
@@ -132,10 +135,10 @@
                         </div>
                     </div>
                 </div>
-
                 
+                <!-- Slide 5: Microbiología Anual -->
                 <div class="carousel-slide" data-slide="microbiologia-anual">
-                    <img src="img/Cronograma microbiologia.jpg" alt="Cronograma de Microbiología Anual - AOXLAB">
+                    <img src="img/Cronograma microbiologia.jpg" alt="Cronograma de Microbiología Anual - AOXLAB" loading="lazy">
                     <div class="slide-content">
                         <div class="hero-badge">
                             <i class="fas fa-calendar-check"></i> Planificación Integral
@@ -148,10 +151,10 @@
                         </div>
                     </div>
                 </div>
-
                 
+                <!-- Slide 6: Biodegradabilidad -->
                 <div class="carousel-slide" data-slide="biodegradabilidad">
-                    <img src="img/biodegradabilidad.jpg" alt="Estudios de Biodegradabilidad Acreditados - AOXLAB">
+                    <img src="img/biodegradabilidad.jpg" alt="Estudios de Biodegradabilidad Acreditados - AOXLAB" loading="lazy">
                     <div class="slide-content">
                         <div class="hero-badge">
                             <i class="fas fa-leaf"></i> Acreditación ISO/IEC 17025:2017
@@ -164,44 +167,45 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Controles del carrusel -->
-                <button class="carousel-btn prev" aria-label="Imagen anterior">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="carousel-btn next" aria-label="Siguiente imagen">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                
-                <!-- Indicadores -->
-                <div class="carousel-indicators">
-                    <div class="indicator active" data-slide="0"></div>
-                    <div class="indicator" data-slide="1"></div>
-                    <div class="indicator" data-slide="2"></div>
-                    <div class="indicator" data-slide="3"></div>
-                    <div class="indicator" data-slide="4"></div>
-                    <div class="indicator" data-slide="5"></div>
-                </div>
             </div>
             
-            <!-- Overlay con mensaje principal -->
-            <div class="hero-overlay">
-                <div class="container">
-                    <div class="hero-content">
-                        <div class="hero-badge">
-                            <span><i class="fas fa-certificate"></i> Acreditación ISO/IEC 17065:2012 (Proximamente)</span>
-                        </div>
-                        <h2 class="hero-subtitle">Garantizamos confianza y cumplimiento normativo en cada evaluación</h2>
-                        <div class="hero-ctas">
-                            <a href="#servicios" class="btn-scroll">
-                                <span>Descubre nuestros servicios</span>
-                                <i class="fas fa-arrow-down"></i>
-                            </a>
-                        </div>
+            <!-- Controles del carrusel -->
+            <button class="carousel-btn prev" aria-label="Imagen anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" aria-label="Siguiente imagen">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <div class="indicator active" data-slide="0" data-tooltip="Análisis"></div>
+                <div class="indicator" data-slide="1" data-tooltip="Certificación"></div>
+                <div class="indicator" data-slide="2" data-tooltip="Equipo"></div>
+                <div class="indicator" data-slide="3" data-tooltip="Vida Útil"></div>
+                <div class="indicator" data-slide="4" data-tooltip="Microbiología"></div>
+                <div class="indicator" data-slide="5" data-tooltip="Biodegradabilidad"></div>
+            </div>
+        </div>
+        
+        <!-- Overlay con mensaje principal -->
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span><i class="fas fa-certificate"></i> Acreditación ISO/IEC 17065:2012 (Próximamente)</span>
+                    </div>
+                    <h2 class="hero-subtitle">Garantizamos confianza y cumplimiento normativo en cada evaluación</h2>
+                    <div class="hero-ctas">
+                        <a href="#servicios" class="btn-scroll">
+                            <span>Descubre nuestros servicios</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- Sección de Estadísticas -->
         <section class="stats-section" id="estadisticas">

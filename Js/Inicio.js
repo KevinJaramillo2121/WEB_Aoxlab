@@ -110,11 +110,22 @@ class AoxlabWebsite {
 
     /**
      * Inicializa el carrusel de imágenes del hero section
-     */
+    /**
+ * Inicializa el carrusel de imágenes del hero section
+ */
     initCarousel() {
         const carousel = document.querySelector('.hero-carousel');
-        if (!carousel) return;
+        if (!carousel) {
+            console.warn('Carrusel no encontrado');
+            return;
+        }
         
+        // Reinicializar propiedades
+        this.currentSlide = 0;
+        this.autoplayPaused = false;
+        this.manuallyPaused = false;
+        
+        // Seleccionar elementos del carrusel
         this.slides = document.querySelectorAll('.carousel-slide');
         this.indicators = document.querySelectorAll('.indicator');
         this.prevBtn = document.querySelector('.carousel-btn.prev');
@@ -122,30 +133,99 @@ class AoxlabWebsite {
         
         this.totalSlides = this.slides.length;
         
-        if (this.totalSlides === 0) return;
+        console.log(`Carrusel inicializado con ${this.totalSlides} slides`);
+        
+        if (this.totalSlides === 0) {
+            console.warn('No se encontraron slides');
+            return;
+        }
+        
+        // Asegurar que el primer slide esté activo
+        this.slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === 0);
+        });
+        
+        this.indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === 0);
+        });
         
         // Configurar tooltips para indicadores
         this.setupIndicatorTooltips();
         
-        // Event listeners del carrusel
-        this.prevBtn?.addEventListener('click', () => this.prevSlide());
-        this.nextBtn?.addEventListener('click', () => this.nextSlide());
+        // Event listeners del carrusel - Con verificación
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.prevSlide();
+            });
+            console.log('Event listener agregado al botón anterior');
+        }
+        
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.nextSlide();
+            });
+            console.log('Event listener agregado al botón siguiente');
+        }
         
         // Indicadores con navegación directa
         this.indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => this.goToSlide(index));
+            indicator.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log(`Clic en indicador ${index}`);
+                this.goToSlide(index);
+            });
+            
+            // Hacer que los indicadores sean más accesibles
+            indicator.setAttribute('tabindex', '0');
+            indicator.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.goToSlide(index);
+                }
+            });
+        });
+        
+        // Event listeners para los CTAs de todos los slides
+        this.slides.forEach((slide, slideIndex) => {
+            const ctaBtns = slide.querySelectorAll('.cta-btn');
+            ctaBtns.forEach((btn, btnIndex) => {
+                btn.addEventListener('click', (e) => {
+                    // No prevenir default aquí ya que queremos que los enlaces funcionen
+                    console.log(`CTA ${btnIndex} clickeado en slide ${slideIndex}`);
+                    this.trackSlideInteraction(`slide_${slideIndex}`, `cta_${btnIndex}_click`);
+                });
+            });
         });
         
         // Auto-play del carrusel
         this.startAutoplay();
         
-        // Pausar en hover
-        carousel.addEventListener('mouseenter', () => this.pauseAutoplay());
-        carousel.addEventListener('mouseleave', () => this.startAutoplay());
+        // Pausar/reanudar en hover
+        carousel.addEventListener('mouseenter', () => {
+            console.log('Mouse enter - pausando autoplay');
+            this.pauseAutoplay();
+        });
+        
+        carousel.addEventListener('mouseleave', () => {
+            console.log('Mouse leave - reanudando autoplay');
+            if (!this.manuallyPaused) {
+                this.resumeAutoplay();
+            }
+        });
         
         // Soporte para touch/swipe en móviles
         this.initTouchControls(carousel);
+        
+        // Verificar que todo esté funcionando
+        console.log('Carrusel completamente inicializado');
+        console.log('Slides:', this.slides.length);
+        console.log('Indicadores:', this.indicators.length);
+        console.log('Botón anterior:', !!this.prevBtn);
+        console.log('Botón siguiente:', !!this.nextBtn);
     }
+
 
     /**
      * Configura tooltips informativos para los indicadores del carrusel
@@ -193,16 +273,42 @@ class AoxlabWebsite {
     /**
      * Actualiza la visualización del carrusel
      */
+    /**
+ * Actualiza la visualización del carrusel con mejor validación
+ */
     updateCarousel() {
+        console.log(`Actualizando carrusel - slide actual: ${this.currentSlide}`);
+        
+        // Validar índice actual
+        if (this.currentSlide < 0) {
+            this.currentSlide = this.totalSlides - 1;
+        } else if (this.currentSlide >= this.totalSlides) {
+            this.currentSlide = 0;
+        }
+        
         // Actualizar slides
         this.slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === this.currentSlide);
+            const isActive = index === this.currentSlide;
+            slide.classList.toggle('active', isActive);
+            
+            // Mejorar accesibilidad
+            slide.setAttribute('aria-hidden', !isActive);
+            if (isActive) {
+                slide.setAttribute('aria-live', 'polite');
+            } else {
+                slide.removeAttribute('aria-live');
+            }
         });
         
         // Actualizar indicadores
         this.indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === this.currentSlide);
+            const isActive = index === this.currentSlide;
+            indicator.classList.toggle('active', isActive);
+            indicator.setAttribute('aria-pressed', isActive);
         });
+        
+        // Animar contenido del slide
+        this.animateSlideContent();
         
         // Tracking de visualización
         const currentSlideData = this.slides[this.currentSlide]?.getAttribute('data-slide');
@@ -210,9 +316,9 @@ class AoxlabWebsite {
             this.trackSlideViewTime(currentSlideData);
         }
         
-        // Animar contenido del slide
-        this.animateSlideContent();
+        console.log(`Slide ${this.currentSlide} ahora activo`);
     }
+
     
     /**
      * Anima el contenido del slide activo
@@ -243,18 +349,62 @@ class AoxlabWebsite {
     /**
      * Inicia la reproducción automática del carrusel
      */
+    /**
+ * Inicia la reproducción automática del carrusel con mejor control
+ */
     startAutoplay() {
+        // Limpiar cualquier interval existente
         if (this.autoplayInterval) {
             clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
         }
         
-        // Tiempo ajustado a 4 segundos para mejor flujo con más slides
-        this.autoplayInterval = setInterval(() => {
-            if (!this.autoplayPaused && !this.manuallyPaused) {
-                this.nextSlide();
-            }
-        }, 4000);
+        // Solo iniciar si no está pausado manualmente
+        if (!this.manuallyPaused) {
+            console.log('Iniciando autoplay del carrusel');
+            this.autoplayInterval = setInterval(() => {
+                if (!this.autoplayPaused && !this.manuallyPaused) {
+                    this.nextSlide();
+                }
+            }, 3000); // 5 segundos entre slides
+            
+            this.autoplayPaused = false;
+        }
     }
+
+    /**
+     * Pausa la reproducción automática del carrusel
+     */
+    pauseAutoplay() {
+        this.autoplayPaused = true;
+        console.log('Autoplay pausado');
+    }
+
+    /**
+     * Reanuda la reproducción automática del carrusel
+     */
+    resumeAutoplay() {
+        if (!this.manuallyPaused) {
+            this.autoplayPaused = false;
+            this.startAutoplay();
+            console.log('Autoplay reanudado');
+        }
+    }
+
+    /**
+     * Pausa manualmente el autoplay (para controles de usuario)
+     */
+    toggleManualPause() {
+        this.manuallyPaused = !this.manuallyPaused;
+        if (this.manuallyPaused) {
+            this.pauseAutoplay();
+            console.log('Autoplay pausado manualmente');
+        } else {
+            this.resumeAutoplay();
+            console.log('Autoplay reanudado manualmente');
+        }
+    }
+
     
     /**
      * Pausa la reproducción automática del carrusel
