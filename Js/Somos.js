@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
             offset: 100
         });
     }
-    
     // Animación de números en estadísticas del hero
     animateNumbers();
     
@@ -24,31 +23,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function animateNumbers() {
     const statNumbers = document.querySelectorAll('.somos-hero .stat-number');
-    
     const animateValue = (element, start, end, duration) => {
         let startTimestamp = null;
         const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             const currentValue = Math.floor(progress * (end - start) + start);
-            element.textContent = currentValue + (element.textContent.includes('+') ? '+' : '');
+            element.textContent = currentValue + '+';
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             }
         };
         window.requestAnimationFrame(step);
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const target = parseInt(entry.target.textContent);
-                animateValue(entry.target, 0, target, 2000);
-                observer.unobserve(entry.target);
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                if (!isNaN(target)) {
+                    animateValue(entry.target, 0, target, 2000);
+                    observer.unobserve(entry.target);
+                }
             }
         });
     });
-    
+
     statNumbers.forEach(number => observer.observe(number));
 }
 

@@ -323,13 +323,102 @@ body {
     z-index: 3;
 }
 
-.slide-content h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-md);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    animation: fadeInUp 1s ease;
+/* Slide 1 - Contenido completamente centrado */
+.slide-1-centered .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 95%;
+    width: auto;
+    z-index: 3;
+    padding: 0 var(--spacing-md);
 }
+
+/* Título específico del slide 1 - Dos líneas centradas */
+.hero-title-servicios-centered {
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+    color: var(--white);
+    line-height: 1.2;
+    text-align: center;
+    
+    /* Asegurar que ambas líneas estén centradas */
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Mejorar contraste */
+    text-shadow: 
+        2px 2px 6px rgba(0,0,0,0.9),
+        0 0 20px rgba(0,0,0,0.6),
+        4px 4px 12px rgba(0,0,0,0.7);
+}
+
+/* Botón CTA también centrado */
+.slide-1-centered .cta-btn {
+    margin-top: var(--spacing-md);
+    display: inline-block;
+}
+
+/* Overlay adicional para mejor contraste */
+.slide-1-centered::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(35,31,32,0.4);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Asegurar que el contenido esté por encima del overlay */
+.slide-1-centered .slide-content {
+    z-index: 4;
+}
+
+/* Ajustes responsivos para mantener el centrado */
+@media (max-width: 768px) {
+    .hero-title-servicios-centered {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        max-width: 95%;
+        line-height: 1.15;
+    }
+    
+    .slide-1-centered .slide-content {
+        max-width: 95%;
+        padding: 0 var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-servicios-centered {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+        line-height: 1.2;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* En móviles muy pequeños, permitir ajuste automático */
+    .hero-title-servicios-centered br {
+        display: none;
+    }
+}
+
+/* Ajuste específico para pantallas medianas */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .hero-title-servicios-centered {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        max-width: 90%;
+    }
+}
+
 
 .slide-content p {
     font-size: 1.2rem;
@@ -592,7 +681,49 @@ body {
     /* Añadir sombra más pronunciada para el nuevo diseño */
     box-shadow: 0 8px 25px rgba(43, 161, 212, 0.3);
 }
+    .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ...otros estilos... */
+    position: relative;
+    }
 
+    .stat-plus,
+    .stat-percent {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: inline;
+    vertical-align: middle;
+    }
+
+.stat-number {
+    font-size: clamp(8rem, 10vw, 6.8rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--white);
+    display: inline;
+    vertical-align: middle;
+    margin: 0 0.1em; /* Reducir el margen para mejor alineación */
+    line-height: 1.1;
+    word-break: break-word;
+    max-width: 100%;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+.stat-plus,
+.stat-percent {
+    font-size: clamp(5rem, 6vw, 4.8rem); /* Mismo tamaño que .stat-number */
+    color: var(--accent-color);
+    font-weight: var(--font-weight-bold);
+    display: inline;
+    vertical-align: middle;
+    line-height: 1.1; /* Misma altura de línea que los números */
+}
+    .stat-card .stat-number + .stat-percent {
+    margin-left: 0.1em;
+    }
 .stat-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 40px rgba(43, 161, 212, 0.4);
@@ -644,7 +775,7 @@ body {
     font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: var(--font-weight-bold);
     color: var(--white); /* Cambio de negro a blanco */
-    display: block;
+    display: inline;
     line-height: 1.1;
     word-break: break-word;
     max-width: 100%;
@@ -653,10 +784,14 @@ body {
 
 .stat-plus,
 .stat-percent {
-    font-size: 1.5rem; /* Reducido de 2rem */
+    font-size: 2.5rem; /* Reducido de 2rem */
     color: var(--accent-color);
     font-weight: var(--font-weight-bold);
     display: inline; /* Cambiar para que esté en la misma línea */
+}
+.stat-percent {
+display: inline;
+color: var(--white)
 }
 
 .stat-label {
@@ -675,12 +810,25 @@ body {
     transform: scale(1.1);
     color: var(--accent-color); /* Cambio a naranja en hover para destacar */
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-} 
+}
 
+.stat-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1em;
+    }
+.stat-number,
+.stat-percent {
+    display: inline;
+    margin: 0;
+    }
 .stat-card:hover .stat-number {
+    display: in;
     transform: scale(1.05);
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
 }
+
 
 .stat-card::after {
     content: '';
@@ -951,6 +1099,76 @@ body {
     flex-direction: column;
     text-align: center;
 }
+/* Certificación Seccional de Salud - Layout horizontal bonito */
+.cert-badge.cert-salud {
+    grid-column: 1 / -1; /* Ocupa ambas columnas */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: var(--spacing-xl) var(--spacing-xxl);
+    background: linear-gradient(135deg,#fff(245, 245, 243, 0.05), var(--white));
+    border-top: 4px solid var(--success-color);
+    min-height: 200px;
+    max-width: 100%;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: all var(--transition-medium);
+}
+
+.cert-badge.cert-salud img {
+    width: auto;
+    max-width: 400px;
+    height: 140px;
+    object-fit: contain;
+    margin-right: var(--spacing-xl);
+    margin-bottom: 0;
+    flex-shrink: 0;
+    transition: transform var(--transition-medium);
+}
+
+.cert-badge.cert-salud .cert-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    flex: 1;
+}
+
+.cert-badge.cert-salud span {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+}
+
+.cert-badge.cert-salud .download-link {
+    align-self: flex-start;
+    margin-top: var(--spacing-sm);
+    background: var(--success-color);
+    color: var(--white);
+    transition: background var(--transition-medium), transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.cert-badge.cert-salud .download-link:hover {
+    background: var(--dark-green);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.cert-badge.cert-salud:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+    background: linear-gradient(135deg,#fff 0%, #f5f7f2 100%);
+    border-color: var(--success-color);
+}
+
+.cert-badge.cert-salud:hover img {
+    transform: scale(1.05);
+}
+
 
 /* Servicios Destacados */
 /* Estilos para la sección de certificados */
@@ -1340,7 +1558,7 @@ body {
 
 .cta-buttons {
     display: flex;
-    gap: var(--spacing-md);
+    gap: var(--spacing-ls);
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -2167,13 +2385,14 @@ body {
     font-size: 0.8rem;
     opacity: 0.8;
 }
-
+/*debo agregar para que de alguna manera se arreglue el problema que habia anteriormente para ampliar el section*/
 .stats-section {
     padding: var(--spacing-xxl) 0;
     background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
     position: relative;
     z-index: 10; /* Z-index alto para estar por encima del carousel */
     margin-top: 0; /* Asegurar que no haya margin negativo */
+
 }
 
 .status.online::before {

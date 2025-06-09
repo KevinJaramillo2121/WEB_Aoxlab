@@ -366,7 +366,7 @@ class AoxlabWebsite {
                 if (!this.autoplayPaused && !this.manuallyPaused) {
                     this.nextSlide();
                 }
-            }, 3000); // 5 segundos entre slides
+            }, 20000); // 5 segundos entre slides
             
             this.autoplayPaused = false;
         }
@@ -621,37 +621,49 @@ class AoxlabWebsite {
         counters.forEach(counter => {
             counterObserver.observe(counter);
         });
+        
     }
     
     /**
      * Anima un contador específico
      * @param {Element} element - Elemento del contador
      */
-    animateCounter(element) {
-        const target = parseInt(element.getAttribute('data-count'));
-        const duration = 2000; // 2 segundos
-        const start = performance.now();
-        const startValue = 0;
-        
-        const updateCounter = (currentTime) => {
-            const elapsed = currentTime - start;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function (ease out)
-            const easeProgress = 1 - Math.pow(1 - progress, 3);
-            const currentValue = Math.floor(startValue + (target - startValue) * easeProgress);
-            
+animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-count'));
+    const duration = 2000; // 2 segundos
+    const start = performance.now();
+    const startValue = 0;
+    const format = element.getAttribute('data-format');
+
+    const updateCounter = (currentTime) => {
+        const elapsed = currentTime - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        let currentValue = Math.floor(startValue + (target - startValue) * easeProgress);
+
+        if (format === 'millones') {
+            // Mostrar como "2M"
+            let millionValue = Math.floor(currentValue / 1000000);
+            if (millionValue < 1) millionValue = 1; // Para que no muestre 0M al inicio
+            element.textContent = millionValue + 'M';
+        } else {
             element.textContent = currentValue.toLocaleString();
-            
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            if (format === 'millones') {
+                element.textContent = Math.floor(target / 1000000) + 'M';
             } else {
                 element.textContent = target.toLocaleString();
             }
-        };
-        
-        requestAnimationFrame(updateCounter);
-    }
+        }
+    };
+
+    requestAnimationFrame(updateCounter);
+}
+
 
     // ====================================================================
     // SISTEMA DE CHATBOT
