@@ -226,6 +226,7 @@ class AoxlabWebsite {
         console.log('Botón siguiente:', !!this.nextBtn);
     }
 
+    
 
     /**
      * Configura tooltips informativos para los indicadores del carrusel
@@ -1093,6 +1094,31 @@ animateCounter(element) {
         whatsappBtn?.addEventListener('click', () => {
             this.trackEvent('whatsapp_click', 'floating_button');
         });
+
+
+        // Scroll suave al hacer clic en el enlace de portafolios
+document.addEventListener('DOMContentLoaded', function() {
+    const portfolioLink = document.querySelector('.download-portfolio-btn');
+    
+    if (portfolioLink) {
+        portfolioLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetSection = document.querySelector('#portafolios');
+            if (targetSection) {
+                // Scroll suave con offset para header fijo
+                const headerHeight = document.querySelector('.main-header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+});
+
     }
 
     // ====================================================================

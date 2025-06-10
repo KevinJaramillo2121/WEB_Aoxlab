@@ -319,7 +319,7 @@ body {
     left: var(--spacing-xl);
     transform: translateY(-50%);
     color: var(--white);
-    max-width: 600px;
+    max-width: 500px;
     z-index: 3;
 }
 
@@ -628,7 +628,7 @@ body {
 
 .hero-title-certificacion {
     /* Aumento significativo del tamaño de fuente */
-    font-size: clamp(1.6rem, 3vw, 2.8rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
     
     /* Propiedades para garantizar una sola línea */
     white-space: nowrap;
@@ -638,7 +638,7 @@ body {
     /* Propiedades estéticas mejoradas */
     font-weight: var(--font-weight-bold);
     color: var(--white);
-    text-align: right;
+    text-align: center;
     line-height: 1;
     margin-bottom: var(--spacing-xl);
     
@@ -658,9 +658,9 @@ body {
     right: var(--spacing-lg);
     transform: translateY(-20%);
     text-align: right;
-    max-width: 960px; /* Aumentado para acomodar texto en una línea */
-    width: 80%;
-    padding-left: 10%;
+    max-width: 965px; /* Aumentado para acomodar texto en una línea */
+    width: 90%;
+    padding-left: -50%;
     z-index: 4;
 }
 /* Animación de entrada para el título */
@@ -710,13 +710,13 @@ body {
 
 /* Título principal del slide - Tamaño aumentado */
 .hero-title-equipo {
-    font-size: clamp(2.8rem, 5.5vw, 4.5rem); /* Aumentado significativamente */
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem); /* Aumentado significativamente */
     font-weight: var(--font-weight-bold);
     color: var(--white);
     margin-bottom: var(--spacing-lg);
     line-height: 1.1;
     text-align: center;
-    
+    white-space: nowrap;
     /* Sombra más pronunciada para mejor legibilidad */
     text-shadow: 
         3px 3px 8px rgba(0,0,0,0.95),
@@ -751,19 +751,21 @@ body {
     left: auto; /* Resetear left */
     transform: translateY(-50%);
     text-align: 1000px; /* Cambio de left a right */
-    max-width: 550px; /* Reducido ligeramente para mejor balance */
+    max-width: 650px; /* Reducido ligeramente para mejor balance */
     z-index: 4;
     padding-left: var(--spacing-lg); /* Añadir padding izquierdo para separación */
 }
 
 .hero-title-vida-util {
-    font-size: clamp(2rem, 4vw, 3.2rem);
+    white-space: nowrap;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
     font-weight: var(--font-weight-bold);
     color: var(--white);
     margin-bottom: var(--spacing-md);
     line-height: 1.2;
     text-align: right; /* Alineación a la derecha */
     text-shadow: 
+    
         2px 2px 6px rgba(0,0,0,0.9),
         0 0 20px rgba(0,0,0,0.6),
         4px 4px 12px rgba(0,0,0,0.7);
@@ -784,34 +786,205 @@ body {
 
 /* Título específico del slide de microbiología - Alineado a la derecha */
 .hero-title-microbiologia {
-    font-size: clamp(1rem, 2vw, 2.2rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
     font-weight: var(--font-weight-bold);
     color: var(--white);
     margin-bottom: var(--spacing-md);
     line-height: 1.2;
     text-align: right center; /* Alineación a la derecha */
     text-shadow: 
+    
         2px 2px 6px rgba(0,0,0,0.9),
         0 0 20px rgba(0,0,0,0.6),
         4px 4px 12px rgba(0,0,0,0.7);
+
 }
+.carousel-slide[data-slide="biodegradabilidad"] .slide-content {
+    position: absolute;
+    left: calc(var(--spacing-xl) + 25px);
+    top: 45%;
+    left: var(--spacing-xl);
+    transform: translateY(-60%);
+    color: var(--white);
+    max-width: 600px;
+    z-index: 3;
+}
+
+
+/* Contenedor del enlace de descarga de portafolios */
+.portfolio-download-link {
+    position: absolute;
+    bottom: 100px;
+    left: 0; /* Cambio: usar left: 0 en lugar de left: 50% */
+    right: 0; /* Añadir right: 0 para ocupar todo el ancho */
+    transform: none; /* Eliminar transform que podía causar desplazamiento */
+    z-index: 6;
+    animation: fadeInUp 1s ease 1s both;
+    display: flex;
+    justify-content: center; /* Centrado con flexbox */
+    align-items: center;
+    padding: 0 var(--spacing-md); /* Padding lateral para evitar que toque los bordes */
+}
+
+
+/* Botón de descarga de portafolios */
+.download-portfolio-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm); /* Aumentado el gap */
+    background:transparent rgba(35, 31, 32, 0.85); /* Color sólido sin transparencia excesiva */
+    color: var(--white);
+    padding: var(--spacing-lg) var(--spacing-xxl); /* Padding aumentado */
+    border-radius: var(--border-radius-xl);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    font-size: 1.1rem; /* Tamaño base aumentado */
+    letter-spacing: 0.8px; /* Mejor espaciado de letras */
+    transition: all var(--transition-medium);
+    backdrop-filter: blur(15px); /* Blur más fuerte */
+    
+    
+    min-width: 150px; /* Ancho mínimo aumentado */
+    text-align: center;
+    position: relative;
+}
+
+
+/* Texto del enlace */
+/* Texto del enlace - CORREGIDO */
+.download-text {
+    font-size: 1.3rem; /* CORREGIDO: era 3rem que era demasiado grande */
+    line-height: 1.4; /* CORREGIDO: era 2 que era demasiado */
+    margin-bottom: 4px;
+    color: var(--white); /* Asegurar color blanco sólido */
+    font-weight: var(--font-weight-bold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para mejor legibilidad */
+}
+
+
+/* Flecha animada */
+/* Flecha animada */
+.download-arrow {
+    font-size: 1.5rem; /* Tamaño aumentado */
+    animation: bounceArrow 2s ease-in-out infinite;
+    transition: transform var(--transition-medium);
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Efectos hover */
+.download-portfolio-btn:hover {
+    background: rgba(43, 161, 212, 0.9); /* Color azul sólido en hover */
+    border-color: var(--white);
+    transform: translateY(-5px); /* Movimiento más pronunciado */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+.download-portfolio-btn:hover .download-arrow {
+    transform: translateY(3px);
+    color: var(--accent-color);
+}
+.download-portfolio-btn:hover .download-text {
+    color: var(--white);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Animación de la flecha */
+@keyframes bounceArrow {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-6px);
+    }
+    60% {
+        transform: translateY(-1px);
+    }
+}
+
+/* Efecto de pulso adicional */
+.download-portfolio-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--border-radius-xl);
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all var(--transition-medium);
+    pointer-events: none;
+}
+
+.download-portfolio-btn:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .portfolio-download-link {
+        bottom: 60px;
+    }
+    
+    .download-portfolio-btn {
+        min-width: 200px;
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 0.9rem;
+    }
+    
+    .download-text {
+        font-size: 0.9rem;
+    }
+    
+    .download-arrow {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-download-link {
+        bottom: 50px;
+    }
+    
+    .download-portfolio-btn {
+        min-width: 180px;
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.85rem;
+    }
+    
+    .download-text {
+        font-size: 0.85rem;
+        line-height: 1.1;
+    }
+}
+
 
 /* Título del slide biodegradabilidad - Tamaño aumentado */
 .hero-title-biodegradabilidad {
-    font-size: clamp(1.8rem, 3.5vw, 2.5rem); /* Aumentado de clamp(2rem, 4vw, 3.2rem) */
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
     font-weight: var(--font-weight-bold);
     color: var(--white);
     margin-bottom: var(--spacing-md);
     line-height: 1.2;
+    padding-left: 35px; /* Padding adicional para el título */
+
     text-shadow: 
+    
         2px 2px 6px rgba(0,0,0,0.9),
         0 0 20px rgba(0,0,0,0.6),
         4px 4px 12px rgba(0,0,0,0.7);
+        
 }
 
 
 .hero-tit
-.hero-badge {
+.hero-badge
+.fasfa-leaf {
     display: inline-block;
     background: rgba(43, 161, 212, 0.9);
     color: var(--white);
@@ -896,7 +1069,8 @@ body {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
+    grid-template-columns: repeat(5, minmax(220px, 1fr));
+    /*grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
     width: 100%;
@@ -1019,7 +1193,19 @@ body {
     word-break: break-word;
     max-width: 100%;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra para mejor legibilidad */
+    order: 1; /* Se muestra después del + */
 }
+
+.stat-value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.05em;
+    line-height: 1;
+    display: inline;
+
+    }
+
 
 .stat-plus,
 .stat-percent {
@@ -1051,12 +1237,17 @@ color: var(--white)
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
-.stat-value {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.1em;
-    }
+    /* Símbolo + posicionado del lado izquierdo */
+.stat-plus {
+    font-size: clamp(1.5rem, 3vw, 2.8rem);
+    color: var(--accent-color);
+    font-weight: var(--font-weight-bold);
+    display: inline;
+    vertical-align: middle;
+    line-height: 1;
+    order: 1; /* Se muestra primero */
+}
+
 .stat-number,
 .stat-percent {
     display: inline;
@@ -1249,6 +1440,211 @@ color: var(--white)
 .cert-badge:nth-child(1) {
     border-top: 4px solid var(--secondary-color);
     background: linear-gradient(135deg, rgba(43, 161, 212, 0.03), var(--white));
+}
+/* Especificaciones técnicas */
+.technical-specs {
+    background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 4px solid #007bff;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+}
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem;
+    background: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Grid de características */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin: 1.5rem 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-3px);
+    box-shadow:  rgba(197, 57, 57, 0.08);
+}
+
+/* Estilos Específicos para Servicio de Métodos Analíticos */
+.detailed-section {
+    background: linear-gradient(145deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    box-shadow: rgba(189, 184, 184, 0.05);
+}
+
+.technical-process {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.process-step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.2rem;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.parameter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.parameter-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-left: 4px solid #007bff;
+}
+
+.innovation-section {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.case-study {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+.technology-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.tech-tag {
+    background: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.transfer-section {
+    background: linear-gradient(135deg, #f1f8ff 0%, #e3f2fd 100%);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.transfer-process {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.phase {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    position: relative;
+}
+
+.phase-number {
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -30px auto 1rem;
+    font-weight: bold;
+}
+
+.compliance-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-radius: 12px;
+}
+
+.regulation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.regulation-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.expert-cta {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.expert-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cta-btn.expert {
+    background: white;
+    color: #007bff;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.cta-btn.expert:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Estilos específicos para certificación ISO/IEC 17025 */
@@ -1729,7 +2125,7 @@ color: var(--white)
 /* Slide 1 - Mantenemos centrado pero con mejores márgenes */
 .slide-1-centered .slide-content {
     position: absolute;
-    top: 50%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
