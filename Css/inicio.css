@@ -378,6 +378,22 @@ body {
     z-index: 1;
     pointer-events: none;
 }
+.hero-title-servicios-centered {
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xl);
+    color: var(--white);
+    line-height: 1.1;
+    text-align: center;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 
+        3px 3px 8px rgba(0,0,0,0.9),
+        0 0 25px rgba(0,0,0,0.7),
+        5px 5px 15px rgba(0,0,0,0.8);
+}
+
 
 /* Asegurar que el contenido esté por encima del overlay */
 .slide-1-centered .slide-content {
@@ -572,12 +588,33 @@ body {
     height: 100%;
     background: linear-gradient(45deg, rgba(35, 31, 32, 0.3), transparent);
     z-index: 3; /* Z-index medio para overlay */
-    display: flex;
-    align-items: center; /*De esta manera el overlay no bloquea los botones de direccion y tampoco el principal */
     pointer-events: none;
 }
 
+.accreditation-zone {
+    position: absolute;
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+    z-index: 5;
+    pointer-events: auto;
+}
 
+.hero-overlay-new {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5; /* Mayor que hero-overlay */
+    pointer-events: none;
+}
+
+/* SOLUCIÓN 2: hero-content sin centrado automático */
+.hero-content {
+    /* ELIMINAR: text-align: center; */
+    color: var(--white);
+    /* Solo mantener si necesitas otros elementos aquí */
+}
 
 .hero-content {
     text-align: center;
@@ -589,7 +626,191 @@ body {
     pointer-events: auto; /* Reactiva los eventos para el contenido */
 }
 
+.hero-title-certificacion {
+    /* Aumento significativo del tamaño de fuente */
+    font-size: clamp(1.6rem, 3vw, 2.8rem);
+    
+    /* Propiedades para garantizar una sola línea */
+    white-space: nowrap;
+    
+    text-overflow: ellipsis;
+    
+    /* Propiedades estéticas mejoradas */
+    font-weight: var(--font-weight-bold);
+    color: var(--white);
+    text-align: right;
+    line-height: 1;
+    margin-bottom: var(--spacing-xl);
+    
+    /* Sombra más pronunciada para mejor legibilidad */
+    text-shadow: 
+        3px 3px 8px rgba(0,0,0,0.95),
+        0 0 30px rgba(0,0,0,0.7),
+        5px 5px 15px rgba(0,0,0,0.8);
+    
+    /* Animación al entrar en pantalla */
+    animation: fadeInRight 0.8s ease forwards;
+}
 
+.carousel-slide:nth-child(2) .slide-content {
+    position: absolute;
+    top: 40%;
+    right: var(--spacing-lg);
+    transform: translateY(-20%);
+    text-align: right;
+    max-width: 960px; /* Aumentado para acomodar texto en una línea */
+    width: 80%;
+    padding-left: 10%;
+    z-index: 4;
+}
+/* Animación de entrada para el título */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Mejoras responsivas para dispositivos más pequeños */
+@media (max-width: 1200px) {
+    .hero-title-certificacion {
+        font-size: clamp(2.2rem, 4vw, 3.5rem);
+        white-space: normal; /* Permitir salto de línea en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-slide:nth-child(2) .slide-content {
+        max-width: 90%;
+        right: 5%;
+        top: 50%;
+        text-align: center;
+    }
+    
+    .hero-title-certificacion {
+        text-align: center;
+        font-size: clamp(1.8rem, 5vw, 2.6rem);
+    }
+}
+.carousel-slide:nth-child(3) .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 90%;
+    width: auto;
+    z-index: 4;
+    padding: 0 var(--spacing-md);
+}
+
+/* Título principal del slide - Tamaño aumentado */
+.hero-title-equipo {
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem); /* Aumentado significativamente */
+    font-weight: var(--font-weight-bold);
+    color: var(--white);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.1;
+    text-align: center;
+    
+    /* Sombra más pronunciada para mejor legibilidad */
+    text-shadow: 
+        3px 3px 8px rgba(0,0,0,0.95),
+        0 0 30px rgba(0,0,0,0.7),
+        5px 5px 15px rgba(0,0,0,0.8);
+    
+    /* Animación al entrar en pantalla */
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Párrafo descriptivo también centrado y mejorado */
+.carousel-slide:nth-child(3) .slide-content p {
+    font-size: 1.3rem; /* Aumentado de 1.2rem */
+    color: var(--white);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    line-height: 1.4;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Sombra para el párrafo también */
+    text-shadow: 
+        2px 2px 6px rgba(0,0,0,0.8),
+        0 0 20px rgba(0,0,0,0.5);
+}
+/* Slide 4: Vida Útil - Posicionamiento hacia la derecha */
+.carousel-slide[data-slide="vida-util"] .slide-content {
+    position: absolute;
+    top: 45%;
+    right: var(--spacing-xl); /* Cambio de left a right */
+    left: auto; /* Resetear left */
+    transform: translateY(-50%);
+    text-align: 1000px; /* Cambio de left a right */
+    max-width: 550px; /* Reducido ligeramente para mejor balance */
+    z-index: 4;
+    padding-left: var(--spacing-lg); /* Añadir padding izquierdo para separación */
+}
+
+.hero-title-vida-util {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    text-align: right; /* Alineación a la derecha */
+    text-shadow: 
+        2px 2px 6px rgba(0,0,0,0.9),
+        0 0 20px rgba(0,0,0,0.6),
+        4px 4px 12px rgba(0,0,0,0.7);
+}
+
+/* Slide 5: Microbiología Anual - Posicionamiento hacia la derecha */
+.carousel-slide[data-slide="microbiologia-anual"] .slide-content {
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-xl); /* Cambio de left a right */
+    left: auto; /* Resetear left */
+    transform: translateY(-50%);
+    text-align: right center; /* Cambio de left a right */
+    max-width: 570px; /* Reducido ligeramente para mejor balance */
+    z-index: 4;
+    padding-left: var(--spacing-lg); /* Añadir padding izquierdo para separación */
+}
+
+/* Título específico del slide de microbiología - Alineado a la derecha */
+.hero-title-microbiologia {
+    font-size: clamp(1rem, 2vw, 2.2rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    text-align: right center; /* Alineación a la derecha */
+    text-shadow: 
+        2px 2px 6px rgba(0,0,0,0.9),
+        0 0 20px rgba(0,0,0,0.6),
+        4px 4px 12px rgba(0,0,0,0.7);
+}
+
+/* Título del slide biodegradabilidad - Tamaño aumentado */
+.hero-title-biodegradabilidad {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem); /* Aumentado de clamp(2rem, 4vw, 3.2rem) */
+    font-weight: var(--font-weight-bold);
+    color: var(--white);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.2;
+    text-shadow: 
+        2px 2px 6px rgba(0,0,0,0.9),
+        0 0 20px rgba(0,0,0,0.6),
+        4px 4px 12px rgba(0,0,0,0.7);
+}
+
+
+.hero-tit
 .hero-badge {
     display: inline-block;
     background: rgba(43, 161, 212, 0.9);
@@ -613,7 +834,22 @@ body {
     height: 75vh;
     overflow: hidden;
 }
-
+.iso-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(43, 161, 212, 0.95);
+    color: var(--white);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all var(--transition-medium);
+    white-space: nowrap;
+}
 .btn-scroll {
     display: inline-flex;
     flex-direction: column;
@@ -636,6 +872,7 @@ body {
 .stats-section {
     padding: var(--spacing-xxl) 0;
     background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+    width: 100%;
 }
 
 .section-header {
@@ -659,9 +896,11 @@ body {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-xl);
+    width: 100%;
+    max-width: 100%;
 }
 
 .stat-card {
@@ -1451,6 +1690,13 @@ color: var(--white)
     z-index: 2;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    width: 100%;
+}
+
 .service-icon {
     font-size: 3rem;
     color: var(--secondary-color);
@@ -1480,7 +1726,17 @@ color: var(--white)
     list-style: none;
     margin-bottom: var(--spacing-lg);
 }
-
+/* Slide 1 - Mantenemos centrado pero con mejores márgenes */
+.slide-1-centered .slide-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 90%;
+    z-index: 4;
+    padding: 0 var(--spacing-md);
+}
 .service-features li {
     display: flex;
     align-items: center;
@@ -1558,7 +1814,7 @@ color: var(--white)
 
 .cta-buttons {
     display: flex;
-    gap: var(--spacing-ls);
+    gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -1740,6 +1996,7 @@ color: var(--white)
     visibility: hidden;
     transition: all var(--transition-medium);
 }
+
 
 
 /* Servicios Expandibles */
@@ -3084,6 +3341,15 @@ input:focus {
     .certifications-section h3 {
         font-size: 1.5rem;
     }
+
+    .certifications-section {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
+    width: 100%;
+}
+
+
 }
 
 /* Mobile pequeño */
