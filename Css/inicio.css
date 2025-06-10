@@ -543,8 +543,8 @@ body {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.6);
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 0, 0, 0.6);
     cursor: pointer;
     transition: all var(--transition-medium);
 }
@@ -750,8 +750,8 @@ body {
     right: var(--spacing-xl); /* Cambio de left a right */
     left: auto; /* Resetear left */
     transform: translateY(-50%);
-    text-align: 1000px; /* Cambio de left a right */
-    max-width: 650px; /* Reducido ligeramente para mejor balance */
+    text-align: 900px; /* Cambio de left a right */
+    max-width: 600px; /* Reducido ligeramente para mejor balance */
     z-index: 4;
     padding-left: var(--spacing-lg); /* Añadir padding izquierdo para separación */
 }
@@ -826,17 +826,26 @@ body {
     padding: 0 var(--spacing-md); /* Padding lateral para evitar que toque los bordes */
 }
 
-
+.portfolio-download-link .download-text {
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    margin-bottom: 4px !important;
+    color: #FFFFFF !important; /* BLANCO PURO FORZADO */
+    font-weight: var(--font-weight-bold) !important;
+    
+}
 /* Botón de descarga de portafolios */
 .download-portfolio-btn {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-sm); /* Aumentado el gap */
-    background:transparent rgba(35, 31, 32, 0.85); /* Color sólido sin transparencia excesiva */
-    color: var(--white);
+    background:transparent rgba(7, 7, 7, 0.85); /* Color sólido sin transparencia excesiva */
+    color: #FFFFFF !important; /* BLANCO FORZADO */
+    text-decoration: none;
     padding: var(--spacing-lg) var(--spacing-xxl); /* Padding aumentado */
-    border-radius: var(--border-radius-xl);
+    border: 2px solid rgba(255, 255, 255, 0.8) !important;
+    box-shadow: 0 10px 30px rgb(0, 0, 0);
     text-decoration: none;
     font-weight: var(--font-weight-bold);
     font-size: 1.1rem; /* Tamaño base aumentado */
@@ -857,9 +866,9 @@ body {
     font-size: 1.3rem; /* CORREGIDO: era 3rem que era demasiado grande */
     line-height: 1.4; /* CORREGIDO: era 2 que era demasiado */
     margin-bottom: 4px;
-    color: var(--white); /* Asegurar color blanco sólido */
+
+    color: #FFFFFF; /* BLANCO PURO en lugar de var(--white) */
     font-weight: var(--font-weight-bold);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para mejor legibilidad */
 }
 
 
@@ -876,9 +885,11 @@ body {
 /* Efectos hover */
 .download-portfolio-btn:hover {
     background: rgba(43, 161, 212, 0.9); /* Color azul sólido en hover */
+    border-color: #FFFFFF;
     border-color: var(--white);
     transform: translateY(-5px); /* Movimiento más pronunciado */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    
 }
 
 
@@ -886,10 +897,15 @@ body {
     transform: translateY(3px);
     color: var(--accent-color);
 }
+
 .download-portfolio-btn:hover .download-text {
-    color: var(--white);
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    color: #FFFFFF;
+    text-shadow: 
+        2px 2px 8px rgba(0, 0, 0, 1),
+        0 0 15px rgba(0, 0, 0, 0.9),
+        1px 1px 4px rgba(0, 0, 0, 0.8);
 }
+
 
 /* Animación de la flecha */
 @keyframes bounceArrow {
@@ -913,7 +929,7 @@ body {
     right: 0;
     bottom: 0;
     border-radius: var(--border-radius-xl);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     opacity: 0;
     transform: scale(0.9);
     transition: all var(--transition-medium);
@@ -3318,6 +3334,87 @@ color: var(--white)
     .carousel-btn.next {
         right: var(--spacing-sm);
     }
+
+    /* Estilos para los letreros de acreditación en el carrusel */
+    .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        background: rgba(43, 161, 212, 0.95); /* Azul semitransparente */
+        color: var(--white);
+        padding: var(--spacing-sm) var(--spacing-md);
+        border-radius: var(--border-radius-lg);
+        font-size: 0.9rem;
+        font-weight: var(--font-weight-bold);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: all var(--transition-medium);
+        white-space: nowrap;
+        margin-bottom: var(--spacing-md);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        animation: fadeInDown 1s ease 0.5s both;
+    }
+
+    
+/* Variantes de color para diferentes tipos de acreditación */
+.hero-badge.iso-17025 {
+    background: rgba(43, 161, 212, 0.9);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero-badge.iso-17065 {
+    background: rgba(243, 119, 40, 0.95); /* Naranja para ISO 17065 */
+}
+
+.hero-badge.specialized {
+    background: rgba(141, 178, 61, 0.95); /* Verde para servicios especializados */
+}
+
+/* Hover específico para cada variante */
+.hero-badge.iso-17025:hover {
+    background: rgba(43, 161, 212, 1);
+}
+
+.hero-badge.iso-17065:hover {
+    background: rgba(243, 119, 40, 1);
+}
+
+.hero-badge.specialized:hover {
+    background: rgba(141, 178, 61, 1);
+}
+
+/* Asegurar que los iconos se vean correctamente */
+.hero-badge i {
+    font-size: 1rem;
+    margin-right: 0;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .hero-badge {
+        font-size: 0.8rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        white-space: normal;
+        text-align: center;
+        max-width: 90%;
+    }
+    
+    .hero-badge i {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: var(--spacing-xs);
+        margin-bottom: var(--spacing-sm);
+    }
+}
     
     .carousel-slide[data-slide="vida-util"] .hero-badge {
         background: rgba(243, 119, 40, 0.9);
