@@ -3800,6 +3800,185 @@ input:focus {
 .typing-indicator span:nth-child(3) {
     animation-delay: 0.4s;
 }
+/* Estilos específicos para la sección de contacto principal */
+.footer-section.contact-main {
+    border-left: 3px solid var(--secondary-color);
+    padding-left: var(--spacing-md);
+    background: rgba(43, 161, 212, 0.05);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+}
+
+.footer-section.contact-main h4 {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.footer-section.contact-main h4::before {
+    content: "⭐";
+    font-size: 1rem;
+}
+
+.contact-info-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.contact-info-main p {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    opacity: 0.95;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.contact-info-main i {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+    width: 16px;
+}
+
+/* Estilos para otras ciudades */
+.footer-section.contact-cities h4 {
+    color: var(--accent-color);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.1rem;
+}
+
+.cities-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.city-contact {
+    background: rgba(243, 119, 40, 0.05);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--accent-color);
+    transition: all var(--transition-medium);
+}
+
+.city-contact:hover {
+    background: rgba(243, 119, 40, 0.1);
+    transform: translateX(3px);
+}
+
+.city-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+}
+
+.city-header i {
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+.city-name {
+    font-weight: var(--font-weight-bold);
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.city-phone {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.city-phone i {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    width: 14px;
+}
+
+/* Hover effects para los números de teléfono */
+.contact-info-main p:hover,
+.city-phone:hover {
+    opacity: 1;
+    color: var(--secondary-color);
+    transform: translateX(2px);
+    transition: all var(--transition-fast);
+}
+
+/* Estilos responsive para contacto */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .footer-section.contact-main,
+    .footer-section.contact-cities {
+        text-align: center;
+    }
+    
+    .contact-info-main p,
+    .city-phone {
+        justify-content: flex-start;
+    }
+    
+    .cities-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .cities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-section.contact-main,
+    .footer-section.contact-cities {
+        padding: var(--spacing-sm);
+    }
+    
+    .contact-info-main p {
+        font-size: 0.9rem;
+    }
+    
+    .city-contact {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* Efecto especial para la sede principal */
+.footer-section.contact-main::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    opacity: 0;
+    transition: opacity var(--transition-medium);
+}
+
+.footer-section.contact-main {
+    position: relative;
+}
+
+.footer-section.contact-main:hover::before {
+    opacity: 1;
+}
 
 @keyframes typing {
     0%, 60%, 100% { opacity: 0.3; }
