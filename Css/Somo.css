@@ -188,8 +188,9 @@
     transform: translateX(-50%);
     width: 70px;
     height: 70px;
-    background: var(--white);
-    border: 4px solid var(--secondary-color);
+    /* NUEVO: Todos los iconos con estilo futuro unificado */
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    border: 4px solid var(--accent-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -199,19 +200,13 @@
     box-shadow: 0 4px 15px var(--shadow-light);
 }
 
-.timeline-marker.future {
-    border-color: var(--accent-color);
-    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
-}
+
 
 .timeline-marker i {
     font-size: 1.8rem;
-    color: var(--secondary-color);
-}
-
-.timeline-marker.future i {
     color: var(--white);
 }
+
 
 .timeline-item:hover .timeline-marker {
     transform: translateX(-50%) scale(1.1);
@@ -227,6 +222,8 @@
     position: relative;
     transition: all var(--transition-medium);
     overflow: hidden;
+    /* NUEVO: Borde naranja para todas las casillas */
+    border: 2px solid var(--accent-color);
 }
 
 .timeline-card.future {
@@ -285,6 +282,26 @@
     line-height: 1.5;
     font-size: 0.95rem;
     margin-bottom: var(--spacing-sm);
+}
+
+/* Posicionamiento alternado de iconos para evitar la línea central */
+.timeline-item:nth-child(odd) .timeline-marker {
+    left: calc(50% - 60px); /* Mover hacia la izquierda */
+    transform: translateX(0);
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+    left: calc(50% + 60px); /* Mover hacia la derecha */
+    transform: translateX(0);
+}
+
+/* Hover states para iconos alternados */
+.timeline-item:nth-child(odd):hover .timeline-marker {
+    transform: translateX(-10px) scale(1.1);
+}
+
+.timeline-item:nth-child(even):hover .timeline-marker {
+    transform: translateX(10px) scale(1.1);
 }
 
 .expand-btn {
@@ -556,7 +573,91 @@
     grid-template-columns: repeat(6, 1fr);
     gap: var(--spacing-sm);
 }
+/* Mejoras para tamaño uniforme de tarjetas expandidas */
+.valor-card-dynamic.expanded {
+    grid-column: span 3;
+    grid-row: span 2;
+    transform: scale(1.02);
+    box-shadow: 0 25px 80px var(--shadow-medium);
+    border-color: var(--secondary-color);
+    z-index: 20;
+    /* NUEVO: Altura fija para uniformidad */
+    min-height: 600px;
+    max-height: 600px;
+}
 
+/* Contenido expandido con altura controlada */
+.valor-card-dynamic.expanded .valor-expanded-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    z-index: 10;
+    /* NUEVO: Asegurar altura uniforme */
+    min-height: 600px;
+    max-height: 600px;
+    overflow: hidden;
+}
+
+/* Contenido interno con scroll controlado */
+.valor-card-dynamic.expanded .expanded-content {
+    padding: var(--spacing-lg);
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    /* NUEVO: Altura exacta menos padding */
+    max-height: calc(600px - var(--spacing-lg) * 2);
+}
+
+/* Header expandido optimizado */
+.valor-card-dynamic.expanded .expanded-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--light-gray);
+    /* NUEVO: Altura fija para consistencia */
+    min-height: 100px;
+    flex-shrink: 0;
+}
+
+.valor-card-dynamic.expanded .expanded-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.valor-card-dynamic.expanded .expanded-icon i {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.valor-card-dynamic.expanded .expanded-title h2 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+}
+
+.valor-card-dynamic.expanded .valor-subtitle {
+    color: var(--secondary-color);
+    font-weight: var(--font-weight-bold);
+    font-size: 0.9rem;
+    font-style: italic;
+}
 /* Tarjetas dinámicas de valores */
 .valor-card-dynamic {
     position: relative;

@@ -1,6 +1,7 @@
 // somos.js - Funcionalidades específicas para la página Somos
 // Este es el apartado de somos
-// Es importante recordar que en este y en todos los apartados se debe comentar todo con el fin de que su posterior actualización sea más senciila ademas que le legibilidad de dichos apartados tambien se simplifica
+// Es importante recordar que en este y en todos los apartados se debe comentar todo con el fin de que su posterior actualización sea más sencilla además que la legibilidad de dichos apartados también se simplifica
+
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializar AOS (Animate On Scroll)
     if (typeof AOS !== 'undefined') {
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             offset: 100
         });
     }
+    
     // Animación de números en estadísticas del hero
     animateNumbers();
     
@@ -19,8 +21,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Efectos adicionales para las tarjetas del equipo
     enhanceTeamCards();
+    
+    // Inicializar funcionalidad expandible de timeline
+    initializeExpandableTimeline();
+    
+    // Nueva funcionalidad para valores con expansión horizontal - MODIFICADA
+    initializeDynamicValores();
+    
+    // Observador para valores dinámicos
+    observeDynamicValores();
+    
+    // Animaciones de certificaciones
+    animateCertifications();
+    
+    // Añadir indicadores visuales para mejor UX
+    addVisualCues();
 });
 
+/**
+ * Animación de números en estadísticas del hero
+ */
 function animateNumbers() {
     const statNumbers = document.querySelectorAll('.somos-hero .stat-number');
     const animateValue = (element, start, end, duration) => {
@@ -51,26 +71,6 @@ function animateNumbers() {
 
     statNumbers.forEach(number => observer.observe(number));
 }
-
-// Funcionalidad de Timeline Expandible
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar funcionalidad expandible
-    initializeExpandableTimeline();
-    
-    // Resto de tu código existente...
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
-        });
-    }
-    
-    animateNumbers();
-    observeTimelineItems();
-    enhanceTeamCards();
-});
 
 /**
  * Inicializa la funcionalidad de timeline expandible
@@ -282,118 +282,9 @@ function observeTimelineItems() {
     });
 }
 
-// Funciones auxiliares para mejor UX
-/**
- * Verifica si hay items expandidos y actualiza el estado de los botones
- */
-function updateControlButtons() {
-    const headers = document.querySelectorAll('.timeline-header');
-    const expandedCount = Array.from(headers).filter(h => 
-        h.getAttribute('aria-expanded') === 'true'
-    ).length;
-    
-    const expandAllBtn = document.querySelector('[data-action="expand-all"]');
-    const collapseAllBtn = document.querySelector('[data-action="collapse-all"]');
-    
-    if (expandAllBtn && collapseAllBtn) {
-        expandAllBtn.disabled = expandedCount === headers.length;
-        collapseAllBtn.disabled = expandedCount === 0;
-    }
-}
-
-// Auto-scroll mejorado para items expandidos
-function smoothScrollToExpanded() {
-    const expandedItems = document.querySelectorAll('.timeline-header[aria-expanded="true"]');
-    if (expandedItems.length > 0) {
-        const lastExpanded = expandedItems[expandedItems.length - 1];
-        lastExpanded.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-        });
-    }
-}
-
-
-function enhanceTeamCards() {
-    const teamCards = document.querySelectorAll('.team-card');
-    
-    teamCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            const socialLinks = this.querySelectorAll('.team-social a');
-            socialLinks.forEach((link, index) => {
-                setTimeout(() => {
-                    link.style.transform = 'translateY(0) scale(1.1)';
-                    setTimeout(() => {
-                        link.style.transform = 'translateY(0) scale(1)';
-                    }, 150);
-                }, index * 100);
-            });
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            const socialLinks = this.querySelectorAll('.team-social a');
-            socialLinks.forEach(link => {
-                link.style.transform = 'translateY(20px) scale(1)';
-            });
-        });
-    });
-}
-
-// Efecto parallax suave para el hero
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const heroImage = document.querySelector('.somos-hero .hero-image img');
-    
-    if (heroImage && scrolled < window.innerHeight) {
-        heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
-});
-
-// Animación de entrada para certificaciones
-function animateCertifications() {
-    const certCards = document.querySelectorAll('.cert-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.transform = 'translateY(0) rotateX(0)';
-                    entry.target.style.opacity = '1';
-                }, index * 200);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    
-    certCards.forEach(card => {
-        card.style.transform = 'translateY(50px) rotateX(15deg)';
-        card.style.opacity = '0';
-        card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        observer.observe(card);
-    });
-}
-// Agregar al DOMContentLoaded existente
-document.addEventListener('DOMContentLoaded', function() {
-    // Código existente...
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
-        });
-    }
-    
-    animateNumbers();
-    observeTimelineItems();
-    enhanceTeamCards();
-    
-    // Nueva funcionalidad para valores con expansión horizontal
-    initializeDynamicValores();
-});
-
 /**
  * Sistema avanzado de valores con expansión horizontal y agrupamiento
+ * MODIFICADO: Incluye cierre automático y cierre por clic
  */
 function initializeDynamicValores() {
     const valoresContainer = document.getElementById('valores-container');
@@ -405,11 +296,12 @@ function initializeDynamicValores() {
     let isAnimating = false;
     let tourInterval = null;
     
-    // Configurar event listeners para cada tarjeta
+    // Configurar event listeners para cada tarjeta - MODIFICADO
     valorCards.forEach(card => {
         const expandBtn = card.querySelector('.expand-valor-btn');
         const closeBtn = card.querySelector('.close-valor-btn');
         const compactView = card.querySelector('.valor-compact-view');
+        const expandedView = card.querySelector('.valor-expanded-view'); // NUEVO
         
         // Click en botón expandir o en la vista compacta
         [expandBtn, compactView].forEach(element => {
@@ -429,7 +321,41 @@ function initializeDynamicValores() {
             }
         });
         
-        // Navegación por teclado
+        // NUEVO: Click en cualquier parte de la vista expandida para cerrar
+        expandedView.addEventListener('click', (e) => {
+            // Solo cerrar si el click es directamente en la vista expandida
+            // o en elementos que no sean interactivos
+            const clickedElement = e.target;
+            const isInteractiveElement = clickedElement.closest('button') || 
+                                       clickedElement.closest('a') || 
+                                       clickedElement.closest('.close-valor-btn');
+            
+            if (!isInteractiveElement && card.classList.contains('expanded') && !isAnimating) {
+                e.stopPropagation();
+                collapseValor(card);
+            }
+        });
+        
+        // NUEVO: Event listener adicional para cerrar con clic en el contenido expandido
+        const expandedContent = card.querySelector('.expanded-content');
+        if (expandedContent) {
+            expandedContent.addEventListener('click', (e) => {
+                // Verificar que no sea un click en elementos interactivos
+                const clickedElement = e.target;
+                const isScrollbar = e.offsetX > expandedContent.clientWidth;
+                
+                if (!isScrollbar && 
+                    !clickedElement.closest('button') && 
+                    !clickedElement.closest('a') && 
+                    card.classList.contains('expanded') && 
+                    !isAnimating) {
+                    e.stopPropagation();
+                    collapseValor(card);
+                }
+            });
+        }
+        
+        // Navegación por teclado (sin cambios)
         card.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
@@ -457,12 +383,20 @@ function initializeDynamicValores() {
     }
     
     /**
-     * Expande un valor específico
+     * Expande un valor específico - MODIFICADO
      */
     function expandValor(targetCard) {
         if (isAnimating || targetCard.classList.contains('expanded')) return;
         
         isAnimating = true;
+        
+        // NUEVO: Cerrar todas las demás tarjetas expandidas automáticamente
+        valorCards.forEach(card => {
+            if (card !== targetCard && card.classList.contains('expanded')) {
+                card.classList.remove('expanded');
+                card.classList.remove('minimized'); // También removemos el estado minimizado
+            }
+        });
         
         // Si hay otra tarjeta expandida, colapsarla primero
         if (currentExpanded && currentExpanded !== targetCard) {
@@ -510,7 +444,7 @@ function initializeDynamicValores() {
     }
     
     /**
-     * Colapsa un valor específico
+     * Colapsa un valor específico - MEJORADO
      */
     function collapseValor(targetCard, resetLayout = true) {
         if (isAnimating || !targetCard.classList.contains('expanded')) return;
@@ -521,13 +455,18 @@ function initializeDynamicValores() {
         targetCard.classList.remove('expanded');
         
         if (resetLayout) {
-            // Restaurar todas las tarjetas
-            valorCards.forEach(card => {
-                card.classList.remove('minimized');
+            // Restaurar todas las tarjetas gradualmente
+            valorCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.remove('minimized');
+                }, index * 50); // Animación escalonada
             });
             
             // Restaurar el layout del grid
-            valoresContainer.classList.remove('has-expanded');
+            setTimeout(() => {
+                valoresContainer.classList.remove('has-expanded');
+            }, 200);
+            
             currentExpanded = null;
         }
         
@@ -675,7 +614,61 @@ function initializeDynamicValores() {
     }
 }
 
-// Observador mejorado para valores dinámicos
+/**
+ * Añade indicadores visuales para mejorar la UX - NUEVA FUNCIÓN
+ */
+function addVisualCues() {
+    const valorCards = document.querySelectorAll('.valor-card-dynamic');
+    
+    valorCards.forEach(card => {
+        const expandedView = card.querySelector('.valor-expanded-view');
+        
+        // Mostrar tooltip informativo la primera vez
+        card.addEventListener('mouseenter', function() {
+            if (this.classList.contains('expanded') && !this.hasAttribute('data-tooltip-shown')) {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'close-tooltip';
+                tooltip.textContent = 'Haz clic en cualquier lugar para cerrar';
+                tooltip.style.cssText = `
+                    position: absolute;
+                    top: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 8px 12px;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    z-index: 1000;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    pointer-events: none;
+                `;
+                
+                expandedView.appendChild(tooltip);
+                
+                setTimeout(() => {
+                    tooltip.style.opacity = '1';
+                }, 100);
+                
+                setTimeout(() => {
+                    tooltip.style.opacity = '0';
+                    setTimeout(() => {
+                        if (tooltip.parentNode) {
+                            tooltip.parentNode.removeChild(tooltip);
+                        }
+                    }, 300);
+                }, 2000);
+                
+                this.setAttribute('data-tooltip-shown', 'true');
+            }
+        });
+    });
+}
+
+/**
+ * Observador mejorado para valores dinámicos
+ */
 function observeDynamicValores() {
     const valorCards = document.querySelectorAll('.valor-card-dynamic');
     
@@ -705,9 +698,98 @@ function observeDynamicValores() {
     });
 }
 
-// Inicializar observador para valores dinámicos
-observeDynamicValores();
+/**
+ * Efectos adicionales para las tarjetas del equipo
+ */
+function enhanceTeamCards() {
+    const teamCards = document.querySelectorAll('.team-card');
+    
+    teamCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            const socialLinks = this.querySelectorAll('.team-social a');
+            socialLinks.forEach((link, index) => {
+                setTimeout(() => {
+                    link.style.transform = 'translateY(0) scale(1.1)';
+                    setTimeout(() => {
+                        link.style.transform = 'translateY(0) scale(1)';
+                    }, 150);
+                }, index * 100);
+            });
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const socialLinks = this.querySelectorAll('.team-social a');
+            socialLinks.forEach(link => {
+                link.style.transform = 'translateY(20px) scale(1)';
+            });
+        });
+    });
+}
 
+/**
+ * Animación de entrada para certificaciones
+ */
+function animateCertifications() {
+    const certCards = document.querySelectorAll('.cert-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.transform = 'translateY(0) rotateX(0)';
+                    entry.target.style.opacity = '1';
+                }, index * 200);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    certCards.forEach(card => {
+        card.style.transform = 'translateY(50px) rotateX(15deg)';
+        card.style.opacity = '0';
+        card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        observer.observe(card);
+    });
+}
 
-// Inicializar animaciones de certificaciones
-animateCertifications();
+/**
+ * Verifica si hay items expandidos y actualiza el estado de los botones
+ */
+function updateControlButtons() {
+    const headers = document.querySelectorAll('.timeline-header');
+    const expandedCount = Array.from(headers).filter(h => 
+        h.getAttribute('aria-expanded') === 'true'
+    ).length;
+    
+    const expandAllBtn = document.querySelector('[data-action="expand-all"]');
+    const collapseAllBtn = document.querySelector('[data-action="collapse-all"]');
+    
+    if (expandAllBtn && collapseAllBtn) {
+        expandAllBtn.disabled = expandedCount === headers.length;
+        collapseAllBtn.disabled = expandedCount === 0;
+    }
+}
+
+/**
+ * Auto-scroll mejorado para items expandidos
+ */
+function smoothScrollToExpanded() {
+    const expandedItems = document.querySelectorAll('.timeline-header[aria-expanded="true"]');
+    if (expandedItems.length > 0) {
+        const lastExpanded = expandedItems[expandedItems.length - 1];
+        lastExpanded.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    }
+}
+
+// Efecto parallax suave para el hero
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const heroImage = document.querySelector('.somos-hero .hero-image img');
+    
+    if (heroImage && scrolled < window.innerHeight) {
+        heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
+    }
+});
