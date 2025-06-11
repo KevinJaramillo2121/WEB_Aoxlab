@@ -627,29 +627,123 @@ body {
 }
 
 .hero-title-certificacion {
-    /* Aumento significativo del tamaño de fuente */
     font-size: clamp(2.2rem, 4.5vw, 3.8rem);
-    
-    /* Propiedades para garantizar una sola línea */
-    white-space: nowrap;
-    
-    text-overflow: ellipsis;
-    
-    /* Propiedades estéticas mejoradas */
     font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
     color: var(--white);
+    line-height: 1.2;
     text-align: center;
-    line-height: 1;
-    margin-bottom: var(--spacing-xl);
-    
-    /* Sombra más pronunciada para mejor legibilidad */
+    text-align: left; /* Alineación a la izquierda */
+    white-space: normal;
+    padding-left: 10%;
+    /* Asegurar que ambas líneas estén centradas */
+    display: inline;
+    margin-left: auto;
+    margin-right: auto;
+    /* Mejorar contraste */
+        text-align: left;
+    align-self: flex-start; /* Alineación consistente */
+    margin-left: 0; /* Sin margen izquierdo */
+    padding-left: 0; /* Sin padding izquierdo extra */
+    width: 100%;
     text-shadow: 
-        3px 3px 8px rgba(0,0,0,0.95),
-        0 0 30px rgba(0,0,0,0.7),
-        5px 5px 15px rgba(0,0,0,0.8);
+
     
-    /* Animación al entrar en pantalla */
-    animation: fadeInRight 0.8s ease forwards;
+        2px 2px 6px rgba(0,0,0,0.9),
+        0 0 20px rgba(0,0,0,0.6),
+        4px 4px 12px rgba(0,0,0,0.7);
+}
+
+.carousel-slide:nth-child(2) .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(102, 192, 231, 0.95);
+    color: var(--white);
+    padding: 4px;
+    border-radius: var(--border-radius-lg);    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--spacing-md);
+    text-align: left; /* Alineación izquierda */
+    animation: fadeInLeft 0.6s ease forwards;
+    align-self: flex-start; /* Fuerza la alineación a la izquierda */
+    margin-left: 0; /* Eliminar cualquier margen izquierdo */
+    animation: fadeInLeft 0.6s ease forwards;
+}
+
+.carousel-slide:nth-child(1) .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(102, 192, 231, 0.95);
+    color: var(--white);
+    padding: 4px;
+    border-radius: var(--border-radius-lg);    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--spacing-md);
+    text-align: left; /* Alineación izquierda */
+    animation: fadeInLeft 0.6s ease forwards;
+}
+
+.carousel-slide:nth-child(4) .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(102, 192, 231, 0.95);
+    color: var(--white);
+    padding: 4px;
+    border-radius: var(--border-radius-lg);    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--spacing-md);
+    text-align: left; /* Alineación izquierda */
+    animation: fadeInLeft 0.6s ease forwards;
+}
+.carousel-slide:nth-child(5) .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(102, 192, 231, 0.95);
+    color: var(--white);
+    padding: 4px;
+    border-radius: var(--border-radius-lg);    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--spacing-md);
+    text-align: left; /* Alineación izquierda */
+    animation: fadeInLeft 0.6s ease forwards;
+}
+
+.carousel-slide:nth-child(6) .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(102, 192, 231, 0.95);
+    color: var(--white);
+    padding: 4px;
+    border-radius: var(--border-radius-lg);    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: var(--spacing-md);
+    text-align: left; /* Alineación izquierda */
+    animation: fadeInLeft 0.6s ease forwards;
+}
+.carousel-slide:nth-child(2) .cta-btn {
+    
+    animation: fadeInLeft 1s ease 0.4s both;
 }
 
 /* Estilos base comunes para todas las certificaciones */
@@ -969,15 +1063,23 @@ body {
 
 .carousel-slide:nth-child(2) .slide-content {
     position: absolute;
-    top: 40%;
-    right: var(--spacing-lg);
-    transform: translateY(-20%);
-    text-align: right;
-    max-width: 965px; /* Aumentado para acomodar texto en una línea */
-    width: 90%;
-    padding-left: -50%;
+    top: 50%;
+    left: var(--spacing-xl);
+    right: auto;
+    transform: translateY(-50%);
+    max-width: 600px;
+    width: auto;
+    padding-right: var(--spacing-lg);
     z-index: 4;
+    
+    /* CLAVE: Flexbox para alineación perfecta */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Todos los elementos a la izquierda */
+    justify-content: center;
+    text-align: left;
 }
+
 /* Animación de entrada para el título */
 @keyframes fadeInRight {
     from {
@@ -1124,6 +1226,7 @@ body {
     max-width: 700px;
     z-index: 2;
 }
+
 
 
 /* Contenedor del enlace de descarga de portafolios */
