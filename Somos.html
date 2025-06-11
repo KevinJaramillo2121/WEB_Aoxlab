@@ -118,147 +118,792 @@
             </div>
         </section>
 
-        <!-- Línea de Tiempo Espectacular -->
-        <section class="timeline-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Nuestra Historia</h2>
-                    <p>Un recorrido por los momentos más importantes que nos han llevado a ser líderes en análisis y certificación</p>
-                </div>
-                
-                <div class="timeline">
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-content">
-                            <div class="timeline-marker">
-                                <i class="fas fa-seedling"></i>
+        <!-- Línea de Tiempo Desplegable Mejorada -->
+                    <section class="timeline-section">
+                        <div class="container">
+                            <div class="section-header">
+                                <h2>Nuestra Historia</h2>
+                                <p>Un recorrido por los momentos más importantes que nos han llevado a ser líderes en análisis y certificación</p>
+                                
+                                <!-- Controles para expandir/colapsar todo -->
+                                <div class="timeline-controls">
+                                    <button class="btn-timeline-control" data-action="expand-all">
+                                        <i class="fas fa-expand"></i> Expandir Todo
+                                    </button>
+                                    <button class="btn-timeline-control" data-action="collapse-all">
+                                        <i class="fas fa-compress"></i> Colapsar Todo
+                                    </button>
+                                </div>
                             </div>
-                            <div class="timeline-card">
-                                <span class="timeline-year">2012</span>
-                                <h3>Fundación de AOXLAB</h3>
-                                <p>Iniciamos operaciones como laboratorio especializado en análisis para la industria alimentaria y agrícola, con la visión de entregar valor a través de servicios analíticos confiables.</p>
-                                <div class="timeline-badge">Inicio</div>
+                            
+                            <div class="timeline-expandable">
+                                <!-- Línea vertical central -->
+                                <div class="timeline-line"></div>
+                                
+                                <!-- 2012-2015: Fundación y consolidación temprana -->
+                                <div class="timeline-item expandable" data-aos="fade-right">
+                                    <div class="timeline-content">
+                                        <div class="timeline-marker">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                        <div class="timeline-card collapsible">
+                                            <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                                                <div class="timeline-year-range">2012-2015</div>
+                                                <h3>Fundación y Consolidación Temprana</h3>
+                                                <div class="timeline-summary">
+                                                    Fundación de AOXLAB S.A.S en Medellín, con enfoque en análisis microbiológico y fisicoquímico...
+                                                </div>
+                                                <button class="expand-btn" aria-label="Expandir contenido">
+                                                    <i class="fas fa-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="timeline-body" aria-hidden="true">
+                                                <div class="timeline-details">
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-building"></i> Fundación</h4>
+                                                        <p>Fundación de AOXLAB S.A.S en Medellín, con enfoque en análisis microbiológico y fisicoquímico de alimentos, aguas y cosméticos.</p>
+                                                        <p><strong>Instalación:</strong> Sede en Laureles, Calle 32F #74B-122.</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-certificate"></i> Certificaciones</h4>
+                                                        <ul>
+                                                            <li>Obtención de la certificación ISO 9001:2008 en abril de 2014 por ICONTEC</li>
+                                                            <li>Primera constancia sanitaria: Otorgada en 2014 por la Secretaría Seccional de Salud de Antioquia</li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-lightbulb"></i> Innovación</h4>
+                                                        <p>Creación de Unidad de I+D+i e inicio de desarrollo de proyectos de Investigación y desarrollo con empresas, universidad y estado.</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-trophy"></i> Reconocimientos</h4>
+                                                        <div class="awards-grid">
+                                                            <div class="award-item">
+                                                                <span class="award-year">2012</span>
+                                                                <span class="award-title">Premio CREAME Incubadora por creación empresarial innovadora</span>
+                                                            </div>
+                                                            <div class="award-item">
+                                                                <span class="award-year">2013</span>
+                                                                <span class="award-title">Premio Fundación Bavaria (Destapa Futuro) innovación tecnológica</span>
+                                                            </div>
+                                                            <div class="award-item">
+                                                                <span class="award-year">2013</span>
+                                                                <span class="award-title">Premio Innovación tecnológica INNPULSA</span>
+                                                            </div>
+                                                            <div class="award-item">
+                                                                <span class="award-year">2014</span>
+                                                                <span class="award-title">Reconocimiento redes empresariales - Noche de los mejores Fenalco</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 2016-2018: Estructuración y nuevos sectores -->
+                                <div class="timeline-item expandable" data-aos="fade-left">
+                                    <div class="timeline-content">
+                                        <div class="timeline-marker">
+                                            <i class="fas fa-microscope"></i>
+                                        </div>
+                                        <div class="timeline-card collapsible">
+                                            <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                                                <div class="timeline-year-range">2016-2018</div>
+                                                <h3>Estructuración y Nuevos Sectores</h3>
+                                                <div class="timeline-summary">
+                                                    Primer laboratorio en Colombia con oferta full espectro para análisis de cannabis medicinal...
+                                                </div>
+                                                <button class="expand-btn" aria-label="Expandir contenido">
+                                                    <i class="fas fa-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="timeline-body" aria-hidden="true">
+                                                <div class="timeline-details">
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-cannabis"></i> Cannabis Medicinal</h4>
+                                                        <p>AOXLAB se convierte en el primer laboratorio en Colombia con oferta full espectro para análisis de cannabis medicinal.</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-cog"></i> Estándares de Calidad</h4>
+                                                        <p>En 2016 se da cumplimiento ante Secretaría Seccional de Salud de Antioquia bajo la Resolución 1619 de 2015 y se inicia plan de implementación hacia ISO/IEC 17025:2017</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-balance-scale"></i> Certificación FNE</h4>
+                                                        <p>AOXLAB fue autorizado en 2018 mediante la Resolución 940 de 2018 para adquirir estándares de referencia para análisis en cannabis medicinal y realizar actividades de análisis e investigación.</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-trophy"></i> Reconocimientos</h4>
+                                                        <div class="awards-grid">
+                                                            <div class="award-item">
+                                                                <span class="award-year">2016</span>
+                                                                <span class="award-title">10° puesto en innovación en servicios en Colombia (Ranking ANDI y Revista Dinero)</span>
+                                                            </div>
+                                                            <div class="award-item">
+                                                                <span class="award-year">2016</span>
+                                                                <span class="award-title">Reconocimiento Colciencias como empresa altamente innovadora</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 2019-2021: Acreditación internacional y crecimiento -->
+                                <div class="timeline-item expandable" data-aos="fade-right">
+                                    <div class="timeline-content">
+                                        <div class="timeline-marker">
+                                            <i class="fas fa-globe"></i>
+                                        </div>
+                                        <div class="timeline-card collapsible">
+                                            <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                                                <div class="timeline-year-range">2019-2021</div>
+                                                <h3>Acreditación Internacional y Crecimiento</h3>
+                                                <div class="timeline-summary">
+                                                    Obtención de la acreditación internacional por ONAC en ISO/IEC 17025:2017...
+                                                </div>
+                                                <button class="expand-btn" aria-label="Expandir contenido">
+                                                    <i class="fas fa-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="timeline-body" aria-hidden="true">
+                                                <div class="timeline-details">
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-certificate"></i> Acreditación ONAC</h4>
+                                                        <p>Obtención de la acreditación internacional por ONAC en ISO/IEC 17025:2017 (Código 20-LAB-011)</p>
+                                                        <p>AOXLAB obtiene la acreditación internacional oficial como laboratorio de ensayo competente para análisis microbiológicos y fisicoquímicos.</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-expand-arrows-alt"></i> Expansión de Servicios</h4>
+                                                        <p>Se amplían servicios a sectores farmacéutico y ambiental.</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-trophy"></i> Reconocimientos</h4>
+                                                        <div class="awards-grid">
+                                                            <div class="award-item">
+                                                                <span class="award-year">2020</span>
+                                                                <span class="award-title">Premio al Mérito Empresarial - Universidad Simón Bolívar, por innovación en tiempos de pandemia</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 2022-2024: Consolidación y Nuevos Logros -->
+                                <div class="timeline-item expandable" data-aos="fade-left">
+                                    <div class="timeline-content">
+                                        <div class="timeline-marker">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <div class="timeline-card collapsible">
+                                            <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                                                <div class="timeline-year-range">2022-2024</div>
+                                                <h3>Consolidación y Nuevos Logros</h3>
+                                                <div class="timeline-summary">
+                                                    Consolidación como laboratorio con oferta completa para múltiples sectores...
+                                                </div>
+                                                <button class="expand-btn" aria-label="Expandir contenido">
+                                                    <i class="fas fa-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="timeline-body" aria-hidden="true">
+                                                <div class="timeline-details">
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-industry"></i> Consolidación</h4>
+                                                        <p>Consolidación como laboratorio con oferta completa para análisis de alimento humano, alimento animal, agua potable, cosméticos, materias primas farmacéuticas, pinturas, plásticos y ambiente.</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-sync-alt"></i> Renovaciones</h4>
+                                                        <ul>
+                                                            <li>Vigencia de acreditación ONAC: AOXLAB continúa con su acreditación vigente, renovando alcance y técnicas bajo ISO/IEC 17025:2017</li>
+                                                            <li>Renovación como laboratorio autorizado para análisis de aguas para consumo humano por el Ministerio de Salud (Resolución No. 229 de 2024)</li>
+                                                            <li>Renovación FNE mediante Resolución 775 de 2023 para importar y manejar sustancias sometidas a control para investigación en cannabis</li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-trophy"></i> Reconocimientos</h4>
+                                                        <div class="awards-grid">
+                                                            <div class="award-item">
+                                                                <span class="award-year">2023</span>
+                                                                <span class="award-title">Reconocimiento 40 under 40 en emprendimiento - La República y ANDI del Futuro</span>
+                                                            </div>
+                                                            <div class="award-item">
+                                                                <span class="award-year">2023</span>
+                                                                <span class="award-title">Reconocimiento REINER - Ministerio de Comercio, Industria y Turismo</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 2025: Expansión, Crecimiento e Internacionalización -->
+                                <div class="timeline-item expandable" data-aos="fade-right">
+                                    <div class="timeline-content">
+                                        <div class="timeline-marker future">
+                                            <i class="fas fa-rocket"></i>
+                                        </div>
+                                        <div class="timeline-card collapsible future">
+                                            <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                                                <div class="timeline-year-range">2025</div>
+                                                <h3>Expansión, Crecimiento e Internacionalización</h3>
+                                                <div class="timeline-summary">
+                                                    Nuevos registros ICA y pioneros en análisis de biodegradabilidad...
+                                                </div>
+                                                <button class="expand-btn" aria-label="Expandir contenido">
+                                                    <i class="fas fa-chevron-down"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="timeline-body" aria-hidden="true">
+                                                <div class="timeline-details">
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-clipboard-check"></i> Nuevo Registro ICA</h4>
+                                                        <p>Obtención de Registro ICA No. LB0000032025 otorgado el 14 de abril de 2025 para análisis de alimentos para animales, muestras de origen animal y productos agrícolas y vegetales.</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-expand-arrows-alt"></i> Ampliación de Alcance</h4>
+                                                        <p>Ampliación del alcance de acreditación internacional a 50 métodos y flexibilización del alcance de métodos.</p>
+                                                    </div>
+                                                    
+                                                    <div class="detail-section">
+                                                        <h4><i class="fas fa-leaf"></i> Innovación Sostenible</h4>
+                                                        <p>Innovación en servicios, primer laboratorio en Colombia y Sudamérica en lanzar la prueba acreditada internacionalmente para análisis de Biodegradabilidad en sustitutos del plástico.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div class="timeline-item" data-aos="fade-left">
-                        <div class="timeline-content">
-                            <div class="timeline-marker">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <div class="timeline-card">
-                                <span class="timeline-year">2017</span>
-                                <h3>Acreditación ISO/IEC 17025:2017</h3>
-                                <p>Obtuvimos la acreditación internacional que certifica la competencia técnica de nuestros laboratorios, respaldando la confiabilidad de nuestros resultados.</p>
-                                <div class="timeline-badge">Certificación</div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-content">
-                            <div class="timeline-marker">
-                                <i class="fas fa-cannabis"></i>
-                            </div>
-                            <div class="timeline-card">
-                                <span class="timeline-year">2019</span>
-                                <h3>Especialización en Cannabis</h3>
-                                <p>Pioneros en Colombia en análisis de cannabinoides y terpenos, apoyando el desarrollo de la industria del cannabis medicinal con servicios especializados.</p>
-                                <div class="timeline-badge">Innovación</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-aos="fade-left">
-                        <div class="timeline-content">
-                            <div class="timeline-marker">
-                                <i class="fas fa-expand-arrows-alt"></i>
-                            </div>
-                            <div class="timeline-card">
-                                <span class="timeline-year">2021</span>
-                                <h3>Expansión de Servicios</h3>
-                                <p>Ampliamos nuestro portafolio incluyendo análisis de metales pesados, micotoxinas, y estudios de biodegradabilidad, consolidándonos como laboratorio integral.</p>
-                                <div class="timeline-badge">Crecimiento</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-aos="fade-right">
-                        <div class="timeline-content">
-                            <div class="timeline-marker">
-                                <i class="fas fa-award"></i>
-                            </div>
-                            <div class="timeline-card">
-                                <span class="timeline-year">2025</span>
-                                <h3>Certificación ISO 17065</h3>
-                                <p>Próximamente obtendremos la certificación para certificación de productos, ampliando nuestros servicios hacia la certificación de productos ecológicos y agroindustriales.</p>
-                                <div class="timeline-badge">Futuro</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Valores Corporativos -->
+            <!-- Valores Corporativos Expandibles -->
+                <!-- Valores Corporativos con Expansión Horizontal -->
         <section class="valores-section">
             <div class="container">
                 <div class="section-header">
                     <h2>Nuestros Valores</h2>
-                    <p>Los principios que guían cada uno de nuestros procesos y decisiones</p>
+                    <p>Los principios fundamentales que guían cada acción, decisión y proceso en AOXLAB</p>
+                    
+                    <!-- Controles mejorados -->
+                    <div class="valores-controls">
+                        <button class="btn-valores-control" data-action="reset-all-values">
+                            <i class="fas fa-refresh"></i> Vista Normal
+                        </button>
+                        <button class="btn-valores-control" data-action="tour-values">
+                            <i class="fas fa-play"></i> Tour Automático
+                        </button>
+                    </div>
                 </div>
                 
-                <div class="valores-grid">
-                    <div class="valor-card" data-aos="fade-up" data-aos-delay="0">
-                        <div class="valor-icon">
-                            <i class="fas fa-balance-scale"></i>
+                <!-- Grid dinámico de valores -->
+                <div class="valores-grid-dynamic" id="valores-container">
+                    <!-- Credibilidad -->
+                    <div class="valor-card-dynamic" data-valor="credibilidad" data-aos="fade-up" data-aos-delay="0">
+                        <div class="valor-compact-view">
+                            <div class="valor-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Credibilidad</h3>
+                            <p class="valor-preview">Construimos confianza a través de resultados precisos</p>
+                            <button class="expand-valor-btn" aria-label="Ver detalles completos">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
                         </div>
-                        <h3>Rigor Científico</h3>
-                        <p>Aplicamos metodologías científicas estrictas y seguimos protocolos internacionales para garantizar la precisión y confiabilidad de cada resultado.</p>
+                        
+                        <div class="valor-expanded-view">
+                            <button class="close-valor-btn" aria-label="Cerrar vista expandida">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <div class="expanded-content">
+                                <div class="expanded-header">
+                                    <div class="expanded-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="expanded-title">
+                                        <h2>Credibilidad</h2>
+                                        <span class="valor-subtitle">La base de la confianza científica</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="expanded-body">
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-info-circle"></i> ¿Qué significa para nosotros?</h4>
+                                        <p>La credibilidad es el pilar fundamental de nuestra reputación científica. Cada análisis que realizamos está respaldado por metodologías validadas, equipos calibrados y personal altamente capacitado que garantiza la máxima confiabilidad en cada resultado entregado.</p>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-cogs"></i> ¿Cómo lo aplicamos?</h4>
+                                        <div class="aplicacion-grid">
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-certificate"></i>
+                                                <span>Seguimiento estricto de protocolos internacionales ISO/IEC 17025</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-route"></i>
+                                                <span>Trazabilidad completa de todas nuestras mediciones</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-flask"></i>
+                                                <span>Participación continua en ensayos de aptitud interlaboratorio</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-eye"></i>
+                                                <span>Transparencia total en nuestros procesos y limitaciones</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-star"></i> Beneficio para nuestros clientes</h4>
+                                        <div class="beneficio-highlight">
+                                            <p>Resultados confiables que respaldan decisiones críticas para su negocio, con la seguridad de que cada dato entregado ha sido validado bajo los más altos estándares de calidad científica internacional.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="valor-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="valor-icon">
-                            <i class="fas fa-rocket"></i>
+
+                    <!-- Vocación de Servicio -->
+                    <div class="valor-card-dynamic" data-valor="servicio" data-aos="fade-up" data-aos-delay="100">
+                        <div class="valor-compact-view">
+                            <div class="valor-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h3>Vocación de Servicio</h3>
+                            <p class="valor-preview">Acompañamos integralmente a nuestros clientes</p>
+                            <button class="expand-valor-btn" aria-label="Ver detalles completos">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
                         </div>
-                        <h3>Eficiencia</h3>
-                        <p>Optimizamos nuestros procesos para entregar resultados oportunos sin comprometer la calidad, utilizando tecnología de vanguardia.</p>
+                        
+                        <div class="valor-expanded-view">
+                            <button class="close-valor-btn" aria-label="Cerrar vista expandida">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <div class="expanded-content">
+                                <div class="expanded-header">
+                                    <div class="expanded-icon">
+                                        <i class="fas fa-hands-helping"></i>
+                                    </div>
+                                    <div class="expanded-title">
+                                        <h2>Vocación de Servicio</h2>
+                                        <span class="valor-subtitle">Más allá del análisis</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="expanded-body">
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-info-circle"></i> ¿Qué significa para nosotros?</h4>
+                                        <p>Entendemos que cada cliente tiene necesidades únicas. Nuestra vocación de servicio nos impulsa a ofrecer soluciones personalizadas y acompañamiento integral en cada proyecto, convirtiéndonos en aliados estratégicos de nuestros clientes.</p>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-cogs"></i> ¿Cómo lo aplicamos?</h4>
+                                        <div class="aplicacion-grid">
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-user-tie"></i>
+                                                <span>Asesoría técnica especializada para interpretación de resultados</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-tools"></i>
+                                                <span>Desarrollo de métodos analíticos personalizados</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-headset"></i>
+                                                <span>Soporte continuo en implementación de mejoras</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-clock"></i>
+                                                <span>Disponibilidad para consultas y seguimiento post-análisis</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-star"></i> Beneficio para nuestros clientes</h4>
+                                        <div class="beneficio-highlight">
+                                            <p>Un aliado estratégico que comprende sus desafíos y ofrece soluciones integrales, no solo resultados analíticos, sino orientación experta para la toma de decisiones informadas.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="valor-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="valor-icon">
-                            <i class="fas fa-puzzle-piece"></i>
+
+                    <!-- Imparcialidad -->
+                    <div class="valor-card-dynamic" data-valor="imparcialidad" data-aos="fade-up" data-aos-delay="200">
+                        <div class="valor-compact-view">
+                            <div class="valor-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Imparcialidad</h3>
+                            <p class="valor-preview">Objetividad absoluta en cada análisis</p>
+                            <button class="expand-valor-btn" aria-label="Ver detalles completos">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
                         </div>
-                        <h3>Flexibilidad</h3>
-                        <p>Nos adaptamos a las necesidades específicas de cada cliente y sector, ofreciendo soluciones personalizadas y servicios a medida.</p>
+                        
+                        <div class="valor-expanded-view">
+                            <button class="close-valor-btn" aria-label="Cerrar vista expandida">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <div class="expanded-content">
+                                <div class="expanded-header">
+                                    <div class="expanded-icon">
+                                        <i class="fas fa-balance-scale"></i>
+                                    </div>
+                                    <div class="expanded-title">
+                                        <h2>Imparcialidad</h2>
+                                        <span class="valor-subtitle">Integridad científica garantizada</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="expanded-body">
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-info-circle"></i> ¿Qué significa para nosotros?</h4>
+                                        <p>La imparcialidad es esencial para mantener la integridad científica. Nuestros análisis se basan exclusivamente en evidencia científica, libre de influencias externas o conflictos de interés, garantizando resultados objetivos y confiables.</p>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-cogs"></i> ¿Cómo lo aplicamos?</h4>
+                                        <div class="aplicacion-grid">
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-eye-slash"></i>
+                                                <span>Procedimientos de análisis ciegos para evitar sesgos</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-divide"></i>
+                                                <span>Separación clara entre servicios comerciales y técnicos</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-gavel"></i>
+                                                <span>Política estricta de manejo de conflictos de interés</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-search"></i>
+                                                <span>Revisión independiente de resultados críticos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-star"></i> Beneficio para nuestros clientes</h4>
+                                        <div class="beneficio-highlight">
+                                            <p>Resultados objetivos y dictámenes técnicos libres de sesgos, que pueden ser utilizados con confianza en procesos regulatorios, comerciales y de investigación científica.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="valor-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="valor-icon">
-                            <i class="fas fa-handshake"></i>
+
+                    <!-- Responsabilidad Técnica y Social -->
+                    <div class="valor-card-dynamic" data-valor="responsabilidad" data-aos="fade-up" data-aos-delay="300">
+                        <div class="valor-compact-view">
+                            <div class="valor-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3>Responsabilidad</h3>
+                            <p class="valor-preview">Impacto positivo en sociedad y ambiente</p>
+                            <button class="expand-valor-btn" aria-label="Ver detalles completos">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
                         </div>
-                        <h3>Integridad</h3>
-                        <p>Actuamos con transparencia y ética en cada análisis y relación comercial, construyendo confianza a largo plazo.</p>
+                        
+                        <div class="valor-expanded-view">
+                            <button class="close-valor-btn" aria-label="Cerrar vista expandida">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <div class="expanded-content">
+                                <div class="expanded-header">
+                                    <div class="expanded-icon">
+                                        <i class="fas fa-user-shield"></i>
+                                    </div>
+                                    <div class="expanded-title">
+                                        <h2>Responsabilidad Técnica y Social</h2>
+                                        <span class="valor-subtitle">Compromiso con el futuro</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="expanded-body">
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-info-circle"></i> ¿Qué significa para nosotros?</h4>
+                                        <p>Asumimos la responsabilidad total del impacto de nuestros servicios, tanto en el ámbito técnico como social, contribuyendo al bienestar público y la protección ambiental a través de nuestro trabajo científico.</p>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-cogs"></i> ¿Cómo lo aplicamos?</h4>
+                                        <div class="aplicacion-grid">
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-recycle"></i>
+                                                <span>Gestión responsable de residuos químicos y biológicos</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-apple-alt"></i>
+                                                <span>Contribución a la seguridad alimentaria y ambiental</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <span>Formación continua de profesionales del sector</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-heart"></i>
+                                                <span>Participación en iniciativas de responsabilidad social</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-star"></i> Beneficio para nuestros clientes</h4>
+                                        <div class="beneficio-highlight">
+                                            <p>Alianza con una empresa comprometida con el desarrollo sostenible, que aporta valor no solo técnico sino también social y ambiental a sus proyectos y operaciones.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="valor-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="valor-icon">
-                            <i class="fas fa-lightbulb"></i>
+
+                    <!-- Flexibilidad -->
+                    <div class="valor-card-dynamic" data-valor="flexibilidad" data-aos="fade-up" data-aos-delay="400">
+                        <div class="valor-compact-view">
+                            <div class="valor-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h3>Flexibilidad</h3>
+                            <p class="valor-preview">Adaptación a necesidades específicas</p>
+                            <button class="expand-valor-btn" aria-label="Ver detalles completos">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
                         </div>
-                        <h3>Innovación</h3>
-                        <p>Buscamos constantemente nuevas tecnologías y métodos para mantenernos a la vanguardia de la ciencia analítica.</p>
+                        
+                        <div class="valor-expanded-view">
+                            <button class="close-valor-btn" aria-label="Cerrar vista expandida">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <div class="expanded-content">
+                                <div class="expanded-header">
+                                    <div class="expanded-icon">
+                                        <i class="fas fa-puzzle-piece"></i>
+                                    </div>
+                                    <div class="expanded-title">
+                                        <h2>Flexibilidad</h2>
+                                        <span class="valor-subtitle">Soluciones a medida</span>
+                                    </div>
+                                </div>
+                                <!--Me gusta mucho como está configurado apartado pero todo debe estar debidamente organizado-->
+                                <div class="expanded-body">
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-info-circle"></i> ¿Qué significa para nosotros?</h4>
+                                        <p>La flexibilidad nos permite responder eficazmente a los requerimientos únicos de cada sector e industria, adaptando nuestros procesos sin comprometer la calidad técnica ni los estándares de excelencia.</p>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-cogs"></i> ¿Cómo lo aplicamos?</h4>
+                                        <div class="aplicacion-grid">
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-clock"></i>
+                                                <span>Horarios de servicio adaptados a urgencias del cliente</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-industry"></i>
+                                                <span>Desarrollo de protocolos específicos por industria</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-file-alt"></i>
+                                                <span>Modalidades de entrega de resultados personalizadas</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-chart-line"></i>
+                                                <span>Escalabilidad de servicios según volumen de muestras</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-star"></i> Beneficio para nuestros clientes</h4>
+                                        <div class="beneficio-highlight">
+                                            <p>Servicios que se ajustan perfectamente a sus procesos operativos y tiempos de producción, maximizando la eficiencia de su cadena de valor y optimizando resultados.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="valor-card" data-aos="fade-up" data-aos-delay="500">
-                        <div class="valor-icon">
-                            <i class="fas fa-leaf"></i>
+
+                    <!-- Compromiso con la Excelencia -->
+                    <div class="valor-card-dynamic" data-valor="excelencia" data-aos="fade-up" data-aos-delay="500">
+                        <div class="valor-compact-view">
+                            <div class="valor-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h3>Excelencia</h3>
+                            <p class="valor-preview">Mejora continua en todos nuestros procesos</p>
+                            <button class="expand-valor-btn" aria-label="Ver detalles completos">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
                         </div>
-                        <h3>Sostenibilidad</h3>
-                        <p>Contribuimos al desarrollo sostenible a través de prácticas responsables y análisis que apoyan productos ecológicos.</p>
+                        
+                        <div class="valor-expanded-view">
+                            <button class="close-valor-btn" aria-label="Cerrar vista expandida">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <div class="expanded-content">
+                                <div class="expanded-header">
+                                    <div class="expanded-icon">
+                                        <i class="fas fa-medal"></i>
+                                    </div>
+                                    <div class="expanded-title">
+                                        <h2>Compromiso con la Excelencia</h2>
+                                        <span class="valor-subtitle">Estándares de clase mundial</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="expanded-body">
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-info-circle"></i> ¿Qué significa para nosotros?</h4>
+                                        <p>La excelencia es un proceso continuo de mejora que aplicamos en cada aspecto de nuestro trabajo, desde la actualización tecnológica hasta el desarrollo del talento humano, siempre buscando superar expectativas.</p>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-cogs"></i> ¿Cómo lo aplicamos?</h4>
+                                        <div class="aplicacion-grid">
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-microchip"></i>
+                                                <span>Inversión constante en tecnología de vanguardia</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-user-graduate"></i>
+                                                <span>Capacitación continua de nuestro equipo técnico</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-award"></i>
+                                                <span>Implementación de sistemas de gestión avanzados</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-chart-area"></i>
+                                                <span>Monitoreo y mejora continua de procesos internos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-star"></i> Beneficio para nuestros clientes</h4>
+                                        <div class="beneficio-highlight">
+                                            <p>Acceso a servicios analíticos de clase mundial que evolucionan constantemente para ofrecer mayor precisión, rapidez y valor agregado a sus proyectos de innovación.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Confidencialidad -->
+                    <div class="valor-card-dynamic" data-valor="confidencialidad" data-aos="fade-up" data-aos-delay="600">
+                        <div class="valor-compact-view">
+                            <div class="valor-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h3>Confidencialidad</h3>
+                            <p class="valor-preview">Protección absoluta de información</p>
+                            <button class="expand-valor-btn" aria-label="Ver detalles completos">
+                                <i class="fas fa-expand-alt"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="valor-expanded-view">
+                            <button class="close-valor-btn" aria-label="Cerrar vista expandida">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            
+                            <div class="expanded-content">
+                                <div class="expanded-header">
+                                    <div class="expanded-icon">
+                                        <i class="fas fa-lock"></i>
+                                    </div>
+                                    <div class="expanded-title">
+                                        <h2>Confidencialidad</h2>
+                                        <span class="valor-subtitle">Seguridad total de datos</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="expanded-body">
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-info-circle"></i> ¿Qué significa para nosotros?</h4>
+                                        <p>La confidencialidad es sagrada en nuestra relación con los clientes. Protegemos celosamente toda información técnica, comercial y estratégica que nos confían, implementando protocolos de seguridad de nivel empresarial.</p>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-cogs"></i> ¿Cómo lo aplicamos?</h4>
+                                        <div class="aplicacion-grid">
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-file-signature"></i>
+                                                <span>Acuerdos de confidencialidad rigurosos con todo el personal</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-server"></i>
+                                                <span>Sistemas seguros de manejo y almacenamiento de información</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-key"></i>
+                                                <span>Acceso restringido a datos sensibles del cliente</span>
+                                            </div>
+                                            <div class="aplicacion-item">
+                                                <i class="fas fa-shredder"></i>
+                                                <span>Protocolos estrictos de destrucción segura de documentos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="valor-section">
+                                        <h4><i class="fas fa-star"></i> Beneficio para nuestros clientes</h4>
+                                        <div class="beneficio-highlight">
+                                            <p>Tranquilidad total al compartir información sensible, sabiendo que sus datos, fórmulas y procesos están protegidos bajo los más altos estándares de seguridad internacional.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+
+
 
         <!-- Equipo Directivo -->
         <section class="equipo-section">

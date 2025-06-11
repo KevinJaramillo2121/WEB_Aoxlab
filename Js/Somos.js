@@ -52,33 +52,267 @@ function animateNumbers() {
     statNumbers.forEach(number => observer.observe(number));
 }
 
+// Funcionalidad de Timeline Expandible
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar funcionalidad expandible
+    initializeExpandableTimeline();
+    
+    // Resto de tu código existente...
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
+    
+    animateNumbers();
+    observeTimelineItems();
+    enhanceTeamCards();
+});
+
+/**
+ * Inicializa la funcionalidad de timeline expandible
+ * Maneja clicks en headers y botones de control
+ */
+function initializeExpandableTimeline() {
+    const timelineHeaders = document.querySelectorAll('.timeline-header');
+    const expandAllBtn = document.querySelector('[data-action="expand-all"]');
+    const collapseAllBtn = document.querySelector('[data-action="collapse-all"]');
+    
+    // Añadir event listeners a cada header
+    timelineHeaders.forEach(header => {
+        header.addEventListener('click', handleTimelineToggle);
+        header.addEventListener('keydown', handleKeyboardNavigation);
+    });
+    
+    // Botones de control global
+    if (expandAllBtn) {
+        expandAllBtn.addEventListener('click', () => toggleAllTimelineItems(true));
+    }
+    
+    if (collapseAllBtn) {
+        collapseAllBtn.addEventListener('click', () => toggleAllTimelineItems(false));
+    }
+}
+
+/**
+ * Maneja el toggle de items individuales de timeline
+ * @param {Event} event - Evento de click
+ */
+function handleTimelineToggle(event) {
+    event.preventDefault();
+    
+    const header = event.currentTarget;
+    const body = header.nextElementSibling;
+    const expandBtn = header.querySelector('.expand-btn i');
+    const isExpanded = header.getAttribute('aria-expanded') === 'true';
+    
+    // Añadir clase de animación
+    const timelineItem = header.closest('.timeline-item');
+    timelineItem.classList.add('animating');
+    
+    if (isExpanded) {
+        // Colapsar
+        collapseTimelineItem(header, body, expandBtn);
+    } else {
+        // Expandir
+        expandTimelineItem(header, body, expandBtn);
+    }
+    
+    // Remover clase de animación después de la transición
+    setTimeout(() => {
+        timelineItem.classList.remove('animating');
+    }, 600);
+    
+    // Smooth scroll al item si está expandiendo
+    if (!isExpanded) {
+        setTimeout(() => {
+            header.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }, 300);
+    }
+}
+
+/**
+ * Expande un item de timeline
+ * @param {Element} header - Header del item
+ * @param {Element} body - Cuerpo del item
+ * @param {Element} expandBtn - Botón de expansión
+ */
+function expandTimelineItem(header, body, expandBtn) {
+    header.setAttribute('aria-expanded', 'true');
+    body.setAttribute('aria-hidden', 'false');
+    body.classList.add('expanded');
+    
+    // Calcular altura real del contenido
+    const scrollHeight = body.scrollHeight;
+    body.style.maxHeight = scrollHeight + 'px';
+    
+    // Animar el icono
+    if (expandBtn) {
+        expandBtn.style.transform = 'rotate(180deg)';
+    }
+    
+    // Añadir efecto de highlight temporal
+    const card = header.closest('.timeline-card');
+    card.style.boxShadow = '0 20px 60px rgba(43, 161, 212, 0.2)';
+    
+    setTimeout(() => {
+        card.style.boxShadow = '';
+    }, 1000);
+}
+
+/**
+ * Colapsa un item de timeline
+ * @param {Element} header - Header del item
+ * @param {Element} body - Cuerpo del item
+ * @param {Element} expandBtn - Botón de expansión
+ */
+function collapseTimelineItem(header, body, expandBtn) {
+    header.setAttribute('aria-expanded', 'false');
+    body.setAttribute('aria-hidden', 'true');
+    body.classList.remove('expanded');
+    body.style.maxHeight = '0px';
+    
+    // Animar el icono
+    if (expandBtn) {
+        expandBtn.style.transform = 'rotate(0deg)';
+    }
+}
+
+/**
+ * Expande o colapsa todos los items
+ * @param {boolean} expand - true para expandir, false para colapsar
+ */
+function toggleAllTimelineItems(expand) {
+    const timelineHeaders = document.querySelectorAll('.timeline-header');
+    
+    timelineHeaders.forEach((header, index) => {
+        const body = header.nextElementSibling;
+        const expandBtn = header.querySelector('.expand-btn i');
+        const isCurrentlyExpanded = header.getAttribute('aria-expanded') === 'true';
+        
+        // Solo procesar si el estado actual es diferente al deseado
+        if (expand && !isCurrentlyExpanded) {
+            setTimeout(() => {
+                expandTimelineItem(header, body, expandBtn);
+            }, index * 100); // Stagger animation
+        } else if (!expand && isCurrentlyExpanded) {
+            setTimeout(() => {
+                collapseTimelineItem(header, body, expandBtn);
+            }, index * 50); // Faster collapse
+        }
+    });
+    
+    // Mostrar feedback visual en los botones
+    const activeBtn = expand ? 
+        document.querySelector('[data-action="expand-all"]') : 
+        document.querySelector('[data-action="collapse-all"]');
+        
+    if (activeBtn) {
+        activeBtn.style.background = 'var(--success-color)';
+        setTimeout(() => {
+            activeBtn.style.background = '';
+        }, 1000);
+    }
+}
+
+/**
+ * Maneja navegación por teclado para accesibilidad
+ * @param {KeyboardEvent} event - Evento de teclado
+ */
+function handleKeyboardNavigation(event) {
+    if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        handleTimelineToggle(event);
+    }
+}
+
+/**
+ * Observador mejorado para items de timeline
+ * Incluye lógica para items expandibles
+ */
 function observeTimelineItems() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineItems = document.querySelectorAll('.timeline-item.expandable');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
                 
-                // Añadir retraso progresivo a elementos dentro del item
-                const card = entry.target.querySelector('.timeline-card');
                 const marker = entry.target.querySelector('.timeline-marker');
+                const card = entry.target.querySelector('.timeline-card');
                 
+                // Animación del marcador
                 setTimeout(() => {
-                    marker.style.transform = 'translate(-50%, -50%) scale(1.2)';
-                    setTimeout(() => {
-                        marker.style.transform = 'translate(-50%, -50%) scale(1)';
-                    }, 200);
+                    if (marker) {
+                        marker.style.transform = 'translateX(-50%) scale(1.1)';
+                        setTimeout(() => {
+                            marker.style.transform = 'translateX(-50%) scale(1)';
+                        }, 200);
+                    }
                 }, 300);
+                
+                // Efecto de entrada en la card
+                if (card) {
+                    card.style.transform = 'translateY(0)';
+                    card.style.opacity = '1';
+                }
             }
         });
     }, {
-        threshold: 0.3,
+        threshold: 0.2,
         rootMargin: '-50px'
     });
     
-    timelineItems.forEach(item => observer.observe(item));
+    timelineItems.forEach(item => {
+        // Preparar estado inicial para animación
+        const card = item.querySelector('.timeline-card');
+        if (card) {
+            card.style.transform = 'translateY(30px)';
+            card.style.opacity = '0';
+            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        }
+        
+        observer.observe(item);
+    });
 }
+
+// Funciones auxiliares para mejor UX
+/**
+ * Verifica si hay items expandidos y actualiza el estado de los botones
+ */
+function updateControlButtons() {
+    const headers = document.querySelectorAll('.timeline-header');
+    const expandedCount = Array.from(headers).filter(h => 
+        h.getAttribute('aria-expanded') === 'true'
+    ).length;
+    
+    const expandAllBtn = document.querySelector('[data-action="expand-all"]');
+    const collapseAllBtn = document.querySelector('[data-action="collapse-all"]');
+    
+    if (expandAllBtn && collapseAllBtn) {
+        expandAllBtn.disabled = expandedCount === headers.length;
+        collapseAllBtn.disabled = expandedCount === 0;
+    }
+}
+
+// Auto-scroll mejorado para items expandidos
+function smoothScrollToExpanded() {
+    const expandedItems = document.querySelectorAll('.timeline-header[aria-expanded="true"]');
+    if (expandedItems.length > 0) {
+        const lastExpanded = expandedItems[expandedItems.length - 1];
+        lastExpanded.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    }
+}
+
 
 function enhanceTeamCards() {
     const teamCards = document.querySelectorAll('.team-card');
@@ -138,6 +372,342 @@ function animateCertifications() {
         observer.observe(card);
     });
 }
+// Agregar al DOMContentLoaded existente
+document.addEventListener('DOMContentLoaded', function() {
+    // Código existente...
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
+    
+    animateNumbers();
+    observeTimelineItems();
+    enhanceTeamCards();
+    
+    // Nueva funcionalidad para valores con expansión horizontal
+    initializeDynamicValores();
+});
+
+/**
+ * Sistema avanzado de valores con expansión horizontal y agrupamiento
+ */
+function initializeDynamicValores() {
+    const valoresContainer = document.getElementById('valores-container');
+    const valorCards = document.querySelectorAll('.valor-card-dynamic');
+    const resetBtn = document.querySelector('[data-action="reset-all-values"]');
+    const tourBtn = document.querySelector('[data-action="tour-values"]');
+    
+    let currentExpanded = null;
+    let isAnimating = false;
+    let tourInterval = null;
+    
+    // Configurar event listeners para cada tarjeta
+    valorCards.forEach(card => {
+        const expandBtn = card.querySelector('.expand-valor-btn');
+        const closeBtn = card.querySelector('.close-valor-btn');
+        const compactView = card.querySelector('.valor-compact-view');
+        
+        // Click en botón expandir o en la vista compacta
+        [expandBtn, compactView].forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!isAnimating) {
+                    expandValor(card);
+                }
+            });
+        });
+        
+        // Click en botón cerrar
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (!isAnimating) {
+                collapseValor(card);
+            }
+        });
+        
+        // Navegación por teclado
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                if (!card.classList.contains('expanded') && !isAnimating) {
+                    expandValor(card);
+                }
+            }
+            if (e.key === 'Escape' && card.classList.contains('expanded')) {
+                e.preventDefault();
+                collapseValor(card);
+            }
+        });
+        
+        // Hacer las tarjetas focusables
+        card.setAttribute('tabindex', '0');
+    });
+    
+    // Botones de control
+    if (resetBtn) {
+        resetBtn.addEventListener('click', resetAllValores);
+    }
+    
+    if (tourBtn) {
+        tourBtn.addEventListener('click', startValoresTour);
+    }
+    
+    /**
+     * Expande un valor específico
+     */
+    function expandValor(targetCard) {
+        if (isAnimating || targetCard.classList.contains('expanded')) return;
+        
+        isAnimating = true;
+        
+        // Si hay otra tarjeta expandida, colapsarla primero
+        if (currentExpanded && currentExpanded !== targetCard) {
+            collapseValor(currentExpanded, false);
+        }
+        
+        // Añadir clase de animación
+        targetCard.classList.add('expanding');
+        
+        // Minimizar todas las demás tarjetas
+        valorCards.forEach(card => {
+            if (card !== targetCard) {
+                card.classList.add('minimized', 'minimizing');
+            }
+        });
+        
+        // Cambiar el layout del grid
+        valoresContainer.classList.add('has-expanded');
+        
+        setTimeout(() => {
+            // Expandir la tarjeta objetivo
+            targetCard.classList.add('expanded');
+            targetCard.classList.remove('expanding');
+            
+            // Remover clases de animación
+            valorCards.forEach(card => {
+                card.classList.remove('minimizing');
+            });
+            
+            currentExpanded = targetCard;
+            isAnimating = false;
+            
+            // Scroll suave a la tarjeta expandida
+            setTimeout(() => {
+                targetCard.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }, 200);
+            
+            // Animar elementos internos
+            animateExpandedContent(targetCard);
+            
+        }, 300);
+    }
+    
+    /**
+     * Colapsa un valor específico
+     */
+    function collapseValor(targetCard, resetLayout = true) {
+        if (isAnimating || !targetCard.classList.contains('expanded')) return;
+        
+        isAnimating = true;
+        
+        // Colapsar la tarjeta
+        targetCard.classList.remove('expanded');
+        
+        if (resetLayout) {
+            // Restaurar todas las tarjetas
+            valorCards.forEach(card => {
+                card.classList.remove('minimized');
+            });
+            
+            // Restaurar el layout del grid
+            valoresContainer.classList.remove('has-expanded');
+            currentExpanded = null;
+        }
+        
+        setTimeout(() => {
+            isAnimating = false;
+        }, 600);
+    }
+    
+    /**
+     * Resetea todas las tarjetas al estado normal
+     */
+    function resetAllValores() {
+        if (isAnimating) return;
+        
+        stopValoresTour(); // Detener tour si está activo
+        
+        valorCards.forEach(card => {
+            card.classList.remove('expanded', 'minimized');
+        });
+        
+        valoresContainer.classList.remove('has-expanded');
+        currentExpanded = null;
+        
+        // Feedback visual
+        resetBtn.style.background = 'var(--success-color)';
+        resetBtn.innerHTML = '<i class="fas fa-check"></i> Vista Normal';
+        
+        setTimeout(() => {
+            resetBtn.style.background = '';
+            resetBtn.innerHTML = '<i class="fas fa-refresh"></i> Vista Normal';
+        }, 1500);
+    }
+    
+    /**
+     * Inicia un tour automático por todos los valores
+     */
+    function startValoresTour() {
+        if (isAnimating) return;
+        
+        stopValoresTour(); // Detener tour anterior si existe
+        
+        let currentIndex = 0;
+        const tourCards = Array.from(valorCards);
+        
+        // Cambiar apariencia del botón
+        tourBtn.style.background = 'var(--accent-color)';
+        tourBtn.innerHTML = '<i class="fas fa-stop"></i> Detener Tour';
+        tourBtn.setAttribute('data-action', 'stop-tour');
+        
+        function showNextValor() {
+            if (currentIndex < tourCards.length) {
+                expandValor(tourCards[currentIndex]);
+                currentIndex++;
+                
+                // Programar el siguiente valor
+                tourInterval = setTimeout(() => {
+                    if (currentIndex < tourCards.length) {
+                        showNextValor();
+                    } else {
+                        // Tour completado
+                        setTimeout(() => {
+                            resetAllValores();
+                            stopValoresTour();
+                        }, 3000);
+                    }
+                }, 4000); // Mostrar cada valor por 4 segundos
+            }
+        }
+        
+        showNextValor();
+        
+        // Cambiar el event listener del botón
+        tourBtn.removeEventListener('click', startValoresTour);
+        tourBtn.addEventListener('click', stopValoresTour);
+    }
+    
+    /**
+     * Detiene el tour automático
+     */
+    function stopValoresTour() {
+        if (tourInterval) {
+            clearTimeout(tourInterval);
+            tourInterval = null;
+        }
+        
+        // Restaurar apariencia del botón
+        tourBtn.style.background = '';
+        tourBtn.innerHTML = '<i class="fas fa-play"></i> Tour Automático';
+        tourBtn.setAttribute('data-action', 'tour-values');
+        
+        // Restaurar event listener
+        tourBtn.removeEventListener('click', stopValoresTour);
+        tourBtn.addEventListener('click', startValoresTour);
+    }
+    
+    /**
+     * Anima el contenido interno cuando se expande
+     */
+    function animateExpandedContent(card) {
+        const sections = card.querySelectorAll('.valor-section');
+        const aplicacionItems = card.querySelectorAll('.aplicacion-item');
+        
+        sections.forEach((section, index) => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                section.style.transition = 'all 0.4s ease';
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }, index * 200);
+        });
+        
+        aplicacionItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-20px)';
+            
+            setTimeout(() => {
+                item.style.transition = 'all 0.3s ease';
+                item.style.opacity = '1';
+                item.style.transform = 'translateX(0)';
+            }, 800 + (index * 100));
+        });
+    }
+    
+    // Manejar redimensionamiento de ventana
+    window.addEventListener('resize', debounce(() => {
+        if (window.innerWidth <= 768 && currentExpanded) {
+            // En móvil, restaurar vista normal para mejor UX
+            resetAllValores();
+        }
+    }, 250));
+    
+    // Función utilitaria de debounce
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+}
+
+// Observador mejorado para valores dinámicos
+function observeDynamicValores() {
+    const valorCards = document.querySelectorAll('.valor-card-dynamic');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                const icon = entry.target.querySelector('.valor-icon');
+                if (icon) {
+                    setTimeout(() => {
+                        icon.style.transform = 'scale(1.1) rotateY(360deg)';
+                        setTimeout(() => {
+                            icon.style.transform = 'scale(1)';
+                        }, 600);
+                    }, index * 100);
+                }
+            }
+        });
+    }, {
+        threshold: 0.2,
+        rootMargin: '-30px'
+    });
+    
+    valorCards.forEach(card => {
+        observer.observe(card);
+    });
+}
+
+// Inicializar observador para valores dinámicos
+observeDynamicValores();
+
 
 // Inicializar animaciones de certificaciones
 animateCertifications();
