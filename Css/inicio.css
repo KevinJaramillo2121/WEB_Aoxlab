@@ -652,6 +652,321 @@ body {
     animation: fadeInRight 0.8s ease forwards;
 }
 
+/* Estilos base comunes para todas las certificaciones */
+.cert-badge {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid transparent;
+    display: flex;
+    align-items: center;
+}
+
+/* Efectos comunes a todos los certificados */
+.cert-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all var(--transition-medium);
+    pointer-events: none;
+}
+
+.cert-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: all 0.8s ease;
+    pointer-events: none;
+}
+
+.cert-badge:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px var(--shadow-medium);
+}
+
+.cert-badge:hover::after {
+    left: 100%;
+}
+
+/* Certificado ONAC (Primer elemento) */
+.cert-badge:nth-child(1) {
+    grid-column: 1 / -1;
+    border-top-color: var(--secondary-color);
+    background: linear-gradient(135deg, rgba(43, 161, 212, 0.03), var(--white));
+    padding: var(--spacing-xl) var(--spacing-xxl);
+    min-height: 200px;
+}
+
+.cert-badge:nth-child(1)::before {
+    background: linear-gradient(135deg, rgba(43, 161, 212, 0.1), transparent);
+}
+
+.cert-badge:nth-child(1)::after {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(43, 161, 212, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.cert-badge:nth-child(1):hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(43, 161, 212, 0.3);
+    border-color: var(--secondary-color);
+}
+
+.cert-badge:nth-child(1):hover::before {
+    opacity: 1;
+}
+
+.cert-badge:nth-child(2):hover span {
+    color: #17a2b8;
+    text-shadow: 0 2px 4px rgba(23, 162, 184, 0.2);
+}
+
+/* Certificado ICA (Cuarto elemento) */
+.cert-badge:nth-child(4) {
+    border-top: 4px solid var(--success-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-lg);
+    min-height: 180px;
+}
+
+.cert-badge:nth-child(4)::before {
+    background: linear-gradient(135deg, rgba(141, 178, 61, 0.1), transparent);
+}
+
+.cert-badge:nth-child(4)::after {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(141, 178, 61, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.cert-badge:nth-child(4):hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(141, 178, 61, 0.3);
+    background: linear-gradient(135deg, rgba(141, 178, 61, 0.05), var(--white));
+    border-color: var(--success-color);
+}
+
+.cert-badge:nth-child(4):hover::before {
+    opacity: 1;
+}
+
+
+
+.cert-badge:nth-child(4):hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+.cert-badge:nth-child(4) .download-link {
+    background: var(--success-color);
+    color: var(--white);
+    transition: all var(--transition-medium);
+}
+
+.cert-badge:nth-child(4) .download-link:hover {
+    background: var(--dark-green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(141, 178, 61, 0.4);
+}
+
+.cert-badge:nth-child(4):hover span {
+    color: var(--success-color);
+    text-shadow: 0 2px 4px rgba(141, 178, 61, 0.2);
+}
+
+/* Certificado ISO 17065 (Posición 5) - Efectos púrpura elegantes */
+.cert-badge:nth-child(5) {
+    border-top: 4px solid #6f42c1; /* Color púrpura elegant */
+    background: linear-gradient(135deg, rgba(111, 66, 193, 0.03), var(--white));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-lg);
+    min-height: 180px;
+    opacity: 0.9; /* Mantener translúcido por estar próximamente */
+}
+
+.cert-badge:nth-child(5)::before {
+    background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), transparent);
+}
+
+
+.cert-badge:nth-child(5)::after {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(111, 66, 193, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+.cert-badge:nth-child(5):hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(111, 66, 193, 0.3);
+    background: linear-gradient(135deg, rgba(111, 66, 193, 0.05), var(--white));
+    border-color: #6f42c1;
+    opacity: 1; /* Se vuelve opaco al hacer hover */
+}
+
+.cert-badge:nth-child(5):hover::before {
+    opacity: 1;
+}
+
+.cert-badge:nth-child(5):hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1) saturate(1.2);
+}
+
+.cert-badge:nth-child(5) .download-link.disabled {
+    background: #6f42c1;
+    color: var(--white);
+    opacity: 0.7;
+    transition: all var(--transition-medium);
+}
+
+.cert-badge:nth-child(5):hover .download-link.disabled {
+    background: #5a32a3; /* Púrpura más oscuro */
+    opacity: 0.9;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(111, 66, 193, 0.4);
+}
+
+/* Resolución (Tercer elemento) */
+.cert-badge.cert-resolucion {
+    border-top-color: var(--accent-color);
+}
+
+.cert-badge.cert-resolucion::before {
+    background: linear-gradient(135deg, rgba(243, 119, 40, 0.1), transparent);
+}
+
+.cert-badge.cert-resolucion::after {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(243, 119, 40, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+/* Badge "PRÓXIMAMENTE" mejorado con púrpura */
+.cert-badge.coming-soon::after {
+    content: 'PRÓXIMAMENTE';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #6f42c1, #5a32a3);
+    color: var(--white);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(111, 66, 193, 0.3);
+    z-index: 5;
+    animation: pulsePurple 2s ease-in-out infinite;
+}
+
+/* Efecto especial al hover para el certificado próximamente */
+.cert-badge:nth-child(5):hover.coming-soon::after {
+    animation: none;
+    background: linear-gradient(135deg, #5a32a3, #4c2a85);
+    transform: scale(1.1);
+}
+
+/* Animación de pulso púrpura para el badge */
+@keyframes pulsePurple {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 8px rgba(111, 66, 193, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 4px 16px rgba(111, 66, 193, 0.5);
+    }
+}
+
+/* Elementos comunes que se mantienen */
+/* Estilos comunes para imágenes y texto */
+.cert-badge img {
+    width: auto;
+    max-width: 100%;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: var(--spacing-md);
+    transition: all var(--transition-medium);
+}
+
+.cert-badge:hover img {
+    transform: scale(1.05);
+}
+
+.download-link {
+    background: var(--secondary-color);
+    color: var(--white);
+    transition: all var(--transition-medium);
+}
+
+.cert-badge:nth-child(4) .download-link { background: var(--success-color); }
+.cert-badge:nth-child(5) .download-link { background: #dc3545; }
+.cert-badge.cert-resolucion .download-link { background: var(--accent-color); }
+
+.download-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+}
+.cert-badge.cert-resolucion .cert-icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px; /* Reducido para formato cuadrado */
+    height: 80px; /* Reducido para formato cuadrado */
+    background: var(--accent-color);
+    border-radius: 50%;
+    margin-bottom: var(--spacing-md); /* Margen inferior en lugar de derecho */
+    margin-right: 0; /* Eliminar margen derecho */
+    flex-shrink: 0;
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(243, 119, 40, 0.3);
+    transition: all var(--transition-medium);
+}
+.cert-badge.cert-resolucion .cert-icon-container i {
+    font-size: 2rem; /* Reducido para formato cuadrado */
+    margin-bottom: var(--spacing-xs);
+}
+
+.cert-badge.cert-resolucion .cert-icon-text {
+    font-size: 0.75rem; /* Ligeramente más pequeño */
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .carousel-slide:nth-child(2) .slide-content {
     position: absolute;
     top: 40%;
@@ -740,8 +1055,8 @@ body {
     
     /* Sombra para el párrafo también */
     text-shadow: 
-        2px 2px 6px rgba(0,0,0,0.8),
-        0 0 20px rgba(0,0,0,0.5);
+        2px 2px 6px rgba(155, 19, 123, 0.8),
+        0 0 20px rgba(174, 15, 153, 0.5);
 }
 /* Slide 4: Vida Útil - Posicionamiento hacia la derecha */
 .carousel-slide[data-slide="vida-util"] .slide-content {
@@ -801,29 +1116,28 @@ body {
 }
 .carousel-slide[data-slide="biodegradabilidad"] .slide-content {
     position: absolute;
-    left: calc(var(--spacing-xl) + 25px);
+    left: var(--spacing-xl);
     top: 45%;
     left: var(--spacing-xl);
     transform: translateY(-60%);
     color: var(--white);
-    max-width: 600px;
-    z-index: 3;
+    max-width: 700px;
+    z-index: 2;
 }
 
 
 /* Contenedor del enlace de descarga de portafolios */
+/* Contenedor centrado, pero más pequeño */
 .portfolio-download-link {
     position: absolute;
     bottom: 100px;
-    left: 0; /* Cambio: usar left: 0 en lugar de left: 50% */
-    right: 0; /* Añadir right: 0 para ocupar todo el ancho */
-    transform: none; /* Eliminar transform que podía causar desplazamiento */
+    left: 0;
+    right: 0;
     z-index: 6;
-    animation: fadeInUp 1s ease 1s both;
     display: flex;
-    justify-content: center; /* Centrado con flexbox */
+    justify-content: center;
     align-items: center;
-    padding: 0 var(--spacing-md); /* Padding lateral para evitar que toque los bordes */
+    padding: 0;
 }
 
 .portfolio-download-link .download-text {
@@ -843,21 +1157,32 @@ body {
     background:transparent rgba(7, 7, 7, 0.85); /* Color sólido sin transparencia excesiva */
     color: #FFFFFF !important; /* BLANCO FORZADO */
     text-decoration: none;
-    padding: var(--spacing-lg) var(--spacing-xxl); /* Padding aumentado */
-    border: 2px solid rgba(255, 255, 255, 0.8) !important;
-    box-shadow: 0 10px 30px rgb(0, 0, 0);
+    padding: 0.5rem 1.2rem !important; /* Mucho más pequeño que antes */
+    box-shadow: none;
     text-decoration: none;
     font-weight: var(--font-weight-bold);
     font-size: 1.1rem; /* Tamaño base aumentado */
     letter-spacing: 0.8px; /* Mejor espaciado de letras */
     transition: all var(--transition-medium);
     backdrop-filter: blur(15px); /* Blur más fuerte */
-    
-    
     min-width: 150px; /* Ancho mínimo aumentado */
     text-align: center;
     position: relative;
+    
 }
+/* .download-portfolio-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    min-width: unset;
+    transition: none;
+    backdrop-filter: none;
+    position: relative;
+}/*
 
 
 /* Texto del enlace */
@@ -987,16 +1312,19 @@ body {
     color: var(--white);
     margin-bottom: var(--spacing-md);
     line-height: 1.2;
-    padding-left: 35px; /* Padding adicional para el título */
-
+    padding-left: 35px; /* Mantener el padding actual del título */
     text-shadow: 
-    
         2px 2px 6px rgba(0,0,0,0.9),
         0 0 20px rgba(0,0,0,0.6),
         4px 4px 12px rgba(0,0,0,0.7);
-        
 }
 
+/* NUEVO: Alinear todos los demás elementos con el título */
+.carousel-slide[data-slide="biodegradabilidad"] .hero-badge,
+.carousel-slide[data-slide="biodegradabilidad"] .slide-content p,
+.carousel-slide[data-slide="biodegradabilidad"] .hero-actions {
+    padding-left: 35px; /* Mismo padding que el título */
+}
 
 .hero-tit
 .hero-badge
@@ -1034,7 +1362,7 @@ body {
     font-size: 0.9rem;
     font-weight: var(--font-weight-bold);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(231, 46, 207, 0.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all var(--transition-medium);
     white-space: nowrap;
@@ -1338,7 +1666,17 @@ color: var(--white)
     min-height: 160px;
 }
 
-
+.cert-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all var(--transition-medium);
+    pointer-events: none;
+}
 .cert-badge img {
     width: auto;
     max-width: 100%;
@@ -1358,6 +1696,8 @@ color: var(--white)
     font-weight: var(--font-weight-bold);
     line-height: 1.4;
     margin-bottom: var(--spacing-sm);
+    transition: all var(--transition-medium);
+
 }
 
 .download-link {
@@ -1404,20 +1744,6 @@ color: var(--white)
     position: relative;
 } 
 
-.cert-badge.coming-soon::after {
-    content: 'PRÓXIMAMENTE';
-    position: absolute;
-    top: var(--spacing-sm);
-    right: var(--spacing-sm);
-    background: var(--accent-color);
-    color: var(--white);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--border-radius);
-    font-size: 0.7rem;
-    font-weight: var(--font-weight-bold);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
 
 /* Estilos para certificación próxima */
 .cert-badge.coming-soon .download-link {
@@ -1454,8 +1780,15 @@ color: var(--white)
 
 /* Certificación ONAC - Diseño horizontal especial */
 .cert-badge:nth-child(1) {
-    border-top: 4px solid var(--secondary-color);
+    grid-column: 1 / -1;
+    border-top-color: var(--secondary-color);
     background: linear-gradient(135deg, rgba(43, 161, 212, 0.03), var(--white));
+    padding: var(--spacing-xl) var(--spacing-xxl);
+    min-height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
 }
 /* Especificaciones técnicas */
 .technical-specs {
@@ -1718,13 +2051,48 @@ color: var(--white)
     margin-top: var(--spacing-sm);
 }
 
-/* Estilos específicos para certificación ICA */
+/* Certificado Seccional de Salud (Posición 2) - Efectos turquesa */
 .cert-badge:nth-child(2) {
-    border-top: 4px solid var(--success-color);
+    border-top: 4px solid #17a2b8; /* Color turquesa */
+    background: linear-gradient(135deg, rgba(23, 162, 184, 0.03), var(--white));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-lg);
+    min-height: 180px;
+}
+
+.cert-badge:nth-child(2)::before {
+    background: linear-gradient(135deg, rgba(23, 162, 184, 0.1), transparent);
+}
+
+.cert-badge:nth-child(2)::after {
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(23, 162, 184, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
 }
 
 .cert-badge:nth-child(2):hover {
-    background: linear-gradient(135deg, rgba(141, 178, 61, 0.05), var(--white));
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(23, 162, 184, 0.3);
+    background: linear-gradient(135deg, rgba(23, 162, 184, 0.05), var(--white));
+    border-color: #17a2b8;
+}
+
+
+.cert-badge:nth-child(2):hover::before {
+    opacity: 1;
+}
+
+.cert-badge:nth-child(2):hover img {
+    content: center;
+    transform: scale(1.1);
+    filter: brightness(1.1);
 }
 /* Estilos específicos para ISO 17065 (Próximamente) */
 .cert-badge:nth-child(3) {
@@ -1732,24 +2100,21 @@ color: var(--white)
 }
 
 .cert-badge:nth-child(3):hover {
-    background: linear-gradient(135deg, rgba(243, 119, 40, 0.05), var(--white));
+    background: linear-gradient(135deg, rgba(181, 28, 138, 0.05), var(--white));
+}
+.cert-badge:nth-child(2) .download-link {
+    background: #17a2b8;
+    color: var(--white);
+    transition: all var(--transition-medium);
+}
+.cert-badge:nth-child(2) .download-link:hover {
+    background: #138496; /* Turquesa más oscuro */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(23, 162, 184, 0.4);
 }
 
-.cert-badge:nth-child(2) img,
-.cert-badge:nth-child(3) img {
-    width: auto;
-    max-width: 100%;
-    height: 90px;
-    object-fit: contain;
-    margin-bottom: var(--spacing-md);
-}
+/* Resolución (Posición 3) - Mantener efectos naranjas existentes */
 
-.cert-badge:nth-child(2),
-.cert-badge:nth-child(3) {
-    min-height: 180px;
-    flex-direction: column;
-    text-align: center;
-}
 /* Certificación Seccional de Salud - Layout horizontal bonito */
 .cert-badge.cert-salud {
     grid-column: 1 / -1; /* Ocupa ambas columnas */
@@ -2275,14 +2640,15 @@ color: var(--white)
 .main-footer {
     background: var(--primary-color);
     color: var(--white);
-    padding: var(--spacing-xxl) 0 var(--spacing-lg);
+    padding: var(--spacing-xl) 0 var(--spacing-md); /* Reducido padding vertical */
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-xl);
+    grid-template-columns: 1.2fr 2fr 1.05fr 0.8fr 0.8fr; /* 5 columnas más 
+    gap: var(--spacing-lg); /* Reducir gap para más espacio */
     margin-bottom: var(--spacing-xl);
+    max-width: 100%;
 }
 
 .footer-section h4 {
@@ -2408,8 +2774,6 @@ color: var(--white)
     visibility: hidden;
     transition: all var(--transition-medium);
 }
-
-
 
 /* Servicios Expandibles */
 .service-card.expandable {
