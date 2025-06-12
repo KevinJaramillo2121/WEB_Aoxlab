@@ -9,27 +9,50 @@ html, body {
 }
 
 .somos-hero {
-    height: 100vh; /* Altura de la ventana completa */
+    height: 100vh; /* Altura completa del viewport */
     width: 100%;
-    padding: 0; /* Eliminamos el padding existente */
     position: relative;
-    background-image: linear-gradient(135deg, rgba(43, 161, 212, 0.729), rgba(243, 118, 40, 0.429)), url("img/shutterstock_2218424541.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Imagen de fondo optimizada */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(43, 161, 212, 0.729), rgba(243, 118, 40, 0.429)), url("../img/Somos.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Efecto parallax */
+    z-index: 1;
+}
+
+
 .somos-hero::before {
     content: '';
     position: absolute;
     top: 0;
-    right: 0;
-    width: 50%;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, transparent 0%, rgba(43, 161, 212, 0.05) 100%);
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 2;
 }
 
 .somos-hero .container {
@@ -43,13 +66,19 @@ html, body {
 
 /* Ajustamos el contenedor para centrar el contenido */
 .somos-hero .container {
+    position: relative;
+    z-index: 3;
     width: 100%;
-    max-width: 1200px; /* O el ancho que prefieras */
-}
-.hero-content {
+    max-width: 1200px;
+    padding: 0 2rem;
     text-align: center;
-    color: rgb(255, 255, 255); /* Para asegurar que el texto sea legible sobre la imagen */
 }
+
+.hero-content {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 
 
 .highlight {
@@ -58,14 +87,21 @@ html, body {
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 2rem;
+    line-height: 1.4;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem); /* Tamaño de fuente responsivo */
-    margin-bottom: 1.5rem;
-    color: rgb(0, 0, 0);
+.highlight {
+    color: #ffffff;
+    position: relative;
+    background: linear-gradient(135deg, rgba(243, 118, 40, 0.3), rgba(43, 161, 212, 0.3));
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
 }
 
 .somos-hero .highlight {
@@ -91,28 +127,45 @@ html, body {
     line-height: 1.1;
 }
 
-.somos-hero .hero-stats {
+.hero-stats {
     display: flex;
-    gap: var(--spacing-lg);
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
-.somos-hero .stat-item {
+.stat-item {
     text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 1rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 120px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.somos-hero .stat-number {
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stat-number {
     display: block;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: var(--font-weight-bold);
-    color: rgba(243, 118, 40, 0.883);
+    color: rgba(243, 118, 40, 1);
     line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.somos-hero .stat-label {
-    font-size: 1 rem;
-    color: rgb(0, 0, 0);
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin-top: 0.5rem;
 }
 
 .somos-hero .hero-image {
@@ -1992,6 +2045,59 @@ html, body {
 [data-aos].aos-animate {
     transform: translate3d(0, 0, 0);
     opacity: 1;
+}
+
+
+/* Tablets y pantallas medianas */
+@media (max-width: 768px) {
+    .somos-hero {
+        height: 100vh;
+        padding: 2rem 0;
+    }
+    
+    .hero-background {
+        background-attachment: scroll; /* Mejor rendimiento en móviles */
+        background-position: center center;
+    }
+    
+    .hero-stats {
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .stat-item {
+        padding: 1rem 0.8rem;
+        min-width: 100px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .somos-hero .container {
+        padding: 0 1rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+
+
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .hero-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
 }
 
 /* Responsive Design */

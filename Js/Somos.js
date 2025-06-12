@@ -137,6 +137,87 @@ function handleTimelineToggle(event) {
     }
 }
 
+// Efecto parallax mejorado para el hero
+function initHeroParallax() {
+    const heroBackground = document.querySelector('.hero-background');
+    
+    if (!heroBackground) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        if (scrolled < window.innerHeight) {
+            heroBackground.style.transform = `translateY(${rate}px)`;
+        }
+    });
+}
+
+// Animación de entrada para el contenido del hero
+function animateHeroContent() {
+    const heroContent = document.querySelector('.hero-content');
+    const heroElements = heroContent.querySelectorAll('h1, .hero-subtitle, .hero-badge, .stat-item');
+    
+    // Configurar estado inicial
+    heroElements.forEach((element, index) => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        
+        // Animar con delay escalonado
+        setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, 200 + (index * 150));
+    });
+}
+
+// Mejorar la animación de números
+function enhanceNumberAnimation() {
+    const statNumbers = document.querySelectorAll('.somos-hero .stat-number');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                animateCounter(entry.target, 0, target, 2000);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statNumbers.forEach(number => observer.observe(number));
+}
+
+function animateCounter(element, start, end, duration) {
+    let startTimestamp = null;
+    
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        
+        // Usar easing para una animación más suave
+        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+        const currentValue = Math.floor(easeOutQuart * (end - start) + start);
+        
+        element.textContent = currentValue + '+';
+        
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    
+    window.requestAnimationFrame(step);
+}
+
+// Inicializar todas las mejoras
+document.addEventListener('DOMContentLoaded', function() {
+    initHeroParallax();
+    animateHeroContent();
+    enhanceNumberAnimation();
+});
+
+
 /**
  * Expande un item de timeline
  * @param {Element} header - Header del item
