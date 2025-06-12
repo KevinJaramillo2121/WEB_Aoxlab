@@ -910,50 +910,317 @@
             
         </section>
 
-        <!-- Certificaciones -->
-        <section class="certificaciones-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Nuestras Certificaciones</h2>
-                    <p>Avales internacionales que respaldan la calidad y confiabilidad de nuestros servicios</p>
+        <!-- Certificaciones Mejoradas -->
+<section class="certificaciones-section-enhanced">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nuestras Certificaciones</h2>
+            <p>Avales internacionales que respaldan la calidad y confiabilidad de nuestros servicios</p>
+            
+            <!-- Filtros y Controles -->
+            <div class="cert-controls">
+                <div class="cert-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-th"></i> Todas
+                    </button>
+                    <button class="filter-btn" data-filter="iso">
+                        <i class="fas fa-globe"></i> ISO
+                    </button>
+                    <button class="filter-btn" data-filter="nacional">
+                        <i class="fas fa-flag"></i> Nacional
+                    </button>
+                    <button class="filter-btn" data-filter="sectorial">
+                        <i class="fas fa-industry"></i> Sectorial
+                    </button>
                 </div>
                 
-                <div class="cert-grid">
-                    <div class="cert-card" data-aos="flip-left" data-aos-delay="0">
-                        <div class="cert-image">
-                            <img src="img/ISO.jpg" alt="ISO/IEC 17025:2017">
-                        </div>
-                        <div class="cert-content">
-                            <h3>ISO/IEC 17025:2017</h3>
-                            <p>Acreditación para la competencia de laboratorios de ensayo y calibración</p>
-                            <span class="cert-status active">Vigente</span>
-                        </div>
+                <div class="view-controls">
+                    <button class="view-btn active" data-view="grid" title="Vista en Cuadrícula">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn" data-view="list" title="Vista en Lista">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Grid de Certificaciones -->
+        <div class="cert-grid-enhanced" id="cert-container">
+            
+            <!-- ISO/IEC 17025:2017 -->
+            <div class="cert-card-enhanced vigente" data-category="iso" data-aos="zoom-in" data-aos-delay="0">
+                <div class="cert-status-badge vigente">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Vigente</span>
+                </div>
+                
+                <div class="cert-header">
+                    <div class="cert-logos">
+                        <img src="img/Simbolo_Acreditado_ONAC_Horizontal_RGB.jpg" alt="AOXLAB" class="cert-logo main">
                     </div>
+                    <div class="cert-code">ISO/IEC 17025:2017</div>
+                </div>
+                
+                <div class="cert-body">
+                    <h3>Acreditación Internacional de Laboratorio</h3>
+                    <p>Competencia técnica para realizar ensayos y calibraciones específicas</p>
                     
-                    <div class="cert-card" data-aos="flip-left" data-aos-delay="100">
-                        <div class="cert-image">
-                            <img src="img/Ica.png" alt="Certificación ICA">
+                    <div class="cert-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Código: 20-LAB-011</span>
                         </div>
-                        <div class="cert-content">
-                            <h3>Certificación ICA</h3>
-                            <p>Autorización para análisis de productos agrícolas y pecuarios</p>
-                            <span class="cert-status active">Vigente</span>
-                        </div>
-                    </div>
-                    
-                    <div class="cert-card coming-soon" data-aos="flip-left" data-aos-delay="200">
-                        <div class="cert-image">
-                            <img src="img/Iso17065.jpg" alt="ISO 17065">
-                        </div>
-                        <div class="cert-content">
-                            <h3>ISO 17065</h3>
-                            <p>Certificación de productos ecológicos y agroindustriales</p>
-                            <span class="cert-status pending">Próximamente</span>
+                        <div class="detail-item">
+                            <i class="fas fa-globe"></i>
+                            <span>Reconocimiento Internacional</span>
                         </div>
                     </div>
                 </div>
+                
+                <div class="cert-footer">
+                    <button class="cert-btn primary">
+                        <i class="fas fa-download"></i>
+                        Descargar Certificado
+                    </button>
+                    <button class="cert-btn secondary" onclick="viewCertDetails('iso17025')">
+                        <i class="fas fa-eye"></i>
+                        Ver Detalles
+                    </button>
+                </div>
             </div>
-        </section>
+            
+            <!-- Certificación Seccional de Salud -->
+            <div class="cert-card-enhanced vigente" data-category="nacional" data-aos="zoom-in" data-aos-delay="100">
+                <div class="cert-status-badge vigente">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Vigente</span>
+                </div>
+                
+                <div class="cert-header">
+                    <div class="cert-logos">
+                        <img src="img/gobernacion-antioquia.png" alt="Gobernación de Antioquia" class="cert-logo main">
+                    </div>
+                    <div class="cert-code">Certificación Seccional</div>
+                </div>
+                
+                <div class="cert-body">
+                    <h3>Certificación Seccional de Salud</h3>
+                    <p>Autorización para operación como laboratorio de análisis clínicos y ambientales</p>
+                    
+                    <div class="cert-details">
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Antioquia, Colombia</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-hospital"></i>
+                            <span>Sector Salud</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cert-footer">
+                    <button class="cert-btn primary">
+                        <i class="fas fa-download"></i>
+                        Descargar Certificado
+                    </button>
+                    <button class="cert-btn secondary" onclick="viewCertDetails('salud')">
+                        <i class="fas fa-eye"></i>
+                        Ver Detalles
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Resolución No. 229 de 2024 -->
+            <div class="cert-card-enhanced vigente" data-category="nacional" data-aos="zoom-in" data-aos-delay="200">
+                <div class="cert-status-badge vigente">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Vigente</span>
+                </div>
+                
+                <div class="cert-header">
+                    <div class="cert-icon-main">
+                        <div class="resolution-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                    </div>
+                    <div class="cert-code">Resolución No. 229 de 2024</div>
+                </div>
+                
+                <div class="cert-body">
+                    <h3>Autorización Ministerio de Salud</h3>
+                    <p>Laboratorio autorizado para análisis de aguas para consumo humano</p>
+                    
+                    <div class="cert-details">
+                        <div class="detail-item">
+                            <i class="fas fa-tint"></i>
+                            <span>Análisis de Aguas</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Seguridad Alimentaria</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cert-footer">
+                    <button class="cert-btn primary">
+                        <i class="fas fa-download"></i>
+                        Descargar Resolución
+                    </button>
+                    <button class="cert-btn secondary" onclick="viewCertDetails('resolucion')">
+                        <i class="fas fa-eye"></i>
+                        Ver Detalles
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Certificación ICA -->
+            <div class="cert-card-enhanced vigente" data-category="sectorial" data-aos="zoom-in" data-aos-delay="300">
+                <div class="cert-status-badge vigente">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Vigente</span>
+                </div>
+                
+                <div class="cert-header">
+                    <div class="cert-logos">
+                        <img src="img/Ica.png" alt="ICA" class="cert-logo main">
+                    </div>
+                    <div class="cert-code">Registro ICA</div>
+                </div>
+                
+                <div class="cert-body">
+                    <h3>Certificación ICA</h3>
+                    <p>Autorización para análisis de alimentos para animales y productos agrícolas</p>
+                    
+                    <div class="cert-details">
+                        <div class="detail-item">
+                            <i class="fas fa-seedling"></i>
+                            <span>Sector Agropecuario</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-paw"></i>
+                            <span>Alimentos Animales</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cert-footer">
+                    <button class="cert-btn primary">
+                        <i class="fas fa-download"></i>
+                        Descargar Certificado
+                    </button>
+                    <button class="cert-btn secondary" onclick="viewCertDetails('ica')">
+                        <i class="fas fa-eye"></i>
+                        Ver Detalles
+                    </button>
+                </div>
+            </div>
+            
+            <!-- ISO 17065 (Próximamente) -->
+            <div class="cert-card-enhanced proximamente" data-category="iso" data-aos="zoom-in" data-aos-delay="400">
+                <div class="cert-status-badge proximamente">
+                    <i class="fas fa-clock"></i>
+                    <span>Próximamente</span>
+                </div>
+                
+                <div class="cert-header">
+                    <div class="cert-logos">
+                        <img src="img/Iso17065.jpg" alt="ISO 17065" class="cert-logo main">
+                    </div>
+                    <div class="cert-code">ISO 17065</div>
+                </div>
+                
+                <div class="cert-body">
+                    <h3>Certificación de Productos</h3>
+                    <p>Organismos que certifican productos, procesos y servicios</p>
+                    
+                    <div class="cert-details">
+                        <div class="detail-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>Certificación de Productos</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar-plus"></i>
+                            <span>En proceso de obtención</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cert-footer">
+                    <button class="cert-btn secondary disabled">
+                        <i class="fas fa-hourglass-half"></i>
+                        Disponible Pronto
+                    </button>
+                    <button class="cert-btn secondary" onclick="viewCertDetails('iso17065')">
+                        <i class="fas fa-info-circle"></i>
+                        Más Información
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Estadísticas de Certificaciones -->
+        <div class="cert-stats" data-aos="fade-up" data-aos-delay="500">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>5</h4>
+                    <span>Certificaciones</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>2</h4>
+                    <span>ISO Internacionales</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>4</h4>
+                    <span>Vigentes</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-calendar"></i>
+                </div>
+                <div class="stat-content">
+                    <h4>2025</h4>
+                    <span>Última Actualización</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modal para Detalles de Certificaciones -->
+<div class="cert-modal" id="cert-modal">
+    <div class="cert-modal-content">
+        <div class="cert-modal-header">
+            <h3 id="modal-title">Detalles de Certificación</h3>
+            <button class="cert-modal-close" onclick="closeCertModal()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cert-modal-body" id="modal-body">
+            <!-- Contenido dinámico -->
+        </div>
+    </div>
+</div>
+
 
         <!-- Visión de Futuro -->
         <section class="vision-section">
