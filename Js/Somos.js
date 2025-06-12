@@ -327,8 +327,8 @@ function initializeDynamicValores() {
             // o en elementos que no sean interactivos
             const clickedElement = e.target;
             const isInteractiveElement = clickedElement.closest('button') || 
-                                       clickedElement.closest('a') || 
-                                       clickedElement.closest('.close-valor-btn');
+            clickedElement.closest('a') || 
+            clickedElement.closest('.close-valor-btn');
             
             if (!isInteractiveElement && card.classList.contains('expanded') && !isAnimating) {
                 e.stopPropagation();
@@ -944,6 +944,7 @@ function viewCertDetails(certType) {
             content: `
                 <div class="modal-cert-info">
                     <div class="modal-cert-header">
+                        <img src="img/antioquia1.png" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
                         <h4>Autorización Secretaría Seccional de Salud de Antioquia</h4>
                     </div>
                     

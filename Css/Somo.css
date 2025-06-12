@@ -1,13 +1,26 @@
 /* ===== ESTILOS ESPECÍFICOS PARA PÁGINA SOMOS ===== */
 /*Es importante recordad que todos y cada uno de los apartados deben ir debidamente documentados con el fin de que la posterior actualización sea más senciila*/
 /* Hero Section Somos */
-.somos-hero {
-    padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xxl);
-    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
-    position: relative;
-    overflow: hidden;
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
+.somos-hero {
+    height: 100vh; /* Altura de la ventana completa */
+    width: 100%;
+    padding: 0; /* Eliminamos el padding existente */
+    position: relative;
+    background-image: linear-gradient(135deg, rgba(43, 161, 212, 0.729), rgba(243, 118, 40, 0.429)), url("img/shutterstock_2218424541.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .somos-hero::before {
     content: '';
     position: absolute;
@@ -28,16 +41,35 @@
     z-index: 2;
 }
 
-.somos-hero .hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: var(--font-weight-bold);
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-lg);
-    line-height: 1.2;
+/* Ajustamos el contenedor para centrar el contenido */
+.somos-hero .container {
+    width: 100%;
+    max-width: 1200px; /* O el ancho que prefieras */
+}
+.hero-content {
+    text-align: center;
+    color: rgb(255, 255, 255); /* Para asegurar que el texto sea legible sobre la imagen */
+}
+
+
+.highlight {
+    color: black;
+    position: relative;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 2rem;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Tamaño de fuente responsivo */
+    margin-bottom: 1.5rem;
+    color: rgb(0, 0, 0);
 }
 
 .somos-hero .highlight {
-    color: var(--secondary-color);
+    color: #ffffff;
     position: relative;
 }
 
@@ -53,10 +85,10 @@
 }
 
 .somos-hero .hero-subtitle {
-    font-size: 1.2rem;
-    color: var(--medium-gray);
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
     margin-bottom: var(--spacing-xl);
-    line-height: 1.6;
+    line-height: 1.1;
 }
 
 .somos-hero .hero-stats {
@@ -70,15 +102,15 @@
 
 .somos-hero .stat-number {
     display: block;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: var(--font-weight-bold);
-    color: var(--secondary-color);
+    color: rgba(243, 118, 40, 0.883);
     line-height: 1;
 }
 
 .somos-hero .stat-label {
-    font-size: 0.9rem;
-    color: var(--medium-gray);
+    font-size: 1 rem;
+    color: rgb(0, 0, 0);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -88,7 +120,7 @@
 }
 
 .somos-hero .hero-image img {
-    width: 100%;
+    width: 150%;
     border-radius: var(--border-radius-lg);
     box-shadow: 0 20px 60px var(--shadow-medium);
     transition: transform var(--transition-medium);
