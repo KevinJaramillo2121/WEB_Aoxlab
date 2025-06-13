@@ -48,11 +48,11 @@ html, body {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 50%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 2;
+    background: linear-gradient(45deg, transparent 0%, rgba(43, 161, 212, 0.05) 100%);
+    z-index: 1;
 }
 
 .somos-hero .container {
@@ -64,7 +64,6 @@ html, body {
     z-index: 2;
 }
 
-/* Ajustamos el contenedor para centrar el contenido */
 .somos-hero .container {
     position: relative;
     z-index: 3;
@@ -82,8 +81,11 @@ html, body {
 
 
 .highlight {
-    color: black;
+    color: #ffffff;
     position: relative;
+    background: linear-gradient(135deg, rgba(243, 118, 40, 0.3), rgba(43, 161, 212, 0.3));
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
 }
 
 .hero-subtitle {
@@ -122,12 +124,13 @@ html, body {
 
 .somos-hero .hero-subtitle {
     font-size: 1.5rem;
+    font-size: 1.5rem;
     color: rgb(0, 0, 0);
     margin-bottom: var(--spacing-xl);
     line-height: 1.1;
 }
 
-.hero-stats {
+.somos-hero .hero-stats {
     display: flex;
     justify-content: center;
     gap: 3rem;
@@ -166,6 +169,12 @@ html, body {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-top: 0.5rem;
+}
+.somos-hero .stat-label {
+    font-size: 1 rem;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .somos-hero .hero-image {
@@ -2045,59 +2054,6 @@ html, body {
 [data-aos].aos-animate {
     transform: translate3d(0, 0, 0);
     opacity: 1;
-}
-
-
-/* Tablets y pantallas medianas */
-@media (max-width: 768px) {
-    .somos-hero {
-        height: 100vh;
-        padding: 2rem 0;
-    }
-    
-    .hero-background {
-        background-attachment: scroll; /* Mejor rendimiento en móviles */
-        background-position: center center;
-    }
-    
-    .hero-stats {
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-    }
-    
-    .stat-item {
-        padding: 1rem 0.8rem;
-        min-width: 100px;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-}
-
-/* Móviles */
-@media (max-width: 480px) {
-    .somos-hero .container {
-        padding: 0 1rem;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-
-
-    .stat-item {
-        width: 100%;
-        max-width: 200px;
-    }
-    
-    .hero-badge {
-        font-size: 0.8rem;
-        padding: 0.4rem 0.8rem;
-    }
 }
 
 /* Responsive Design */
