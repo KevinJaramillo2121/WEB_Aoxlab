@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar AOS (Animate On Scroll)
     if (typeof AOS !== 'undefined') {
         AOS.init({
-            duration: 800,
+            duration: 100,
             easing: 'ease-in-out',
             once: true,
             offset: 100
@@ -111,7 +111,7 @@ function initHeroParallax() {
     
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
+        const rate = scrolled * -0.2;
         
         if (scrolled < window.innerHeight) {
             heroBackground.style.transform = `translateY(${rate}px)`;
@@ -949,7 +949,6 @@ function viewCertDetails(certType) {
                         <ul>
                             <li>Análisis microbiológicos de alimentos y aguas</li>
                             <li>Análisis fisicoquímicos de matrices alimentarias</li>
-                            <li>Determinación de parámetros de calidad en cosméticos</li>
                             <li>Análisis de cannabis medicinal</li>
                         </ul>
                         
@@ -1019,7 +1018,6 @@ function viewCertDetails(certType) {
                             <li>Análisis microbiológicos de agua potable</li>
                             <li>Parámetros fisicoquímicos de calidad</li>
                             <li>Determinación de metales pesados</li>
-                            <li>Análisis de desinfectantes residuales</li>
                         </ul>
                         
                         <h5><i class="fas fa-calendar"></i> Vigencia</h5>

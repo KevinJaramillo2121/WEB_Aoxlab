@@ -3,7 +3,9 @@
 /* Hero Section Servicios */
 .servicios-hero {
     padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xxl);
-    background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
+    background: linear-gradient(
+        135deg, 
+    );
     position: relative;
     overflow: hidden;
     min-height: 80vh;
@@ -56,8 +58,8 @@
 }
 
 .servicios-hero .hero-subtitle {
-    font-size: 1.2rem;
-    color: var(--medium-gray);
+    font-size: 1.5rem;
+    color: black;
     margin-bottom: var(--spacing-xl);
     line-height: 1.6;
 }
@@ -67,7 +69,22 @@
     gap: var(--spacing-md);
     flex-wrap: wrap;
 }
-
+.servicios-hero .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    background: rgba(255, 255, 255, 0.95); /* Fondo blanco semi-transparente */
+    color: var(--primary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-bold);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: var(--spacing-md);
+    font-size: medium;
+}
 /* Iconos flotantes del hero */
 .hero-visual {
     position: relative;
@@ -97,23 +114,78 @@
     left: 20%;
     animation: float 6s ease-in-out infinite;
 }
+.icon-item:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    background: linear-gradient(135deg, #66C0E7, #4FB3D9);
+    color: var(--white);
+    animation: float 6s ease-in-out infinite;
+    border: 3px solid rgba(102, 192, 231, 0.3);
+}
 
+.icon-item:nth-child(1) i {
+    color: var(--white);
+}
+
+.icon-item:nth-child(1) span {
+    color: var(--white);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Icono de Metales Pesados - Azul Intermedio */
 .icon-item:nth-child(2) {
     top: 30%;
     right: 10%;
+    background: linear-gradient(135deg, #4FB3D9, #2BA1D4);
+    color: var(--white);
     animation: float 6s ease-in-out infinite 1.5s;
+    border: 3px solid rgba(79, 179, 217, 0.3);
 }
 
+.icon-item:nth-child(2) i {
+    color: var(--white);
+}
+
+.icon-item:nth-child(2) span {
+    color: var(--white);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Icono de Cannabinoides - Naranja Claro */
 .icon-item:nth-child(3) {
     bottom: 30%;
     left: 10%;
+    background: linear-gradient(135deg, #F39C5A, #F37628);
+    color: var(--white);
     animation: float 6s ease-in-out infinite 3s;
+    border: 3px solid rgba(243, 156, 90, 0.3);
 }
 
+.icon-item:nth-child(3) i {
+    color: var(--white);
+}
+
+.icon-item:nth-child(3) span {
+    color: var(--white);
+    font-weight: var(--font-weight-bold);
+}
+/* Icono de Residuos de Plaguicidas - Naranja Intenso */
 .icon-item:nth-child(4) {
     bottom: 10%;
     right: 25%;
+    background: linear-gradient(135deg, #F37628, #E06B2E);
+    color: var(--white);
     animation: float 6s ease-in-out infinite 4.5s;
+    border: 3px solid rgba(224, 107, 46, 0.3);
+}
+
+.icon-item:nth-child(4) i {
+    color: var(--white);
+}
+
+.icon-item:nth-child(4) span {
+    color: var(--white);
+    font-weight: var(--font-weight-bold);
 }
 
 .icon-item i {

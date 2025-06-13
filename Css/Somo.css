@@ -9,13 +9,17 @@ html, body {
 }
 
 .somos-hero {
-    height: 85vh; /* Altura completa del viewport */
+    position: relative; /* Crítico para contener elementos absolute */
+    overflow: hidden; /* Oculta elementos que se salgan del área */
+    min-height: 85vh; /* Mejor usar min-height en vez de height fija */
     width: 100%;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    z-index: 1; /* Controla la superposición */
+    padding-bottom: 0.5rem; /* O lo que sea necesario según tu diseño */
 }
 
 .hero-badge {
@@ -87,6 +91,7 @@ html, body {
 .hero-content {
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: -260px;
 }
 
 
@@ -163,7 +168,7 @@ html, body {
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     min-width: 120px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.1s ease, box-shadow 0.3s ease;
 }
 
 .stat-item:hover {
@@ -209,14 +214,39 @@ html, body {
     transform: translateY(-10px);
 }
 
+.somos-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 85vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    padding-bottom: 0.5rem;
+}
+
+.timeline-section {
+    padding-top: 6rem;
+}
+
 /* Timeline Section */
 .timeline-section {
+    padding-top: 6rem; /* O ajusta según tu diseño */
     padding: var(--spacing-xxl) 0;
     background: var(--white);
     position: relative;
 }
 
 /* ===== TIMELINE EXPANDIBLE MEJORADA ===== */
+
+.timeline-section .section-header h2{
+    font-size: 5rem;
+}
+.timeline-section .section-header p{
+    font-size: 1.7rem;
+}
+
 
 
 /* Controles de Timeline */
@@ -235,7 +265,7 @@ html, body {
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--border-radius-xl);
     font-weight: var(--font-weight-bold);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: all var(--transition-medium);
     display: flex;
@@ -314,7 +344,7 @@ html, body {
 
 
 .timeline-marker i {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: var(--white);
 }
 
@@ -376,13 +406,13 @@ html, body {
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--border-radius-xl);
     font-weight: var(--font-weight-bold);
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
 }
 
 
 .timeline-header h3 {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
     font-weight: var(--font-weight-bold);
@@ -391,8 +421,8 @@ html, body {
 
 .timeline-summary {
     color: var(--medium-gray);
-    line-height: 1.5;
-    font-size: 0.95rem;
+    line-height: 2;
+    font-size: 1.3rem;
     margin-bottom: var(--spacing-sm);
 }
 
@@ -642,6 +672,15 @@ html, body {
 /* ===== VALORES CON EXPANSIÓN HORIZONTAL Y AGRUPAMIENTO ===== */
 
 /* Controles actualizados */
+
+.valores-section .container .section-header h2{
+font-size: 4.5rem;
+
+}
+.valores-section .container .section-header p{
+font-size: 1.5rem;
+
+}
 .valores-controls {
     display: flex;
     gap: var(--spacing-md);
@@ -657,7 +696,7 @@ html, body {
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--border-radius-xl);
     font-weight: var(--font-weight-bold);
-    font-size: 0.9rem;
+    font-size: 1.6rem;
     cursor: pointer;
     transition: all var(--transition-medium);
     display: flex;
@@ -752,12 +791,12 @@ html, body {
 }
 
 .valor-card-dynamic.expanded .expanded-icon i {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--white);
 }
 
 .valor-card-dynamic.expanded .expanded-title h2 {
-    font-size: 1.4rem;
+    font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-xs);
     font-weight: var(--font-weight-bold);
@@ -767,7 +806,7 @@ html, body {
 .valor-card-dynamic.expanded .valor-subtitle {
     color: var(--secondary-color);
     font-weight: var(--font-weight-bold);
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-style: italic;
 }
 /* Tarjetas dinámicas de valores */
@@ -852,7 +891,7 @@ html, body {
 }
 
 .valor-icon i {
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--white);
 }
 
@@ -861,16 +900,16 @@ html, body {
 }
 
 .valor-compact-view h3 {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
     font-weight: var(--font-weight-bold);
 }
 
 .valor-preview {
-    color: var(--medium-gray);
+    color: var(--black);
     line-height: 1.5;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     margin-bottom: var(--spacing-md);
 }
 
@@ -1303,7 +1342,13 @@ html, body {
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     position: relative;
 }
-
+.certificaciones-section-enhanced .container .section-header h2 { 
+font-size: 4rem;
+}
+.certificaciones-section-enhanced .container .section-header p { 
+font-size: 1.8rem;
+color: #000;
+}
 .certificaciones-section-enhanced::before {
     content: '';
     position: absolute;
@@ -1345,7 +1390,7 @@ html, body {
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--border-radius-xl);
     font-weight: var(--font-weight-bold);
-    font-size: 0.9rem;
+    font-size: 1.7rem;
     cursor: pointer;
     transition: all var(--transition-medium);
     display: flex;
@@ -1391,7 +1436,7 @@ html, body {
 /* Grid de Certificaciones */
 .cert-grid-enhanced {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
     gap: var(--spacing-xl);
     margin-top: var(--spacing-xl);
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1444,7 +1489,7 @@ html, body {
     right: var(--spacing-md);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: var(--border-radius-xl);
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: var(--font-weight-bold);
     display: flex;
     align-items: center;
@@ -1517,7 +1562,7 @@ html, body {
 }
 
 .resolution-icon i {
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--white);
 }
 
@@ -1541,7 +1586,7 @@ html, body {
 }
 
 .cert-body h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
     font-weight: var(--font-weight-bold);
@@ -1550,7 +1595,7 @@ html, body {
 
 .cert-body p {
     color: var(--medium-gray);
-    line-height: 1.6;
+    line-height: 1.8;
     margin-bottom: var(--spacing-lg);
     flex: 1;
 }
@@ -1603,7 +1648,7 @@ html, body {
     border: none;
     border-radius: var(--border-radius);
     font-weight: var(--font-weight-bold);
-    font-size: 0.9rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all var(--transition-medium);
     display: flex;
@@ -1682,7 +1727,7 @@ html, body {
 }
 
 .stat-content h4 {
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-xs);
     font-weight: var(--font-weight-bold);
@@ -1690,7 +1735,7 @@ html, body {
 
 .stat-content span {
     color: var(--medium-gray);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -1738,7 +1783,7 @@ html, body {
 .cert-modal-header h3 {
     color: var(--primary-color);
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .cert-modal-close {
@@ -1997,7 +2042,7 @@ html, body {
 }
 
 .vision-description p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 1.7;
     margin-bottom: var(--spacing-lg);
     color: rgba(255, 255, 255, 0.9);
@@ -2035,6 +2080,11 @@ html, body {
 
 .vision-image {
     position: relative;
+    width: 800px;
+    height: 400px;
+    margin-right: -200px;
+    margin-left: 40px;
+    margin-bottom: 60px;
 }
 
 .vision-image img {
@@ -2042,6 +2092,7 @@ html, body {
     border-radius: var(--border-radius-lg);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     transition: transform var(--transition-medium);
+    
 }
 
 .vision-image:hover img {
