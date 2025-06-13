@@ -9,7 +9,7 @@ html, body {
 }
 
 .somos-hero {
-    height: 100vh; /* Altura completa del viewport */
+    height: 85vh; /* Altura completa del viewport */
     width: 100%;
     position: relative;
     display: flex;
@@ -72,6 +72,17 @@ html, body {
     padding: 0 2rem;
     text-align: center;
 }
+.hero-content h1 {
+    font-size: clamp(2rem, 3vw, 3rem); /* Incrementado significativamente */
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    text-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.8),
+        0 0 25px rgba(43, 161, 212, 0.4);
+    animation: fadeInUp 1s ease-out;
+}
 
 .hero-content {
     color: white;
@@ -80,13 +91,7 @@ html, body {
 
 
 
-.highlight {
-    color: #ffffff;
-    position: relative;
-    background: linear-gradient(135deg, rgba(243, 118, 40, 0.3), rgba(43, 161, 212, 0.3));
-    padding: 0.2rem 0.5rem;
-    border-radius: 8px;
-}
+
 
 .hero-subtitle {
     font-size: clamp(1.1rem, 2.5vw, 1.8rem);
@@ -98,17 +103,26 @@ html, body {
     margin-right: auto;
 }
 
-.highlight {
-    color: #ffffff;
-    position: relative;
-    background: linear-gradient(135deg, rgba(243, 118, 40, 0.3), rgba(43, 161, 212, 0.3));
-    padding: 0.2rem 0.5rem;
-    border-radius: 8px;
-}
+
 
 .somos-hero .highlight {
     color: #ffffff;
     position: relative;
+}
+.highlight-text {
+    position: relative;
+    padding: 0.1rem 0.6rem;
+    background: linear-gradient(
+        135deg, 
+        rgba(243, 118, 40, 0.9) 0%, 
+        rgba(43, 161, 212, 0.8) 50%,
+        rgba(243, 118, 40, 0.9) 100%
+    );
+    border-radius: 12px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transform: rotate(-1deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .somos-hero .highlight::after {
@@ -122,12 +136,15 @@ html, body {
     opacity: 0.7;
 }
 
-.somos-hero .hero-subtitle {
-    font-size: 1.5rem;
-    font-size: 1.5rem;
-    color: rgb(0, 0, 0);
-    margin-bottom: var(--spacing-xl);
-    line-height: 1.1;
+.hero-subtitle {
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem); /* Incrementado */
+    color: rgba(0, 0, 0, 0.95);
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    max-width: 700px; /* Ampliado */
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .somos-hero .hero-stats {
@@ -154,7 +171,7 @@ html, body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.stat-number {
+.stat-number-static {
     display: block;
     font-size: 2.5rem;
     font-weight: var(--font-weight-bold);
@@ -363,6 +380,7 @@ html, body {
     margin-bottom: var(--spacing-sm);
 }
 
+
 .timeline-header h3 {
     font-size: 1.4rem;
     color: var(--primary-color);
@@ -398,9 +416,9 @@ html, body {
     transform: translateX(10px) scale(1.1);
 }
 
-.expand-btn {
+.fa-chevron-down {
     position: absolute;
-    top: 50%;
+    top: 90%;
     right: var(--spacing-lg);
     transform: translateY(-50%);
     background: none;

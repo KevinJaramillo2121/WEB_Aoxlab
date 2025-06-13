@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Animación de números en estadísticas del hero
-    animateNumbers();
     
     // Observador para la línea de tiempo
     observeTimelineItems();
@@ -38,39 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
     addVisualCues();
 });
 
-/**
- * Animación de números en estadísticas del hero
- */
-function animateNumbers() {
-    const statNumbers = document.querySelectorAll('.somos-hero .stat-number');
-    const animateValue = (element, start, end, duration) => {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const currentValue = Math.floor(progress * (end - start) + start);
-            element.textContent = currentValue + '+';
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.getAttribute('data-target'));
-                if (!isNaN(target)) {
-                    animateValue(entry.target, 0, target, 2000);
-                    observer.unobserve(entry.target);
-                }
-            }
-        });
-    });
-
-    statNumbers.forEach(number => observer.observe(number));
-}
 
 /**
  * Inicializa la funcionalidad de timeline expandible
@@ -173,21 +139,7 @@ function animateHeroContent() {
 }
 
 // Mejorar la animación de números
-function enhanceNumberAnimation() {
-    const statNumbers = document.querySelectorAll('.somos-hero .stat-number');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = parseInt(entry.target.getAttribute('data-target'));
-                animateCounter(entry.target, 0, target, 2000);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
 
-    statNumbers.forEach(number => observer.observe(number));
-}
 
 function animateCounter(element, start, end, duration) {
     let startTimestamp = null;
@@ -985,7 +937,7 @@ function viewCertDetails(certType) {
             content: `
                 <div class="modal-cert-info">
                     <div class="modal-cert-header">
-                        <img src="img/Simbolo_Acreditado_ONAC_Horizontal_RGB.jpg" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
+                        <img src="img/logo AOXLAB-ONAC-ILAC.jpeg" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
                         <h4>Competencia de Laboratorios de Ensayo y Calibración</h4>
                     </div>
                     
@@ -1115,7 +1067,7 @@ function viewCertDetails(certType) {
                     
                     <div class="modal-details">
                         <h5><i class="fas fa-info-circle"></i> Descripción</h5>
-                        <p>AOXLAB está en proceso de obtener la acreditación ISO 17065 para actuar como organismo certificador de productos, procesos y servicios.</p>
+                        <p>AOXLAB está en proceso de obtener la acreditación ISO 17065:2012 para actuar como organismo certificador de productos, procesos y servicios.</p>
                         
                         <h5><i class="fas fa-cogs"></i> Servicios Futuros</h5>
                         <ul>

@@ -443,6 +443,8 @@ body {
     animation: fadeInUp 1s ease 0.2s both;
 }
 
+
+
 /* Botones CTA del hero */
 .cta-btn {
     display: inline-block;
@@ -673,6 +675,8 @@ body {
     align-self: flex-start; /* Fuerza la alineación a la izquierda */
     margin-left: 0; /* Eliminar cualquier margen izquierdo */
     animation: fadeInLeft 0.6s ease forwards;
+    padding-left: 2px;
+    
 }
 
 .carousel-slide:nth-child(1) .hero-badge {
@@ -723,6 +727,7 @@ body {
     margin-bottom: var(--spacing-md);
     text-align: left; /* Alineación izquierda */
     animation: fadeInLeft 0.6s ease forwards;
+    padding-left: 2px;
 }
 
 .carousel-slide:nth-child(6) .hero-badge {
@@ -732,13 +737,15 @@ body {
     background: rgba(102, 192, 231, 0.95);
     color: var(--white);
     padding: 4px;
-    border-radius: var(--border-radius-lg);    font-size: 0.9rem;
+    border-radius: var(--border-radius-lg);
+    font-size: 0.9rem;
     font-weight: var(--font-weight-bold);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: var(--spacing-md);
-    text-align: left; /* Alineación izquierda */
+    margin-left: 35px; /* NUEVO: Mueve el elemento 10px a la derecha */
+    text-align: left;
     animation: fadeInLeft 0.6s ease forwards;
 }
 .carousel-slide:nth-child(2) .cta-btn {
@@ -1071,7 +1078,7 @@ body {
     width: auto;
     padding-right: var(--spacing-lg);
     z-index: 4;
-    
+    margin-left: 80px;
     /* CLAVE: Flexbox para alineación perfecta */
     display: flex;
     flex-direction: column;
@@ -1155,10 +1162,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     
-    /* Sombra para el párrafo también */
-    text-shadow: 
-        2px 2px 6px rgba(155, 19, 123, 0.8),
-        0 0 20px rgba(174, 15, 153, 0.5);
+    
 }
 /* Slide 4: Vida Útil - Posicionamiento hacia la derecha */
 .carousel-slide[data-slide="vida-util"] .slide-content {
