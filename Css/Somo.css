@@ -42,22 +42,6 @@ html, body {
     background-attachment: fixed; /* Efecto parallax */
     z-index: 1;
 }
-.stat-number {
-    display: inline-block;
-    font-size: 2.5rem;
-    font-weight: var(--font-weight-bold);
-    color: rgba(243, 118, 40, 1);
-    line-height: 1;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Asegurar que el signo + esté siempre visible */
-    min-width: 3ch;
-    text-align: center;
-}
-
-.stat-number::before {
-    content: attr(data-prefix, '');
-    color: var(--accent-color);
-}
 
 
 .somos-hero::before {
@@ -86,12 +70,11 @@ html, body {
     z-index: 3;
     width: 100%;
     max-width: 1200px;
-    padding: 0 1.7rem;
+    padding: 0 2rem;
     text-align: center;
 }
 
 .hero-content {
-    font-size: clamp(1.1rem, 2.5vw, 1.8rem);
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -106,9 +89,9 @@ html, body {
 .hero-subtitle {
     font-size: clamp(1.1rem, 2.5vw, 1.8rem);
     color: rgba(255, 255, 255, 0.95);
-    margin-bottom: rem;
-    line-height: 2;
-    max-width: 800px;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -117,12 +100,11 @@ html, body {
     color: #ffffff;
     position: relative;
     background: linear-gradient(135deg, rgba(243, 118, 40, 0.3), rgba(43, 161, 212, 0.3));
-    padding: 0.2rem 0.2rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 8px;
 }
 
 .somos-hero .highlight {
-    font-size: clamp(1rem, 3.5vw, 2.4rem);
     color: #ffffff;
     position: relative;
 }
@@ -139,7 +121,7 @@ html, body {
 }
 
 .somos-hero .hero-subtitle {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     color: rgb(0, 0, 0);
     margin-bottom: var(--spacing-xl);
     line-height: 1.1;
@@ -148,9 +130,9 @@ html, body {
 .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 1.2rem;
+    gap: 3rem;
     margin-top: 2rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .stat-item {
@@ -167,6 +149,15 @@ html, body {
 .stat-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+    color: rgba(243, 118, 40, 1);
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .stat-label {
