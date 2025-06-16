@@ -858,7 +858,7 @@ body {
 
 /* Párrafo del slide Portal Clientes */
 .carousel-slide[data-slide="portal-clientes"] .slide-content p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--white);
     margin-bottom: var(--spacing-lg);
     text-align: right !important;
@@ -882,16 +882,18 @@ body {
 .cta-btn.portal-primary {
     background: var(--secondary-color); /* Azul AOXLAB */
     color: var(--white);
-    border: 2px solid var(--secondary-color);
+    border: 1px solid var(--secondary-color);
     padding: var(--spacing-md) var(--spacing-xl);
     border-radius: var(--border-radius-lg);
     text-decoration: none;
     font-weight: var(--font-weight-bold);
+    font-size: 1.8rem ;
+    white-space: nowrap;
     transition: all var(--transition-medium);
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-sm);
-    min-width: 280px;
+    min-width: 400px;
     justify-content: center;
     position: relative;
     overflow: hidden;
@@ -920,12 +922,14 @@ body {
     padding: var(--spacing-md) var(--spacing-xl);
     border-radius: var(--border-radius-lg);
     text-decoration: none;
+    font-size: 1.8rem;
+    white-space: nowrap;
     font-weight: var(--font-weight-bold);
     transition: all var(--transition-medium);
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-sm);
-    min-width: 280px;
+    min-width: 400px;
     justify-content: center;
     position: relative;
     overflow: hidden;
