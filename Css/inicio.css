@@ -545,6 +545,80 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--shadow-medium);
 }
+/* Botones CTA del header */
+.header-cta-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-right: var(--spacing-md);
+}
+
+.header-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 5px;
+
+    border: var(--border-radius-lg);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    font-size: 0.9rem;
+    transition: all var(--transition-medium);
+    white-space: nowrap;
+    border: 2px solid transparent;
+}
+
+/* Botón Portal Clientes - Azul */
+.header-cta-btn.portal-btn {
+    background: var(--secondary-color);
+    color: var(--white);
+    border-color: var(--secondary-color);
+}
+
+.header-cta-btn.portal-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(43, 161, 212, 0.3);
+}
+
+/* Botón Contáctanos - Verde */
+.header-cta-btn.contact-btn {
+    background: var(--success-color);
+    color: var(--white);
+    border-color: var(--success-color);
+}
+
+.header-cta-btn.contact-btn:hover {
+    background: var(--dark-green);
+    border-color: var(--dark-green);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(141, 178, 61, 0.3);
+}
+
+/* Responsive para los botones CTA */
+@media (max-width: 1200px) {
+    .header-cta-buttons {
+        gap: var(--spacing-xs);
+    }
+    
+    .header-cta-btn {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-cta-buttons {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+}
+
+@media (max-width: 768px) {
+    .header-cta-buttons {
+        display: none; /* Ocultar en móvil para evitar sobrecarga */
+    }
+}
 
 /* Selector de idioma */
 .language-selector {
