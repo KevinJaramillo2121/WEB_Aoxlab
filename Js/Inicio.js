@@ -1,8 +1,8 @@
 /**
  * AOXLAB Website - Sistema Completo de Interacciones
- * Versión: 2.0
+ * Versión: 2.1 - Con Modal de WhatsApp Implementado
  * Descripción: Código JavaScript principal para el sitio web de AOXLAB
- * Incluye: Carrusel, servicios expandibles, chatbot, efectos de scroll, tema oscuro
+ * Incluye: Carrusel, servicios expandibles, chatbot, efectos de scroll, tema oscuro, modal WhatsApp
  * Autor: Equipo AOXLAB
  * Fecha: 2025
  */
@@ -76,19 +76,20 @@ class AoxlabWebsite {
      * Inicializa todas las funcionalidades del sitio
      */
     init() {
-    this.setupEventListeners();
-    this.initCarousel();
-    this.initScrollEffects();
-    this.initCounters();
-    this.initChatbot();
-    this.initThemeToggle();
-    this.initLanguageSelector();
-    this.initMobileMenu();
-    this.initFloatingButtons();
-    this.initExpandableServices(); // Mantener solo esta línea
-    this.initKeyboardNavigation();
-    this.initAnalyticsTracking();
-    this.preloadCarouselImages();
+        this.setupEventListeners();
+        this.initCarousel();
+        this.initScrollEffects();
+        this.initCounters();
+        this.initChatbot();
+        this.initThemeToggle();
+        this.initLanguageSelector();
+        this.initMobileMenu();
+        this.initFloatingButtons(); // ✅ CORREGIDO: Ahora incluye el modal de WhatsApp
+        this.initExpandableServices();
+        this.initKeyboardNavigation();
+        this.initAnalyticsTracking();
+        this.preloadCarouselImages();
+        this.initSubmenuPositioning();
     }
     
     /**
@@ -110,9 +111,7 @@ class AoxlabWebsite {
 
     /**
      * Inicializa el carrusel de imágenes del hero section
-    /**
- * Inicializa el carrusel de imágenes del hero section
- */
+     */
     initCarousel() {
         const carousel = document.querySelector('.hero-carousel');
         if (!carousel) {
@@ -226,8 +225,6 @@ class AoxlabWebsite {
         console.log('Botón siguiente:', !!this.nextBtn);
     }
 
-    
-
     /**
      * Configura tooltips informativos para los indicadores del carrusel
      */
@@ -272,11 +269,8 @@ class AoxlabWebsite {
     }
     
     /**
-     * Actualiza la visualización del carrusel
+     * Actualiza la visualización del carrusel con mejor validación
      */
-    /**
- * Actualiza la visualización del carrusel con mejor validación
- */
     updateCarousel() {
         console.log(`Actualizando carrusel - slide actual: ${this.currentSlide}`);
         
@@ -319,7 +313,6 @@ class AoxlabWebsite {
         
         console.log(`Slide ${this.currentSlide} ahora activo`);
     }
-
     
     /**
      * Anima el contenido del slide activo
@@ -348,11 +341,8 @@ class AoxlabWebsite {
     }
     
     /**
-     * Inicia la reproducción automática del carrusel
+     * Inicia la reproducción automática del carrusel con mejor control
      */
-    /**
- * Inicia la reproducción automática del carrusel con mejor control
- */
     startAutoplay() {
         // Limpiar cualquier interval existente
         if (this.autoplayInterval) {
@@ -367,46 +357,12 @@ class AoxlabWebsite {
                 if (!this.autoplayPaused && !this.manuallyPaused) {
                     this.nextSlide();
                 }
-            }, 20000); // 5 segundos entre slides
+            }, 20000); // 20 segundos entre slides
             
             this.autoplayPaused = false;
         }
     }
 
-    /**
-     * Pausa la reproducción automática del carrusel
-     */
-    pauseAutoplay() {
-        this.autoplayPaused = true;
-        console.log('Autoplay pausado');
-    }
-
-    /**
-     * Reanuda la reproducción automática del carrusel
-     */
-    resumeAutoplay() {
-        if (!this.manuallyPaused) {
-            this.autoplayPaused = false;
-            this.startAutoplay();
-            console.log('Autoplay reanudado');
-        }
-    }
-
-    /**
-     * Pausa manualmente el autoplay (para controles de usuario)
-     */
-    toggleManualPause() {
-        this.manuallyPaused = !this.manuallyPaused;
-        if (this.manuallyPaused) {
-            this.pauseAutoplay();
-            console.log('Autoplay pausado manualmente');
-        } else {
-            this.resumeAutoplay();
-            console.log('Autoplay reanudado manualmente');
-        }
-    }
-
-    
     /**
      * Pausa la reproducción automática del carrusel
      */
@@ -476,6 +432,29 @@ class AoxlabWebsite {
         });
     }
 
+    /**
+     * Verifica y ajusta la posición del menú
+     */
+    checkAndAdjustMenuPosition(menu) {
+        const buffer = 20;
+        const viewportWidth = window.innerWidth;
+        
+        // Resetear posición
+        menu.classList.remove('position-left');
+        
+        // Forzar recálculo del layout
+        menu.offsetHeight;
+        
+        // Obtener nuevas dimensiones
+        const rect = menu.getBoundingClientRect();
+        
+        // Si se sale por la derecha, posicionar a la izquierda
+        if (rect.right > (viewportWidth - buffer)) {
+            menu.classList.add('position-left');
+            console.log('Menú reposicionado a la izquierda');
+        }
+    }
+
     // ====================================================================
     // SERVICIOS EXPANDIBLES
     // ====================================================================
@@ -484,11 +463,31 @@ class AoxlabWebsite {
      * Inicializa los servicios expandibles
      */
     initExpandableServices() {
-    // Eliminar el método duplicado y usar solo esta versión
-    setTimeout(() => {
-        new ExpandableServices();
-    }, 100); // Pequeño delay para asegurar que el DOM esté listo
-}
+        setTimeout(() => {
+            new ExpandableServices();
+        }, 100);
+    }
+
+    /**
+     * Inicializa el posicionamiento inteligente de submenús
+     */
+    initSubmenuPositioning() {
+        const hasSubmenuItems = document.querySelectorAll('.has-submenu');
+        
+        hasSubmenuItems.forEach(parentItem => {
+            const submenu = parentItem.querySelector('.submenu-dropdown');
+            if (!submenu) return;
+            
+            parentItem.addEventListener('mouseenter', () => {
+                setTimeout(() => this.checkAndAdjustMenuPosition(submenu), 100);
+            });
+            
+            parentItem.addEventListener('mouseleave', () => {
+                submenu.classList.remove('position-left');
+            });
+        });
+    }
+
     // ====================================================================
     // EFECTOS DE SCROLL
     // ====================================================================
@@ -502,9 +501,7 @@ class AoxlabWebsite {
         this.initSmoothScrolling();
         this.initScrollAnimations();
     }
-    initExpandableServices() {
-    new ExpandableServices(); // Esta función debe existir
-    }
+    
     /**
      * Maneja el efecto del header al hacer scroll
      */
@@ -622,49 +619,47 @@ class AoxlabWebsite {
         counters.forEach(counter => {
             counterObserver.observe(counter);
         });
-        
     }
     
     /**
      * Anima un contador específico
      * @param {Element} element - Elemento del contador
      */
-animateCounter(element) {
-    const target = parseInt(element.getAttribute('data-count'));
-    const duration = 2000; // 2 segundos
-    const start = performance.now();
-    const startValue = 0;
-    const format = element.getAttribute('data-format');
+    animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-count'));
+        const duration = 2000; // 2 segundos
+        const start = performance.now();
+        const startValue = 0;
+        const format = element.getAttribute('data-format');
 
-    const updateCounter = (currentTime) => {
-        const elapsed = currentTime - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeProgress = 1 - Math.pow(1 - progress, 3);
-        let currentValue = Math.floor(startValue + (target - startValue) * easeProgress);
+        const updateCounter = (currentTime) => {
+            const elapsed = currentTime - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            let currentValue = Math.floor(startValue + (target - startValue) * easeProgress);
 
-        if (format === 'millones') {
-            // Mostrar como "2M"
-            let millionValue = Math.floor(currentValue / 1000000);
-            if (millionValue < 1) millionValue = 1; // Para que no muestre 0M al inicio
-            element.textContent = millionValue + 'M';
-        } else {
-            element.textContent = currentValue.toLocaleString();
-        }
-
-        if (progress < 1) {
-            requestAnimationFrame(updateCounter);
-        } else {
             if (format === 'millones') {
-                element.textContent = Math.floor(target / 1000000) + 'M';
+                // Mostrar como "2M"
+                let millionValue = Math.floor(currentValue / 1000000);
+                if (millionValue < 1) millionValue = 1; // Para que no muestre 0M al inicio
+                element.textContent = millionValue + 'M';
             } else {
-                element.textContent = target.toLocaleString();
+                element.textContent = currentValue.toLocaleString();
             }
-        }
-    };
 
-    requestAnimationFrame(updateCounter);
-}
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                if (format === 'millones') {
+                    element.textContent = Math.floor(target / 1000000) + 'M';
+                } else {
+                    element.textContent = target.toLocaleString();
+                }
+            }
+        };
 
+        requestAnimationFrame(updateCounter);
+    }
 
     // ====================================================================
     // SISTEMA DE CHATBOT
@@ -748,7 +743,80 @@ animateCounter(element) {
         const chatbotModal = document.getElementById('chatbot-modal');
         chatbotModal?.classList.remove('active');
     }
-    
+
+    // ====================================================================
+    // SISTEMA DE MODAL DE WHATSAPP - ✅ IMPLEMENTACIÓN COMPLETA
+    // ====================================================================
+
+    /**
+     * Inicializa el modal de WhatsApp - ✅ FUNCIÓN CORREGIDA
+     */
+    initWhatsAppModal() {
+        const whatsappModal = document.getElementById('whatsapp-modal');
+        const whatsappClose = document.getElementById('whatsapp-close');
+        
+        console.log('Inicializando modal de WhatsApp'); // Para debug
+        
+        // Cerrar modal
+        whatsappClose?.addEventListener('click', () => {
+            this.closeWhatsAppModal();
+        });
+        
+        // Cerrar modal al hacer clic fuera
+        whatsappModal?.addEventListener('click', (e) => {
+            if (e.target === whatsappModal) {
+                this.closeWhatsAppModal();
+            }
+        });
+        
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && whatsappModal?.classList.contains('active')) {
+                this.closeWhatsAppModal();
+            }
+        });
+        
+        // Tracking de clics en contactos
+        const whatsappContacts = document.querySelectorAll('.whatsapp-contact');
+        whatsappContacts.forEach((contact, index) => {
+            contact.addEventListener('click', () => {
+                const city = contact.getAttribute('data-city');
+                this.trackEvent(`whatsapp_contact_${city}`, 'modal_interaction');
+                // El enlace se abrirá normalmente después del tracking
+                console.log(`Contacto ${city} clickeado`);
+            });
+        });
+        
+        console.log('Modal de WhatsApp inicializado correctamente');
+    }
+
+    /**
+     * Abre el modal de WhatsApp - ✅ FUNCIÓN CORREGIDA
+     */
+    toggleWhatsAppModal() {
+        const whatsappModal = document.getElementById('whatsapp-modal');
+        if (whatsappModal) {
+            console.log('Abriendo modal de WhatsApp'); // Para debug
+            whatsappModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevenir scroll del fondo
+        } else {
+            console.error('Modal de WhatsApp no encontrado en el DOM');
+        }
+    }
+
+    /**
+     * Cierra el modal de WhatsApp - ✅ FUNCIÓN CORREGIDA
+     */
+    closeWhatsAppModal() {
+        const whatsappModal = document.getElementById('whatsapp-modal');
+        if (whatsappModal) {
+            whatsappModal.classList.remove('active');
+            document.body.style.overflow = ''; // Restaurar scroll
+            this.trackEvent('whatsapp_modal_close', 'modal_interaction');
+            console.log('Modal de WhatsApp cerrado');
+        }
+    }
+
     /**
      * Envía un mensaje del chat
      */
@@ -1067,15 +1135,19 @@ animateCounter(element) {
     }
 
     // ====================================================================
-    // BOTONES FLOTANTES
+    // BOTONES FLOTANTES - ✅ FUNCIÓN PRINCIPAL CORREGIDA
     // ====================================================================
 
     /**
-     * Inicializa los botones flotantes (WhatsApp, etc.)
+     * Inicializa los botones flotantes (WhatsApp, etc.) - ✅ CORREGIDO COMPLETAMENTE
      */
     initFloatingButtons() {
         const whatsappBtn = document.querySelector('.whatsapp-float');
         const chatbotBtn = document.querySelector('.chatbot-float');
+        
+        console.log('Inicializando botones flotantes...');
+        console.log('Botón WhatsApp encontrado:', !!whatsappBtn);
+        console.log('Botón Chatbot encontrado:', !!chatbotBtn);
         
         // Efectos de hover mejorados
         [whatsappBtn, chatbotBtn].forEach(btn => {
@@ -1090,35 +1162,43 @@ animateCounter(element) {
             }
         });
         
-        // Tracking de clics para analytics
-        whatsappBtn?.addEventListener('click', () => {
-            this.trackEvent('whatsapp_click', 'floating_button');
-        });
-
-
+        // ✅ CORRECCIÓN PRINCIPAL: Event listener para el botón de WhatsApp
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevenir navegación
+                console.log('Botón WhatsApp clickeado'); // Para debug
+                this.toggleWhatsAppModal();
+                this.trackEvent('whatsapp_modal_open', 'floating_button');
+            });
+            console.log('Event listener del WhatsApp configurado correctamente');
+        } else {
+            console.warn('Botón de WhatsApp no encontrado en el DOM');
+        }
+        
+        // Inicializar modal de WhatsApp
+        this.initWhatsAppModal();
+        
         // Scroll suave al hacer clic en el enlace de portafolios
-document.addEventListener('DOMContentLoaded', function() {
-    const portfolioLink = document.querySelector('.download-portfolio-btn');
-    
-    if (portfolioLink) {
-        portfolioLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetSection = document.querySelector('#portafolios');
-            if (targetSection) {
-                // Scroll suave con offset para header fijo
-                const headerHeight = document.querySelector('.main-header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight - 20;
+        const portfolioLink = document.querySelector('.download-portfolio-btn');
+        if (portfolioLink) {
+            portfolioLink.addEventListener('click', function(e) {
+                e.preventDefault();
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    }
-});
-
+                const targetSection = document.querySelector('#portafolios');
+                if (targetSection) {
+                    // Scroll suave con offset para header fijo
+                    const headerHeight = document.querySelector('.main-header').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+        
+        console.log('Botones flotantes inicializados correctamente');
     }
 
     // ====================================================================
@@ -1321,6 +1401,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (this.slides && this.slides.length > 0) {
             this.updateCarousel();
         }
+        
+        // Reajustar menús en resize
+        const activeMenus = document.querySelectorAll('.submenu-dropdown:hover');
+        activeMenus.forEach(menu => {
+            this.checkAndAdjustMenuPosition(menu);
+        });
         
         // Ajustar chatbot en móviles
         const chatbotModal = document.getElementById('chatbot-modal');
@@ -1667,6 +1753,139 @@ function showDownloadNotification(certificateName) {
 }
 
 // ====================================================================
+// FUNCIONES PARA MENÚS DESPLEGABLES
+// ====================================================================
+
+/**
+ * Inicializa el comportamiento de los menús desplegables
+ */
+function initDropdownMenu() {
+    const dropdownTrigger = document.querySelector('.dropdown-trigger');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const hasSubmenu = document.querySelector('.has-submenu');
+    const submenuDropdown = document.querySelector('.submenu-dropdown');
+    
+    // Para dispositivos móviles, convertir hover en click
+    if (window.innerWidth <= 768) {
+        setupMobileDropdown();
+    }
+    
+    // Cerrar menú al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-item-dropdown')) {
+            closeAllDropdowns();
+        }
+    });
+    
+    // Prevenir cierre del menú al hacer clic dentro
+    if (dropdownMenu) {
+        dropdownMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+}
+
+/**
+ * Configura dropdown para móviles
+ */
+function setupMobileDropdown() {
+    const dropdownTrigger = document.querySelector('.dropdown-trigger');
+    const hasSubmenu = document.querySelector('.has-submenu .dropdown-link');
+    
+    if (dropdownTrigger) {
+        dropdownTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleDropdown();
+        });
+    }
+    
+    if (hasSubmenu) {
+        hasSubmenu.addEventListener('click', function(e) {
+            e.preventDefault();
+            toggleSubmenu();
+        });
+    }
+}
+
+/**
+ * Inicializa el posicionamiento inteligente de menús
+ */
+function initSubmenuPositioning() {
+    const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
+    
+    dropdownItems.forEach(item => {
+        const dropdown = item.querySelector('.dropdown-menu');
+        const submenuItems = item.querySelectorAll('.has-submenu');
+        
+        // Verificar menú principal
+        item.addEventListener('mouseenter', () => {
+            setTimeout(() => checkMenuPosition(dropdown), 50);
+        });
+        
+        // Verificar submenús
+        submenuItems.forEach(submenuItem => {
+            const submenu = submenuItem.querySelector('.submenu-dropdown');
+            
+            submenuItem.addEventListener('mouseenter', () => {
+                setTimeout(() => checkMenuPosition(submenu), 50);
+            });
+        });
+    });
+}
+
+/**
+ * Verifica la posición del menú y la ajusta si es necesario
+ */
+function checkMenuPosition(menu) {
+    if (!menu) return;
+    
+    const buffer = 20;
+    const viewportWidth = window.innerWidth;
+    
+    // Resetear posición
+    menu.classList.remove('position-left');
+    
+    // Forzar recálculo
+    menu.offsetHeight;
+    
+    // Verificar si se sale por la derecha
+    const rect = menu.getBoundingClientRect();
+    if (rect.right > (viewportWidth - buffer)) {
+        menu.classList.add('position-left');
+    }
+}
+
+/**
+ * Alternar dropdown principal
+ */
+function toggleDropdown() {
+    const dropdown = document.querySelector('.dropdown-menu');
+    const isVisible = dropdown.style.display === 'block';
+    
+    dropdown.style.display = isVisible ? 'none' : 'block';
+}
+
+/**
+ * Alternar submenú
+ */
+function toggleSubmenu() {
+    const submenu = document.querySelector('.submenu-dropdown');
+    const isVisible = submenu.style.display === 'block';
+    
+    submenu.style.display = isVisible ? 'none' : 'block';
+}
+
+/**
+ * Cerrar todos los dropdowns
+ */
+function closeAllDropdowns() {
+    const dropdowns = document.querySelectorAll('.dropdown-menu, .submenu-dropdown');
+    dropdowns.forEach(dropdown => {
+        dropdown.style.display = 'none';
+    });
+}
+
+// ====================================================================
 // INICIALIZACIÓN Y ESTILOS
 // ====================================================================
 
@@ -1677,6 +1896,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Esperar un momento para asegurar que todo el DOM esté listo
     setTimeout(() => {
         new AoxlabWebsite();
+        initDropdownMenu();
     }, 100);
     
     // Agregar event listeners para certificados
@@ -1687,6 +1907,17 @@ document.addEventListener('DOMContentLoaded', () => {
             showDownloadNotification(certificateName);
         });
     });
+});
+
+// Actualizar comportamiento en resize
+window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+        // Restaurar comportamiento hover en desktop
+        const dropdowns = document.querySelectorAll('.dropdown-menu, .submenu-dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.style.display = '';
+        });
+    }
 });
 
 /**
@@ -1772,4 +2003,4 @@ window.addEventListener('unhandledrejection', (e) => {
     console.error('Promise rechazada en AOXLAB Website:', e.reason);
 });
 
-console.log('🧪 AOXLAB Website - Sistema cargado exitosamente v2.0');
+console.log('🧪 AOXLAB Website - Sistema cargado exitosamente v2.1 con Modal de WhatsApp');
