@@ -535,7 +535,7 @@ body {
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
-    
+    margin-left: var(--spacing-md); /* Separación adicional */
 }
 
 .theme-btn:hover,
@@ -549,7 +549,7 @@ body {
 .header-cta-buttons {
     display: flex;
     gap: var(--spacing-sm);
-    margin-right: var(--spacing-md);
+    margin-right: var(--spacing-xl);
 }
 
 .header-cta-btn {
@@ -586,6 +586,7 @@ body {
     background: var(--success-color);
     color: var(--white);
     border-color: var(--success-color);
+    white-space: nowrap;
 }
 
 .header-cta-btn.contact-btn:hover {
@@ -745,17 +746,13 @@ body {
 
 /* Slide 1 - Contenido completamente centrado */
 .slide-1-centered .slide-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    max-width: 95%;
-    width: auto;
-    z-index: 3;
-    padding: 0 var(--spacing-md);
+    left: 50% !important;
+    right: unset !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+    max-width: 90vw;
+    padding: 0 2rem;
 }
-
 
 /* Título específico del slide 1 - Dos líneas centradas */
 .hero-title-servicios-centered {
@@ -765,7 +762,7 @@ body {
     text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
     color: var(--white);
     line-height: 1.2;
-    text-align: center;
+    text-align: center !important;
     
     /* Asegurar que ambas líneas estén centradas */
     display: block;
@@ -1239,16 +1236,15 @@ body {
 .hero-title-certificacion {
     font-size: clamp(2.2rem, 4.5vw, 3.8rem);
     font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
     text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
     color: var(--white);
     line-height: 1.2;
-    text-align: center;
     text-align: left; /* Alineación a la izquierda */
     white-space: normal;
     padding-left: 10%;
     /* Asegurar que ambas líneas estén centradas */
-    display: inline;
+    display: block;
     margin-left: auto;
     margin-right: auto;
     /* Mejorar contraste */
@@ -1264,6 +1260,9 @@ body {
         0 0 20px rgba(0,0,0,0.6),
         4px 4px 12px rgba(0,0,0,0.7);
 }
+/* Título de certificación centrado */
+/* Título de certificación centrado */
+
 
 .carousel-slide:nth-child(2) .hero-badge {
     display: inline-flex;
@@ -1319,6 +1318,7 @@ body {
     margin-bottom: var(--spacing-md);
     text-align: left; /* Alineación izquierda */
     animation: fadeInLeft 0.6s ease forwards;
+    left: 180px;
 }
 .carousel-slide:nth-child(5) .hero-badge {
     display: inline-flex;
@@ -1731,13 +1731,18 @@ body {
 .carousel-slide:nth-child(3) .slide-content {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 38% !important;
     transform: translate(-50%, -50%);
-    text-align: center;
-    max-width: 90%;
+    text-align: left !important;
+    max-width: 90vw !important;
     width: auto;
     z-index: 4;
     padding: 0 var(--spacing-md);
+}
+.carousel-slide:nth-child(4) .slide-content {
+    top: 40% !important;
+    left: 22% !important;
+    transform: translate(-50%, -50%);
 }
 
 /* Título principal del slide - Tamaño aumentado */
@@ -1747,7 +1752,8 @@ body {
     color: var(--white);
     margin-bottom: var(--spacing-lg);
     line-height: 1.1;
-    text-align: center;
+    text-align: left !important;
+    left: 300px;
     white-space: nowrap;
     /* Sombra más pronunciada para mejor legibilidad */
     text-shadow: 
@@ -1838,7 +1844,6 @@ body {
     max-width: 700px;
     z-index: 2;
 }
-
 
 
 /* Contenedor del enlace de descarga de portafolios */
@@ -2380,7 +2385,22 @@ color: var(--white)
     padding: var(--spacing-lg);
     min-height: 160px;
 }
-
+.certification-btn {
+    display: block; /* Cambiado de inline-block a block */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.5px;
+    transition: all var(--transition-medium);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease 0.4s both;
+    max-width: 300px; /* Ancho máximo para mejor apariencia */
+    text-align: center; /* Texto centrado dentro del botón */
+    font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor */
+}
 .cert-badge::before {
     content: '';
     position: absolute;
