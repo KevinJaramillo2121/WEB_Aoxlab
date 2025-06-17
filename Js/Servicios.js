@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+
     // Inicializar funcionalidades
     initializeFilters();
     initializeSearch();
@@ -36,6 +37,87 @@ function initializeFilters() {
         });
     });
 }
+// Actualización del JavaScript para compatibilidad con service-card-v2
+function initializeFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const serviceCards = document.querySelectorAll('.service-card-v2'); // Actualizado
+    const noResults = document.getElementById('no-results');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            filterServices(filter, serviceCards, noResults);
+        });
+    });
+}
+
+function searchServices(searchTerm, cards, noResults) {
+    let visibleCards = 0;
+    
+    cards.forEach((card, index) => {
+        const title = card.querySelector('.service-title-v2').textContent.toLowerCase(); // Actualizado
+        const description = card.querySelector('.service-description-v2').textContent.toLowerCase(); // Actualizado
+        const features = Array.from(card.querySelectorAll('.service-features-v2 li'))
+            .map(li => li.textContent.toLowerCase()).join(' ');
+        
+        const content = `${title} ${description} ${features}`;
+        
+        setTimeout(() => {
+            if (searchTerm === '' || content.includes(searchTerm)) {
+                card.classList.remove('filtered-out');
+                card.classList.add('filtered-in');
+                card.style.display = 'block';
+                visibleCards++;
+            } else {
+                card.classList.remove('filtered-in');
+                card.classList.add('filtered-out');
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+        }, index * 30);
+    });
+    
+    setTimeout(() => {
+        noResults.style.display = visibleCards === 0 ? 'block' : 'none';
+    }, cards.length * 30 + 300);
+}
+
+// Nueva función para contacto específico por servicio
+function contactSpecificService(serviceType) {
+    const serviceMessages = {
+        'microbiologicos': 'Estoy interesado en análisis microbiológicos especializados con acreditación ISO 17025.',
+        'fisicoquimicos': 'Necesito información sobre análisis físico-químicos y nutricionales completos.',
+        'metales': 'Requiero análisis de metales pesados por ICP-MS con límites de detección ultra-bajos.',
+        'cannabinoides': 'Busco servicios especializados de análisis de cannabinoides y terpenos.',
+        'contaminantes': 'Necesito análisis de contaminantes: micotoxinas, alérgenos y pesticidas.'
+    };
+    
+    const message = serviceMessages[serviceType] || 'Solicito información sobre sus servicios especializados de análisis.';
+    const whatsappUrl = `https://wa.me/573128743291?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+// Actualizar selectores en la inicialización
+document.addEventListener('DOMContentLoaded', function() {
+    const serviceCards = document.querySelectorAll('.service-card-v2'); // Actualizado
+    
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    initializeFilters();
+    initializeSearch();
+});
 
 // Función para filtrar servicios
 function filterServices(filter, cards, noResults) {
