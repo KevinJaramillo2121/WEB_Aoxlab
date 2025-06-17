@@ -587,9 +587,9 @@ body {
 
 /* Botón Contáctanos - Verde */
 .header-cta-btn.contact-btn {
-    background: var(--success-color);
+    background: var(--accent-color);
     color: var(--white);
-    border-color: var(--success-color);
+    border-color: var(--accent-color);
     white-space: nowrap;
 }
 
