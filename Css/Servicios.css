@@ -5,24 +5,23 @@
  * Este archivo contiene todos los estilos específicos para la página de servicios de AOXLAB.
  * Incluye tanto los estilos originales como las nuevas implementaciones de tarjetas v2.
  * 
+ * VERSIÓN: 2.0 - Implementación de expansión solo para microbiológicos
+ * 
  * SECCIONES PRINCIPALES:
  * 1. Hero Section - Sección principal de bienvenida
  * 2. Filtros y Búsqueda - Sistema de filtrado de servicios
  * 3. Grid de Servicios Originales - Tarjetas de servicio versión 1
  * 4. Grid de Servicios V2 - Nuevas tarjetas con información ampliada
- * 5. Metodología - Pasos del proceso de análisis
- * 6. Tecnología - Equipamiento y capacidades técnicas
- * 7. CTA Final - Llamadas a la acción
- * 8. Responsive Design - Adaptaciones para dispositivos móviles
+ * 5. Sistema de Expansión - SOLO para microbiológicos
+ * 6. Metodología - Pasos del proceso de análisis
+ * 7. Tecnología - Equipamiento y capacidades técnicas
+ * 8. CTA Final - Llamadas a la acción
+ * 9. Responsive Design - Adaptaciones para dispositivos móviles
  * 
- * IMPORTANTE: Mantener la compatibilidad entre versiones durante la transición
+ * IMPORTANTE: La expansión SOLO está activa para servicios microbiológicos
  */
 
 /* ===== 1. HERO SECTION - SECCIÓN PRINCIPAL ===== */
-/* 
- * Hero section que presenta los servicios principales de AOXLAB
- * Incluye gradientes, iconos flotantes animados y contenido principal
- */
 .servicios-hero {
     padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xxl);
     background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
@@ -33,7 +32,6 @@
     align-items: center;
 }
 
-/* Overlay decorativo del hero */
 .servicios-hero::before {
     content: '';
     position: absolute;
@@ -45,7 +43,6 @@
     z-index: 1;
 }
 
-/* Layout principal del hero - Grid de dos columnas */
 .servicios-hero .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -55,7 +52,6 @@
     z-index: 2;
 }
 
-/* Título principal del hero */
 .servicios-hero .hero-content h1 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: var(--font-weight-bold);
@@ -64,7 +60,6 @@
     line-height: 1.2;
 }
 
-/* Texto destacado con subrayado animado */
 .servicios-hero .highlight {
     color: var(--secondary-color);
     position: relative;
@@ -81,7 +76,6 @@
     opacity: 0.7;
 }
 
-/* Subtítulo descriptivo */
 .servicios-hero .hero-subtitle {
     font-size: 1.5rem;
     color: black; 
@@ -89,14 +83,12 @@
     line-height: 1.6;
 }
 
-/* Contenedor de botones de acción del hero */
 .servicios-hero .hero-actions {
     display: flex;
     gap: var(--spacing-md);
     flex-wrap: wrap;
 }
 
-/* Badge de acreditación o certificación */
 .servicios-hero .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -115,7 +107,6 @@
 }
 
 /* ===== ICONOS FLOTANTES DEL HERO ===== */
-/* Contenedor principal de los iconos animados */
 .hero-visual {
     position: relative;
     height: 400px;
@@ -127,7 +118,6 @@
     height: 100%;
 }
 
-/* Estilo base para todos los iconos flotantes */
 .icon-item {
     position: absolute;
     background: var(--white);
@@ -140,7 +130,6 @@
     cursor: pointer;
 }
 
-/* Icono 1 - Microbiológicos (Azul claro) */
 .icon-item:nth-child(1) {
     top: 10%;
     left: 20%;
@@ -150,16 +139,12 @@
     border: 3px solid rgba(102, 192, 231, 0.3);
 }
 
-.icon-item:nth-child(1) i {
-    color: var(--white);
-}
-
+.icon-item:nth-child(1) i,
 .icon-item:nth-child(1) span {
     color: var(--white);
     font-weight: var(--font-weight-bold);
 }
 
-/* Icono 2 - Metales Pesados (Azul intermedio) */
 .icon-item:nth-child(2) {
     top: 30%;
     right: 10%;
@@ -169,16 +154,12 @@
     border: 3px solid rgba(79, 179, 217, 0.3);
 }
 
-.icon-item:nth-child(2) i {
-    color: var(--white);
-}
-
+.icon-item:nth-child(2) i,
 .icon-item:nth-child(2) span {
     color: var(--white);
     font-weight: var(--font-weight-bold);
 }
 
-/* Icono 3 - Cannabinoides (Naranja claro) */
 .icon-item:nth-child(3) {
     bottom: 30%;
     left: 10%;
@@ -188,16 +169,12 @@
     border: 3px solid rgba(243, 156, 90, 0.3);
 }
 
-.icon-item:nth-child(3) i {
-    color: var(--white);
-}
-
+.icon-item:nth-child(3) i,
 .icon-item:nth-child(3) span {
     color: var(--white);
     font-weight: var(--font-weight-bold);
 }
 
-/* Icono 4 - Residuos de Plaguicidas (Naranja intenso) */
 .icon-item:nth-child(4) {
     bottom: 10%;
     right: 25%;
@@ -207,16 +184,12 @@
     border: 3px solid rgba(224, 107, 46, 0.3);
 }
 
-.icon-item:nth-child(4) i {
-    color: var(--white);
-}
-
+.icon-item:nth-child(4) i,
 .icon-item:nth-child(4) span {
     color: var(--white);
     font-weight: var(--font-weight-bold);
 }
 
-/* Estilos generales para iconos y texto de los iconos flotantes */
 .icon-item i {
     font-size: 2rem;
     color: var(--secondary-color);
@@ -230,30 +203,23 @@
     font-weight: var(--font-weight-bold);
 }
 
-/* Efecto hover para iconos flotantes */
 .icon-item:hover {
     transform: translateY(-10px) scale(1.1);
     box-shadow: 0 20px 60px var(--shadow-medium);
 }
 
-/* Animación de flotación para los iconos */
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
 }
 
 /* ===== 2. FILTROS Y BÚSQUEDA ===== */
-/* 
- * Sistema de filtrado y búsqueda de servicios
- * Incluye barra de búsqueda y botones de filtro por categoría
- */
 .servicios-filters {
     padding: var(--spacing-xl) 0;
     background: var(--white);
     border-bottom: 1px solid var(--shadow-light);
 }
 
-/* Header de la sección de filtros */
 .filters-header {
     text-align: center;
     margin-bottom: var(--spacing-xl);
@@ -271,7 +237,6 @@
     font-size: 1.1rem;
 }
 
-/* Contenedor principal de controles de filtro */
 .filters-controls {
     display: flex;
     gap: var(--spacing-lg);
@@ -280,7 +245,6 @@
     flex-wrap: wrap;
 }
 
-/* Caja de búsqueda con icono */
 .search-box {
     position: relative;
     flex: 1;
@@ -312,14 +276,12 @@
     font-size: 1.1rem;
 }
 
-/* Contenedor de botones de filtro */
 .filter-buttons {
     display: flex;
     gap: var(--spacing-sm);
     flex-wrap: wrap;
 }
 
-/* Botones individuales de filtro */
 .filter-btn {
     display: flex;
     align-items: center;
@@ -347,10 +309,6 @@
 }
 
 /* ===== 3. GRID DE SERVICIOS ORIGINALES (V1) ===== */
-/* 
- * Estilos para las tarjetas de servicio originales
- * MANTENER para compatibilidad durante la transición
- */
 .servicios-grid {
     padding: var(--spacing-xxl) 0;
     background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
@@ -362,7 +320,6 @@
     gap: var(--spacing-xl);
 }
 
-/* Tarjeta de servicio original */
 .service-card {
     background: var(--white);
     border-radius: var(--border-radius-lg);
@@ -384,7 +341,6 @@
     position: relative;
 }
 
-/* Badge de destacado para servicios especiales */
 .service-badge {
     position: absolute;
     top: var(--spacing-md);
@@ -398,7 +354,6 @@
     z-index: 2;
 }
 
-/* Icono principal de la tarjeta original */
 .service-icon {
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: var(--white);
@@ -417,7 +372,6 @@
     transform: scale(1.1) rotateY(360deg);
 }
 
-/* Contenido de la tarjeta original */
 .service-content {
     padding: 0 var(--spacing-lg) var(--spacing-lg);
 }
@@ -437,7 +391,6 @@
     text-align: center;
 }
 
-/* Lista de características de la tarjeta original */
 .service-features {
     list-style: none;
     margin-bottom: var(--spacing-lg);
@@ -457,7 +410,6 @@
     width: 16px;
 }
 
-/* Metadatos de la tarjeta original (tiempo y precio) */
 .service-meta {
     display: flex;
     justify-content: space-between;
@@ -481,7 +433,6 @@
     font-size: 1.1rem;
 }
 
-/* Botones de acción de la tarjeta original */
 .service-actions {
     display: flex;
     gap: var(--spacing-sm);
@@ -529,12 +480,6 @@
 }
 
 /* ===== 4. GRID DE SERVICIOS V2 - NUEVA IMPLEMENTACIÓN ===== */
-/* 
- * Nuevas tarjetas de servicio con información ampliada y diseño moderno
- * Estas tarjetas reemplazarán gradualmente a las originales
- */
-
-/* Diseño base de la nueva tarjeta v2 */
 .service-card-v2 {
     background: var(--white);
     border-radius: 16px;
@@ -548,14 +493,12 @@
     flex-direction: column;
 }
 
-/* Efecto hover para tarjeta v2 */
 .service-card-v2:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 40px rgba(43, 161, 212, 0.15);
     border-color: var(--secondary-color);
 }
 
-/* Header de la tarjeta v2 con gradiente dinámico */
 .service-card-header {
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     padding: var(--spacing-lg);
@@ -564,7 +507,6 @@
     overflow: hidden;
 }
 
-/* Efecto de onda animada en el header */
 .service-card-header::before {
     content: '';
     position: absolute;
@@ -582,7 +524,6 @@
     transform: scale(3);
 }
 
-/* Icono moderno v2 con glassmorphism */
 .service-icon-v2 {
     width: 60px;
     height: 60px;
@@ -597,16 +538,14 @@
     backdrop-filter: blur(10px);
 }
 
-/* Título de la tarjeta v2 */
 .service-title-v2 {
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-weight: var(--font-weight-bold);
     margin: 0;
     color: var(--white);
     line-height: 1.3;
 }
 
-/* Contenido principal de la tarjeta v2 */
 .service-content-v2 {
     padding: var(--spacing-lg);
     flex: 1;
@@ -614,15 +553,13 @@
     flex-direction: column;
 }
 
-/* Descripción expandida del servicio */
 .service-description-v2 {
     color: var(--medium-gray);
-    font-size: 0.95rem;
+    font-size: 1.3rem;
     line-height: 1.6;
     margin-bottom: var(--spacing-md);
 }
 
-/* Lista de características técnicas ampliadas */
 .service-features-v2 {
     list-style: none;
     margin: 0 0 var(--spacing-md);
@@ -636,17 +573,16 @@
     gap: var(--spacing-sm);
     padding: var(--spacing-xs) 0;
     color: var(--primary-color);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 }
 
 .service-features-v2 .feature-icon {
     color: var(--success-color);
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     margin-top: 4px;
     flex-shrink: 0;
 }
 
-/* Sección de especificaciones técnicas */
 .service-specs {
     background: var(--light-gray);
     border-radius: 8px;
@@ -655,13 +591,12 @@
 }
 
 .service-specs h4 {
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     color: var(--primary-color);
     margin: 0 0 var(--spacing-sm);
     font-weight: var(--font-weight-bold);
 }
 
-/* Grid de especificaciones técnicas */
 .spec-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -679,22 +614,20 @@
 .spec-value {
     font-weight: var(--font-weight-bold);
     color: var(--secondary-color);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
 }
 
 .spec-label {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     color: var(--medium-gray);
     margin-top: 2px;
 }
 
-/* Contenedor de acción de la tarjeta v2 */
 .service-action-v2 {
     padding: var(--spacing-md) var(--spacing-lg);
     margin-top: auto;
 }
 
-/* Botón de contacto moderno */
 .btn-contact-v2 {
     width: 100%;
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
@@ -703,7 +636,7 @@
     border-radius: 8px;
     padding: var(--spacing-md);
     font-weight: var(--font-weight-bold);
-    font-size: 0.95rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -716,16 +649,216 @@
     box-shadow: 0 6px 20px rgba(43, 161, 212, 0.3);
 }
 
-/* Container para las nuevas tarjetas v2 */
-.services-container-v2 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: var(--spacing-xl);
-    padding: var(--spacing-lg) 0;
+/* ===== 5. SISTEMA DE EXPANSIÓN - SOLO MICROBIOLÓGICOS ===== */
+/* 
+ * IMPORTANTE: Estos estilos solo se aplicarán a la tarjeta de microbiológicos
+ * que tiene el botón de expansión. Las demás tarjetas v2 no tendrán esta funcionalidad.
+ */
+
+/* Contenido expandido inicialmente oculto */
+.service-expanded-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    opacity: 0;
+    transform: translateY(-20px);
 }
 
-/* ===== 5. MENSAJE SIN RESULTADOS ===== */
-/* Mensaje mostrado cuando no hay resultados de búsqueda */
+/* Estado expandido */
+.service-expanded-content.expanded {
+    max-height: 2000px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.3s ease 0.2s,
+                transform 0.3s ease 0.2s;
+}
+
+/* Secciones individuales dentro del contenido expandido */
+.expanded-section {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md);
+    background: var(--light-gray);
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.expanded-section h4 {
+    color: var(--primary-color);
+    font-size: 1.7rem;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.expanded-section h4 i {
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+.expanded-section p {
+    color: var(--medium-gray);
+    line-height: 2;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Grid de matrices analizables */
+.matrices-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.matrix-tag {
+    background: var(--white);
+    color: var(--primary-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-size: 1.2rem;
+    border: 1px solid var(--secondary-color);
+    transition: all var(--transition-medium);
+}
+
+.matrix-tag:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Lista de técnicas analíticas */
+.techniques-list {
+    list-style: none;
+    padding: 0;
+}
+
+.techniques-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+    color: var(--primary-color);
+    font-size: 1.5rem; 
+}
+
+.techniques-list li::before {
+    content: "⚗️";
+    font-size: 1.3rem;
+    margin-top: 2px;
+}
+
+/* Grid de normativas */
+.normatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.normative-item {
+    background: var(--white);
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(43, 161, 212, 0.2);
+}
+
+.normative-item strong {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.normative-item span {
+    color: var(--medium-gray);
+    font-size: 1.4rem;
+}
+
+/* Proposiciones de valor */
+.value-propositions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(43, 161, 212, 0.1);
+}
+
+.value-item i {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    min-width: 30px;
+}
+
+.value-item strong {
+    color: var(--primary-color);
+    font-size: 1.3rem;  
+    display: block;
+    margin-bottom: var(--spacing-xs);
+
+}
+
+.value-item span {
+    color: var(--medium-gray);
+    font-size: 1.6rem;
+}
+
+/* Botón de expansión - SOLO para microbiológicos */
+.btn-expand-details {
+    width: 100%;
+    background: var(--light-gray);
+    color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    padding: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.3rem; 
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.btn-expand-details:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-expand-details.expanded {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+.btn-expand-details.expanded i {
+    transform: rotate(180deg);
+}
+
+.btn-expand-details i {
+    transition: transform var(--transition-medium);
+}
+
+/* Ajustes especiales para tarjeta expandida */
+.service-card-v2.expanded {
+    grid-column: 1 / -1;
+    max-width: none;
+    transform: translateY(0) scale(1);
+}
+
+.service-card-v2.expanded:hover {
+    transform: translateY(0) scale(1);
+}
+
+/* ===== 6. MENSAJE SIN RESULTADOS ===== */
 .no-results {
     text-align: center;
     padding: var(--spacing-xxl);
@@ -744,11 +877,7 @@
     color: var(--primary-color);
 }
 
-/* ===== 6. SECCIÓN METODOLOGÍA ===== */
-/* 
- * Pasos del proceso de análisis de AOXLAB
- * Muestra el flujo de trabajo desde recepción hasta entrega
- */
+/* ===== 7. SECCIÓN METODOLOGÍA ===== */
 .metodologia-section {
     padding: var(--spacing-xxl) 0;
     background: var(--white);
@@ -761,7 +890,6 @@
     margin-top: var(--spacing-xl);
 }
 
-/* Item individual de paso metodológico */
 .step-item {
     background: var(--white);
     padding: var(--spacing-xl);
@@ -777,7 +905,6 @@
     box-shadow: 0 15px 45px var(--shadow-medium);
 }
 
-/* Número del paso */
 .step-number {
     width: 60px;
     height: 60px;
@@ -791,8 +918,32 @@
     font-weight: var(--font-weight-bold);
     margin: 0 auto var(--spacing-md);
 }
+.category-anchors {
+    position: relative;
+}
 
-/* Contenido del paso */
+.anchor-point {
+    position: absolute;
+    top: -100px; /* Ajuste según altura del header */
+    visibility: hidden;
+}
+
+.dropdown-item.active {
+    background: var(--color-primary);
+    color: white !important;
+}
+
+.service-card-v2:target {
+    animation: highlight 2s ease;
+}
+
+@keyframes highlight {
+    0% { background: transparent; }
+    50% { background: rgba(43, 161, 212, 0.1); }
+    100% { background: transparent; }
+}
+
+
 .step-content h3 {
     font-size: 1.2rem;
     color: var(--primary-color);
@@ -806,7 +957,6 @@
     margin-bottom: var(--spacing-md);
 }
 
-/* Enlace de acción del paso */
 .step-link {
     display: inline-flex;
     align-items: center;
@@ -822,11 +972,7 @@
     transform: translateX(5px);
 }
 
-/* ===== 7. SECCIÓN TECNOLOGÍA ===== */
-/* 
- * Showcase del equipamiento y capacidades técnicas de AOXLAB
- * Fondo oscuro con efectos glassmorphism
- */
+/* ===== 8. SECCIÓN TECNOLOGÍA ===== */
 .tecnologia-section {
     padding: var(--spacing-xxl) 0;
     background: linear-gradient(135deg, var(--primary-color), var(--dark-gray));
@@ -847,8 +993,55 @@
     gap: var(--spacing-lg);
     margin-top: var(--spacing-xl);
 }
+/* ===== ESTILOS ADICIONALES PARA CONTENIDO EXPANDIDO COMPLETO ===== */
 
-/* Tarjeta de tecnología con glassmorphism */
+.parameters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.parameter-category {
+    background: var(--white);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(43, 161, 212, 0.1);
+}
+
+.parameter-category h5 {
+    color: var(--secondary-color);
+    font-size: 1.2rem;         /* Aumentado de 0.85rem */
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.parameter-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.parameter-category li {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--shadow-light);
+}
+
+.parameter-category li:last-child {
+    border-bottom: none;
+}
+
+/* Mejoras para responsive */
+@media (max-width: 768px) {
+    .parameters-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 .tech-card {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -864,7 +1057,6 @@
     transform: translateY(-5px);
 }
 
-/* Icono de tecnología */
 .tech-icon {
     width: 80px;
     height: 80px;
@@ -889,8 +1081,7 @@
     opacity: 0.9;
 }
 
-/* ===== 8. CTA SERVICIOS FINAL ===== */
-/* Llamada a la acción final de la página */
+/* ===== 9. CTA SERVICIOS FINAL ===== */
 .cta-servicios {
     padding: var(--spacing-xxl) 0;
     background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
@@ -917,11 +1108,7 @@
     flex-wrap: wrap;
 }
 
-/* ===== 9. ANIMACIONES DE FILTROS ===== */
-/* 
- * Animaciones para el sistema de filtrado
- * Transiciones suaves cuando se ocultan/muestran tarjetas
- */
+/* ===== 10. ANIMACIONES DE FILTROS ===== */
 .service-card.filtered-out,
 .service-card-v2.filtered-out {
     opacity: 0;
@@ -936,15 +1123,131 @@
     pointer-events: auto;
 }
 
-/* ===== 10. RESPONSIVE DESIGN ===== */
-/* 
- * Adaptaciones para diferentes tamaños de pantalla
- * Mobile-first approach con breakpoints progresivos
- */
+/* ===== 11. MODAL DE COTIZACIÓN RÁPIDA ===== */
+.quick-quote-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
 
-/* Tablets y pantallas medianas */
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--medium-gray);
+    cursor: pointer;
+}
+
+.modal-header h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.modal-body {
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-note {
+    background: var(--light-gray);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-md);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+}
+
+.modal-actions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.modal-actions .btn-primary,
+.modal-actions .btn-secondary {
+    flex: 1;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.modal-actions .btn-primary {
+    background: var(--secondary-color);
+    color: var(--white);
+    border: 2px solid var(--secondary-color);
+}
+
+.modal-actions .btn-secondary {
+    background: var(--light-gray);
+    color: var(--primary-color);
+    border: 2px solid var(--shadow-light);
+}
+
+.modal-actions .btn-primary:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.modal-actions .btn-secondary:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+/* ===== 12. RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
-    /* Hero section responsive */
     .servicios-hero .container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -968,7 +1271,6 @@
         font-size: 0.8rem;
     }
     
-    /* Filtros responsive */
     .filters-controls {
         flex-direction: column;
         align-items: stretch;
@@ -982,14 +1284,8 @@
         justify-content: center;
     }
     
-    /* Grids responsive */
     .services-container {
         grid-template-columns: 1fr;
-    }
-    
-    .services-container-v2 {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
     }
     
     .service-card-v2 {
@@ -1000,61 +1296,76 @@
         grid-template-columns: repeat(2, 1fr);
     }
     
-    /* Metodología responsive */
     .metodologia-steps {
         grid-template-columns: 1fr;
     }
     
-    /* Tecnología responsive */
     .tecnologia-grid {
         grid-template-columns: 1fr;
     }
     
-    /* CTA responsive */
     .cta-servicios .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
+    
+    /* Responsive para contenido expandido */
+    .matrices-grid {
+        justify-content: center;
+    }
+    
+    .normatives-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .value-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .expanded-section {
+        margin: var(--spacing-md) 0;
+        padding: var(--spacing-sm);
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
 }
 
-/* Móviles pequeños */
 @media (max-width: 480px) {
-    /* Hero actions responsive */
     .servicios-hero .hero-actions {
         flex-direction: column;
         align-items: center;
     }
     
-    /* Acciones de tarjetas responsive */
     .service-actions {
         flex-direction: column;
     }
     
-    /* Meta información responsive */
     .service-meta {
         flex-direction: column;
         gap: var(--spacing-sm);
         text-align: center;
     }
+    
+    .service-card-v2.expanded {
+        grid-column: 1;
+    }
 }
 
 /* ===== FIN DEL ARCHIVO CSS ===== */
 /* 
- * NOTAS IMPORTANTES PARA DESARROLLO:
+ * RESUMEN DE CAMBIOS IMPLEMENTADOS PARA MICROBIOLÓGICOS:
  * 
- * 1. Las clases .service-card (v1) se mantienen para compatibilidad
- * 2. Las clases .service-card-v2 son la nueva implementación
- * 3. Durante la transición, ambas versiones coexistirán
- * 4. Actualizar JavaScript para usar .service-card-v2 cuando se migre
- * 5. Todas las variables CSS deben estar definidas en el archivo principal
- * 6. Los iconos FontAwesome deben estar cargados para funcionar correctamente
- * 7. Las animaciones AOS deben inicializarse en JavaScript
- * 
- * VARIABLES CSS REQUERIDAS:
- * --primary-color, --secondary-color, --accent-color
- * --white, --light-gray, --medium-gray, --dark-gray
- * --success-color, --shadow-light, --shadow-medium, --shadow-dark
- * --spacing-xs, --spacing-sm, --spacing-md, --spacing-lg, --spacing-xl, --spacing-xxl
- * --border-radius, --border-radius-lg
- * --font-weight-bold, --transition-medium
+ * 1. ✅ Sistema de expansión completo solo para la tarjeta microbiológica
+ * 2. ✅ Animaciones suaves para mostrar/ocultar contenido expandido
+ * 3. ✅ Botón de expansión con cambio de estado visual
+ * 4. ✅ Secciones expandidas con información técnica detallada
+ * 5. ✅ Grid responsive que se adapta cuando la tarjeta se expande
+ * 6. ✅ Compatibilidad total con el sistema de filtros existente
+ * 7. ✅ Estilos específicos para matrices, técnicas y normativas
+ * 8. ✅ Modal de cotización rápida mejorado
+ * 9. ✅ Responsive design completo para todos los dispositivos
+ * 10. ✅ Las demás tarjetas mantienen su diseño original sin cambios
  */

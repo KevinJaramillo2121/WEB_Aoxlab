@@ -32,12 +32,12 @@
             <div class="header-content">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="index.html" aria-label="AOXLAB - Ir a inicio">
+                    <a href="./index.html" aria-label="AOXLAB - Ir a inicio">
                     <img
                     id="logo"
-                    src="img/Logo Aoxlab.jpg"
-                    data-logo-light="img/Logo Aoxlab.jpg"
-                    data-logo-dark="img/LOGO BLANCO (1).png"
+                    src="./img/Logo Aoxlab.jpg"
+                    data-logo-light="./img/Logo Aoxlab.jpg"
+                    data-logo-dark="./img/LOGO BLANCO (1).png"
                     alt="AOXLAB Logo"
                     width="180"
                     height="60"
@@ -45,17 +45,156 @@
                     </a>
                 </div>
 
-                <!-- Navegación Principal -->
+                <!-- Navegación Principal con Menú Desplegable -->
                 <nav class="main-nav" aria-label="Navegación principal">
                     <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link">INICIO</a></li>
-                        <li><a href="Somos.html" class="nav-link">SOMOS</a></li>
-                        <li><a href="Servicios.html" class="nav-link active">SERVICIOS</a></li>
-                        <li><a href="Certifcaciones.html" class="nav-link">CERTIFICACIONES</a></li>
-                        <li><a href="Sectores.html" class="nav-link">SECTORES</a></li>
-                        <li><a href="cliente.html" class="nav-link">CLIENTES</a></li>
-                        <li><a href="Contacto.html" class="nav-link">CONTACTO</a></li>
-                        <li><a href="Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                        <li><a href="./index.html" class="nav-link">INICIO</a></li>
+                        <li><a href="./Somos.html" class="nav-link">SOMOS</a></li>
+                        
+                        <!-- SERVICIOS con menú desplegable -->
+                        <li class="nav-item-dropdown">
+                            <a href="./Servicios.html" class="nav-link active dropdown-trigger">
+                                SERVICIOS
+                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                            </a>
+                            
+                            <!-- Menú principal de servicios -->
+                            <div class="dropdown-menu services-dropdown">
+                                <div class="dropdown-container">
+                                    
+                                    <!-- Laboratorio con submenu -->
+                                    <div class="dropdown-item has-submenu">
+                                        <a href="./Servicios.html#laboratorio" class="dropdown-link">
+                                            <i class="fas fa-microscope"></i>
+                                            <span>Laboratorio</span>
+                                            <i class="fas fa-chevron-right submenu-icon"></i>
+                                        </a>
+                                        
+                                        <!-- Submenu de Laboratorio -->
+                                        <div class="submenu-dropdown">
+                                            <div class="submenu-header">
+                                                <h4>Servicios de Laboratorio</h4>
+                                                <p>Análisis especializados con tecnología de punta</p>
+                                            </div>
+                                            
+                                            <div class="submenu-grid">
+                                                <a href="./Servicios.html#microbiologicos" class="submenu-item">
+                                                    <i class="fas fa-bacteria"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Microbiológicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#fisicoquimicos" class="submenu-item">
+                                                    <i class="fas fa-flask"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Físico-Químicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#nutricionales" class="submenu-item">
+                                                    <i class="fas fa-apple-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Nutricionales</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#micotoxinas" class="submenu-item">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Micotoxinas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#alergenos" class="submenu-item">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Alérgenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Contaminantes" class="submenu-item">
+                                                    <i class="fas fa-biohazard"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Contaminantes</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Metales" class="submenu-item">
+                                                    <i class="fas fa-atom"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Metales Pesados</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#plaguicidas" class="submenu-item">
+                                                    <i class="fas fa-seedling"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Residuos de Plaguicidas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#terpenos" class="submenu-item">
+                                                    <i class="fas fa-cannabis"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Cannabinoides y Terpenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#vidautil" class="submenu-item">
+                                                    <i class="fas fa-chart-line"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Vida Útil y Estabilidad</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#biodegradabilidad" class="submenu-item">
+                                                    <i class="fas fa-leaf"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Biodegradabilidad</h5>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Certificación de Producto -->
+                                    <div class="dropdown-item">
+                                        <a href="./Certificaciones.html#producto" class="dropdown-link">
+                                            <i class="fas fa-certificate"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Certificación de Producto</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Capacitación -->
+                                    <div class="dropdown-item">
+                                        <a href="./Capacitacion.html" class="dropdown-link">
+                                            <i class="fas fa-graduation-cap"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Capacitación</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Investigación y Desarrollo -->
+                                    <div class="dropdown-item">
+                                        <a href="./Investigacion.html" class="dropdown-link">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Investigación y Desarrollo</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li><a href="./Certifcaciones.html" class="nav-link">CERTIFICACIÓN</a></li>
+                        <li><a href="./Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                        <a href="./portal-clientes.html" class="header-cta-btn portal-btn"><i class="fas fa-user-circle"></i>Portal Clientes</a>
+                        <a href="./Contacto.html" class="header-cta-btn contact-btn"><i class="fas fa-envelope"></i>Contáctanos</a>
                     </ul>
                 </nav>
 
@@ -85,6 +224,7 @@
                 </button>
             </div>
         </div>
+
     </header>
 
     <!-- Contenido Principal -->
@@ -170,37 +310,46 @@
             </div>
         </section>
 
+                    <!-- Antes del grid de servicios -->
+            <section class="category-anchors">
+                <div id="microbiologicos" class="anchor-point"></div>
+                <div id="fisicoquimicos" class="anchor-point"></div>
+                <div id="metales" class="anchor-point"></div>
+                <div id="cannabinoides" class="anchor-point"></div>
+                <div id="contaminantes" class="anchor-point"></div>
+            </section>
+
+
         <!-- Grid de Servicios -->
         <section class="servicios-grid" id="servicios-grid">
             <div class="container">
                 <div class="services-container">
-                    <!-- Microbiológicos -->
-                    <article class="service-card-v2" data-category="microbiologicos" data-aos="fade-up">
-                        <div class="service-card-header">
-                            <div class="service-icon-v2">
-                                <i class="fas fa-bacteria"></i>
-                            </div>
-                            <h3 class="service-title-v2">Análisis Microbiológicos Especializados</h3>
+                    
+                    <!-- Tarjeta de servicio expandible -->
+                <article class="service-card-v2" data-category="microbiologicos"id="microbiologicos" data-aos="fade-up">
+                    <div class="service-card-header">
+                        <div class="service-icon-v2">
+                            <i class="fas fa-bacteria"></i>
                         </div>
-                        
-                        <div class="service-content-v2">
+                        <h3 class="service-title-v2">Análisis Microbiológicos Especializados</h3>
+                    </div>
+                    
+                    <div class="service-content-v2">
+                        <!-- Contenido básico (siempre visible) -->
+                        <div class="service-basic-content">
                             <p class="service-description-v2">
                                 Detección e identificación precisa de microorganismos patógenos y de interés sanitario 
-                                utilizando metodologías estandarizadas bajo acreditación ISO 17025. AOXLAB garantiza la 
-                                seguridad microbiológica en diversas matrices con tecnología de vanguardia.
+                                utilizando metodologías estandarizadas bajo acreditación ISO 17025.
                             </p>
                             
                             <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Recuento total de aerobios mesófilos y psicrófilos en alimentos</li>
-                                <li><i class="fas fa-check feature-icon"></i>Detección molecular y cultivo tradicional de Salmonella spp.</li>
-                                <li><i class="fas fa-check feature-icon"></i>Cuantificación de E. coli y coliformes totales/termotolerantes</li>
-                                <li><i class="fas fa-check feature-icon"></i>Identificación de Listeria monocytogenes en productos listos para consumo</li>
-                                <li><i class="fas fa-check feature-icon"></i>Análisis de Staphylococcus aureus y enterotoxinas estafilocócicas</li>
-                                <li><i class="fas fa-check feature-icon"></i>Recuento e identificación específica de mohos y levaduras</li>
+                                <li><i class="fas fa-check feature-icon"></i>Recuento total de aerobios mesófilos y psicrófilos</li>
+                                <li><i class="fas fa-check feature-icon"></i>Detección molecular de Salmonella spp.</li>
+                                <li><i class="fas fa-check feature-icon"></i>Cuantificación de E. coli y coliformes</li>
                             </ul>
                             
                             <div class="service-specs">
-                                <h4>Especificaciones Técnicas Avanzadas</h4>
+                                <h4>Especificaciones Técnicas</h4>
                                 <div class="spec-grid">
                                     <div class="spec-item">
                                         <div class="spec-value">3-5 días</div>
@@ -210,29 +359,115 @@
                                         <div class="spec-value">ISO 17025</div>
                                         <div class="spec-label">Acreditación</div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">24/7</div>
-                                        <div class="spec-label">Soporte técnico</div>
-                                    </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">+50</div>
-                                        <div class="spec-label">Ensayos acreditados</div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="service-action-v2">
-                            <button class="btn-contact-v2" onclick="contactSpecificService('microbiologicos')">
-                                <i class="fas fa-envelope"></i> Solicitar Información Técnica
-                            </button>
+                        <!-- Contenido expandido (inicialmente oculto) -->
+                        <div class="service-expanded-content" style="display: none;">
+                            <div class="expanded-section">
+                                <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                <p>Los análisis microbiológicos constituyen el conjunto de pruebas diseñadas para detectar, 
+                                identificar, enumerar y caracterizar microorganismos presentes en alimentos, agua, superficies 
+                                y otros materiales biológicos. AOXLAB garantiza la seguridad microbiológica en diversas matrices 
+                                con tecnología de vanguardia.</p>
+                            </div>
+                            
+                            <div class="expanded-section">
+                                <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                <p>La industria alimentaria, farmacéutica y cosmética depende fundamentalmente de los análisis 
+                                microbiológicos para garantizar la seguridad de sus productos. En Colombia, estos análisis son 
+                                críticos para prevenir brotes de enfermedades transmitidas por alimentos (ETA).</p>
+                            </div>
+                            
+                            <div class="expanded-section">
+                                <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                <div class="matrices-grid">
+                                    <span class="matrix-tag">Alimentos crudos y procesados</span>
+                                    <span class="matrix-tag">Productos cárnicos</span>
+                                    <span class="matrix-tag">Lácteos</span>
+                                    <span class="matrix-tag">Cereales</span>
+                                    <span class="matrix-tag">Agua potable</span>
+                                    <span class="matrix-tag">Superficies de contacto</span>
+                                    <span class="matrix-tag">Productos farmacéuticos</span>
+                                    <span class="matrix-tag">Cosméticos</span>
+                                </div>
+                            </div>
+                            
+                            <div class="expanded-section">
+                                <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                <ul class="techniques-list">
+                                    <li>Métodos tradicionales de cultivo en medios selectivos</li>
+                                    <li>Técnicas de biología molecular como PCR en tiempo real</li>
+                                    <li>Métodos rápidos basados en inmunoensayos ELISA</li>
+                                    <li>Incubadoras con control preciso de temperatura</li>
+                                    <li>Cabinas de bioseguridad nivel II</li>
+                                    <li>Sistemas automatizados de identificación bioquímica</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="expanded-section">
+                                <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                <div class="normatives-grid">
+                                    <div class="normative-item">
+                                        <strong>Resolución 1407 de 2022</strong>
+                                        <span>Criterios microbiológicos para alimentos</span>
+                                    </div>
+                                    <div class="normative-item">
+                                        <strong>ISO 11290</strong>
+                                        <span>Listeria monocytogenes</span>
+                                    </div>
+                                    <div class="normative-item">
+                                        <strong>ISO 6579</strong>
+                                        <span>Salmonella spp.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="expanded-section">
+                                <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                <div class="value-propositions">
+                                    <div class="value-item">
+                                        <i class="fas fa-clock"></i>
+                                        <div>
+                                            <strong>Tiempos Optimizados</strong>
+                                            <span>Resultados en 3-7 días hábiles con capacidad de urgencias</span>
+                                        </div>
+                                    </div>
+                                    <div class="value-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <div>
+                                            <strong>Trazabilidad Digital</strong>
+                                            <span>Sistema LIMS para seguimiento completo de muestras</span>
+                                        </div>
+                                    </div>
+                                    <div class="value-item">
+                                        <i class="fas fa-users"></i>
+                                        <div>
+                                            <strong>Soporte Técnico Continuo</strong>
+                                            <span>Consultoría especializada y capacitaciones HACCP</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </article>
+                    </div>
+                    
+                    <div class="service-action-v2">
+                        <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                            <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                        </button>
+                        <button class="btn-contact-v2" onclick="contactSpecificService('microbiologicos')">
+                            <i class="fas fa-envelope"></i> Solicitar Información
+                        </button>
+                    </div>
+                </article>
+
 
 
 
                     <!-- Físico Químicos -->
-                    <article class="service-card-v2" data-category="fisicoquimicos" data-aos="fade-up" data-aos-delay="100">
+                    <article class="service-card-v2" data-category="fisicoquimicos" id="fisicoquimicos" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-card-header">
                             <div class="service-icon-v2">
                                 <i class="fas fa-flask"></i>
@@ -241,45 +476,169 @@
                         </div>
                         
                         <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Determinación integral de propiedades físicas y composición química con equipamiento 
-                                de última generación. AOXLAB cuenta con más de 1500 servicios diferentes para control 
-                                de calidad y desarrollo de productos en diversas industrias.
-                            </p>
+                            <!-- Contenido básico (siempre visible) -->
+                            <div class="service-basic-content">
+                                <p class="service-description-v2">
+                                    Determinación integral de propiedades físicas y composición química con equipamiento 
+                                    de última generación. AOXLAB cuenta con más de 1500 servicios diferentes para control 
+                                    de calidad y desarrollo de productos en diversas industrias.
+                                </p>
+                                
+                                <ul class="service-features-v2">
+                                    <li><i class="fas fa-check feature-icon"></i>Análisis proximal completo: humedad, cenizas, proteínas método Kjeldahl</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Determinación de grasas totales y fibra cruda</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Parámetros de calidad: pH, acidez, viscosidad, densidad</li>
+                                </ul>
+                                
+                                <div class="service-specs">
+                                    <h4>Capacidades Analíticas Avanzadas</h4>
+                                    <div class="spec-grid">
+                                        <div class="spec-item">
+                                            <div class="spec-value">2-4 días</div>
+                                            <div class="spec-label">Tiempo entrega</div>
+                                        </div>
+                                        <div class="spec-item">
+                                            <div class="spec-value">1500+</div>
+                                            <div class="spec-label">Servicios disponibles</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Análisis proximal completo: humedad, cenizas, proteínas método Kjeldahl</li>
-                                <li><i class="fas fa-check feature-icon"></i>Determinación de grasas totales y fibra cruda</li>
-                                <li><i class="fas fa-check feature-icon"></i>Parámetros de calidad: pH, acidez, viscosidad, densidad</li>
-                                <li><i class="fas fa-check feature-icon"></i>Carbohidratos totales y azúcares reductores/no reductores</li>
-                                <li><i class="fas fa-check feature-icon"></i>Análisis de ácidos grasos saturados, mono y poliinsaturados</li>
-                                <li><i class="fas fa-check feature-icon"></i>Caracterización fisicoquímica para productos farmacéuticos y cosméticos</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Capacidades Analíticas Avanzadas</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">2-4 días</div>
-                                        <div class="spec-label">Tiempo entrega</div>
+                            <!-- Contenido expandido (inicialmente oculto) -->
+                            <div class="service-expanded-content" style="display: none;">
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                    <p>Los análisis físico-químicos comprenden la determinación cuantitativa y cualitativa de las 
+                                    propiedades físicas y composición química de los alimentos y otros materiales. Estos 
+                                    ensayos evalúan parámetros fundamentales como humedad, cenizas, proteínas, grasas, 
+                                    carbohidratos, pH, acidez, densidad, viscosidad, y contenido de sólidos. La caracterización 
+                                    físico-química permite verificar la calidad, autenticidad, y cumplimiento de especificaciones 
+                                    técnicas de los productos.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                    <p>La industria alimentaria, agrícola y ambiental requiere análisis físico-químicos para el control 
+                                    de calidad de materias primas, validación de procesos productivos, y verificación del 
+                                    cumplimiento de especificaciones comerciales. Estos análisis son esenciales para la 
+                                    formulación de productos, cálculo de información nutricional, y determinación de vida útil.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                    <div class="matrices-grid">
+                                        <span class="matrix-tag">Alimentos frescos y procesados</span>
+                                        <span class="matrix-tag">Productos lácteos</span>
+                                        <span class="matrix-tag">Cárnicos</span>
+                                        <span class="matrix-tag">Cereales</span>
+                                        <span class="matrix-tag">Aceites</span>
+                                        <span class="matrix-tag">Bebidas</span>
+                                        <span class="matrix-tag">Productos de panificación</span>
+                                        <span class="matrix-tag">Alimentos para animales</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">1500+</div>
-                                        <div class="spec-label">Servicios disponibles</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                    <ul class="techniques-list">
+                                        <li>Métodos gravimétricos para determinación de humedad y cenizas</li>
+                                        <li>Técnicas volumétricas para acidez y alcalinidad</li>
+                                        <li>Espectrofotometría UV-Vis para análisis colorimétricos</li>
+                                        <li>Método Kjeldahl para determinación de proteínas</li>
+                                        <li>Extracción Soxhlet para determinación de grasas</li>
+                                        <li>Métodos de digestión ácida y extracción con solventes</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                    <div class="normatives-grid">
+                                        <div class="normative-item">
+                                            <strong>NTC-ISO 1442</strong>
+                                            <span>Determinación de humedad</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>NTC 4092</strong>
+                                            <span>Análisis físico-químicos</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Métodos AOAC</strong>
+                                            <span>Reconocimiento internacional</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Codex Alimentarius</strong>
+                                            <span>Métodos de referencia</span>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Kjeldahl</div>
-                                        <div class="spec-label">Método proteínas</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                    <div class="value-propositions">
+                                        <div class="value-item">
+                                            <i class="fas fa-cogs"></i>
+                                            <div>
+                                                <strong>Paquetes Personalizados</strong>
+                                                <span>Diseño de análisis específicos según necesidades del cliente</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-tachometer-alt"></i>
+                                            <div>
+                                                <strong>Tiempos Optimizados</strong>
+                                                <span>Resultados en 2-4 días hábiles para análisis estándar</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-database"></i>
+                                            <div>
+                                                <strong>Sistema LIMS</strong>
+                                                <span>Seguimiento en tiempo real del estado de las muestras</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Multi-industria</div>
-                                        <div class="spec-label">Aplicaciones</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-chart-bar"></i> Parámetros Analizados</h4>
+                                    <div class="parameters-grid">
+                                        <div class="parameter-category">
+                                            <h5>Análisis Proximal</h5>
+                                            <ul>
+                                                <li>Humedad (%)</li>
+                                                <li>Cenizas (%)</li>
+                                                <li>Proteínas (Nx6.25)</li>
+                                                <li>Grasas totales (%)</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Parámetros de Calidad</h5>
+                                            <ul>
+                                                <li>pH y acidez titulable</li>
+                                                <li>Densidad y viscosidad</li>
+                                                <li>Sólidos solubles (°Brix)</li>
+                                                <li>Índice de refracción</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Análisis Específicos</h5>
+                                            <ul>
+                                                <li>Índice de peróxidos</li>
+                                                <li>Actividad de agua (Aw)</li>
+                                                <li>Índice de acidez</li>
+                                                <li>Punto de fusión</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="service-action-v2">
+                            <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                            </button>
                             <button class="btn-contact-v2" onclick="contactSpecificService('fisicoquimicos')">
                                 <i class="fas fa-chart-bar"></i> Análisis Fisicoquímicos
                             </button>
@@ -288,8 +647,9 @@
 
 
 
+
                     <!-- Análisis nutricionales completos -->
-                    <article class="service-card-v2" data-category="fisicoquimicos" data-aos="fade-up" data-aos-delay="200">
+                    <article class="service-card-v2" data-category="fisicoquimicos" id="nutricionales" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-card-header">
                             <div class="service-icon-v2">
                                 <i class="fas fa-apple-alt"></i>
@@ -298,45 +658,171 @@
                         </div>
                         
                         <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Análisis integral para elaboración de tablas nutricionales y etiquetado de alimentos 
-                                conforme a normativas nacionales e internacionales. AOXLAB se especializa en desarrollo 
-                                de productos con valor agregado nutricional y funcional.
-                            </p>
+                            <!-- Contenido básico (siempre visible) -->
+                            <div class="service-basic-content">
+                                <p class="service-description-v2">
+                                    Análisis integral para elaboración de tablas nutricionales y etiquetado de alimentos 
+                                    conforme a normativas nacionales e internacionales. AOXLAB se especializa en desarrollo 
+                                    de productos con valor agregado nutricional y funcional.
+                                </p>
+                                
+                                <ul class="service-features-v2">
+                                    <li><i class="fas fa-check feature-icon"></i>Perfil completo de vitaminas hidrosolubles y liposolubles</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Determinación de minerales esenciales y oligoelementos</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Valor energético y elaboración de tablas nutricionales</li>
+                                </ul>
+                                
+                                <div class="service-specs">
+                                    <h4>Desarrollo Nutricional Especializado</h4>
+                                    <div class="spec-grid">
+                                        <div class="spec-item">
+                                            <div class="spec-value">5-7 días</div>
+                                            <div class="spec-label">Tiempo entrega</div>
+                                        </div>
+                                        <div class="spec-item">
+                                            <div class="spec-value">ORAC</div>
+                                            <div class="spec-label">Antioxidantes</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Perfil completo de vitaminas hidrosolubles y liposolubles</li>
-                                <li><i class="fas fa-check feature-icon"></i>Determinación de minerales esenciales y oligoelementos</li>
-                                <li><i class="fas fa-check feature-icon"></i>Valor energético y elaboración de tablas nutricionales</li>
-                                <li><i class="fas fa-check feature-icon"></i>Análisis de antioxidantes y capacidad antioxidante ORAC</li>
-                                <li><i class="fas fa-check feature-icon"></i>Perfil de aminoácidos esenciales y no esenciales</li>
-                                <li><i class="fas fa-check feature-icon"></i>Fibra dietética total, soluble e insoluble</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Desarrollo Nutricional Especializado</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">5-7 días</div>
-                                        <div class="spec-label">Tiempo entrega</div>
+                            <!-- Contenido expandido (inicialmente oculto) -->
+                            <div class="service-expanded-content" style="display: none;">
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                    <p>Los análisis nutricionales constituyen la determinación precisa de macro y micronutrientes 
+                                    presentes en alimentos, suplementos dietarios, y productos farmacéuticos. Estos ensayos 
+                                    cuantifican proteínas, carbohidratos, lípidos, fibra dietaria, vitaminas, minerales, 
+                                    aminoácidos, ácidos grasos, y otros compuestos bioactivos. La información nutricional 
+                                    obtenida es fundamental para el etiquetado, formulación de productos, y evaluación del valor 
+                                    nutricional.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                    <p>La industria alimentaria, farmacéutica y de suplementos dietarios requiere análisis 
+                                    nutricionales para cumplir con las regulaciones de etiquetado nutricional obligatorio. Estos 
+                                    análisis permiten validar claims nutricionales, optimizar formulaciones, y asegurar la 
+                                    consistencia nutricional entre lotes de producción. En el desarrollo de productos funcionales 
+                                    y suplementos, facilitan la determinación de dosis efectivas y evaluación de 
+                                    biodisponibilidad.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                    <div class="matrices-grid">
+                                        <span class="matrix-tag">Alimentos procesados</span>
+                                        <span class="matrix-tag">Bebidas</span>
+                                        <span class="matrix-tag">Productos lácteos</span>
+                                        <span class="matrix-tag">Suplementos dietarios</span>
+                                        <span class="matrix-tag">Alimentos infantiles</span>
+                                        <span class="matrix-tag">Nutrición clínica</span>
+                                        <span class="matrix-tag">Alimentos funcionales</span>
+                                        <span class="matrix-tag">Materias primas</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">ORAC</div>
-                                        <div class="spec-label">Antioxidantes</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                    <ul class="techniques-list">
+                                        <li>Cromatografía líquida de alta resolución (HPLC) para vitaminas</li>
+                                        <li>Cromatografía de gases (GC) para ácidos grasos</li>
+                                        <li>Espectrofotometría para determinaciones colorimétricas</li>
+                                        <li>Analizadores elementales de carbono y nitrógeno</li>
+                                        <li>Sistemas de digestión Kjeldahl para proteínas</li>
+                                        <li>Técnicas de derivatización química para aminoácidos</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                    <div class="normatives-grid">
+                                        <div class="normative-item">
+                                            <strong>Resolución 333 de 2011</strong>
+                                            <span>Rotulado nutricional Colombia</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Reglamento 1169/2011</strong>
+                                            <span>Normativa UE</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Métodos AOAC</strong>
+                                            <span>Procedimientos oficiales</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Normas FDA</strong>
+                                            <span>Productos exportación</span>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Etiquetado</div>
-                                        <div class="spec-label">Normativo</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                    <div class="value-propositions">
+                                        <div class="value-item">
+                                            <i class="fas fa-box"></i>
+                                            <div>
+                                                <strong>Paquetes Integrales</strong>
+                                                <span>Análisis completo de macronutrientes, aminoácidos, vitaminas y minerales</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-calculator"></i>
+                                            <div>
+                                                <strong>Cálculo Automatizado</strong>
+                                                <span>Información nutricional según normativas locales e internacionales</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <div>
+                                                <strong>Soporte Técnico</strong>
+                                                <span>Asesoría para formulación de productos y optimización nutricional</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Valor agregado</div>
-                                        <div class="spec-label">Especialización</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-chart-bar"></i> Componentes Analizados</h4>
+                                    <div class="parameters-grid">
+                                        <div class="parameter-category">
+                                            <h5>Macronutrientes</h5>
+                                            <ul>
+                                                <li>Proteínas totales</li>
+                                                <li>Grasas totales y saturadas</li>
+                                                <li>Carbohidratos totales</li>
+                                                <li>Azúcares y fibra dietética</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Vitaminas</h5>
+                                            <ul>
+                                                <li>Hidrosolubles (B1, B2, B3, B6, B12, C, Ácido fólico)</li>
+                                                <li>Liposolubles (A, D, E, K)</li>
+                                                <li>Antioxidantes</li>
+                                                <li>Capacidad ORAC</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Minerales</h5>
+                                            <ul>
+                                                <li>Macrominerales (Ca, P, Mg, Na, K)</li>
+                                                <li>Oligoelementos (Fe, Zn, Cu, Mn, Se)</li>
+                                                <li>Electrolitos</li>
+                                                <li>Elementos traza</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="service-action-v2">
+                            <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                            </button>
                             <button class="btn-contact-v2" onclick="contactSpecificService('fisicoquimicos')">
                                 <i class="fas fa-leaf"></i> Tablas Nutricionales
                             </button>
@@ -344,8 +830,9 @@
                     </article>
 
 
+
                     <!-- Micotoxinas -->
-                    <article class="service-card-v2" data-category="contaminantes" data-aos="fade-up" data-aos-delay="300">
+                    <article class="service-card-v2" data-category="contaminantes" id="micotoxinas" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-card-header">
                             <div class="service-icon-v2">
                                 <i class="fas fa-exclamation-triangle"></i>
@@ -354,45 +841,168 @@
                         </div>
                         
                         <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Detección y cuantificación de contaminantes fúngicos utilizando cromatografía líquida 
-                                de alta resolución con espectrometría de masas en tándem. AOXLAB cuenta con área 
-                                especializada en micotoxinas y alérgenos con métodos Validados.
-                            </p>
+                            <!-- Contenido básico (siempre visible) -->
+                            <div class="service-basic-content">
+                                <p class="service-description-v2">
+                                    Detección y cuantificación de contaminantes fúngicos utilizando cromatografía líquida 
+                                    de alta resolución con espectrometría de masas en tándem. AOXLAB cuenta con área 
+                                    especializada en micotoxinas y alérgenos con métodos validados.
+                                </p>
+                                
+                                <ul class="service-features-v2">
+                                    <li><i class="fas fa-check feature-icon"></i>Aflatoxinas: B1, B2, G1, G2 y aflatoxina M1 en productos lácteos</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Ocratoxina A en cereales, café y productos derivados</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Tricotecenos: Deoxinivalenol (DON), Nivalenol, T-2 y HT-2</li>
+                                </ul>
+                                
+                                <div class="service-specs">
+                                    <h4>Tecnología HPLC-MS/MS Avanzada</h4>
+                                    <div class="spec-grid">
+                                        <div class="spec-item">
+                                            <div class="spec-value">5-7 días</div>
+                                            <div class="spec-label">Tiempo entrega</div>
+                                        </div>
+                                        <div class="spec-item">
+                                            <div class="spec-value">ppb</div>
+                                            <div class="spec-label">Límite detección</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Aflatoxinas: B1, B2, G1, G2 y aflatoxina M1 en productos lácteos</li>
-                                <li><i class="fas fa-check feature-icon"></i>Ocratoxina A en cereales, café y productos derivados</li>
-                                <li><i class="fas fa-check feature-icon"></i>Tricotecenos: Deoxinivalenol (DON), Nivalenol, T-2 y HT-2</li>
-                                <li><i class="fas fa-check feature-icon"></i>Fumonisinas B1 y B2 en maíz y productos derivados</li>
-                                <li><i class="fas fa-check feature-icon"></i>Zearalenona en cereales y piensos</li>
-                                <li><i class="fas fa-check feature-icon"></i>Patulina en productos de manzana y cítricos</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Tecnología HPLC-MS/MS Avanzada</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">5-7 días</div>
-                                        <div class="spec-label">Tiempo entrega</div>
+                            <!-- Contenido expandido (inicialmente oculto) -->
+                            <div class="service-expanded-content" style="display: none;">
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                    <p>La detección de micotoxinas comprende la identificación y cuantificación de metabolitos 
+                                    tóxicos producidos por hongos filamentosos que pueden contaminar alimentos, piensos y 
+                                    materias primas agrícolas. Las micotoxinas de mayor relevancia incluyen aflatoxinas (B1, B2, 
+                                    G1, G2), ocratoxina A, deoxinivalenol (DON), zearalenona, fumonisinas y toxina T-2[1].</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                    <p>La industria alimentaria, agrícola y de piensos enfrenta desafíos constantes relacionados 
+                                    con la contaminación por micotoxinas, especialmente en cereales, frutos secos, café, especias 
+                                    y productos lácteos. El control de micotoxinas es esencial para acceso a mercados 
+                                    internacionales, cumplimiento de límites máximos regulatorios y protección de la salud del 
+                                    consumidor[1].</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                    <div class="matrices-grid">
+                                        <span class="matrix-tag">Cereales (maíz, trigo, arroz)</span>
+                                        <span class="matrix-tag">Frutos secos</span>
+                                        <span class="matrix-tag">Café y cacao</span>
+                                        <span class="matrix-tag">Especias</span>
+                                        <span class="matrix-tag">Productos lácteos</span>
+                                        <span class="matrix-tag">Alimentos procesados</span>
+                                        <span class="matrix-tag">Piensos</span>
+                                        <span class="matrix-tag">Materias primas agrícolas</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Simultáneo</div>
-                                        <div class="spec-label">Análisis múltiple</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                    <ul class="techniques-list">
+                                        <li>Cromatografía líquida acoplada a espectrometría de masas en tándem (HPLC-MS/MS)</li>
+                                        <li>Ensayos ELISA para análisis de rutina</li>
+                                        <li>Inmunocromatografía para detección rápida</li>
+                                        <li>Sistemas LC-MS/MS con detectores de triple cuadrupolo</li>
+                                        <li>Limpieza por columnas de inmunoafinidad</li>
+                                        <li>Procedimientos de extracción optimizados con recuperaciones >80%</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                    <div class="normatives-grid">
+                                        <div class="normative-item">
+                                            <strong>Plan Nacional 2023</strong>
+                                            <span>Vigilancia micotoxinas Colombia</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Codex Stan 193-1995</strong>
+                                            <span>Estándares internacionales</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Regulaciones FDA</strong>
+                                            <span>Mercados internacionales</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Métodos AOAC</strong>
+                                            <span>Procedimientos oficiales</span>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">ppb</div>
-                                        <div class="spec-label">Límite detección</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                    <div class="value-propositions">
+                                        <div class="value-item">
+                                            <i class="fas fa-search"></i>
+                                            <div>
+                                                <strong>Vigilancia Proactiva</strong>
+                                                <span>Muestreo dirigido en épocas de mayor riesgo de contaminación fúngica</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-flask"></i>
+                                            <div>
+                                                <strong>Métodos Multimicotoxina</strong>
+                                                <span>Detección simultánea de múltiples analitos en una sola corrida</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-shield-alt"></i>
+                                            <div>
+                                                <strong>Protocolos HACCP</strong>
+                                                <span>Desarrollo de medidas preventivas específicas para micotoxinas</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Validados</div>
-                                        <div class="spec-label">Métodos</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-chart-bar"></i> Micotoxinas Analizadas</h4>
+                                    <div class="parameters-grid">
+                                        <div class="parameter-category">
+                                            <h5>Aflatoxinas</h5>
+                                            <ul>
+                                                <li>Aflatoxina B1 (4 µg/kg)</li>
+                                                <li>Aflatoxina B2</li>
+                                                <li>Aflatoxina G1</li>
+                                                <li>Aflatoxina M1 (lácteos)</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Tricotecenos</h5>
+                                            <ul>
+                                                <li>Deoxinivalenol (DON)</li>
+                                                <li>Nivalenol</li>
+                                                <li>Toxina T-2</li>
+                                                <li>Toxina HT-2</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Otras Micotoxinas</h5>
+                                            <ul>
+                                                <li>Ocratoxina A (5 µg/kg)</li>
+                                                <li>Zearalenona</li>
+                                                <li>Fumonisinas B1 y B2</li>
+                                                <li>Patulina</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="service-action-v2">
+                            <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                            </button>
                             <button class="btn-contact-v2" onclick="contactSpecificService('contaminantes')">
                                 <i class="fas fa-shield-alt"></i> Análisis Micotoxinas
                             </button>
@@ -401,8 +1011,9 @@
 
 
 
-                    <!-- Alergenos -->
-                    <article class="service-card-v2" data-category="contaminantes" data-aos="fade-up" data-aos-delay="400">
+
+                    <!-- Alérgenos -->
+                    <article class="service-card-v2" data-category="contaminantes" id="alergenos" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-card-header">
                             <div class="service-icon-v2">
                                 <i class="fas fa-shield-alt"></i>
@@ -411,45 +1022,167 @@
                         </div>
                         
                         <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Identificación cuantitativa y cualitativa de los principales alérgenos mediante 
-                                técnicas ELISA y PCR. AOXLAB cuenta con área dedicada a alérgenos para garantizar 
-                                etiquetado correcto y protección del consumidor.
-                            </p>
+                            <!-- Contenido básico (siempre visible) -->
+                            <div class="service-basic-content">
+                                <p class="service-description-v2">
+                                    Identificación cuantitativa y cualitativa de los principales alérgenos mediante 
+                                    técnicas ELISA y PCR. AOXLAB cuenta con área dedicada a alérgenos para garantizar 
+                                    etiquetado correcto y protección del consumidor.
+                                </p>
+                                
+                                <ul class="service-features-v2">
+                                    <li><i class="fas fa-check feature-icon"></i>Gluten: proteínas de trigo, cebada, centeno y avena</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Proteínas lácteas: caseína y proteínas del suero</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Frutos secos: almendras, nueces, avellanas, pistachos</li>
+                                </ul>
+                                
+                                <div class="service-specs">
+                                    <h4>Métodos ELISA y PCR Validados</h4>
+                                    <div class="spec-grid">
+                                        <div class="spec-item">
+                                            <div class="spec-value">3-5 días</div>
+                                            <div class="spec-label">Tiempo entrega</div>
+                                        </div>
+                                        <div class="spec-item">
+                                            <div class="spec-value">14</div>
+                                            <div class="spec-label">Alérgenos principales</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Gluten: proteínas de trigo, cebada, centeno y avena</li>
-                                <li><i class="fas fa-check feature-icon"></i>Proteínas lácteas: caseína y proteínas del suero</li>
-                                <li><i class="fas fa-check feature-icon"></i>Proteínas de huevo: ovoalbúmina y otras fracciones proteicas</li>
-                                <li><i class="fas fa-check feature-icon"></i>Frutos secos: almendras, nueces, avellanas, pistachos</li>
-                                <li><i class="fas fa-check feature-icon"></i>Leguminosas: soja, maní, lupino en productos procesados</li>
-                                <li><i class="fas fa-check feature-icon"></i>Crustáceos y moluscos mediante detección molecular</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Métodos ELISA y PCR Validados</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">3-5 días</div>
-                                        <div class="spec-label">Tiempo entrega</div>
+                            <!-- Contenido expandido (inicialmente oculto) -->
+                            <div class="service-expanded-content" style="display: none;">
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                    <p>La detección de alérgenos alimentarios comprende la identificación y cuantificación de 
+                                    proteínas alergénicas que pueden desencadenar reacciones adversas en individuos 
+                                    sensibilizados. Los principales alérgenos regulados incluyen gluten, proteínas de leche, 
+                                    huevo, soja, frutos secos, maní, pescado, mariscos y apio[1].</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                    <p>La industria alimentaria y de procesamiento enfrenta responsabilidades legales 
+                                    significativas relacionadas con la declaración correcta de alérgenos en etiquetas de 
+                                    productos. La contaminación cruzada durante el procesamiento puede introducir alérgenos 
+                                    no declarados, representando riesgos graves para consumidores sensibles[1].</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                    <div class="matrices-grid">
+                                        <span class="matrix-tag">Alimentos procesados</span>
+                                        <span class="matrix-tag">Productos de panadería</span>
+                                        <span class="matrix-tag">Bebidas</span>
+                                        <span class="matrix-tag">Salsas</span>
+                                        <span class="matrix-tag">Productos cárnicos</span>
+                                        <span class="matrix-tag">Lácteos</span>
+                                        <span class="matrix-tag">Suplementos dietarios</span>
+                                        <span class="matrix-tag">Alimentos infantiles</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">14</div>
-                                        <div class="spec-label">Alérgenos principales</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                    <ul class="techniques-list">
+                                        <li>Ensayos ELISA específicos para cada alérgeno</li>
+                                        <li>Técnicas de PCR para detección de secuencias génicas</li>
+                                        <li>Cromatografía líquida acoplada a espectrometría de masas (LC-MS/MS)</li>
+                                        <li>Lectores de placas ELISA automatizados</li>
+                                        <li>Termocicladores para PCR en tiempo real</li>
+                                        <li>Equipos de extracción de proteínas especializados</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                    <div class="normatives-grid">
+                                        <div class="normative-item">
+                                            <strong>Resolución 333 de 2011</strong>
+                                            <span>Etiquetado Colombia</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Regulaciones FDA</strong>
+                                            <span>8 alérgenos principales</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Directivas UE</strong>
+                                            <span>14 alérgenos regulados</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Métodos AOAC</strong>
+                                            <span>Protocolos validados</span>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">ELISA/PCR</div>
-                                        <div class="spec-label">Técnicas validadas</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                    <div class="value-propositions">
+                                        <div class="value-item">
+                                            <i class="fas fa-list-check"></i>
+                                            <div>
+                                                <strong>Paneles Completos</strong>
+                                                <span>Cobertura de todos los requerimientos regulatorios en un solo análisis</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-broom"></i>
+                                            <div>
+                                                <strong>Validación de Limpieza</strong>
+                                                <span>Métodos específicos y límites personalizados para cada línea</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-graduation-cap"></i>
+                                            <div>
+                                                <strong>Capacitación Especializada</strong>
+                                                <span>Entrenamiento en manejo de alérgenos y planes de control</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Etiquetado</div>
-                                        <div class="spec-label">Cumplimiento</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-chart-bar"></i> Alérgenos Detectados</h4>
+                                    <div class="parameters-grid">
+                                        <div class="parameter-category">
+                                            <h5>Cereales con Gluten</h5>
+                                            <ul>
+                                                <li>Trigo (gliadina)</li>
+                                                <li>Cebada (hordeína)</li>
+                                                <li>Centeno (secalina)</li>
+                                                <li>Avena (avenina)</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Proteínas Animales</h5>
+                                            <ul>
+                                                <li>Caseína (leche)</li>
+                                                <li>Beta-lactoglobulina</li>
+                                                <li>Ovoalbúmina (huevo)</li>
+                                                <li>Crustáceos</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Frutos Secos y Legumbres</h5>
+                                            <ul>
+                                                <li>Almendras</li>
+                                                <li>Nueces</li>
+                                                <li>Soja</li>
+                                                <li>Maní (cacahuete)</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="service-action-v2">
+                            <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                            </button>
                             <button class="btn-contact-v2" onclick="contactSpecificService('contaminantes')">
                                 <i class="fas fa-search"></i> Detectar Alérgenos
                             </button>
@@ -458,8 +1191,9 @@
 
 
 
+
                     <!-- Contaminantes -->
-                    <article class="service-card-v2" data-category="contaminantes" data-aos="fade-up" data-aos-delay="500">
+                    <article class="service-card-v2" data-category="contaminantes" id="Contaminantes" data-aos="fade-up" data-aos-delay="500">
                         <div class="service-card-header">
                             <div class="service-icon-v2">
                                 <i class="fas fa-exclamation-circle"></i>
@@ -468,45 +1202,168 @@
                         </div>
                         
                         <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Detección integral de contaminantes químicos y biológicos en productos alimentarios, 
-                                farmacéuticos y cosméticos. AOXLAB utiliza tecnología avanzada para garantizar la 
-                                seguridad y calidad de los productos.
-                            </p>
+                            <!-- Contenido básico (siempre visible) -->
+                            <div class="service-basic-content">
+                                <p class="service-description-v2">
+                                    Detección integral de contaminantes químicos y biológicos en productos alimentarios, 
+                                    farmacéuticos y cosméticos. AOXLAB utiliza tecnología avanzada para garantizar la 
+                                    seguridad y calidad de los productos.
+                                </p>
+                                
+                                <ul class="service-features-v2">
+                                    <li><i class="fas fa-check feature-icon"></i>Antibióticos y residuos veterinarios en alimentos</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Solventes residuales en productos farmacéuticos</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Hidrocarburos aromáticos policíclicos (HAP)</li>
+                                </ul>
+                                
+                                <div class="service-specs">
+                                    <h4>Detección Multi-Contaminante</h4>
+                                    <div class="spec-grid">
+                                        <div class="spec-item">
+                                            <div class="spec-value">5-10 días</div>
+                                            <div class="spec-label">Tiempo entrega</div>
+                                        </div>
+                                        <div class="spec-item">
+                                            <div class="spec-value">Ultra-trazas</div>
+                                            <div class="spec-label">Sensibilidad</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Antibióticos y residuos veterinarios en alimentos</li>
-                                <li><i class="fas fa-check feature-icon"></i>Solventes residuales en productos farmacéuticos</li>
-                                <li><i class="fas fa-check feature-icon"></i>Hidrocarburos aromáticos policíclicos (HAP)</li>
-                                <li><i class="fas fa-check feature-icon"></i>Conservantes y aditivos alimentarios</li>
-                                <li><i class="fas fa-check feature-icon"></i>Dioxinas y furanos en matrices complejas</li>
-                                <li><i class="fas fa-check feature-icon"></i>Contaminantes emergentes y microplásticos</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Detección Multi-Contaminante</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">5-10 días</div>
-                                        <div class="spec-label">Tiempo entrega</div>
+                            <!-- Contenido expandido (inicialmente oculto) -->
+                            <div class="service-expanded-content" style="display: none;">
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                    <p>Los análisis de contaminantes abarcan la detección y cuantificación de sustancias 
+                                    químicas indeseables que pueden estar presentes en alimentos, agua, aire y otros 
+                                    materiales debido a contaminación ambiental, procesos industriales o degradación natural. 
+                                    Incluyen compuestos orgánicos persistentes, hidrocarburos aromáticos policíclicos, 
+                                    bifenilos policlorados (PCBs), dioxinas, acrilamida y residuos de procesos térmicos[1].</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                    <p>Las industrias alimentaria, ambiental y farmacéutica requieren monitoreo constante de 
+                                    contaminantes para cumplir con regulaciones de seguridad alimentaria y protección 
+                                    ambiental. La presencia de contaminantes puede afectar la calidad organoléptica de 
+                                    productos, limitar acceso a mercados internacionales y generar responsabilidades legales[1].</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                    <div class="matrices-grid">
+                                        <span class="matrix-tag">Alimentos procesados</span>
+                                        <span class="matrix-tag">Agua potable y residual</span>
+                                        <span class="matrix-tag">Suelos</span>
+                                        <span class="matrix-tag">Sedimentos</span>
+                                        <span class="matrix-tag">Aire</span>
+                                        <span class="matrix-tag">Tejidos animales</span>
+                                        <span class="matrix-tag">Productos farmacéuticos</span>
+                                        <span class="matrix-tag">Cosméticos</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Multi-matriz</div>
-                                        <div class="spec-label">Aplicación</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                    <ul class="techniques-list">
+                                        <li>Cromatografía de gases acoplada a espectrometría de masas (GC-MS)</li>
+                                        <li>Cromatografía líquida acoplada a espectrometría de masas (LC-MS/MS)</li>
+                                        <li>HPLC con detectores específicos</li>
+                                        <li>Sistemas GC-MS/MS con detectores de triple cuadrupolo</li>
+                                        <li>Extracción en fase sólida (SPE) automatizada</li>
+                                        <li>Técnicas de preparación QuEChERS y purificación por columnas</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                    <div class="normatives-grid">
+                                        <div class="normative-item">
+                                            <strong>Resoluciones 2906/2007</strong>
+                                            <span>Límites Colombia</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Reglamento EU 396/2005</strong>
+                                            <span>Estándares europeos</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Estándares EPA</strong>
+                                            <span>Contaminantes ambientales</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Codex Alimentarius</strong>
+                                            <span>Directrices internacionales</span>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Ultra-trazas</div>
-                                        <div class="spec-label">Sensibilidad</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                    <div class="value-propositions">
+                                        <div class="value-item">
+                                            <i class="fas fa-star"></i>
+                                            <div>
+                                                <strong>Contaminantes Emergentes</strong>
+                                                <span>Capacidades analíticas para sustancias no reguladas de riesgo futuro</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-map-marked-alt"></i>
+                                            <div>
+                                                <strong>Identificación de Fuentes</strong>
+                                                <span>Estudios de trazabilidad y evaluación de rutas de exposición</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-bell"></i>
+                                            <div>
+                                                <strong>Monitoreo Continuo</strong>
+                                                <span>Sistemas de alertas tempranas para cambios en perfiles de contaminación</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Emergentes</div>
-                                        <div class="spec-label">Contaminantes</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-chart-bar"></i> Contaminantes Analizados</h4>
+                                    <div class="parameters-grid">
+                                        <div class="parameter-category">
+                                            <h5>Compuestos Orgánicos</h5>
+                                            <ul>
+                                                <li>Hidrocarburos aromáticos (HAP)</li>
+                                                <li>Bifenilos policlorados (PCBs)</li>
+                                                <li>Dioxinas y furanos</li>
+                                                <li>Acrilamida</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Residuos Farmacéuticos</h5>
+                                            <ul>
+                                                <li>Antibióticos veterinarios</li>
+                                                <li>Solventes residuales</li>
+                                                <li>Hormonas</li>
+                                                <li>Antiparasitarios</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Contaminantes Emergentes</h5>
+                                            <ul>
+                                                <li>Microplásticos</li>
+                                                <li>Disruptores endocrinos</li>
+                                                <li>Nanopartículas</li>
+                                                <li>Productos farmacéuticos</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="service-action-v2">
+                            <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                            </button>
                             <button class="btn-contact-v2" onclick="contactSpecificService('contaminantes')">
                                 <i class="fas fa-vial"></i> Análisis Contaminantes
                             </button>
@@ -515,8 +1372,9 @@
 
 
 
-                    <!-- Metales pesados -->
-                    <article class="service-card-v2 featured" data-category="metales" data-aos="fade-up" data-aos-delay="600">
+
+                    <!-- Metales pesados ---->
+                    <article class="service-card-v2 featured" data-category="metales" id="Metales" data-aos="fade-up" data-aos-delay="600">
                         <div class="service-badge">DESTACADO</div>
                         <div class="service-card-header">
                             <div class="service-icon-v2">
@@ -526,55 +1384,169 @@
                         </div>
                         
                         <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Cuantificación ultra-precisa utilizando espectrometría de masas con plasma acoplado 
-                                inductivamente. AOXLAB cuenta con equipos ICP-OES automatizados para análisis de 
-                                metales con límites de detección ultra-bajos.
-                            </p>
+                            <!-- Contenido básico (siempre visible) -->
+                            <div class="service-basic-content">
+                                <p class="service-description-v2">
+                                    Cuantificación ultra-precisa utilizando espectrometría de masas con plasma acoplado 
+                                    inductivamente. AOXLAB cuenta con equipos ICP-OES automatizados para análisis de 
+                                    metales con límites de detección ultra-bajos.
+                                </p>
+                                
+                                <ul class="service-features-v2">
+                                    <li><i class="fas fa-check feature-icon"></i>Metales tóxicos: Plomo, Cadmio, Arsénico, Mercurio, Cromo VI</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Elementos esenciales: Zinc, Cobre, Hierro, Manganeso, Selenio</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Panel multielemental: Sodio, Calcio, Magnesio, Fósforo, Potasio</li>
+                                </ul>
+                                
+                                <div class="service-specs">
+                                    <h4>Tecnología ICP-MS/OES Avanzada</h4>
+                                    <div class="spec-grid">
+                                        <div class="spec-item">
+                                            <div class="spec-value">5-8 días</div>
+                                            <div class="spec-label">Tiempo entrega</div>
+                                        </div>
+                                        <div class="spec-item">
+                                            <div class="spec-value">ppt</div>
+                                            <div class="spec-label">Límite detección</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Metales tóxicos: Plomo, Cadmio, Arsénico, Mercurio, Cromo VI</li>
-                                <li><i class="fas fa-check feature-icon"></i>Elementos esenciales: Zinc, Cobre, Hierro, Manganeso, Selenio</li>
-                                <li><i class="fas fa-check feature-icon"></i>Panel multielemental: Sodio, Calcio, Magnesio, Fósforo, Potasio</li>
-                                <li><i class="fas fa-check feature-icon"></i>Metales industriales: Níquel, Antimonio, Molibdeno, Bario, Aluminio</li>
-                                <li><i class="fas fa-check feature-icon"></i>Análisis simultáneo de más de 60 elementos</li>
-                                <li><i class="fas fa-check feature-icon"></i>Matrices: alimentos, agua, cannabis, cosméticos, farmacéuticos</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Tecnología ICP-MS/OES Avanzada</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">5-8 días</div>
-                                        <div class="spec-label">Tiempo entrega</div>
+                            <!-- Contenido expandido (inicialmente oculto) -->
+                            <div class="service-expanded-content" style="display: none;">
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                    <p>La determinación de metales pesados y multielementos comprende el análisis cuantitativo de elementos químicos que pueden estar presentes como contaminantes o componentes naturales en alimentos, agua, suelos y otros materiales[24]. Los elementos de interés incluyen metales tóxicos como plomo, cadmio, mercurio, arsénico, y elementos esenciales como hierro, zinc, calcio, magnesio y elementos traza.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                    <p>Las industrias alimentaria, ambiental y minera requieren análisis de metales para cumplir con límites máximos establecidos por autoridades sanitarias y ambientales[26]. La contaminación por metales pesados puede ocurrir durante la producción agrícola, procesamiento industrial o almacenamiento inadecuado, siendo crítico para acceso a mercados internacionales.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                    <div class="matrices-grid">
+                                        <span class="matrix-tag">Alimentos de origen vegetal y animal</span>
+                                        <span class="matrix-tag">Agua potable y residual</span>
+                                        <span class="matrix-tag">Suelos agrícolas</span>
+                                        <span class="matrix-tag">Sedimentos</span>
+                                        <span class="matrix-tag">Fertilizantes</span>
+                                        <span class="matrix-tag">Productos pesqueros</span>
+                                        <span class="matrix-tag">Cereales y especias</span>
+                                        <span class="matrix-tag">Suplementos dietarios</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">ppt</div>
-                                        <div class="spec-label">Límite detección</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                    <ul class="techniques-list">
+                                        <li>Espectrometría de masas con plasma acoplado inductivamente (ICP-MS)</li>
+                                        <li>Espectrometría de emisión óptica con plasma (ICP-OES)</li>
+                                        <li>Espectrofotometría de absorción atómica (AAS)</li>
+                                        <li>Digestión ácida asistida por microondas</li>
+                                        <li>Sistemas de purificación de agua ultrapura</li>
+                                        <li>Procedimientos de validación específicos para cada elemento</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                    <div class="normatives-grid">
+                                        <div class="normative-item">
+                                            <strong>Codex Alimentarius</strong>
+                                            <span>Límites máximos internacionales</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>NTC-EN 13804:2021</strong>
+                                            <span>Criterios de funcionamiento analítico</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>EPA 200.8</strong>
+                                            <span>Métodos oficiales de análisis</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>ISO 17294</strong>
+                                            <span>Especificaciones técnicas ICP-MS</span>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">60+</div>
-                                        <div class="spec-label">Elementos</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                    <div class="value-propositions">
+                                        <div class="value-item">
+                                            <i class="fas fa-flask"></i>
+                                            <div>
+                                                <strong>Análisis Multielemental</strong>
+                                                <span>Determinación simultánea de hasta 60+ elementos en una sola corrida analítica</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-target"></i>
+                                            <div>
+                                                <strong>Límites Ultra-bajos</strong>
+                                                <span>Detección en partes por trillón (ppt) con equipos ICP-MS de última generación</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-chart-line"></i>
+                                            <div>
+                                                <strong>Especiación Química</strong>
+                                                <span>Diferenciación entre formas tóxicas e inocuas de elementos como arsénico y cromo</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Automatizado</div>
-                                        <div class="spec-label">Sistema</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-chart-bar"></i> Elementos Analizados por Categoría</h4>
+                                    <div class="parameters-grid">
+                                        <div class="parameter-category">
+                                            <h5>Metales Tóxicos</h5>
+                                            <ul>
+                                                <li>Plomo (Pb) < 0.1 mg/kg</li>
+                                                <li>Cadmio (Cd) < 0.05 mg/kg</li>
+                                                <li>Mercurio (Hg) < 0.02 mg/kg</li>
+                                                <li>Arsénico (As) < 0.1 mg/kg</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Elementos Esenciales</h5>
+                                            <ul>
+                                                <li>Hierro (Fe) mg/kg</li>
+                                                <li>Zinc (Zn) mg/kg</li>
+                                                <li>Cobre (Cu) mg/kg</li>
+                                                <li>Manganeso (Mn) mg/kg</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Macroelementos</h5>
+                                            <ul>
+                                                <li>Calcio (Ca) %</li>
+                                                <li>Magnesio (Mg) %</li>
+                                                <li>Potasio (K) %</li>
+                                                <li>Fósforo (P) %</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="service-action-v2">
+                            <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                            </button>
                             <button class="btn-contact-v2" onclick="contactSpecificService('metales')">
                                 <i class="fas fa-flask"></i> Cotizar Análisis Multielemental
                             </button>
                         </div>
                     </article>
 
-
-
                     <!-- Plaguicidas -->
-                    <article class="service-card-v2" data-category="contaminantes" data-aos="fade-up" data-aos-delay="700">
+                    <article class="service-card-v2" data-category="contaminantes" id="plaguicidas" data-aos="fade-up" data-aos-delay="700">
                         <div class="service-card-header">
                             <div class="service-icon-v2">
                                 <i class="fas fa-seedling"></i>
@@ -583,108 +1555,349 @@
                         </div>
                         
                         <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Screening de más de 250 compuestos activos utilizando métodos QuEChERS y detección 
-                                por GC-MS/MS. AOXLAB cuenta con cromatógrafo de gases especializado para análisis 
-                                de pesticidas con cumplimiento de LMR internacionales.
-                            </p>
+                            <!-- Contenido básico (siempre visible) -->
+                            <div class="service-basic-content">
+                                <p class="service-description-v2">
+                                    Screening de más de 250 compuestos activos utilizando métodos QuEChERS y detección 
+                                    por GC-MS/MS. AOXLAB cuenta con cromatógrafo de gases especializado para análisis 
+                                    de pesticidas con cumplimiento de LMR internacionales.
+                                </p>
+                                
+                                <ul class="service-features-v2">
+                                    <li><i class="fas fa-check feature-icon"></i>Análisis multiresiduos: screening de 250+ compuestos activos</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Glifosato y AMPA: herbicidas más utilizados mundialmente</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Organoclorados persistentes: DDT, Endosulfán, Heptacloro</li>
+                                </ul>
+                                
+                                <div class="service-specs">
+                                    <h4>Métodos QuEChERS - GC-MS/MS</h4>
+                                    <div class="spec-grid">
+                                        <div class="spec-item">
+                                            <div class="spec-value">7-10 días</div>
+                                            <div class="spec-label">Tiempo entrega</div>
+                                        </div>
+                                        <div class="spec-item">
+                                            <div class="spec-value">250+</div>
+                                            <div class="spec-label">Compuestos activos</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Análisis multiresiduos: screening de 250+ compuestos activos</li>
-                                <li><i class="fas fa-check feature-icon"></i>Glifosato y AMPA: herbicidas más utilizados mundialmente</li>
-                                <li><i class="fas fa-check feature-icon"></i>Organoclorados persistentes: DDT, Endosulfán, Heptacloro</li>
-                                <li><i class="fas fa-check feature-icon"></i>Organofosforados: Malatión, Diazinón, Clorpirifós</li>
-                                <li><i class="fas fa-check feature-icon"></i>Piretroides: Cipermetrina, Deltametrina, Permetrina</li>
-                                <li><i class="fas fa-check feature-icon"></i>Carbamatos: Aldicarb, Carbaril, Metomilo</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Métodos QuEChERS - GC-MS/MS</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">7-10 días</div>
-                                        <div class="spec-label">Tiempo entrega</div>
+                            <!-- Contenido expandido (inicialmente oculto) -->
+                            <div class="service-expanded-content" style="display: none;">
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                    <p>Los análisis de residuos de plaguicidas comprenden la detección, identificación y 
+                                    cuantificación de compuestos activos de productos fitosanitarios y sus metabolitos que 
+                                    pueden permanecer en alimentos, agua, suelos y otros materiales después de aplicaciones 
+                                    agrícolas. Incluyen insecticidas, herbicidas, fungicidas, acaricidas, nematicidas y 
+                                    reguladores de crecimiento de familias químicas como organofosforados, carbamatos, 
+                                    piretroides, triazinas y benzimidazoles[1].</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                    <p>Las industrias agrícola, alimentaria y ambiental enfrentan regulaciones estrictas 
+                                    relacionadas con límites máximos de residuos (LMR) que determinan la aceptabilidad 
+                                    comercial de productos. Los residuos de plaguicidas pueden afectar acceso a mercados 
+                                    internacionales, generar rechazos de lotes y ocasionar pérdidas económicas significativas[1].</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                    <div class="matrices-grid">
+                                        <span class="matrix-tag">Frutas y vegetales frescos</span>
+                                        <span class="matrix-tag">Cereales</span>
+                                        <span class="matrix-tag">Leguminosas</span>
+                                        <span class="matrix-tag">Especias</span>
+                                        <span class="matrix-tag">Productos procesados</span>
+                                        <span class="matrix-tag">Jugos</span>
+                                        <span class="matrix-tag">Aceites vegetales</span>
+                                        <span class="matrix-tag">Productos origen animal</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">250+</div>
-                                        <div class="spec-label">Compuestos activos</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                    <ul class="techniques-list">
+                                        <li>Cromatografía de gases acoplada a espectrometría de masas (GC-MS/MS)</li>
+                                        <li>Cromatografía líquida acoplada a espectrometría de masas (LC-MS/MS)</li>
+                                        <li>Preparación de muestras técnicas QuEChERS</li>
+                                        <li>Sistemas GC-MS/MS y LC-MS/MS con detectores triple cuadrupolo</li>
+                                        <li>Homogeneizadores de alta velocidad</li>
+                                        <li>Centrífugas refrigeradas para procesamiento de muestras</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                    <div class="normatives-grid">
+                                        <div class="normative-item">
+                                            <strong>Resolución 2906/2007</strong>
+                                            <span>LMR Colombia</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Reglamento EU 396/2005</strong>
+                                            <span>Estándares europeos</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Codex Alimentarius</strong>
+                                            <span>Límites internacionales</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>NTC-EN 15662</strong>
+                                            <span>Métodos QuEChERS</span>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">QuEChERS</div>
-                                        <div class="spec-label">Método extracción</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                    <div class="value-propositions">
+                                        <div class="value-item">
+                                            <i class="fas fa-database"></i>
+                                            <div>
+                                                <strong>Biblioteca Espectral</strong>
+                                                <span>Más de 500 plaguicidas y metabolitos para identificación inequívoca</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-globe-americas"></i>
+                                            <div>
+                                                <strong>Matrices Tropicales</strong>
+                                                <span>Protocolos validados para productos autóctonos colombianos</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-leaf"></i>
+                                            <div>
+                                                <strong>Certificación Orgánica</strong>
+                                                <span>Servicios especializados para desarrollo de protocolos orgánicos</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">LMR</div>
-                                        <div class="spec-label">Cumplimiento</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-chart-bar"></i> Familias de Plaguicidas</h4>
+                                    <div class="parameters-grid">
+                                        <div class="parameter-category">
+                                            <h5>Organofosforados</h5>
+                                            <ul>
+                                                <li>Malatión</li>
+                                                <li>Diazinón</li>
+                                                <li>Clorpirifós</li>
+                                                <li>Fenitrotión</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Piretroides</h5>
+                                            <ul>
+                                                <li>Cipermetrina</li>
+                                                <li>Deltametrina</li>
+                                                <li>Permetrina</li>
+                                                <li>Lambda-cihalotrina</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Herbicidas</h5>
+                                            <ul>
+                                                <li>Glifosato</li>
+                                                <li>AMPA (metabolito)</li>
+                                                <li>2,4-D</li>
+                                                <li>Atrazina</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="service-action-v2">
+                            <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                            </button>
                             <button class="btn-contact-v2" onclick="contactSpecificService('contaminantes')">
                                 <i class="fas fa-leaf"></i> Screening Pesticidas
                             </button>
                         </div>
                     </article>
 
+
                         <!--Terpenos-->
-                    <article class="service-card-v2" data-category="cannabinoides" data-aos="fade-up" data-aos-delay="800">
-                        <div class="service-card-header">
-                            <div class="service-icon-v2">
-                                <i class="fas fa-cannabis"></i>
+                        <article class="service-card-v2" data-category="cannabinoides" id="terpenos" data-aos="fade-up" data-aos-delay="800">
+                            <div class="service-card-header">
+                                <div class="service-icon-v2">
+                                    <i class="fas fa-cannabis"></i>
+                                </div>
+                                <h3 class="service-title-v2">Cannabinoides y Terpenos - Cannabis Medicinal</h3>
                             </div>
-                            <h3 class="service-title-v2">Cannabinoides y Terpenos - Cannabis Medicinal</h3>
-                        </div>
-                        
-                        <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Líder en Colombia y Suramérica en análisis de cannabis medicinal. AOXLAB ha realizado 
-                                más de 25,000 análisis con tecnología HPLC-MS/MS para máxima precisión y cumplimiento 
-                                total de normativas para exportación.
-                            </p>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Cannabinoides ácidos: THCA, CBDA, CBGA (formas no descarboxiladas)</li>
-                                <li><i class="fas fa-check feature-icon"></i>Cannabinoides neutros: THC (Δ9 y Δ8), CBD, CBG, CBN, CBC</li>
-                                <li><i class="fas fa-check feature-icon"></i>Cannabinoides menores: THCV, CBDV y compuestos emergentes</li>
-                                <li><i class="fas fa-check feature-icon"></i>Perfil terpenos: mirceno, limoneno, α-pineno, β-cariofileno</li>
-                                <li><i class="fas fa-check feature-icon"></i>Determinación de potencia total y relaciones cannabinoides</li>
-                                <li><i class="fas fa-check feature-icon"></i>Matrices: flores, extractos, aceites, cristales CBD, cosméticos</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Liderazgo en Cannabis Medicinal</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">3-6 días</div>
-                                        <div class="spec-label">Tiempo entrega</div>
+                            <div class="service-content-v2">
+                                <!-- Contenido básico (siempre visible) -->
+                                <div class="service-basic-content">
+                                    <p class="service-description-v2">
+                                        Líder en Colombia y Suramérica en análisis de cannabis medicinal. AOXLAB ha realizado 
+                                        más de 25,000 análisis con tecnología HPLC-MS/MS para máxima precisión y cumplimiento 
+                                        total de normativas para exportación.
+                                    </p>
+                                    
+                                    <ul class="service-features-v2">
+                                        <li><i class="fas fa-check feature-icon"></i>Cannabinoides ácidos: THCA, CBDA, CBGA (formas no descarboxiladas)</li>
+                                        <li><i class="fas fa-check feature-icon"></i>Cannabinoides neutros: THC (Δ9 y Δ8), CBD, CBG, CBN, CBC</li>
+                                        <li><i class="fas fa-check feature-icon"></i>Cannabinoides menores: THCV, CBDV y compuestos emergentes</li>
+                                    </ul>
+                                    
+                                    <div class="service-specs">
+                                        <h4>Liderazgo en Cannabis Medicinal</h4>
+                                        <div class="spec-grid">
+                                            <div class="spec-item">
+                                                <div class="spec-value">3-6 días</div>
+                                                <div class="spec-label">Tiempo entrega</div>
+                                            </div>
+                                            <div class="spec-item">
+                                                <div class="spec-value">25,000+</div>
+                                                <div class="spec-label">Análisis realizados</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">25,000+</div>
-                                        <div class="spec-label">Análisis realizados</div>
+                                </div>
+                                
+                                <!-- Contenido expandido (inicialmente oculto) -->
+                                <div class="service-expanded-content" style="display: none;">
+                                    <div class="expanded-section">
+                                        <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                        <p>El análisis del perfil de cannabinoides y terpenos comprende la identificación y cuantificación de compuestos bioactivos presentes en Cannabis sativa[27]. Incluye cannabinoides como THC, CBD, CBG, CBN, THCA, CBDA, y terpenos como β-mirceno, d-limoneno, pineno, linalool y cariofileno, fundamentales para caracterización de variedades y control de potencia.</p>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">HPLC-MS/MS</div>
-                                        <div class="spec-label">Tecnología</div>
+                                    
+                                    <div class="expanded-section">
+                                        <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                        <p>La industria del cannabis medicinal y farmacéutica requiere análisis de cannabinoides para cumplir con regulaciones que establecen límites de THC, validar efectos terapéuticos y asegurar consistencia entre lotes de producción[30]. Los perfiles de terpenos son utilizados para identificación de cepas, control de calidad organoléptica y desarrollo de productos con efectos dirigidos.</p>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Exportación</div>
-                                        <div class="spec-label">Cumplimiento</div>
+                                    
+                                    <div class="expanded-section">
+                                        <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                        <div class="matrices-grid">
+                                            <span class="matrix-tag">Flores secas</span>
+                                            <span class="matrix-tag">Extractos concentrados</span>
+                                            <span class="matrix-tag">Aceites medicinales</span>
+                                            <span class="matrix-tag">Tinturas</span>
+                                            <span class="matrix-tag">Cápsulas</span>
+                                            <span class="matrix-tag">Productos comestibles</span>
+                                            <span class="matrix-tag">Productos tópicos</span>
+                                            <span class="matrix-tag">Biomasa fresca</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="expanded-section">
+                                        <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                        <ul class="techniques-list">
+                                            <li>Cromatografía de gases acoplada a espectrometría de masas (GC-MS)</li>
+                                            <li>Cromatografía líquida acoplada a espectrometría de masas (LC-MS)</li>
+                                            <li>HPLC con detector de arreglo de diodos (HPLC-DAD)</li>
+                                            <li>GC-MS con inyección headspace para terpenos</li>
+                                            <li>Extracción SPME para compuestos volátiles</li>
+                                            <li>Métodos validados para variedades colombianas</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="expanded-section">
+                                        <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                        <div class="normatives-grid">
+                                            <div class="normative-item">
+                                                <strong>AOAC 2018.11</strong>
+                                                <span>Métodos oficiales cannabinoides</span>
+                                            </div>
+                                            <div class="normative-item">
+                                                <strong>USP &lt;467&gt;</strong>
+                                                <span>Monografías farmacéuticas</span>
+                                            </div>
+                                            <div class="normative-item">
+                                                <strong>Decretos Colombia</strong>
+                                                <span>Cannabis medicinal regulado</span>
+                                            </div>
+                                            <div class="normative-item">
+                                                <strong>GMP</strong>
+                                                <span>Buenas prácticas manufactura</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="expanded-section">
+                                        <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                        <div class="value-propositions">
+                                            <div class="value-item">
+                                                <i class="fas fa-trophy"></i>
+                                                <div>
+                                                    <strong>Liderazgo Regional</strong>
+                                                    <span>Más de 25,000 análisis realizados en Colombia y Suramérica</span>
+                                                </div>
+                                            </div>
+                                            <div class="value-item">
+                                                <i class="fas fa-dna"></i>
+                                                <div>
+                                                    <strong>Perfil Completo</strong>
+                                                    <span>Cannabinoides mayoritarios, minoritarios y perfil completo de terpenos</span>
+                                                </div>
+                                            </div>
+                                            <div class="value-item">
+                                                <i class="fas fa-globe"></i>
+                                                <div>
+                                                    <strong>Cumplimiento Exportación</strong>
+                                                    <span>Validación para acceso a mercados internacionales regulados</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="expanded-section">
+                                        <h4><i class="fas fa-chart-bar"></i> Compuestos Analizados</h4>
+                                        <div class="parameters-grid">
+                                            <div class="parameter-category">
+                                                <h5>Cannabinoides Principales</h5>
+                                                <ul>
+                                                    <li>THC (Δ9-tetrahidrocannabinol)</li>
+                                                    <li>CBD (Cannabidiol)</li>
+                                                    <li>CBG (Cannabigerol)</li>
+                                                    <li>CBN (Cannabinol)</li>
+                                                </ul>
+                                            </div>
+                                            <div class="parameter-category">
+                                                <h5>Cannabinoides Ácidos</h5>
+                                                <ul>
+                                                    <li>THCA (Ácido tetrahidrocannabinólico)</li>
+                                                    <li>CBDA (Ácido cannabidiólico)</li>
+                                                    <li>CBGA (Ácido cannabigerólico)</li>
+                                                    <li>CBCA (Ácido cannabicroménico)</li>
+                                                </ul>
+                                            </div>
+                                            <div class="parameter-category">
+                                                <h5>Terpenos Principales</h5>
+                                                <ul>
+                                                    <li>β-Mirceno</li>
+                                                    <li>d-Limoneno</li>
+                                                    <li>α-Pineno</li>
+                                                    <li>β-Cariofileno</li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="service-action-v2">
-                            <button class="btn-contact-v2" onclick="contactSpecificService('cannabinoides')">
-                                <i class="fas fa-leaf"></i> Análisis Cannabis Medicinal
-                            </button>
-                        </div>
-                    </article>
+                            
+                            <div class="service-action-v2">
+                                <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                    <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                                </button>
+                                <button class="btn-contact-v2" onclick="contactSpecificService('cannabinoides')">
+                                    <i class="fas fa-leaf"></i> Análisis Cannabis Medicinal
+                                </button>
+                            </div>
+                        </article>
 
                     <!--Vida util-->
-                    <article class="service-card-v2" data-category="fisicoquimicos" data-aos="fade-up" data-aos-delay="900">
+                    <article class="service-card-v2" data-category="fisicoquimicos" id="vidautil" data-aos="fade-up" data-aos-delay="900">
                         <div class="service-card-header">
                             <div class="service-icon-v2">
                                 <i class="fas fa-chart-line"></i>
@@ -693,53 +1906,170 @@
                         </div>
                         
                         <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Determinación científica del período de validez mediante estudios integrales que 
-                                combinan análisis microbiológicos, físico-químicos y sensoriales. AOXLAB cuenta 
-                                con cámaras climáticas aceleradas para estudios de estabilidad.
-                            </p>
+                            <!-- Contenido básico (siempre visible) -->
+                            <div class="service-basic-content">
+                                <p class="service-description-v2">
+                                    Determinación científica del período de validez mediante estudios integrales que 
+                                    combinan análisis microbiológicos, físico-químicos y sensoriales. AOXLAB cuenta 
+                                    con cámaras climáticas aceleradas para estudios de estabilidad.
+                                </p>
+                                
+                                <ul class="service-features-v2">
+                                    <li><i class="fas fa-check feature-icon"></i>Estudios acelerados: temperaturas elevadas (40°C, 60°C)</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Estudios tiempo real: condiciones de almacenamiento reales</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Estabilidad microbiológica: patógenos y deterioro</li>
+                                </ul>
+                                
+                                <div class="service-specs">
+                                    <h4>Cámaras Climáticas Especializadas</h4>
+                                    <div class="spec-grid">
+                                        <div class="spec-item">
+                                            <div class="spec-value">30-90 días</div>
+                                            <div class="spec-label">Duración estudio</div>
+                                        </div>
+                                        <div class="spec-item">
+                                            <div class="spec-value">Acelerado</div>
+                                            <div class="spec-label">Estudios 40-60°C</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Estudios acelerados: temperaturas elevadas (40°C, 60°C)</li>
-                                <li><i class="fas fa-check feature-icon"></i>Estudios tiempo real: condiciones de almacenamiento reales</li>
-                                <li><i class="fas fa-check feature-icon"></i>Estabilidad microbiológica: patógenos y deterioro</li>
-                                <li><i class="fas fa-check feature-icon"></i>Estabilidad fisicoquímica: pH, viscosidad, oxidación</li>
-                                <li><i class="fas fa-check feature-icon"></i>Análisis sensorial: deterioro organoléptico</li>
-                                <li><i class="fas fa-check feature-icon"></i>Modelado matemático: predicción vida útil</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Cámaras Climáticas Especializadas</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">30-90 días</div>
-                                        <div class="spec-label">Duración estudio</div>
+                            <!-- Contenido expandido (inicialmente oculto) -->
+                            <div class="service-expanded-content" style="display: none;">
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                    <p>Los estudios de vida útil y estabilidad constituyen evaluaciones sistemáticas diseñadas para determinar el período durante el cual un producto alimentario, farmacéutico o cosmético mantiene sus características de seguridad, calidad, funcionalidad y aceptabilidad bajo condiciones específicas de almacenamiento[28]. Estos estudios integran análisis microbiológicos, físico-químicos, sensoriales y nutricionales.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                    <p>Las industrias alimentaria, farmacéutica y cosmética requieren estudios de vida útil para cumplir con regulaciones que exigen determinación científica de fechas de vencimiento[28]. Estos estudios permiten optimización de formulaciones, selección de materiales de empaque y establecimiento de condiciones de almacenamiento que maximicen la vida comercial.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                    <div class="matrices-grid">
+                                        <span class="matrix-tag">Alimentos frescos y procesados</span>
+                                        <span class="matrix-tag">Bebidas</span>
+                                        <span class="matrix-tag">Productos lácteos</span>
+                                        <span class="matrix-tag">Productos cárnicos</span>
+                                        <span class="matrix-tag">Panadería y confitería</span>
+                                        <span class="matrix-tag">Productos farmacéuticos</span>
+                                        <span class="matrix-tag">Cosméticos</span>
+                                        <span class="matrix-tag">Suplementos dietarios</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Acelerado</div>
-                                        <div class="spec-label">Estudios 40-60°C</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                    <ul class="techniques-list">
+                                        <li>Análisis microbiológicos para patógenos e indicadores de deterioro</li>
+                                        <li>Determinaciones físico-químicas de pH, actividad de agua, oxidación</li>
+                                        <li>Análisis sensoriales con paneles entrenados</li>
+                                        <li>Cámaras climáticas con control preciso de temperatura y humedad</li>
+                                        <li>Colorímetros y texturómetros especializados</li>
+                                        <li>Sistemas de análisis de imagen para monitoreo visual</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                    <div class="normatives-grid">
+                                        <div class="normative-item">
+                                            <strong>Reglamento CE 2073/2005</strong>
+                                            <span>Criterios microbiológicos</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Regulaciones FDA</strong>
+                                            <span>Productos importados</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Normas ISO</strong>
+                                            <span>Análisis sensoriales</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>ISO/IEC 17025</strong>
+                                            <span>Buenas prácticas laboratorio</span>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Tiempo real</div>
-                                        <div class="spec-label">Condiciones normales</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                    <div class="value-propositions">
+                                        <div class="value-item">
+                                            <i class="fas fa-cogs"></i>
+                                            <div>
+                                                <strong>Protocolos Personalizados</strong>
+                                                <span>Estudios diseñados según características del producto y mercados objetivo</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-thermometer-half"></i>
+                                            <div>
+                                                <strong>Múltiples Condiciones</strong>
+                                                <span>Cámaras climáticas para simulación simultánea de diferentes ambientes</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-calculator"></i>
+                                            <div>
+                                                <strong>Modelos Predictivos</strong>
+                                                <span>Algoritmos matemáticos para predicción bajo diferentes condiciones</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Predictivo</div>
-                                        <div class="spec-label">Modelado</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-chart-bar"></i> Tipos de Estudios</h4>
+                                    <div class="parameters-grid">
+                                        <div class="parameter-category">
+                                            <h5>Estudios Acelerados</h5>
+                                            <ul>
+                                                <li>40°C / 75% HR</li>
+                                                <li>60°C / Sin humedad</li>
+                                                <li>Predicción vida útil</li>
+                                                <li>Resultados en 30-90 días</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Estudios Tiempo Real</h5>
+                                            <ul>
+                                                <li>Condiciones ambientales</li>
+                                                <li>Temperatura ambiente</li>
+                                                <li>Refrigeración (4°C)</li>
+                                                <li>Duración 6-24 meses</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Parámetros Evaluados</h5>
+                                            <ul>
+                                                <li>Estabilidad microbiológica</li>
+                                                <li>Cambios físico-químicos</li>
+                                                <li>Análisis sensorial</li>
+                                                <li>Textura y apariencia</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="service-action-v2">
+                            <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                            </button>
                             <button class="btn-contact-v2" onclick="contactSpecificService('fisicoquimicos')">
                                 <i class="fas fa-clock"></i> Estudios Estabilidad
                             </button>
                         </div>
                     </article>
 
-                        <!--Biodegradabilidad-->
-                    <article class="service-card-v2" data-category="fisicoquimicos" data-aos="fade-up" data-aos-delay="1000">
+
+                    <!--Biodegradabilidad-->
+                    <article class="service-card-v2" data-category="fisicoquimicos" id="biodegradabilidad" data-aos="fade-up" data-aos-delay="1000">
                         <div class="service-card-header">
                             <div class="service-icon-v2">
                                 <i class="fas fa-leaf"></i>
@@ -748,52 +2078,166 @@
                         </div>
                         
                         <div class="service-content-v2">
-                            <p class="service-description-v2">
-                                Evaluación ambiental especializada para productos sostenibles. AOXLAB realiza 
-                                análisis de degradación aeróbica y anaeróbica conforme a normas internacionales 
-                                para certificación de productos biodegradables y compostables.
-                            </p>
+                            <!-- Contenido básico (siempre visible) -->
+                            <div class="service-basic-content">
+                                <p class="service-description-v2">
+                                    Evaluación ambiental especializada para productos sostenibles. AOXLAB realiza 
+                                    análisis de degradación aeróbica y anaeróbica conforme a normas internacionales 
+                                    para certificación de productos biodegradables y compostables.
+                                </p>
+                                
+                                <ul class="service-features-v2">
+                                    <li><i class="fas fa-check feature-icon"></i>Biodegradación aeróbica: normas ASTM D6400 e ISO 17088</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Biodegradación anaeróbica: condiciones de digestión</li>
+                                    <li><i class="fas fa-check feature-icon"></i>Compostabilidad industrial: conforme EN 13432</li>
+                                </ul>
+                                
+                                <div class="service-specs">
+                                    <h4>Evaluación Ambiental Avanzada</h4>
+                                    <div class="spec-grid">
+                                        <div class="spec-item">
+                                            <div class="spec-value">90-180 días</div>
+                                            <div class="spec-label">Duración estudios</div>
+                                        </div>
+                                        <div class="spec-item">
+                                            <div class="spec-value">ASTM/ISO/EN</div>
+                                            <div class="spec-label">Normas</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <ul class="service-features-v2">
-                                <li><i class="fas fa-check feature-icon"></i>Biodegradación aeróbica: normas ASTM D6400 e ISO 17088</li>
-                                <li><i class="fas fa-check feature-icon"></i>Biodegradación anaeróbica: condiciones de digestión</li>
-                                <li><i class="fas fa-check feature-icon"></i>Compostabilidad industrial: conforme EN 13432</li>
-                                <li><i class="fas fa-check feature-icon"></i>Compostabilidad doméstica: según EN 14995</li>
-                                <li><i class="fas fa-check feature-icon"></i>Desintegración en suelo: evaluación ecotoxicidad</li>
-                                <li><i class="fas fa-check feature-icon"></i>Certificación OK compost: para productos sostenibles</li>
-                            </ul>
-                            
-                            <div class="service-specs">
-                                <h4>Evaluación Ambiental Avanzada</h4>
-                                <div class="spec-grid">
-                                    <div class="spec-item">
-                                        <div class="spec-value">90-180 días</div>
-                                        <div class="spec-label">Duración estudios</div>
+                            <!-- Contenido expandido (inicialmente oculto) -->
+                            <div class="service-expanded-content" style="display: none;">
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-info-circle"></i> Descripción Técnica Detallada</h4>
+                                    <p>Los estudios de biodegradabilidad evalúan la capacidad de materiales orgánicos para ser descompuestos por microorganismos en condiciones ambientales específicas[29]. Determinan velocidades de degradación, productos de descomposición y cumplimiento de criterios de compostabilidad mediante respirometría, análisis de evolución de CO₂ y seguimiento de biomasa microbiana.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-industry"></i> Importancia para la Industria</h4>
+                                    <p>Las industrias de packaging, plásticos y productos ambientales requieren certificación de biodegradabilidad para cumplir con regulaciones de reducción de residuos sólidos[29]. La Ley 2232 de 2022 en Colombia establece requisitos específicos exigiendo descomposición mínima del 50% en tres años y 85% en cuatro años para productos plásticos de un solo uso.</p>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-flask"></i> Matrices Analizables</h4>
+                                    <div class="matrices-grid">
+                                        <span class="matrix-tag">Bolsas biodegradables</span>
+                                        <span class="matrix-tag">Empaques compostables</span>
+                                        <span class="matrix-tag">Materiales mulching agrícola</span>
+                                        <span class="matrix-tag">Productos higiene desechables</span>
+                                        <span class="matrix-tag">Formulaciones poliméricas</span>
+                                        <span class="matrix-tag">Aditivos biodegradables</span>
+                                        <span class="matrix-tag">Plastificantes sostenibles</span>
+                                        <span class="matrix-tag">Colorantes eco-friendly</span>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">ASTM/ISO/EN</div>
-                                        <div class="spec-label">Normas</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-microscope"></i> Técnicas Analíticas</h4>
+                                    <ul class="techniques-list">
+                                        <li>Respirometría automatizada para medición continua de CO₂</li>
+                                        <li>Análisis gravimétrico para determinación de pérdida de masa</li>
+                                        <li>Microscopía para evaluación de fragmentación</li>
+                                        <li>Medición de pH, temperatura, humedad y actividad microbiana</li>
+                                        <li>Respirómetros multicanal especializados</li>
+                                        <li>Analizadores de carbono orgánico total</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-certificate"></i> Normativas y Estándares</h4>
+                                    <div class="normatives-grid">
+                                        <div class="normative-item">
+                                            <strong>ASTM D6400</strong>
+                                            <span>Compostabilidad de plásticos</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>ISO 17556</strong>
+                                            <span>Biodegradación en suelo</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>EN 13432</strong>
+                                            <span>Valorización por compostaje</span>
+                                        </div>
+                                        <div class="normative-item">
+                                            <strong>Resolución 0803/2024</strong>
+                                            <span>Certificación Colombia</span>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">Sostenible</div>
-                                        <div class="spec-label">Certificación</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-award"></i> Valor Diferencial AOXLAB</h4>
+                                    <div class="value-propositions">
+                                        <div class="value-item">
+                                            <i class="fas fa-globe-americas"></i>
+                                            <div>
+                                                <strong>Condiciones Colombianas</strong>
+                                                <span>Protocolos que replican condiciones ambientales específicas de la región</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-seedling"></i>
+                                            <div>
+                                                <strong>Microbiota Autóctona</strong>
+                                                <span>Cepas microbianas locales aisladas de compost y suelos colombianos</span>
+                                            </div>
+                                        </div>
+                                        <div class="value-item">
+                                            <i class="fas fa-recycle"></i>
+                                            <div>
+                                                <strong>Análisis Ciclo de Vida</strong>
+                                                <span>Evaluación de impacto ambiental desde producción hasta disposición final</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="spec-item">
-                                        <div class="spec-value">OK compost</div>
-                                        <div class="spec-label">Sello</div>
+                                </div>
+                                
+                                <div class="expanded-section">
+                                    <h4><i class="fas fa-chart-bar"></i> Tipos de Ensayos</h4>
+                                    <div class="parameters-grid">
+                                        <div class="parameter-category">
+                                            <h5>Compostaje Industrial</h5>
+                                            <ul>
+                                                <li>58°C ± 2°C</li>
+                                                <li>Humedad 50-60%</li>
+                                                <li>90% biodegradación</li>
+                                                <li>180 días máximo</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Compostaje Doméstico</h5>
+                                            <ul>
+                                                <li>28°C ± 5°C</li>
+                                                <li>Condiciones caseras</li>
+                                                <li>90% biodegradación</li>
+                                                <li>365 días máximo</li>
+                                            </ul>
+                                        </div>
+                                        <div class="parameter-category">
+                                            <h5>Biodegradación en Suelo</h5>
+                                            <ul>
+                                                <li>Temperatura ambiente</li>
+                                                <li>Humedad campo</li>
+                                                <li>60% mineralización</li>
+                                                <li>2 años evaluación</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="service-action-v2">
+                            <button class="btn-expand-details" onclick="toggleServiceDetails(this)">
+                                <i class="fas fa-chevron-down"></i> Ver Más Detalles
+                            </button>
                             <button class="btn-contact-v2" onclick="contactSpecificService('fisicoquimicos')">
                                 <i class="fas fa-recycle"></i> Evaluación Ambiental
                             </button>
                         </div>
                     </article>
-
-
                 </div>
                 
                 <!-- Mensaje cuando no hay resultados -->
@@ -923,22 +2367,51 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section company-info">
-                    <img src="img/LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
+                    <img src="./img/LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
                     <p>Más que un laboratorio: un aliado en tu camino hacia la calidad.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/aoxlab_sas/?hl=es-la"target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone"></i> (+57) 604 7454</p>
-                        <p><i class="fas fa-envelope"></i> comercial@aoxlab.com</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Colombia</p>
+                <!-- Sección de Contacto Principal - Medellín -->
+                <div class="footer-section contact-main"><!--Números de contacto actualizados hasta 2025/06/12-->
+                    <h4>Sede Principal - Medellín</h4>
+                    <div class="contact-info-main">
+                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Antioquia</p>
+                        <p><i class="fas fa-phone"></i> (604) 604-7454</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 287 4329</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 833 8768</p>
+                        <p><i class="fas fa-envelope"></i> direccioncomercial@aoxlab.com</p>
+                    </div>
+                </div>
+                
+                <!-- Sección de Otras Ciudades -->
+                <div class="footer-section contact-cities">
+                    <h4>Otras Ciudades</h4>
+                    <div class="cities-grid">
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Bogotá</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 383 0543
+                            </p>
+                        </div>
+                        
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Cali</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 206 5380
+                            </p>
+                        </div>
                     </div>
                 </div>
                 
@@ -964,18 +2437,17 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Con Rigor, Eficiente y Flexible.</p>
+                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Ágil, Eficiente y Flexible.</p>
             </div>
         </div>
     </footer>
 
     <!-- Botones Flotantes - Idénticos al inicio -->
-    <a href="https://w.app/prueba_aver-sifunciona"  
-        class="whatsapp-float" 
-        target="_blank" 
+    <a href="#" class="whatsapp-float" 
+        id="whatsapp-float-btn"
         aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span class="tooltip">¿Necesitas ayuda?</span>
+            <i class="fab fa-whatsapp"></i>
+            <span class="tooltip">¿Necesitas ayuda?</span>
     </a>
 
     <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
@@ -1029,6 +2501,81 @@
             </div>
         </div>
     </div>
+    <!-- Modal de WhatsApp -->
+<div class="whatsapp-modal" id="whatsapp-modal">
+    <div class="whatsapp-modal-content">
+        <div class="whatsapp-header">
+            <div class="whatsapp-logo">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3>Contáctanos por WhatsApp</h3>
+            <p>Selecciona tu ciudad más cercana</p>
+            <button class="whatsapp-close" id="whatsapp-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="whatsapp-contacts">
+            <!-- Medellín - Sede Principal -->
+            <a href="https://wa.me/573102874329?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Medellín" 
+               class="whatsapp-contact" 
+               target="_blank"
+               data-city="medellin">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Medellín</h4>
+                    <span class="contact-label">Sede Principal</span>
+                    <span class="contact-number">+57 310 287 4329</span>
+                </div>
+                <div class="contact-arrow">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </a>
+            
+            <!-- Bogotá -->
+            <a href="https://wa.me/573103830543?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Bogotá" 
+               class="whatsapp-contact" 
+               target="_blank"
+               data-city="bogota">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Bogotá</h4>
+                    <span class="contact-label">Punto de Atención</span>
+                    <span class="contact-number">+57 310 383 0543</span>
+                </div>
+                <div class="contact-arrow">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </a>
+            
+            <!-- Cali -->
+            <a href="https://wa.me/573102065380?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Cali" 
+               class="whatsapp-contact" 
+               target="_blank"
+               data-city="cali">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Cali</h4>
+                    <span class="contact-label">Punto de Atención</span>
+                    <span class="contact-number">+57 310 206 5380</span>
+                </div>
+                <div class="contact-arrow">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </a>
+        </div>
+        
+        <div class="whatsapp-footer">
+            <p>Horario de atención: Lun - Vie 8:00 AM - 5:00 PM</p>
+        </div>
+    </div>
+</div>
 
     <script src="Js/Inicio.js"></script>
     <script src="Js/Servicios.js"></script>

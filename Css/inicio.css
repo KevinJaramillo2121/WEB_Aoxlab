@@ -571,6 +571,35 @@ body {
     border: 2px solid transparent;
 }
 
+/* Scroll suave para elementos target */
+.service-card.expandable:target {
+    animation: highlightCard 2s ease-in-out;
+}
+
+@keyframes highlightCard {
+    0% {
+        background: var(--white);
+        transform: scale(1);
+    }
+    25% {
+        background: rgba(43, 161, 212, 0.1);
+        transform: scale(1.02);
+    }
+    75% {
+        background: rgba(43, 161, 212, 0.05);
+        transform: scale(1.01);
+    }
+    100% {
+        background: var(--white);
+        transform: scale(1);
+    }
+}
+
+/* Asegurar que los anclas no queden ocultos bajo el header */
+.service-card.expandable {
+    scroll-margin-top: 100px;
+}
+
 /* Botón Portal Clientes - Azul */
 .header-cta-btn.portal-btn {
     background: var(--secondary-color);

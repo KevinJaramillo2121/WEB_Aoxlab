@@ -25,18 +25,28 @@
     <link rel="stylesheet" href="Css/Somo.css">
 </head>
 <body>
-    <!-- Header Principal - Idéntico al de inicio -->
+            <!-- Header Principal -->
     <header class="main-header" id="header">
+        <!-- CSS personalizado -->
+    <link rel="stylesheet" href="./Css/inicio.css">
+    <!-- Otros CSS específicos para la página Somos -->
+    <link rel="stylesheet" href="./Css/somos.css">
+    
+    <!-- FontAwesome para iconos -->   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tipografía Aller según manual de identidad -->
+    <link href="https://fonts.cdnfonts.com/css/aller" rel="stylesheet">
         <div class="container">
             <div class="header-content">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="index.html" aria-label="AOXLAB - Ir a inicio">
+                    <a href="./index.html" aria-label="AOXLAB - Ir a inicio">
                     <img
                     id="logo"
-                    src="img/Logo Aoxlab.jpg"
-                    data-logo-light="img/Logo Aoxlab.jpg"
-                    data-logo-dark="img/LOGO BLANCO (1).png"
+                    src="./img/Logo Aoxlab.jpg"
+                    data-logo-light="./img/Logo Aoxlab.jpg"
+                    data-logo-dark="./img/LOGO BLANCO (1).png"
                     alt="AOXLAB Logo"
                     width="180"
                     height="60"
@@ -44,17 +54,156 @@
                     </a>
                 </div>
 
-                <!-- Navegación Principal -->
+                <!-- Navegación Principal con Menú Desplegable -->
                 <nav class="main-nav" aria-label="Navegación principal">
                     <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link">INICIO</a></li>
-                        <li><a href="Somos.html" class="nav-link active">SOMOS</a></li>
-                        <li><a href="Servicios.html" class="nav-link">SERVICIOS</a></li>
-                        <li><a href="Certifcaciones.html" class="nav-link">CERTIFICACIONES</a></li>
-                        <li><a href="Sectores.html" class="nav-link">SECTORES</a></li>
-                        <li><a href="cliente.html" class="nav-link">CLIENTES</a></li>
-                        <li><a href="Contacto.html" class="nav-link">CONTACTO</a></li>
-                        <li><a href="Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                        <li><a href="./index.html" class="nav-link">INICIO</a></li>
+                        <li><a href="./Somos.html" class="nav-link active">SOMOS</a></li>
+                        
+                        <!-- SERVICIOS con menú desplegable -->
+                        <li class="nav-item-dropdown">
+                            <a href="./Servicios.html" class="nav-link dropdown-trigger">
+                                SERVICIOS
+                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                            </a>
+                            
+                            <!-- Menú principal de servicios -->
+                            <div class="dropdown-menu services-dropdown">
+                                <div class="dropdown-container">
+                                    
+                                    <!-- Laboratorio con submenu -->
+                                    <div class="dropdown-item has-submenu">
+                                        <a href="./Servicios.html#laboratorio" class="dropdown-link">
+                                            <i class="fas fa-microscope"></i>
+                                            <span>Laboratorio</span>
+                                            <i class="fas fa-chevron-right submenu-icon"></i>
+                                        </a>
+                                        
+                                        <!-- Submenu de Laboratorio -->
+                                        <div class="submenu-dropdown">
+                                            <div class="submenu-header">
+                                                <h4>Servicios de Laboratorio</h4>
+                                                <p>Análisis especializados con tecnología de punta</p>
+                                            </div>
+                                            
+                                            <div class="submenu-grid">
+                                                <a href="./Servicios.html#microbiologicos" class="submenu-item">
+                                                    <i class="fas fa-bacteria"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Microbiológicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#fisicoquimicos" class="submenu-item">
+                                                    <i class="fas fa-flask"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Físico-Químicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#nutricionales" class="submenu-item">
+                                                    <i class="fas fa-apple-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Nutricionales</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#micotoxinas" class="submenu-item">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Micotoxinas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#alergenos" class="submenu-item">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Alérgenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Contaminantes" class="submenu-item">
+                                                    <i class="fas fa-biohazard"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Contaminantes</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Metales" class="submenu-item">
+                                                    <i class="fas fa-atom"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Metales Pesados</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#plaguicidas" class="submenu-item">
+                                                    <i class="fas fa-seedling"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Residuos de Plaguicidas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#terpenos" class="submenu-item">
+                                                    <i class="fas fa-cannabis"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Cannabinoides y Terpenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#vidautil" class="submenu-item">
+                                                    <i class="fas fa-chart-line"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Vida Útil y Estabilidad</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#biodegradabilidad" class="submenu-item">
+                                                    <i class="fas fa-leaf"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Biodegradabilidad</h5>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Certificación de Producto -->
+                                    <div class="dropdown-item">
+                                        <a href="./Certificaciones.html#producto" class="dropdown-link">
+                                            <i class="fas fa-certificate"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Certificación de Producto</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Capacitación -->
+                                    <div class="dropdown-item">
+                                        <a href="./Capacitacion.html" class="dropdown-link">
+                                            <i class="fas fa-graduation-cap"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Capacitación</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Investigación y Desarrollo -->
+                                    <div class="dropdown-item">
+                                        <a href="./Investigacion.html" class="dropdown-link">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Investigación y Desarrollo</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li><a href="./Certifcaciones.html" class="nav-link">CERTIFICACIÓN</a></li>
+                        <li><a href="./Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                        <a href="./portal-clientes.html" class="header-cta-btn portal-btn"><i class="fas fa-user-circle"></i>Portal Clientes</a>
+                        <a href="./Contacto.html" class="header-cta-btn contact-btn"><i class="fas fa-envelope"></i>Contáctanos</a>
                     </ul>
                 </nav>
 
@@ -67,7 +216,7 @@
                     <div class="language-selector">
                         <button id="language-btn" class="lang-btn" aria-expanded="false">
                             <span class="flag-icon">🇪🇸</span> ES
-                            
+                            <i class="fas fa-chevron-down"></i>
                         </button>
                         <ul class="language-options">
                             <li><a href="#" data-lang="es"><span class="flag-icon">🇪🇸</span> Español</a></li>
@@ -85,6 +234,7 @@
             </div>
         </div>
     </header>
+
 
     <!-- Contenido Principal -->
     <main>
@@ -1268,7 +1418,8 @@
 
     <!-- Footer - Idéntico al de inicio -->
     <!-- Footer -->
-    <footer class="main-footer">
+    <!-- Footer Actualizado -->
+<footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section company-info">
@@ -1283,7 +1434,7 @@
                 </div>
                 
                 <!-- Sección de Contacto Principal - Medellín -->
-                <div class="footer-section contact-main">
+                <div class="footer-section contact-main"><!--Números de contacto actualizados hasta 2025/06/12-->
                     <h4>Sede Principal - Medellín</h4>
                     <div class="contact-info-main">
                         <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Antioquia</p>
@@ -1347,13 +1498,13 @@
         </div>
     </footer>
 
+
     <!-- Botones Flotantes - Idénticos al inicio -->
-    <a href="https://w.app/prueba_aver-sifunciona"  
-        class="whatsapp-float" 
-        target="_blank" 
+    <a href="#" class="whatsapp-float" 
+        id="whatsapp-float-btn"
         aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span class="tooltip">¿Necesitas ayuda?</span>
+            <i class="fab fa-whatsapp"></i>
+            <span class="tooltip">¿Necesitas ayuda?</span>
     </a>
 
     <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
@@ -1407,6 +1558,82 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal de WhatsApp -->
+<div class="whatsapp-modal" id="whatsapp-modal">
+    <div class="whatsapp-modal-content">
+        <div class="whatsapp-header">
+            <div class="whatsapp-logo">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <h3>Contáctanos por WhatsApp</h3>
+            <p>Selecciona tu ciudad más cercana</p>
+            <button class="whatsapp-close" id="whatsapp-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="whatsapp-contacts">
+            <!-- Medellín - Sede Principal -->
+            <a href="https://wa.me/573102874329?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Medellín" 
+               class="whatsapp-contact" 
+               target="_blank"
+               data-city="medellin">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Medellín</h4>
+                    <span class="contact-label">Sede Principal</span>
+                    <span class="contact-number">+57 310 287 4329</span>
+                </div>
+                <div class="contact-arrow">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </a>
+            
+            <!-- Bogotá -->
+            <a href="https://wa.me/573103830543?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Bogotá" 
+               class="whatsapp-contact" 
+               target="_blank"
+               data-city="bogota">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Bogotá</h4>
+                    <span class="contact-label">Punto de Atención</span>
+                    <span class="contact-number">+57 310 383 0543</span>
+                </div>
+                <div class="contact-arrow">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </a>
+            
+            <!-- Cali -->
+            <a href="https://wa.me/573102065380?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Cali" 
+               class="whatsapp-contact" 
+               target="_blank"
+               data-city="cali">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info">
+                    <h4>Cali</h4>
+                    <span class="contact-label">Punto de Atención</span>
+                    <span class="contact-number">+57 310 206 5380</span>
+                </div>
+                <div class="contact-arrow">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </a>
+        </div>
+        
+        <div class="whatsapp-footer">
+            <p>Horario de atención: Lun - Vie 8:00 AM - 5:00 PM</p>
+        </div>
+    </div>
+</div>
 
     <script src="Js/Inicio.js"></script>
     <script src="Js/Somos.js"></script>
