@@ -2004,3 +2004,152 @@ window.addEventListener('unhandledrejection', (e) => {
 });
 
 console.log('🧪 AOXLAB Website - Sistema cargado exitosamente v2.1 con Modal de WhatsApp');
+// Función mejorada para manejo responsive EL RESPONSIVE EMPIEZA DESDE AQUI
+class ResponsiveHandler {
+    constructor() {
+        this.breakpoints = {
+            mobile: 480,
+            tablet: 768,
+            desktop: 1024,
+            large: 1400
+        };
+        this.currentBreakpoint = this.getCurrentBreakpoint();
+        this.init();
+    }
+    
+    init() {
+        this.setupResizeListener();
+        this.handleInitialLoad();
+        this.setupTouchHandlers();
+    }
+    
+    getCurrentBreakpoint() {
+        const width = window.innerWidth;
+        if (width <= this.breakpoints.mobile) return 'mobile';
+        if (width <= this.breakpoints.tablet) return 'tablet';
+        if (width <= this.breakpoints.desktop) return 'desktop';
+        return 'large';
+    }
+    
+    setupResizeListener() {
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const newBreakpoint = this.getCurrentBreakpoint();
+                if (newBreakpoint !== this.currentBreakpoint) {
+                    this.currentBreakpoint = newBreakpoint;
+                    this.onBreakpointChange(newBreakpoint);
+                }
+                this.onResize();
+            }, 150);
+        });
+    }
+    
+    onBreakpointChange(breakpoint) {
+        // Ajustar navegación
+        this.updateNavigation(breakpoint);
+        
+        // Ajustar carrusel
+        this.updateCarousel(breakpoint);
+        
+        // Ajustar servicios expandibles
+        this.updateExpandableServices(breakpoint);
+    }
+    
+    updateNavigation(breakpoint) {
+        const mainNav = document.querySelector('.main-nav');
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        
+        if (breakpoint === 'mobile' || breakpoint === 'tablet') {
+            if (mainNav) mainNav.style.display = 'none';
+            if (mobileToggle) mobileToggle.style.display = 'flex';
+        } else {
+            if (mainNav) mainNav.style.display = 'block';
+            if (mobileToggle) mobileToggle.style.display = 'none';
+        }
+    }
+    
+    updateCarousel(breakpoint) {
+        const slides = document.querySelectorAll('.carousel-slide');
+        slides.forEach(slide => {
+            const content = slide.querySelector('.slide-content');
+            if (content) {
+                if (breakpoint === 'mobile') {
+                    content.style.left = '50%';
+                    content.style.transform = 'translate(-50%, -50%)';
+                    content.style.textAlign = 'center';
+                    content.style.maxWidth = '95vw';
+                } else if (breakpoint === 'tablet') {
+                    content.style.left = '50%';
+                    content.style.transform = 'translate(-50%, -50%)';
+                    content.style.textAlign = 'center';
+                    content.style.maxWidth = '80vw';
+                } else {
+                    // Restaurar estilos desktop
+                    content.style.left = '';
+                    content.style.transform = '';
+                    content.style.textAlign = '';
+                    content.style.maxWidth = '';
+                }
+            }
+        });
+    }
+    
+    setupTouchHandlers() {
+        // Mejorar experiencia táctil en carrusel
+        const carousel = document.querySelector('.hero-carousel');
+        if (carousel && 'ontouchstart' in window) {
+            let startX = 0;
+            let startY = 0;
+            let isScrolling = false;
+            
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].pageX;
+                startY = e.touches[0].pageY;
+                isScrolling = undefined;
+            }, { passive: true });
+            
+            carousel.addEventListener('touchmove', (e) => {
+                if (!startX || !startY) return;
+                
+                const deltaX = startX - e.touches[0].pageX;
+                const deltaY = startY - e.touches[0].pageY;
+                
+                if (isScrolling === undefined) {
+                    isScrolling = Math.abs(deltaY) > Math.abs(deltaX);
+                }
+                
+                if (!isScrolling) {
+                    e.preventDefault();
+                }
+            }, { passive: false });
+            
+            carousel.addEventListener('touchend', (e) => {
+                if (!startX || isScrolling) return;
+                
+                const deltaX = startX - e.changedTouches[0].pageX;
+                const threshold = window.innerWidth * 0.3; // 30% del ancho
+                
+                if (Math.abs(deltaX) > threshold) {
+                    if (deltaX > 0) {
+                        // Swipe left - next slide
+                        window.aoxlabWebsite?.nextSlide();
+                    } else {
+                        // Swipe right - previous slide
+                        window.aoxlabWebsite?.prevSlide();
+                    }
+                }
+                
+                startX = 0;
+                startY = 0;
+                isScrolling = false;
+            }, { passive: true });
+        }
+    }
+}
+
+// Inicializar handler responsive
+document.addEventListener('DOMContentLoaded', () => {
+    new ResponsiveHandler();
+});

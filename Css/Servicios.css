@@ -386,7 +386,6 @@
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
-
 /* Estilos para iconos y texto dentro de hexágonos */
 .hexagon-item i {
     font-size: 2.2rem;
@@ -438,7 +437,6 @@
     transform: scale(1.1);
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
-
 
 /* Responsive para hexágonos con 7 elementos */
 @media (max-width: 768px) {
@@ -529,7 +527,6 @@
         border-color: rgba(255, 255, 255, 0.3);
     }
 }
-
 
 /* ===== 2. FILTROS Y BÚSQUEDA ===== */
 .servicios-filters {
