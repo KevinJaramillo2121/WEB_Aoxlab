@@ -828,7 +828,7 @@ function initializeServiceCards() {
             });
         });
     });
-}
+} 
 
 function animateFloatingIcons() {
     const iconItems = document.querySelectorAll('.icon-item');

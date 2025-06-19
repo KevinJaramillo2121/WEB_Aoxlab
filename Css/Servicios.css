@@ -22,14 +22,66 @@
  */
 
 /* ===== 1. HERO SECTION - SECCIÓN PRINCIPAL ===== */
+
+/* ===== HERO SECTION CON IMAGEN HTML ===== */
 .servicios-hero {
     padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xxl);
-    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
     position: relative;
     overflow: hidden;
     min-height: 80vh;
     display: flex;
     align-items: center;
+}
+
+/* Imagen de fondo usando etiqueta img */
+.hero-background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Equivalente a background-size: cover */
+    object-position: center center; /* Equivalente a background-position: center */
+    z-index: 1;
+}
+
+/* Overlay para el degradado */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* Contenido del hero */
+.servicios-hero .container {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .servicios-hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-background-img {
+        object-position: center top; /* Mejor posición en móvil */
+    }
+}
+
+.servicios-hero {
+    background-size: cover;
+    background-position: center top; /* O ajusta según tu imagen */
+    /* También puedes usar porcentajes específicos como: */
+    /* background-position: 30% 20%; */
 }
 
 .servicios-hero::before {
@@ -47,7 +99,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
-    align-items: center;
+    align-items: center; 
     position: relative;
     z-index: 2;
 }
@@ -107,111 +159,377 @@
 }
 
 /* ===== ICONOS FLOTANTES DEL HERO ===== */
+/* ===== HEXÁGONOS FLOTANTES DEL HERO - 7 SECTORES ===== */
 .hero-visual {
     position: relative;
-    height: 400px;
+    height: 500px; /* Incrementamos altura para 7 hexágonos */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .floating-icons {
     position: relative;
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px; /* Espacio entre hexágonos */
+    padding: 20px;
+    align-items: center;
+    justify-items: center;
 }
 
-.icon-item {
-    position: absolute;
+.hexagon-item {
+    position: relative;
     background: var(--white);
-    padding: var(--spacing-lg);
-    border-radius: 50%;
-    box-shadow: 0 10px 40px var(--shadow-light);
     text-align: center;
-    min-width: 120px;
-    transition: all var(--transition-medium);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     cursor: pointer;
+    
+    /* Hexágonos más grandes */
+    width: 160px;
+    height: 160px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    
+    /* Centrar contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* Efectos base */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    z-index: 1;
 }
 
-.icon-item:nth-child(1) {
-    top: 10%;
-    left: 20%;
+/* Posicionamiento y colores específicos para cada hexágono - 7 sectores */
+/* ===== HEXÁGONOS CON ANIMACIÓN ALEATORIA ===== */
+
+/* Hexágono de Alimentación humana */
+.hexagon-item:nth-child(1) {
+    /* MANTENER POSICIONAMIENTO EXACTO */
+    top: 52%; right: -23%;
+    grid-column: 2; grid-row: 1;
+    
+    /* Gradiente base */
     background: linear-gradient(135deg, #66C0E7, #4FB3D9);
     color: var(--white);
-    animation: float 6s ease-in-out infinite;
-    border: 3px solid rgba(102, 192, 231, 0.3);
+    
+    /* Animaciones combinadas con timing aleatorio */
+    animation: 
+        float 6s ease-in-out infinite 0s,
+        random-glow 4s ease-in-out infinite 2s,
+        color-pulse 8s ease-in-out infinite 1s,
+        border-shine 3s ease-in-out infinite 0.5s;
+    
+    /* Sombra base personalizada */
+    box-shadow: 0 0 15px rgba(102, 192, 231, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    
+    /* Transiciones suaves */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.icon-item:nth-child(1) i,
-.icon-item:nth-child(1) span {
-    color: var(--white);
-    font-weight: var(--font-weight-bold);
-}
-
-.icon-item:nth-child(2) {
-    top: 30%;
-    right: 10%;
+/* Hexágono de Alimentación animal */
+.hexagon-item:nth-child(2) {
+    /* MANTENER POSICIONAMIENTO EXACTO */
+    top: 90%; right: 90%;
+    grid-column: 3; grid-row: 2;
+    
+    /* Gradiente base */
     background: linear-gradient(135deg, #4FB3D9, #2BA1D4);
     color: var(--white);
-    animation: float 6s ease-in-out infinite 1.5s;
-    border: 3px solid rgba(79, 179, 217, 0.3);
+    
+    /* Animaciones con timing diferente */
+    animation: 
+        float 6s ease-in-out infinite 1s,
+        random-glow 5s ease-in-out infinite 3.5s,
+        color-pulse 9s ease-in-out infinite 2.2s,
+        border-shine 3.5s ease-in-out infinite 1.8s;
+    
+    box-shadow: 0 0 15px rgba(79, 179, 217, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.icon-item:nth-child(2) i,
-.icon-item:nth-child(2) span {
-    color: var(--white);
-    font-weight: var(--font-weight-bold);
-}
-
-.icon-item:nth-child(3) {
-    bottom: 30%;
-    left: 10%;
+/* Hexágono de Cannabis medicinal */
+.hexagon-item:nth-child(3) {
+    /* MANTENER POSICIONAMIENTO EXACTO */
+    top: 15%; right: -85%;
+    grid-column: 1; grid-row: 2;
+    
+    /* Gradiente base */
     background: linear-gradient(135deg, #F39C5A, #F37628);
     color: var(--white);
-    animation: float 6s ease-in-out infinite 3s;
-    border: 3px solid rgba(243, 156, 90, 0.3);
+    
+    /* Animaciones con timing único */
+    animation: 
+        float 6s ease-in-out infinite 2s,
+        random-glow 4.5s ease-in-out infinite 5s,
+        color-pulse 10s ease-in-out infinite 3.4s,
+        border-shine 4s ease-in-out infinite 2.7s;
+    
+    box-shadow: 0 0 15px rgba(243, 118, 40, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.icon-item:nth-child(3) i,
-.icon-item:nth-child(3) span {
-    color: var(--white);
-    font-weight: var(--font-weight-bold);
-}
-
-.icon-item:nth-child(4) {
-    bottom: 10%;
-    right: 25%;
+/* Hexágono de Cosméticos */
+.hexagon-item:nth-child(4) {
+    /* MANTENER POSICIONAMIENTO EXACTO */
+    top: 52%; right: -35%;
+    
+    /* Gradiente base */
     background: linear-gradient(135deg, #F37628, #E06B2E);
     color: var(--white);
-    animation: float 6s ease-in-out infinite 4.5s;
-    border: 3px solid rgba(224, 107, 46, 0.3);
+    
+    /* Animaciones escalonadas */
+    animation: 
+        float 6s ease-in-out infinite 3s,
+        random-glow 3.8s ease-in-out infinite 6.5s,
+        color-pulse 11s ease-in-out infinite 4.6s,
+        border-shine 3.2s ease-in-out infinite 3.9s;
+    
+    box-shadow: 0 0 15px rgba(224, 107, 46, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.icon-item:nth-child(4) i,
-.icon-item:nth-child(4) span {
+/* Hexágono de Farmacéutica */
+.hexagon-item:nth-child(5) {
+    /* MANTENER POSICIONAMIENTO EXACTO */
+    bottom: -128%; left: -40%;
+    
+    /* Gradiente base */
+    background: linear-gradient(135deg, #66C0E7, #4FB3D9);
     color: var(--white);
-    font-weight: var(--font-weight-bold);
+    
+    /* Animaciones con patrón diferente */
+    animation: 
+        float 6s ease-in-out infinite 4s,
+        random-glow 5.2s ease-in-out infinite 8s,
+        color-pulse 12s ease-in-out infinite 5.8s,
+        border-shine 3.8s ease-in-out infinite 5.1s;
+    
+    box-shadow: 0 0 15px rgba(102, 192, 231, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.icon-item i {
-    font-size: 2rem;
-    color: var(--secondary-color);
+/* Hexágono de Calidad del aire */
+.hexagon-item:nth-child(6) {
+    /* MANTENER POSICIONAMIENTO EXACTO */
+    top: 15%; right: 128%;
+    
+    /* Gradiente base */
+    background: linear-gradient(135deg, #2BA1D4, #1E8BC3);
+    color: var(--white);
+    
+    /* Animaciones con timing extendido */
+    animation: 
+        float 6s ease-in-out infinite 5s,
+        random-glow 4.3s ease-in-out infinite 9.5s,
+        color-pulse 13s ease-in-out infinite 7s,
+        border-shine 4.5s ease-in-out infinite 6.3s;
+    
+    box-shadow: 0 0 15px rgba(43, 161, 212, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Hexágono de Ambiental */
+.hexagon-item:nth-child(7) {
+    /* MANTENER POSICIONAMIENTO EXACTO */
+    bottom: 22%; right: -34%;
+    
+    /* Gradiente base */
+    background: linear-gradient(135deg, #228B22, #32CD32);
+    color: var(--white);
+    
+    /* Animaciones finales del ciclo */
+    animation: 
+        float 6s ease-in-out infinite 6s,
+        random-glow 4.8s ease-in-out infinite 11s,
+        color-pulse 14s ease-in-out infinite 8.2s,
+        border-shine 4.2s ease-in-out infinite 7.5s;
+    
+    box-shadow: 0 0 15px rgba(50, 205, 50, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Efectos hover suaves que no interfieren con las animaciones */
+.hexagon-item:hover {
+    /* Efecto sutil que se suma a las animaciones existentes */
+    filter: brightness(1.1) contrast(1.1) !important;
+    transform: translateY(-5px) scale(1.03) !important;
+    
+    /* Mantener z-index alto en hover */
+    z-index: 10;
+    
+    /* Transición más rápida en hover */
+    transition: all 0.2s ease !important;
+}
+
+/* Efectos en iconos durante hover */
+.hexagon-item:hover i {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+}
+
+/* Efectos en texto durante hover */
+.hexagon-item:hover span {
+    transform: scale(1.05);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+
+/* Estilos para iconos y texto dentro de hexágonos */
+.hexagon-item i {
+    font-size: 2.2rem;
+    color: var(--white);
     margin-bottom: var(--spacing-sm);
     display: block;
-}
-
-.icon-item span {
-    font-size: 0.9rem;
-    color: var(--primary-color);
     font-weight: var(--font-weight-bold);
 }
 
-.icon-item:hover {
-    transform: translateY(-10px) scale(1.1);
-    box-shadow: 0 20px 60px var(--shadow-medium);
+.hexagon-item span {
+    font-size: 0.85rem;
+    color: var(--white);
+    font-weight: var(--font-weight-bold);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    line-height: 1.2;
+    text-align: center;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+/* Efectos hover mejorados para hexágonos */
+/* Efectos hover mejorados */
+.hexagon-item:hover {
+    /* Elevación y escalado */
+    transform: translateY(-15px) scale(1.1);
+    
+    /* Sombra más intensa */
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(102, 192, 231, 0.3);
+    
+    /* Brillo aumentado */
+    filter: brightness(1.2) saturate(1.2);
+    
+    /* Borde más brillante */
+    border-color: rgba(255, 255, 255, 0.7);
+    
+    /* Asegurar que aparezca por encima */
+    z-index: 10;
 }
+
+/* Rotación de iconos en hover */
+.hexagon-item:hover i {
+    transform: scale(1.2) rotateY(360deg);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+}
+
+/* Efecto de texto en hover */
+.hexagon-item:hover span {
+    transform: scale(1.1);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+
+/* Responsive para hexágonos con 7 elementos */
+@media (max-width: 768px) {
+    .hero-visual {
+        height: 400px;
+    }
+    
+    .hexagon-item {
+        width: 100px;
+        height: 100px;
+        min-width: 80px;
+        padding: var(--spacing-md);
+    }
+    
+    .hexagon-item i {
+        font-size: 1.8rem;
+    }
+    
+    .hexagon-item span {
+        font-size: 0.75rem;
+    }
+    
+    /* Reposicionamiento para móvil */
+    .hexagon-item:nth-child(1) { top: 8%; left: 10%; }
+    .hexagon-item:nth-child(2) { top: 20%; right: 8%; }
+    .hexagon-item:nth-child(3) { top: 35%; left: 15%; }
+    .hexagon-item:nth-child(4) { top: 50%; right: 10%; }
+    .hexagon-item:nth-child(5) { top: 65%; left: 8%; }
+    .hexagon-item:nth-child(6) { top: 80%; right: 15%; }
+    .hexagon-item:nth-child(7) { bottom: 5%; left: 35%; }
+}
+/* ===== KEYFRAMES PARA ILUMINACIÓN ALEATORIA ===== */
+
+/* Efecto de pulso aleatorio con iluminación */
+@keyframes random-glow {
+    0% {
+        box-shadow: 
+            0 0 5px rgba(255, 255, 255, 0.3),
+            0 0 10px rgba(255, 255, 255, 0.2);
+        filter: brightness(1);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 30px rgba(255, 255, 255, 0.5),
+            0 0 40px rgba(255, 255, 255, 0.3);
+        filter: brightness(1.3) saturate(1.2);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 
+            0 0 5px rgba(255, 255, 255, 0.3),
+            0 0 10px rgba(255, 255, 255, 0.2);
+        filter: brightness(1);
+        transform: scale(1);
+    }
+}
+
+/* Variación de brillo con cambio de color */
+@keyframes color-pulse {
+    0% {
+        filter: hue-rotate(0deg) brightness(1) saturate(1);
+    }
+    25% {
+        filter: hue-rotate(5deg) brightness(1.2) saturate(1.3);
+    }
+    50% {
+        filter: hue-rotate(10deg) brightness(1.4) saturate(1.5);
+    }
+    75% {
+        filter: hue-rotate(5deg) brightness(1.2) saturate(1.3);
+    }
+    100% {
+        filter: hue-rotate(0deg) brightness(1) saturate(1);
+    }
+}
+
+/* Efecto de resplandor en el borde */
+@keyframes border-shine {
+    0% {
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.9);
+    }
+    100% {
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+}
+
 
 /* ===== 2. FILTROS Y BÚSQUEDA ===== */
 .servicios-filters {
@@ -226,7 +544,7 @@
 }
 
 .filters-header h2 {
-    font-size: 2rem;
+    font-size: 3.5rem;
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
     font-weight: var(--font-weight-bold);
@@ -234,7 +552,7 @@
 
 .filters-header p {
     color: var(--medium-gray);
-    font-size: 1.1rem;
+    font-size: 1.6rem;
 }
 
 .filters-controls {
