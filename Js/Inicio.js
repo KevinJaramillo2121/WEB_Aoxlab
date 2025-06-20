@@ -1792,11 +1792,20 @@ function setupMobileDropdown() {
     const dropdownTrigger = document.querySelector('.dropdown-trigger');
     const hasSubmenu = document.querySelector('.has-submenu .dropdown-link');
     
-    if (dropdownTrigger) {
+    // Verificar si estamos en vista móvil
+    const isMobile = window.innerWidth <= 768;
+    
+    if (dropdownTrigger && !isMobile) {
+        // Solo prevenir navegación en desktop
         dropdownTrigger.addEventListener('click', function(e) {
             e.preventDefault();
             toggleDropdown();
         });
+    } else if (dropdownTrigger && isMobile) {
+        // En móviles, permitir que el enlace funcione normalmente
+        // Eliminar cualquier event listener existente
+        const newDropdownTrigger = dropdownTrigger.cloneNode(true);
+        dropdownTrigger.parentNode.replaceChild(newDropdownTrigger, dropdownTrigger);
     }
     
     if (hasSubmenu) {
@@ -1806,6 +1815,7 @@ function setupMobileDropdown() {
         });
     }
 }
+
 
 /**
  * Inicializa el posicionamiento inteligente de menús
