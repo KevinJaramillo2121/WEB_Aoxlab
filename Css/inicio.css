@@ -6414,3 +6414,20 @@ color: var(--white)
     }
 }
 
+/* Solución CSS para ocultar el menú desplegable en móviles */
+@media (max-width: 768px) {
+    /* Ocultar el menú desplegable en móviles */
+    .nav-item-dropdown .dropdown-menu {
+        display: none !important;
+    }
+    
+    /* Ocultar el icono de dropdown en móviles */
+    .nav-item-dropdown .dropdown-icon {
+        display: none;
+    }
+    
+    /* Asegurar que el enlace de SERVICIOS se comporte como un enlace normal */
+    .nav-item-dropdown .dropdown-trigger {
+        pointer-events: auto;
+    }
+}

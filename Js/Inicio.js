@@ -2004,10 +2004,15 @@ window.addEventListener('unhandledrejection', (e) => {
 });
 
 console.log('🧪 AOXLAB Website - Sistema cargado exitosamente v2.1 con Modal de WhatsApp');
+/**
+ * Inicializa el menú móvil con comportamiento de enlace directo para SERVICIOS
+ */
 function initMobileMenu() {
     // Seleccionar elementos del DOM
     const mobileToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.querySelector('.main-nav');
+    const navList = document.querySelector('.nav-list');
+    const dropdownTrigger = document.querySelector('.dropdown-trigger');
     
     // Verificar si los elementos existen
     if (!mobileToggle || !mainNav) {
@@ -2016,6 +2021,25 @@ function initMobileMenu() {
     }
     
     console.log('Inicializando menú móvil...');
+    
+    // Función para verificar si es dispositivo móvil
+    const isMobileDevice = () => window.innerWidth <= 768;
+    
+    // Configurar el comportamiento del enlace de SERVICIOS según el dispositivo
+    if (dropdownTrigger) {
+        // En dispositivos móviles, hacer que el enlace sea directo
+        if (isMobileDevice()) {
+            // Eliminar cualquier event listener que prevenga la navegación
+            const clonedElement = dropdownTrigger.cloneNode(true);
+            dropdownTrigger.parentNode.replaceChild(clonedElement, dropdownTrigger);
+            
+            // Ocultar el icono de dropdown en móviles
+            const dropdownIcon = clonedElement.querySelector('.dropdown-icon');
+            if (dropdownIcon) {
+                dropdownIcon.style.display = 'none';
+            }
+        }
+    }
     
     // Agregar event listener al botón hamburguesa
     mobileToggle.addEventListener('click', function() {
@@ -2041,8 +2065,6 @@ function initMobileMenu() {
                 span.style.opacity = '';
             });
         }
-        
-        console.log('Menú móvil toggled:', isExpanded ? 'abierto' : 'cerrado');
     });
     
     // Cerrar menú al hacer clic en enlaces
@@ -2059,11 +2081,32 @@ function initMobileMenu() {
                 span.style.transform = '';
                 span.style.opacity = '';
             });
-            
-            console.log('Menú móvil cerrado por clic en enlace');
         });
     });
+    
+    // Manejar cambios de tamaño de ventana
+    window.addEventListener('resize', function() {
+        if (dropdownTrigger) {
+            // Actualizar comportamiento según el tamaño de la ventana
+            const newDropdownTrigger = document.querySelector('.dropdown-trigger');
+            if (isMobileDevice()) {
+                // En móviles: ocultar el icono de dropdown
+                const dropdownIcon = newDropdownTrigger.querySelector('.dropdown-icon');
+                if (dropdownIcon) {
+                    dropdownIcon.style.display = 'none';
+                }
+            } else {
+                // En desktop: mostrar el icono de dropdown
+                const dropdownIcon = newDropdownTrigger.querySelector('.dropdown-icon');
+                if (dropdownIcon) {
+                    dropdownIcon.style.display = '';
+                }
+            }
+        }
+    });
 }
+
+
 function initMobileDropdowns() {
     // Seleccionar elementos relevantes
     const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
