@@ -18,6 +18,261 @@ document.addEventListener('DOMContentLoaded', function() {
     enhanceCertBadges();
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Funcionalidad de pestañas mejorada
+    const tabBtns = document.querySelectorAll('.reglas-tabs .tab-btn');
+    const tabContents = document.querySelectorAll('.reglas-tabs-content .tab-content');
+    
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remover clase active de todos los botones
+            tabBtns.forEach(b => b.classList.remove('active'));
+            // Añadir clase active al botón clickeado
+            this.classList.add('active');
+            
+            // Mostrar el contenido correspondiente con animación
+            const tabId = this.getAttribute('data-tab');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                content.style.opacity = '0';
+                content.style.transform = 'translateY(20px)';
+            });
+            
+            setTimeout(() => {
+                const activeContent = document.getElementById(`${tabId}-tab`);
+                activeContent.classList.add('active');
+                activeContent.style.opacity = '1';
+                activeContent.style.transform = 'translateY(0)';
+            }, 150);
+        });
+    });
+    
+    // Efecto 3D mejorado para tarjetas de acuerdos
+    const acuerdoCards = document.querySelectorAll('.acuerdo-card-3d');
+    
+    acuerdoCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+        });
+        
+        // Efecto de paralaje suave
+        card.addEventListener('mousemove', function(e) {
+            if (!this.classList.contains('flipped')) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleX = (y - centerY) / 15;
+                const angleY = (centerX - x) / 15;
+                
+                this.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.02)`;
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+    
+    // Animación de timeline
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const timelineObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+                
+                // Animar marcador
+                const marker = entry.target.querySelector('.timeline-marker');
+                marker.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    marker.style.transform = 'scale(1)';
+                }, 300);
+            }
+        });
+    }, observerOptions);
+    
+    timelineItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-30px)';
+        item.style.transition = 'all 0.6s ease';
+        item.style.transitionDelay = `${index * 0.2}s`;
+        
+        timelineObserver.observe(item);
+    });
+    
+    // Efecto hover para responsabilidades
+    const respItems = document.querySelectorAll('.resp-item');
+    
+    respItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('.resp-icon');
+            icon.style.transform = 'rotate(360deg) scale(1.1)';
+            icon.style.transition = 'transform 0.5s ease';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('.resp-icon');
+            icon.style.transform = 'rotate(0deg) scale(1)';
+        });
+    });
+    
+    // Animación de consecuencias
+    const consecuenciaItems = document.querySelectorAll('.consecuencia-item');
+    
+    consecuenciaItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.05)';
+            
+            const icon = this.querySelector('i');
+            icon.style.transform = 'rotateY(360deg)';
+            icon.style.transition = 'transform 0.6s ease';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            
+            const icon = this.querySelector('i');
+            icon.style.transform = 'rotateY(0deg)';
+        });
+    });
+    
+    // Funcionalidad de descarga múltiple
+    const downloadAllBtn = document.querySelector('.quick-action-btn.primary');
+    
+    if (downloadAllBtn) {
+        downloadAllBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Simular descarga múltiple
+            const files = [
+                'Contrato_Certificacion_AOXLAB.pdf',
+                'Reglas_Servicio_AOXLAB.pdf',
+                'Terminos_Condiciones_AOXLAB.pdf',
+                'Manual_Uso_Marcas_AOXLAB.pdf',
+                'Declaracion_Origen_Fondos.pdf'
+            ];
+            
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Preparando descarga...</span>';
+            
+            setTimeout(() => {
+                files.forEach((file, index) => {
+                    setTimeout(() => {
+                        // Aquí iría la lógica real de descarga
+                        console.log(`Descargando: ${file}`);
+                    }, index * 500);
+                });
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-check"></i><span>Descarga Completa</span>';
+                    
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-download"></i><span>Descargar Todo</span>';
+                    }, 2000);
+                }, files.length * 500);
+            }, 1000);
+        });
+    }
+    
+    // Efecto de reveal para declaraciones
+    const declaracionCards = document.querySelectorAll('.declaracion-card');
+    
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    declaracionCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px) scale(0.95)';
+        card.style.transition = 'all 0.6s ease';
+        card.style.transitionDelay = `${index * 0.1}s`;
+        
+        cardObserver.observe(card);
+    });
+    
+    // Tooltip para botones de ayuda
+    const helpBtns = document.querySelectorAll('.btn-form-help');
+    
+    helpBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Crear tooltip temporal
+            const tooltip = document.createElement('div');
+            tooltip.textContent = '¿Necesitas ayuda? Contacta a nuestro equipo de soporte';
+            tooltip.style.cssText = `
+                position: fixed;
+                top: ${e.clientY - 40}px;
+                left: ${e.clientX - 100}px;
+                background: var(--primary-color);
+                color: white;
+                padding: 10px 15px;
+                border-radius: 8px;
+                font-size: 0.9rem;
+                z-index: 10000;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            `;
+            
+            document.body.appendChild(tooltip);
+            
+            setTimeout(() => {
+                tooltip.style.opacity = '1';
+            }, 10);
+            
+            setTimeout(() => {
+                tooltip.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(tooltip);
+                }, 300);
+            }, 3000);
+        });
+    });
+});
+
+// Función para scroll suave a secciones
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Inicializar efectos de paralaje para el fondo
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const reglasSection = document.querySelector('.reglas-section');
+    
+    if (reglasSection) {
+        const rate = scrolled * 0.5;
+        reglasSection.style.backgroundPosition = `center ${rate}px`;
+    }
+});
+
 // Funcionalidad para las tabs de políticas
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-btn');
