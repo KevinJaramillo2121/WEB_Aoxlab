@@ -18,7 +18,27 @@ document.addEventListener('DOMContentLoaded', function() {
     enhanceCertBadges();
 });
 
-
+// Funcionalidad para las tabs de políticas
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remover clase active de todos los botones
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            // Añadir clase active al botón clickeado
+            this.classList.add('active');
+            
+            // Ocultar todos los paneles
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            
+            // Mostrar el panel correspondiente
+            const tabId = this.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+});
 
 // Sistema de filtros para directorio
 function initializeFilters() {
