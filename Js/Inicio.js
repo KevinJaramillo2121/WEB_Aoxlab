@@ -2004,3 +2004,190 @@ window.addEventListener('unhandledrejection', (e) => {
 });
 
 console.log('🧪 AOXLAB Website - Sistema cargado exitosamente v2.1 con Modal de WhatsApp');
+function initMobileMenu() {
+    // Seleccionar elementos del DOM
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    // Verificar si los elementos existen
+    if (!mobileToggle || !mainNav) {
+        console.error('Elementos del menú móvil no encontrados');
+        return;
+    }
+    
+    console.log('Inicializando menú móvil...');
+    
+    // Agregar event listener al botón hamburguesa
+    mobileToggle.addEventListener('click', function() {
+        // Toggle de clases para el botón y el menú
+        this.classList.toggle('active');
+        mainNav.classList.toggle('mobile-open');
+        
+        // Actualizar atributo aria-expanded
+        const isExpanded = this.classList.contains('active');
+        this.setAttribute('aria-expanded', isExpanded);
+        
+        // Animar las barras del menú hamburguesa
+        const spans = this.querySelectorAll('span');
+        if (isExpanded) {
+            // Transformar a X
+            if (spans[0]) spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            if (spans[1]) spans[1].style.opacity = '0';
+            if (spans[2]) spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            // Restaurar a hamburguesa
+            spans.forEach(span => {
+                span.style.transform = '';
+                span.style.opacity = '';
+            });
+        }
+        
+        console.log('Menú móvil toggled:', isExpanded ? 'abierto' : 'cerrado');
+    });
+    
+    // Cerrar menú al hacer clic en enlaces
+    const navLinks = mainNav.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileToggle.classList.remove('active');
+            mainNav.classList.remove('mobile-open');
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            
+            // Restaurar barras hamburguesa
+            const spans = mobileToggle.querySelectorAll('span');
+            spans.forEach(span => {
+                span.style.transform = '';
+                span.style.opacity = '';
+            });
+            
+            console.log('Menú móvil cerrado por clic en enlace');
+        });
+    });
+}
+function initMobileDropdowns() {
+    // Seleccionar elementos relevantes
+    const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
+    const submenuTriggers = document.querySelectorAll('.has-submenu .dropdown-link');
+    
+    // Verificar si estamos en vista móvil
+    if (window.innerWidth <= 768) {
+        console.log('Inicializando dropdowns para móvil...');
+        
+        // Configurar triggers de dropdown principal
+        dropdownTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Obtener el menú asociado a este trigger
+                const parent = this.closest('.nav-item-dropdown');
+                const dropdown = parent.querySelector('.dropdown-menu');
+                
+                // Toggle del menú
+                const isVisible = dropdown.classList.contains('visible');
+                
+                // Cerrar todos los demás dropdowns primero
+                document.querySelectorAll('.dropdown-menu.visible').forEach(menu => {
+                    if (menu !== dropdown) {
+                        menu.classList.remove('visible');
+                    }
+                });
+                
+                // Toggle del menú actual
+                dropdown.classList.toggle('visible');
+                
+                // Rotar icono
+                const icon = this.querySelector('.dropdown-icon');
+                if (icon) {
+                    icon.style.transform = isVisible ? '' : 'rotate(180deg)';
+                }
+            });
+        });
+        
+        // Configurar triggers de submenú
+        submenuTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Obtener el submenú asociado a este trigger
+                const parent = this.closest('.has-submenu');
+                const submenu = parent.querySelector('.submenu-dropdown');
+                
+                // Toggle del submenú
+                const isVisible = submenu.classList.contains('visible');
+                submenu.classList.toggle('visible');
+                
+                // Rotar icono
+                const icon = this.querySelector('.submenu-icon');
+                if (icon) {
+                    icon.style.transform = isVisible ? '' : 'translateX(5px)';
+                }
+            });
+        });
+        
+        // Cerrar al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-item-dropdown')) {
+                document.querySelectorAll('.dropdown-menu.visible, .submenu-dropdown.visible').forEach(menu => {
+                    menu.classList.remove('visible');
+                });
+                
+                // Restaurar iconos
+                document.querySelectorAll('.dropdown-icon, .submenu-icon').forEach(icon => {
+                    icon.style.transform = '';
+                });
+            }
+        });
+    }
+}
+// Asegurarse de que estas funciones se ejecuten cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM cargado, inicializando menús...');
+    initMobileMenu();
+    initMobileDropdowns();
+    
+    // También manejar resize para ajustar comportamiento
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            initMobileDropdowns();
+        }
+    });
+});
+// Script de depuración para el menú hamburguesa
+console.log('=== Depuración del menú hamburguesa ===');
+
+// Verificar elementos clave
+const mobileToggle = document.querySelector('.mobile-menu-toggle');
+console.log('Botón hamburguesa encontrado:', !!mobileToggle);
+
+const mainNav = document.querySelector('.main-nav');
+console.log('Navegación principal encontrada:', !!mainNav);
+
+const navList = document.querySelector('.nav-list');
+console.log('Lista de navegación encontrada:', !!navList);
+
+// Verificar event listeners
+if (mobileToggle) {
+    console.log('Agregando event listener de prueba al botón hamburguesa...');
+    mobileToggle.addEventListener('click', function() {
+        console.log('Botón hamburguesa clickeado');
+        console.log('Clases actuales del botón:', this.className);
+        console.log('Clases actuales del menú:', mainNav.className);
+    });
+}
+
+// Función para probar manualmente la funcionalidad
+window.testMobileMenu = function() {
+    console.log('Probando menú móvil manualmente...');
+    if (mobileToggle && mainNav) {
+        mobileToggle.classList.toggle('active');
+        mainNav.classList.toggle('mobile-open');
+        console.log('Estado del menú después de toggle manual:', 
+                    mainNav.classList.contains('mobile-open') ? 'abierto' : 'cerrado');
+    } else {
+        console.error('No se pueden encontrar los elementos necesarios para probar el menú');
+    }
+};
+
+
