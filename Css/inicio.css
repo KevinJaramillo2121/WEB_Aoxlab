@@ -1704,13 +1704,18 @@ body {
     left: 100%;
 }
 
-/* Certificado ONAC (Primer elemento) */
+/* Certificado ONAC - Diseño mejorado */
 .cert-badge:nth-child(1) {
     grid-column: 1 / -1;
     border-top-color: var(--secondary-color);
     background: linear-gradient(135deg, rgba(43, 161, 212, 0.03), var(--white));
-    padding: var(--spacing-xl) var(--spacing-xxl);
+    padding: var(--spacing-xl) var(--spacing-lg);
     min-height: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
 }
 
 .cert-badge:nth-child(1)::before {
@@ -2631,7 +2636,7 @@ color: var(--white)
 
 .cert-badges {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     grid-template-rows: auto auto;
     gap: var(--spacing-lg);
     max-width: 900px;
@@ -2732,9 +2737,13 @@ color: var(--white)
     }
     
     .cert-badge:nth-child(1) img {
-        margin-right: 0;
-        margin-bottom: var(--spacing-md);
-        height: 100px;
+        width: auto;
+        max-width: 100%;
+        height: 140px;
+        object-fit: contain;
+        margin-right: var(--spacing-lg);
+        margin-bottom: var(--spacing-sm);
+        flex-shrink: 0;
     }
     
     .cert-badge:nth-child(1) .cert-content {
@@ -5752,8 +5761,440 @@ color: var(--white)
     transition: all var(--transition-fast);
 }
 
+/* Solución para el posicionamiento general del contenido en móviles */
+@media (max-width: 768px) {
+    .slide-content {
+        position: absolute;
+        top: 50%;
+        left: 50% !important; /* Forzar centrado horizontal */
+        transform: translate(-50%, -50%) !important; /* Centrado perfecto */
+        width: 90% !important; /* Ancho controlado */
+        max-width: 450px; /* Limitar ancho máximo */
+        padding: 0 !important; /* Eliminar padding que pueda causar problemas */
+        text-align: center !important; /* Centrar texto */
+        z-index: 10; /* Asegurar que esté por encima de la imagen */
+    }
+    
+    /* Ajustar todos los títulos para móviles */
+    .hero-title-servicios-centered,
+    .hero-title-portal-clientes,
+    .hero-title-certificacion,
+    .hero-title-equipo,
+    .hero-title-vida-util,
+    .hero-title-microbiologia,
+    .hero-title-biodegradabilidad {
+        font-size: clamp(1.5rem, 6vw, 2.2rem) !important; /* Tamaño de fuente más pequeño */
+        margin-bottom: 0.8rem !important; /* Menos espacio inferior */
+        white-space: normal !important; /* Permitir saltos de línea */
+        text-align: center !important; /* Centrar texto */
+        padding-left: 0 !important; /* Eliminar padding izquierdo */
+        line-height: 1.3 !important; /* Mejor interlineado */
+    }
+    
+    /* Ajustar badges para móviles */
+    .hero-badge {
+        display: inline-flex !important;
+        font-size: 0.7rem !important; /* Texto más pequeño */
+        padding: 4px 8px !important; /* Padding más pequeño */
+        margin-bottom: 0.8rem !important; /* Menos espacio inferior */
+        align-self: center !important; /* Centrar badge */
+        position: relative !important; /* Posicionamiento relativo */
+        left: 0 !important; /* Resetear posición izquierda */
+    }
+    
+    /* Ajustar botones CTA para móviles */
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center !important; /* Centrar botones */
+        gap: 0.8rem !important; /* Menos espacio entre botones */
+        width: 100% !important; /* Ancho completo */
+        margin-top: 1rem !important; /* Espacio superior */
+    }
+    
+    .cta-btn {
+        min-width: auto !important; /* Eliminar ancho mínimo */
+        width: 100% !important; /* Ancho completo */
+        max-width: 250px !important; /* Limitar ancho máximo */
+        padding: 0.6rem 1rem !important; /* Padding más pequeño */
+        font-size: 0.9rem !important; /* Texto más pequeño */
+    }
+    
+    /* Ajustar controles del carrusel para móviles */
+    .carousel-btn {
+        width: 32px !important; /* Más pequeños */
+        height: 32px !important;
+        opacity: 0.7; /* Más transparentes */
+    }
+    
+    .carousel-btn.prev {
+        left: 10px !important; /* Más cerca del borde */
+    }
+    
+    .carousel-btn.next {
+        right: 10px !important; /* Más cerca del borde */
+    }
+    
+    /* Ajustar indicadores para móviles */
+    .carousel-indicators {
+        bottom: 10px !important; /* Más cerca del borde inferior */
+    }
+    
+    .indicator {
+        width: 8px !important; /* Más pequeños */
+        height: 8px !important;
+        margin: 0 4px !important; /* Menos espacio entre ellos */
+    }
+}
 
+/* Solución para dispositivos muy pequeños */
+@media (max-width: 480px) {
+    .hero-section {
+        height: 100vh !important; /* Altura completa de la ventana */
+        min-height: 500px !important; /* Altura mínima adecuada */
+    }
+    
+    .slide-content {
+        top: 45% !important; /* Ligeramente más arriba para dejar espacio a los controles */
+    }
+    
+    .hero-title-servicios-centered,
+    .hero-title-portal-clientes,
+    .hero-title-certificacion,
+    .hero-title-equipo,
+    .hero-title-vida-util,
+    .hero-title-microbiologia,
+    .hero-title-biodegradabilidad {
+        font-size: clamp(1.3rem, 5vw, 1.8rem) !important; /* Aún más pequeño */
+        margin-bottom: 0.6rem !important; /* Menos espacio */
+    }
+    
+    /* Ocultar párrafos largos en dispositivos muy pequeños o hacerlos más pequeños */
+    .slide-content p {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.8rem !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Limitar a 3 líneas */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        max-height: 4rem; /* Altura máxima */
+    }
+    
+    /* Ajustar botones para dispositivos muy pequeños */
+    .cta-btn {
+        padding: 0.5rem 0.8rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Ajustar o eliminar elementos decorativos */
+    .hero-badge i {
+        display: none !important; /* Ocultar iconos en badges */
+    }
+}
 
+/* Solución para el problema de solapamiento de elementos */
+@media (max-width: 768px) {
+    /* Asegurar que las imágenes de fondo cubran correctamente */
+    .carousel-slide img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Asegurar que la imagen cubra todo el espacio */
+        object-position: center !important; /* Centrar la imagen */
+    }
+    
+    /* Mejorar contraste para mejor legibilidad */
+    .carousel-slide::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); /* Overlay oscuro para mejorar contraste */
+        z-index: 2;
+    }
+    
+    /* Asegurar que el contenido esté por encima del overlay */
+    .slide-content {
+        z-index: 3 !important;
+    }
+    
+    /* Ajustar slides específicos que pueden tener problemas */
+    .carousel-slide[data-slide="portal-clientes"] .slide-content,
+    .carousel-slide[data-slide="vida-util"] .slide-content,
+    .carousel-slide[data-slide="microbiologia-anual"] .slide-content,
+    .carousel-slide[data-slide="biodegradabilidad"] .slide-content {
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        text-align: center !important;
+        padding: 0 1rem !important;
+    }
+    
+    /* Ajustar alineación de botones en slides específicos */
+    .carousel-slide[data-slide="portal-clientes"] .hero-actions,
+    .carousel-slide[data-slide="vida-util"] .hero-actions,
+    .carousel-slide[data-slide="microbiologia-anual"] .hero-actions,
+    .carousel-slide[data-slide="biodegradabilidad"] .hero-actions {
+        align-items: center !important;
+        flex-direction: column !important;
+    }
+    
+    /* Ajustar botones específicos que pueden ser demasiado grandes */
+    .cta-btn.portal-primary,
+    .cta-btn.portal-secondary {
+        min-width: auto !important;
+        width: 100% !important;
+        max-width: 250px !important;
+        font-size: 0.9rem !important;
+        padding: 0.6rem 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+}
 
+/* Solución para mejorar la carga y rendimiento */
+@media (max-width: 768px) {
+    /* Optimizar transiciones para mejor rendimiento */
+    .carousel-slide {
+        transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out !important;
+    }
+    
+    /* Reducir complejidad de las sombras de texto */
+    .hero-title-servicios-centered,
+    .hero-title-portal-clientes,
+    .hero-title-certificacion,
+    .hero-title-equipo,
+    .hero-title-vida-util,
+    .hero-title-microbiologia,
+    .hero-title-biodegradabilidad {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important; /* Sombra más simple */
+    }
+    
+    /* Simplificar animaciones */
+    .hero-badge {
+        animation: none !important; /* Eliminar animaciones que puedan causar problemas */
+    }
+}
 
+/* Solución para orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-section {
+        height: 100vh !important; /* Altura completa */
+        min-height: 400px !important;
+    }
+    
+    .slide-content {
+        top: 50% !important;
+        max-width: 80% !important;
+    }
+    
+    /* Reducir tamaño de títulos en landscape */
+    .hero-title-servicios-centered,
+    .hero-title-portal-clientes,
+    .hero-title-certificacion,
+    .hero-title-equipo,
+    .hero-title-vida-util,
+    .hero-title-microbiologia,
+    .hero-title-biodegradabilidad {
+        font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Ajustar botones para landscape */
+    .hero-actions {
+        flex-direction: row !important; /* Horizontal en landscape */
+        justify-content: center !important;
+        gap: 0.5rem !important;
+    }
+    
+    .cta-btn {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Ocultar elementos menos importantes en landscape */
+    .slide-content p {
+        display: none !important; /* Ocultar párrafos en landscape */
+    }
+}
+
+/* Solución principal para el botón de descarga de portafolios */
+@media (max-width: 768px) {
+    .portfolio-download-link {
+        position: absolute;
+        bottom: 80px !important; /* Más espacio desde el borde inferior */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 6; /* Mantener por encima pero sin conflictos */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 var(--spacing-sm);
+        width: calc(100% - 40px); /* Ancho responsivo con márgenes */
+        max-width: 300px; /* Limitar ancho máximo */
+    }
+}
+
+/* Rediseño del botón para móviles */
+@media (max-width: 768px) {
+    .download-portfolio-btn {
+        display: inline-flex;
+        flex-direction: row !important; /* Cambiar a horizontal en móviles */
+        align-items: center;
+        gap: var(--spacing-xs);
+        background: rgba(35, 31, 32, 0.9) !important; /* Fondo más sólido */
+        color: #FFFFFF !important;
+        text-decoration: none;
+        padding: 0.6rem 1rem !important; /* Padding más compacto */
+        border-radius: var(--border-radius-lg);
+        backdrop-filter: blur(15px);
+        min-width: auto !important; /* Eliminar ancho mínimo fijo */
+        width: 100%;
+        max-width: 280px; /* Ancho máximo controlado */
+        text-align: center;
+        font-size: 0.9rem !important; /* Texto más pequeño */
+        line-height: 1.2;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Optimización del contenido para móviles */
+@media (max-width: 768px) {
+    .download-text {
+        font-size: 0.9rem !important; /* Más pequeño que el actual */
+        line-height: 1.2 !important;
+        margin-bottom: 0 !important; /* Eliminar margen inferior */
+        color: #FFFFFF !important;
+        font-weight: var(--font-weight-bold);
+        text-align: center;
+        margin-right: var(--spacing-xs); /* Espacio entre texto y flecha */
+    }
+    
+    .download-arrow {
+        font-size: 1rem !important; /* Flecha más pequeña */
+        animation: bounceArrow 2s ease-in-out infinite;
+        color: var(--accent-color) !important; /* Color distintivo */
+        margin-left: 0;
+    }
+}
+
+/* Para teléfonos con pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .portfolio-download-link {
+        bottom: 70px !important; /* Aún más espacio */
+        width: calc(100% - 20px); /* Aprovechar más el ancho */
+        max-width: 250px;
+    }
+    
+    .download-portfolio-btn {
+        padding: 0.5rem 0.8rem !important;
+        font-size: 0.8rem !important;
+        max-width: 230px;
+        min-height: 40px; /* Altura mínima para touch */
+    }
+    
+    .download-text {
+        font-size: 0.8rem !important;
+    }
+    
+    .download-arrow {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Ajustes para orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .portfolio-download-link {
+        bottom: 50px !important; /* Menos espacio en landscape */
+        max-width: 220px; /* Más compacto */
+    }
+    
+    .download-portfolio-btn {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem !important;
+        flex-direction: row !important;
+        gap: var(--spacing-xs);
+    }
+    
+    .download-text {
+        font-size: 0.7rem !important;
+        line-height: 1.1;
+    }
+}
+
+/* Asegurar que no interfiera con botones del carrusel */
+@media (max-width: 768px) {
+    /* Ajustar los botones CTA del carrusel para evitar solapamiento */
+    .hero-actions {
+        margin-bottom: 60px !important; /* Espacio adicional en la parte inferior */
+    }
+    
+    .cta-btn.portal-primary,
+    .cta-btn.portal-secondary {
+        margin-bottom: 0.8rem !important;
+    }
+    
+    /* Ajustar indicadores del carrusel */
+    .carousel-indicators {
+        bottom: 15px !important; /* Más separación del botón de descarga */
+    }
+    
+    /* Asegurar que los controles del carrusel no interfieran */
+    .carousel-btn {
+        z-index: 5; /* Menor que el botón de descarga */
+    }
+}
+
+@media (max-width: 768px) {
+    .cert-badges {
+        grid-template-columns: 1fr;
+    }
+    
+    .cert-badge:nth-child(1) {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-md);
+        min-height: auto;
+    }
+    
+    .cert-badge:nth-child(1) img {
+        margin-right: 0;
+        margin-bottom: var(--spacing-md);
+        height: 100px;
+    }
+    
+    .cert-badge:nth-child(1) .cert-content {
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .cert-badge:nth-child(1) span {
+        text-align: center;
+    }
+    
+    .cert-badge:nth-child(1) .download-link {
+        align-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .cert-badge:nth-child(1) {
+        padding: var(--spacing-sm);
+    }
+    
+    .cert-badge:nth-child(1) img {
+        height: 70px;
+    }
+    
+    .cert-badge:nth-child(1) span {
+        font-size: 0.85rem;
+    }
+    
+    .download-link {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+        min-width: 90px;
+    }
+}
 
