@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     enhanceCertBadges();
 });
 
+
+
 // Sistema de filtros para directorio
 function initializeFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
