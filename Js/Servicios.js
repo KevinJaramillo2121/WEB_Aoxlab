@@ -266,6 +266,7 @@ function toggleServiceDetails(button) {
     }
 }
 
+
 /**
  * NUEVA FUNCIÓN: Crea contenido expandido específico según el tipo de servicio
  * 
