@@ -272,6 +272,98 @@ window.addEventListener('scroll', function() {
         reglasSection.style.backgroundPosition = `center ${rate}px`;
     }
 });
+// JavaScript simplificado para el carrusel horizontal con CSS Scroll Snap
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos del DOM
+    const carousel = document.querySelector('.proceso-carousel-snap');
+    const cards = document.querySelectorAll('.proceso-card');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    // Variables de control
+    let currentIndex = 0;
+    
+    // Función para navegar al siguiente elemento
+    function navigateToNext() {
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+            scrollToCard(currentIndex);
+        }
+    }
+    
+    // Función para navegar al elemento anterior
+    function navigateToPrev() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            scrollToCard(currentIndex);
+        }
+    }
+    
+    // Función para desplazarse a una tarjeta específica
+    function scrollToCard(index) {
+        cards[index].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+        });
+        
+        // Actualizar indicadores
+        updateIndicators(index);
+    }
+    
+    // Función para actualizar los indicadores
+    function updateIndicators(index) {
+        indicators.forEach((indicator, i) => {
+            if (i === index) {
+                indicator.classList.add('active');
+            } else {
+                indicator.classList.remove('active');
+            }
+        });
+    }
+    
+    // Event listeners para los botones
+    prevBtn.addEventListener('click', navigateToPrev);
+    nextBtn.addEventListener('click', navigateToNext);
+    
+    // Event listeners para los indicadores
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', function(e) {
+            e.preventDefault();
+            currentIndex = index;
+            scrollToCard(index);
+        });
+    });
+    
+    // Detectar cuando el carrusel termina de desplazarse para actualizar el índice actual
+    let isScrolling;
+    carousel.addEventListener('scroll', function() {
+        window.clearTimeout(isScrolling);
+        
+        isScrolling = setTimeout(function() {
+            // Encontrar qué tarjeta está más centrada en la vista
+            const centerX = carousel.offsetLeft + carousel.offsetWidth / 2;
+            
+            let closestCard = null;
+            let closestDistance = Infinity;
+            
+            cards.forEach((card, index) => {
+                const cardCenterX = card.offsetLeft + card.offsetWidth / 2;
+                const distance = Math.abs(cardCenterX - centerX);
+                
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestCard = card;
+                    currentIndex = index;
+                }
+            });
+            
+            // Actualizar indicadores
+            updateIndicators(currentIndex);
+        }, 100);
+    });
+});
 
 // Funcionalidad para las tabs de políticas
 document.addEventListener('DOMContentLoaded', function() {
