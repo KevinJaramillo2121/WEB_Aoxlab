@@ -24,39 +24,117 @@
  * 
  * @param {HTMLElement} button - El botón que activó la expansión
  */
+/**
+ * Función mejorada para manejar la expansión de texto
+ * Expande tanto el contenido expandido como la descripción básica
+ */
 function toggleServiceDetails(button) {
-    console.log('toggleServiceDetails llamada correctamente - Versión 2.1'); // Debug
+    console.log('toggleServiceDetails llamada - Versión con texto truncado');
     
-    // Encontrar la tarjeta contenedora del botón
     const card = button.closest('.service-card-v2');
     if (!card) {
         console.error('No se pudo encontrar la tarjeta contenedora');
         return;
     }
     
-    // Verificar que es la tarjeta microbiológica (seguridad adicional)
-    if (card.getAttribute('data-category') !== 'microbiologicos') {
-        console.warn('Expansión solo disponible para servicios microbiológicos');
-        return;
-    }
-    
     const expandedContent = card.querySelector('.service-expanded-content');
+    const basicDescription = card.querySelector('.service-description-v2');
+    
     if (!expandedContent) {
         console.error('Contenido expandido no encontrado');
-        // Si no existe, lo creamos dinámicamente
-        createExpandedContent(card);
         return;
     }
     
     const isExpanded = expandedContent.classList.contains('expanded');
     
-    // Siempre cerrar otras tarjetas expandidas primero
+    // Cerrar otras tarjetas expandidas
     closeAllExpandedCards();
     
-    // Si no estaba expandida, expandirla ahora
+    // Si no estaba expandida, expandirla
     if (!isExpanded) {
-        expandServiceCard(card, expandedContent, button);
+        expandServiceCard(card, expandedContent, button, basicDescription);
     }
+}
+
+/**
+ * Función mejorada para expandir tarjetas
+ * Incluye expansión del texto básico truncado
+ */
+function expandServiceCard(card, expandedContent, button, basicDescription) {
+    console.log('Expandiendo tarjeta con texto completo');
+    
+    // Expandir la descripción básica
+    if (basicDescription) {
+        basicDescription.classList.add('expanded');
+    }
+    
+    // Mostrar contenido expandido
+    expandedContent.style.display = 'block';
+    expandedContent.style.opacity = '0';
+    expandedContent.style.maxHeight = '0';
+    
+    // Aplicar clases de expansión
+    card.classList.add('expanded');
+    expandedContent.classList.add('expanded');
+    button.classList.add('expanded');
+    
+    // Actualizar botón
+    updateExpandButton(button, true);
+    
+    // Animar expansión
+    setTimeout(() => {
+        expandedContent.style.maxHeight = '3000px';
+        expandedContent.style.opacity = '1';
+        expandedContent.style.transition = 'max-height 0.8s ease, opacity 0.5s ease 0.2s';
+    }, 50);
+    
+    // Scroll suave
+    setTimeout(() => {
+        const headerHeight = document.querySelector('.main-header')?.offsetHeight || 80;
+        const targetPosition = card.offsetTop - headerHeight;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }, 500);
+}
+
+/**
+ * Función mejorada para cerrar tarjetas expandidas
+ * Incluye colapso del texto básico
+ */
+function closeAllExpandedCards() {
+    const expandedCards = document.querySelectorAll('.service-card-v2.expanded');
+    
+    expandedCards.forEach(card => {
+        const expandedContent = card.querySelector('.service-expanded-content');
+        const button = card.querySelector('.btn-expand-details');
+        const basicDescription = card.querySelector('.service-description-v2');
+        
+        if (expandedContent && button) {
+            // Colapsar descripción básica
+            if (basicDescription) {
+                basicDescription.classList.remove('expanded');
+            }
+            
+            // Animar cierre
+            expandedContent.style.maxHeight = '0';
+            expandedContent.style.opacity = '0';
+            expandedContent.style.transition = 'max-height 0.5s ease, opacity 0.3s ease';
+            
+            // Remover clases después de animación
+            setTimeout(() => {
+                card.classList.remove('expanded');
+                expandedContent.classList.remove('expanded');
+                button.classList.remove('expanded');
+                expandedContent.style.display = 'none';
+            }, 500);
+            
+            // Restaurar botón
+            updateExpandButton(button, false);
+        }
+    });
 }
 
 

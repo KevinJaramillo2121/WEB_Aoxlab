@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const icon = this.querySelector('.resp-icon');
             icon.style.transform = 'rotate(0deg) scale(1)';
         });
-    });
+    }); 
     
     // Animación de consecuencias
     const consecuenciaItems = document.querySelectorAll('.consecuencia-item');

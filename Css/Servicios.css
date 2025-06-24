@@ -209,14 +209,14 @@
 /* Posicionamiento y colores específicos para cada hexágono - 7 sectores */
 /* ===== HEXÁGONOS CON ANIMACIÓN ALEATORIA ===== */
 
-/* Hexágono de Alimentación humana */
+/* Hexágono de Cosméticos (ahora en posición 1) */
 .hexagon-item:nth-child(1) {
     /* MANTENER POSICIONAMIENTO EXACTO */
     top: 52%; right: -23%;
     grid-column: 2; grid-row: 1;
     
-    /* Gradiente base */
-    background: linear-gradient(135deg, #66C0E7, #4FB3D9);
+    /* NUEVO gradiente para Cosméticos */
+    background: linear-gradient(135deg, #F37628, #E06B2E);
     color: var(--white);
     
     /* Animaciones combinadas con timing aleatorio */
@@ -226,22 +226,21 @@
         color-pulse 8s ease-in-out infinite 1s,
         border-shine 3s ease-in-out infinite 0.5s;
     
-    /* Sombra base personalizada */
-    box-shadow: 0 0 15px rgba(102, 192, 231, 0.4);
+    /* NUEVA sombra personalizada para Cosméticos */
+    box-shadow: 0 0 15px rgba(224, 107, 46, 0.4);
     border: 3px solid rgba(255, 255, 255, 0.3);
     
-    /* Transiciones suaves */
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hexágono de Alimentación animal */
+/* Hexágono de Calidad del Aire (ahora en posición 2) */
 .hexagon-item:nth-child(2) {
     /* MANTENER POSICIONAMIENTO EXACTO */
     top: 90%; right: 90%;
     grid-column: 3; grid-row: 2;
     
-    /* Gradiente base */
-    background: linear-gradient(135deg, #4FB3D9, #2BA1D4);
+    /* NUEVO gradiente para Calidad del Aire */
+    background: linear-gradient(135deg, #2BA1D4, #1E8BC3);
     color: var(--white);
     
     /* Animaciones con timing diferente */
@@ -251,18 +250,19 @@
         color-pulse 9s ease-in-out infinite 2.2s,
         border-shine 3.5s ease-in-out infinite 1.8s;
     
-    box-shadow: 0 0 15px rgba(79, 179, 217, 0.4);
+    /* NUEVA sombra para Calidad del Aire */
+    box-shadow: 0 0 15px rgba(43, 161, 212, 0.4);
     border: 3px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hexágono de Cannabis medicinal */
+/* Hexágono de Cannabis medicinal (sin cambio de color - posición 3) */
 .hexagon-item:nth-child(3) {
     /* MANTENER POSICIONAMIENTO EXACTO */
     top: 15%; right: -85%;
     grid-column: 1; grid-row: 2;
     
-    /* Gradiente base */
+    /* Gradiente mantiene el mismo (Cannabis) */
     background: linear-gradient(135deg, #F39C5A, #F37628);
     color: var(--white);
     
@@ -278,13 +278,13 @@
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hexágono de Cosméticos */
+/* Hexágono de Alimentación Humana (ahora en posición 4) */
 .hexagon-item:nth-child(4) {
     /* MANTENER POSICIONAMIENTO EXACTO */
     top: 52%; right: -35%;
     
-    /* Gradiente base */
-    background: linear-gradient(135deg, #F37628, #E06B2E);
+    /* NUEVO gradiente para Alimentación Humana */
+    background: linear-gradient(135deg, #66C0E7, #4FB3D9);
     color: var(--white);
     
     /* Animaciones escalonadas */
@@ -294,17 +294,18 @@
         color-pulse 11s ease-in-out infinite 4.6s,
         border-shine 3.2s ease-in-out infinite 3.9s;
     
-    box-shadow: 0 0 15px rgba(224, 107, 46, 0.4);
+    /* NUEVA sombra para Alimentación Humana */
+    box-shadow: 0 0 15px rgba(102, 192, 231, 0.4);
     border: 3px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hexágono de Farmacéutica */
+/* Hexágono de Farmacéutica (sin cambio de color - posición 5) */
 .hexagon-item:nth-child(5) {
     /* MANTENER POSICIONAMIENTO EXACTO */
     bottom: -128%; left: -40%;
     
-    /* Gradiente base */
+    /* Gradiente mantiene el mismo (Farmacéutica) */
     background: linear-gradient(135deg, #66C0E7, #4FB3D9);
     color: var(--white);
     
@@ -320,13 +321,13 @@
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hexágono de Calidad del aire */
+/* Hexágono de Alimentación Animal (ahora en posición 6) */
 .hexagon-item:nth-child(6) {
     /* MANTENER POSICIONAMIENTO EXACTO */
     top: 15%; right: 128%;
     
-    /* Gradiente base */
-    background: linear-gradient(135deg, #2BA1D4, #1E8BC3);
+    /* NUEVO gradiente para Alimentación Animal */
+    background: linear-gradient(135deg, #4FB3D9, #2BA1D4);
     color: var(--white);
     
     /* Animaciones con timing extendido */
@@ -336,17 +337,18 @@
         color-pulse 13s ease-in-out infinite 7s,
         border-shine 4.5s ease-in-out infinite 6.3s;
     
-    box-shadow: 0 0 15px rgba(43, 161, 212, 0.4);
+    /* NUEVA sombra para Alimentación Animal */
+    box-shadow: 0 0 15px rgba(79, 179, 217, 0.4);
     border: 3px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Hexágono de Ambiental */
+/* Hexágono de Ambiental (sin cambio de color - posición 7) */
 .hexagon-item:nth-child(7) {
     /* MANTENER POSICIONAMIENTO EXACTO */
     bottom: 22%; right: -34%;
     
-    /* Gradiente base */
+    /* Gradiente mantiene el mismo (Ambiental) */
     background: linear-gradient(135deg, #228B22, #32CD32);
     color: var(--white);
     
@@ -360,6 +362,156 @@
     box-shadow: 0 0 15px rgba(50, 205, 50, 0.4);
     border: 3px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== ESTILOS PARA MENÚ COMPACTO DE DOS COLUMNAS ===== */
+
+/* Elemento destacado para uniformidad visual */
+.dropdown-item.highlighted-item {
+    background: rgba(43, 161, 212, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item.highlighted-item:hover {
+    background: rgba(43, 161, 212, 0.1);
+}
+
+/* Contenedor principal del dropdown con espaciado reducido */
+.dropdown-container {
+    padding: 8px 0; /* Reducido de padding original */
+    gap: 4px; /* Espaciado mínimo entre elementos */
+}
+
+/* Elementos del dropdown principal con espaciado compacto */
+.dropdown-item {
+    margin-bottom: 4px; /* Reducido significativamente */
+    padding: 6px 12px; /* Padding compacto */
+}
+
+/* Enlaces del dropdown con altura reducida */
+.dropdown-link {
+    padding: 8px 12px; /* Reducido para mayor compacidad */
+    min-height: auto;
+    line-height: 1.2;
+}
+
+/* Títulos compactos */
+.dropdown-title {
+    font-size: 14px;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* ===== SUBMENU COMPACTO DE DOS COLUMNAS ===== */
+.compact-submenu {
+    width: 380px; /* Ancho optimizado para dos columnas */
+    max-height: 400px; /* Altura controlada para evitar scroll */
+    overflow: visible;
+    padding: 12px;
+}
+
+/* Header del submenu compacto */
+.compact-submenu .submenu-header {
+    margin-bottom: 6px; /* Reducido */
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(43, 161, 212, 0.2);
+}
+
+.compact-submenu .submenu-header h4 {
+    font-size: 16px;
+    margin-bottom: 2px; /* Muy reducido */
+    line-height: 1.2;
+}
+
+.compact-submenu .submenu-header p {
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* Grid de dos columnas optimizado */
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+/* Columnas individuales */
+.submenu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 3px; /* Espaciado mínimo entre elementos */
+}
+
+/* Items del submenu compactos */
+.submenu-item.compact {
+    padding: 6px 8px; /* Padding muy reducido */
+    margin-bottom: 2px; /* Espaciado mínimo */
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submenu-item.compact:hover {
+    background: rgba(43, 161, 212, 0.08);
+    transform: translateX(2px);
+}
+
+/* Iconos compactos */
+.submenu-item.compact i {
+    font-size: 14px;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Contenido de texto compacto */
+.submenu-item.compact .submenu-content {
+    flex: 1;
+}
+
+.submenu-item.compact h5 {
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+/* ===== RESPONSIVE PARA DISPOSITIVOS MÓVILES ===== */
+@media (max-width: 768px) {
+    .compact-submenu {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .submenu-item.compact {
+        padding: 8px 10px;
+    }
+}
+
+/* ===== OPTIMIZACIÓN DE ALTURA PARA EVITAR SCROLL ===== */
+.services-dropdown {
+    max-height: 500px; /* Altura controlada */
+    overflow: visible;
+}
+
+/* Reducir espaciado en todos los elementos del dropdown */
+.dropdown-menu {
+    padding: 6px 0; /* Padding reducido */
+}
+
+.dropdown-item + .dropdown-item {
+    margin-top: 2px; /* Espaciado mínimo entre elementos principales */
 }
 
 /* Efectos hover suaves que no interfieren con las animaciones */
@@ -630,10 +782,13 @@
     background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
 }
 
+/* Contenedor principal del grid - permitir expansión */
 .services-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: var(--spacing-xl);
+    /* Permitir que las tarjetas expandidas rompan el grid */
+    grid-auto-flow: row dense;
 }
 
 .service-card {
@@ -795,7 +950,8 @@
     transform: translateY(-2px);
 }
 
-/* ===== 4. GRID DE SERVICIOS V2 - NUEVA IMPLEMENTACIÓN ===== */
+
+/* Tarjeta en estado normal */
 .service-card-v2 {
     background: var(--white);
     border-radius: 16px;
@@ -804,9 +960,13 @@
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     border: 1px solid rgba(43, 161, 212, 0.1);
-    min-height: 520px;
+    min-height: 420px;
     display: flex;
     flex-direction: column;
+    
+    /* Grid positioning normal */
+    grid-column: span 1;
+    grid-row: span 1;
 }
 
 .service-card-v2:hover {
@@ -821,6 +981,23 @@
     color: var(--white);
     position: relative;
     overflow: hidden;
+    
+    /* ALTURA FIJA PARA EL HEADER */
+    min-height: 140px;
+    max-height: 140px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Contenido básico con altura controlada */
+.service-basic-content {
+    /* ALTURA CONTROLADA PARA CONTENIDO BÁSICO */
+    min-height: 180px;
+    max-height: 180px;
+    overflow: hidden;
+    position: relative;
 }
 
 .service-card-header::before {
@@ -862,18 +1039,64 @@
     line-height: 1.3;
 }
 
+/* Contenedor de contenido con distribución uniforme */
 .service-content-v2 {
     padding: var(--spacing-lg);
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    
+    /* ALTURA CONTROLADA */
+    min-height: 280px;
+    max-height: 280px;
 }
 
+/* Descripción con texto truncado */
 .service-description-v2 {
     color: var(--medium-gray);
     font-size: 1.3rem;
     line-height: 1.6;
     margin-bottom: var(--spacing-md);
+    
+    /* TRUNCADO INICIAL con line-clamp */
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    /* Altura fija para descripción truncada */
+    max-height: 140px;
+    min-height: 140px;
+}
+
+/* Estado expandido de la descripción */
+.service-description-v2.expanded {
+    display: block;
+    -webkit-line-clamp: none;
+    max-height: none;
+    min-height: auto;
+    overflow: visible;
+}
+
+/* ESTADO EXPANDIDO - Eliminar completamente el truncado */
+.service-card-v2.expanded .service-description-v2,
+.service-description-v2.expanded {
+    /* Desactivar completamente line-clamp */
+    display: block !important;
+    -webkit-line-clamp: none !important;
+    -webkit-box-orient: initial !important;
+    
+    /* Remover restricciones de altura y overflow */
+    max-height: none !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    text-overflow: initial !important;
+    
+    /* Permitir que el texto fluya naturalmente */
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 .service-features-v2 {
@@ -939,10 +1162,20 @@
     margin-top: 2px;
 }
 
+/* Sección de acciones con altura fija */
 .service-action-v2 {
     padding: var(--spacing-md) var(--spacing-lg);
     margin-top: auto;
-}
+    
+    /* ALTURA FIJA PARA BOTONES */
+    min-height: 130px;
+    max-height: 130px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-sm);
+} 
 
 .btn-contact-v2 {
     width: 100%;
@@ -1046,6 +1279,7 @@
 .techniques-list {
     list-style: none;
     padding: 0;
+    
 }
 
 .techniques-list li {
@@ -1054,12 +1288,12 @@
     gap: var(--spacing-sm);
     padding: var(--spacing-xs) 0;
     color: var(--primary-color);
-    font-size: 1.5rem; 
+    font-size: 1rem; 
 }
 
 .techniques-list li::before {
-    content: "⚗️";
-    font-size: 1.3rem;
+    content: "-";
+    font-size: 1.2rem;
     margin-top: 2px;
 }
 
@@ -1164,12 +1398,56 @@
 }
 
 /* Ajustes especiales para tarjeta expandida */
+/* Ajustes para tarjetas expandidas */
+/* Tarjeta expandida - ocupar múltiples columnas y filas */
 .service-card-v2.expanded {
-    grid-column: 1 / -1;
-    max-width: none;
-    transform: translateY(0) scale(1);
+    /* Expansión horizontal: ocupar 2-3 columnas según disponibilidad */
+    grid-column: 1 / -1; /* Ocupar todas las columnas disponibles */
+    
+    /* Expansión vertical automática según contenido */
+    grid-row: span auto;
+    
+    /* Altura automática para acomodar todo el contenido */
+    min-height: auto;
+    max-height: none;
+    
+    /* Efectos visuales mejorados */
+    box-shadow: 0 20px 60px rgba(43, 161, 212, 0.2);
+    border-color: var(--secondary-color);
+    z-index: 10;
+    
+    /* Transición suave */
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.service-card-v2.expanded .service-content-v2 {
+    max-height: none;
+    min-height: auto;
 }
 
+.service-card-v2.expanded .service-basic-content {
+    max-height: none !important;
+    min-height: auto !important;
+    overflow: visible !important;
+}
+
+/* Indicador visual de texto truncado */
+.service-basic-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: linear-gradient(transparent, var(--white));
+    pointer-events: none;
+}
+.service-card-v2.expanded .service-description-v2 {
+    max-height: none;
+    min-height: auto;
+}
+.service-card-v2.expanded .service-basic-content::after {
+    display: none;
+}
 .service-card-v2.expanded:hover {
     transform: translateY(0) scale(1);
 }
@@ -1422,6 +1700,183 @@
     gap: var(--spacing-md);
     justify-content: center;
     flex-wrap: wrap;
+}
+/* ===== Sección Metodología ===== */
+.metodologia-section {
+    padding: var(--spacing-xxl) 0;
+    background: var(--white);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-header h2 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+.section-header p {
+    color: var(--medium-gray);
+    font-size: 1.6rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.metodologia-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.step-item {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    box-shadow: 0 8px 30px var(--shadow-light);
+    transition: all var(--transition-medium);
+    position: relative;
+}
+
+.step-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 45px var(--shadow-medium);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    margin: 0 auto var(--spacing-md);
+}
+
+.step-content h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+.step-content p {
+    color: var(--medium-gray);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    font-size: 1.4rem;
+}
+
+.step-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    transition: all var(--transition-medium);
+    font-size: 1.4rem;
+}
+
+.step-link:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.step-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    .metodologia-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-item {
+        padding: var(--spacing-lg);
+    }
+    
+    .section-header h2 {
+        font-size: 2.8rem;
+    }
+    
+    .section-header p {
+        font-size: 1.4rem;
+    }
+}
+
+
+/* Estilo para la conclusión tecnológica */
+.tech-conclusion {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.tech-conclusion:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.conclusion-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+.tech-conclusion p {
+    color: var(--white);
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin: 0;
+    max-width: 800px;
+}
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+    .tech-conclusion {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+    
+    .conclusion-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .tech-conclusion p {
+        font-size: 1rem;
+    }
 }
 
 /* ===== 10. ANIMACIONES DE FILTROS ===== */
