@@ -380,7 +380,7 @@
 }
 .trabajo-hero {
     position: relative; /* Asegúrate de que no sea fixed */
-    height: 80vh; /* O la altura que necesites */
+    height: 70vh; /* O la altura que necesites */
     overflow: hidden;
 }
 
