@@ -29,16 +29,162 @@
                 </div>
 
                 <!-- Navegación Principal -->
+                <!-- Navegación Principal con Menú Desplegable -->
                 <nav class="main-nav" aria-label="Navegación principal">
                     <ul class="nav-list">
-                        <li><a href="index.html" class="nav-link">INICIO</a></li>
-                        <li><a href="Somos.html" class="nav-link">SOMOS</a></li>
-                        <li><a href="Servicios.html" class="nav-link">SERVICIOS</a></li>
-                        <li><a href="Certifcaciones.html" class="nav-link">CERTIFICACIONES</a></li>
-                        <li><a href="Sectores.html" class="nav-link">SECTORES</a></li>
-                        <li><a href="cliente.html" class="nav-link">CLIENTES</a></li>
-                        <li><a href="Contacto.html" class="nav-link">CONTACTO</a></li>
-                        <li><a href="Trabajo.html" class="nav-link active">TRABAJA CON NOSOTROS</a></li>
+                        <li><a href="./index.html" class="nav-link">INICIO</a></li>
+                        <li><a href="./Somos.html" class="nav-link">SOMOS</a></li>
+                        
+                        <!-- SERVICIOS con menú desplegable -->
+                        <li class="nav-item-dropdown">
+                            <a href="./Servicios.html" class="nav-link dropdown-trigger"     alt="Laboratorio AOXLAB especializado en análisis microbiológicos, fisicoquímicos y cannabinoides en Medellín Colombia">
+                                SERVICIOS
+                                <i class="fas fa-chevron-downN dropdown-icon"></i>
+                            </a>
+                            
+                                <!-- Menú principal de servicios -->
+                                <div class="dropdown-menu services-dropdown">
+                                    <div class="dropdown-container">
+                                        
+                                        <!-- Laboratorio con submenu - AHORA SOMBREADO -->
+                                        <div class="dropdown-item has-submenu highlighted-item">
+                                            <a href="./Servicios.html#laboratorio" class="dropdown-link">
+                                                <i class="fas fa-microscope"></i>
+                                                <span>Laboratorio</span>
+                                                <i class="fas fa-chevron-right submenu-icon"></i>
+                                            </a>
+                                            
+                                            <!-- Submenu de Laboratorio con diseño de dos columnas -->
+                                            <div class="submenu-dropdown compact-submenu">
+                                                <div class="submenu-header">
+                                                    <h4>Servicios de Laboratorio</h4>
+                                                    <p>Análisis especializados con tecnología de punta</p>
+                                                </div>
+                                                
+                                                <div class="submenu-grid two-column-layout">
+                                                    <!-- COLUMNA IZQUIERDA -->
+                                                    <div class="submenu-column left-column">
+                                                        <a href="./Servicios.html#microbiologicos" class="submenu-item compact">
+                                                            <i class="fas fa-bacteria"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Microbiológicos</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#fisicoquimicos" class="submenu-item compact">
+                                                            <i class="fas fa-flask"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Fisicoquímicos</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#nutricionales" class="submenu-item compact">
+                                                            <i class="fas fa-apple-alt"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Nutricionales</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#alergenos" class="submenu-item compact">
+                                                            <i class="fas fa-shield-alt"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Alérgenos</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#micotoxinas" class="submenu-item compact">
+                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Micotoxinas</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#plaguicidas" class="submenu-item compact">
+                                                            <i class="fas fa-seedling"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Residualidad (LMRs)</h5>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    
+                                                    <!-- COLUMNA DERECHA -->
+                                                    <div class="submenu-column right-column">
+                                                        <a href="./Servicios.html#Metales" class="submenu-item compact">
+                                                            <i class="fas fa-atom"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Metales Pesados</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#Contaminantes" class="submenu-item compact">
+                                                            <i class="fas fa-biohazard"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Contaminantes</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#terpenos" class="submenu-item compact">
+                                                            <i class="fas fa-cannabis"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Cannabinoides y Terpenos</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#vidautil" class="submenu-item compact">
+                                                            <i class="fas fa-chart-line"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Vida Útil y Estabilidad</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#biodegradabilidad" class="submenu-item compact">
+                                                            <i class="fas fa-leaf"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Biodegradabilidad</h5>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Certificación de Producto -->
+                                        <div class="dropdown-item highlighted-item">
+                                            <a href="./Certificaciones.html#producto" class="dropdown-link">
+                                                <i class="fas fa-certificate"></i>
+                                                <div class="dropdown-content">
+                                                    <span class="dropdown-title">Certificación de Producto</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- Capacitación -->
+                                        <div class="dropdown-item highlighted-item">
+                                            <a href="./Capacitacion.html" class="dropdown-link">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <div class="dropdown-content">
+                                                    <span class="dropdown-title">Capacitación</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- Investigación y Desarrollo -->
+                                        <div class="dropdown-item highlighted-item">
+                                            <a href="./Investigacion.html" class="dropdown-link">
+                                                <i class="fas fa-lightbulb"></i>
+                                                <div class="dropdown-content">
+                                                    <span class="dropdown-title">Investigación y Desarrollo</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        
+                        <li><a href="./Certifcaciones.html" class="nav-link">CERTIFICACIÓN</a></li>
+                        <li><a href="./Trabajo.html" class="nav-link active">TRABAJA CON NOSOTROS</a></li>
+                        <a href="./portal-clientes.html" class="header-cta-btn portal-btn"><i class="fas fa-user-circle"></i>Portal Clientes</a>
+                        <a href="./Contacto.html" class="header-cta-btn contact-btn"><i class="fas fa-envelope"></i>Contáctanos</a>
                     </ul>
                 </nav>
 
@@ -76,7 +222,7 @@
         <section class="hero-section trabajo-hero">
             <div class="hero-carousel">
                 <div class="carousel-slide active">
-                    <img src="img/trabajoavif.avif" alt="Equipo de AOXLAB trabajando" loading="eager">
+                    <img src="img/Trabaja con nostros.jpg" alt="Equipo de AOXLAB trabajando" loading="eager">
                     <div class="slide-content">
                         <h1>Transforma tu pasión por la ciencia en carrera profesional</h1>
                         <p>Únete al laboratorio líder en análisis y certificación de calidad</p>
@@ -274,67 +420,58 @@
                 </div>
             </div>
         </section>
-
-        <!-- Testimonios -->
-        <section class="testimonios-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Testimonios de Nuestro Equipo</h2>
-                    <p>Conoce la experiencia de quienes ya forman parte de AOXLAB</p>
-                </div>
-                
-                <div class="testimonios-grid">
-                    <article class="testimonio-card" data-aos="fade-up">
-                        <div class="testimonio-header">
-                            <img src="img/Dario_pardo.jpg" alt="Ana María Pérez">
-                            <div class="testimonio-info">
-                                <h3>Ana María Pérez</h3>
-                                <span>Analista Químico Senior</span>
-                            </div>
-                        </div>
-                        <div class="testimonio-body">
-                            <p>"En AOXLAB he encontrado un ambiente que fomenta la investigación y el crecimiento profesional. La inversión en tecnología de vanguardia nos permite entregar resultados confiables a nuestros clientes."</p>
-                        </div>
-                    </article>
-                    
-                    <article class="testimonio-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="testimonio-header">
-                            <img src="img/Dario_pardo.jpg" alt="Carlos Andrés Gómez">
-                            <div class="testimonio-info">
-                                <h3>Carlos Andrés Gómez</h3>
-                                <span>Coordinador de Calidad</span>
-                            </div>
-                        </div>
-                        <div class="testimonio-body">
-                            <p>"Lo que más valoro es el compromiso con la excelencia y las oportunidades de capacitación continua. Trabajar aquí ha sido clave para mi desarrollo profesional en el ámbito de certificaciones."</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- Footer idéntico al inicio -->
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section company-info">
-                    <img src="img/LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
+                    <img src="./img/LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
                     <p>Más que un laboratorio: un aliado en tu camino hacia la calidad.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/aoxlab_sas/?hl=es-la"target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone"></i> (+57) 604 7454</p>
-                        <p><i class="fas fa-envelope"></i> comercial@aoxlab.com</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Colombia</p>
+                <!-- Sección de Contacto Principal - Medellín -->
+                <div class="footer-section contact-main"><!--Números de contacto actualizados hasta 2025/06/12-->
+                    <h4>Sede Principal - Medellín</h4>
+                    <div class="contact-info-main">
+                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Antioquia</p>
+                        <p><i class="fas fa-phone"></i> (604) 604-7454</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 287 4329</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 833 8768</p>
+                        <p><i class="fas fa-envelope"></i> direccioncomercial@aoxlab.com</p>
+                    </div>
+                </div>
+                
+                <!-- Sección de Otras Ciudades -->
+                <div class="footer-section contact-cities">
+                    <h4>Otras Ciudades</h4>
+                    <div class="cities-grid">
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Bogotá</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 383 0543
+                            </p>
+                        </div>
+                        
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Cali</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 206 5380
+                            </p>
+                        </div>
                     </div>
                 </div>
                 
@@ -360,20 +497,95 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Con Rigor, Eficiente y Flexible.</p>
+                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Ágil, Eficiente y Flexible.</p>
             </div>
         </div>
     </footer>
 
     <!-- Botones Flotantes - Idénticos al inicio -->
     <!-- WhatsApp Flotante -->
-    <a href="https://wa.me/573007199046"  
-        class="whatsapp-float" 
-        target="_blank" 
-        aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span class="tooltip">¿Necesitas ayuda?</span>
-    </a>
+        <a href="#" class="whatsapp-float" 
+            id="whatsapp-float-btn"
+            aria-label="Contactar por WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+                <span class="tooltip">¿Necesitas ayuda?</span>
+        </a>
+
+        <!-- Modal de WhatsApp -->
+    <div class="whatsapp-modal" id="whatsapp-modal">
+        <div class="whatsapp-modal-content">
+            <div class="whatsapp-header">
+                <div class="whatsapp-logo">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>Contáctanos por WhatsApp</h3>
+                <p>Selecciona tu ciudad más cercana</p>
+                <button class="whatsapp-close" id="whatsapp-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="whatsapp-contacts">
+                <!-- Medellín - Sede Principal -->
+                <a href="https://wa.me/573102874329?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Medellín" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="medellin">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Medellín</h4>
+                        <span class="contact-label">Sede Principal</span>
+                        <span class="contact-number">+57 310 287 4329</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+                
+                <!-- Bogotá -->
+                <a href="https://wa.me/573103830543?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Bogotá" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="bogota">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Bogotá</h4>
+                        <span class="contact-label">Punto de Atención</span>
+                        <span class="contact-number">+57 310 383 0543</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+                
+                <!-- Cali -->
+                <a href="https://wa.me/573102065380?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Cali" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="cali">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Cali</h4>
+                        <span class="contact-label">Punto de Atención</span>
+                        <span class="contact-number">+57 310 206 5380</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="whatsapp-footer">
+                <p>Horario de atención: Lun - Vie 8:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Botón Scroll to Top -->
     <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
