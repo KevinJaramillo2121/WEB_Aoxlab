@@ -785,10 +785,15 @@
 /* Contenedor principal del grid - permitir expansión */
 .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: var(--spacing-xl);
-    /* Permitir que las tarjetas expandidas rompan el grid */
+    /* CAMBIO PRINCIPAL: Forzar exactamente 3 columnas */
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg); /* Reducir gap para mejor aprovechamiento */
+    
+    /* Mantener comportamiento de expansión */
     grid-auto-flow: row dense;
+    
+    /* Padding del contenedor */
+    padding: 0 var(--spacing-md);
 }
 
 .service-card {
@@ -952,6 +957,7 @@
 
 
 /* Tarjeta en estado normal */
+/* ===== AJUSTE DE TARJETAS PARA 3 COLUMNAS ===== */
 .service-card-v2 {
     background: var(--white);
     border-radius: 16px;
@@ -960,7 +966,11 @@
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     border: 1px solid rgba(43, 161, 212, 0.1);
-    min-height: 420px;
+    
+    /* NUEVAS DIMENSIONES PARA 3 COLUMNAS */
+    min-height: 450px; /* Reducir altura mínima */
+    max-width: 100%; /* Permitir uso completo del ancho disponible */
+    
     display: flex;
     flex-direction: column;
     
@@ -969,33 +979,38 @@
     grid-row: span 1;
 }
 
+
 .service-card-v2:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 40px rgba(43, 161, 212, 0.15);
     border-color: var(--secondary-color);
 }
 
+/* ===== OPTIMIZACIÓN DE CONTENIDO PARA 3 COLUMNAS ===== */
+
+/* Header más compacto */
 .service-card-header {
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md); /* Reducir padding */
     color: var(--white);
     position: relative;
     overflow: hidden;
     
-    /* ALTURA FIJA PARA EL HEADER */
-    min-height: 140px;
-    max-height: 140px;
+    /* Altura reducida para 3 columnas */
+    min-height: 160px;
+    max-height: 200px;
     
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+
 /* Contenido básico con altura controlada */
 .service-basic-content {
     /* ALTURA CONTROLADA PARA CONTENIDO BÁSICO */
-    min-height: 180px;
-    max-height: 180px;
+    min-height: 200px;
+    max-height: 200px;
     overflow: hidden;
     position: relative;
 }
@@ -1041,36 +1056,58 @@
 
 /* Contenedor de contenido con distribución uniforme */
 .service-content-v2 {
-    padding: var(--spacing-lg);
+    padding: var(--spacing-md); /* Reducir padding */
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     
-    /* ALTURA CONTROLADA */
-    min-height: 280px;
-    max-height: 280px;
+    min-height: 240px; /* Reducir altura */
+    max-height: 240px;
 }
-
 /* Descripción con texto truncado */
 .service-description-v2 {
     color: var(--medium-gray);
-    font-size: 1.3rem;
-    line-height: 1.6;
-    margin-bottom: var(--spacing-md);
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-sm);
     
-    /* TRUNCADO INICIAL con line-clamp */
+    /* NUEVA JUSTIFICACIÓN */
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-break: break-word;
+    
+    /* Sistema de truncado ajustado */
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 6; /* Aumentar para mostrar frases completas */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     
-    /* Altura fija para descripción truncada */
-    max-height: 140px;
-    min-height: 140px;
+    max-height: 168px; /* Altura ajustada para 7 líneas */
+    min-height: 168px;
+
+    word-spacing: 0.015em; /*Espacio entre lienas */
+    letter-spacing: 0.015em;
 }
 
+/* Contenido expandido también justificado */
+.service-expanded-content p,
+.expanded-section p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    line-height: 1.6;
+}
+
+/* Listas dentro del contenido expandido */
+.service-features-v2 li,
+.techniques-list li {
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.5;
+}
 /* Estado expandido de la descripción */
 .service-description-v2.expanded {
     display: block;
@@ -1162,20 +1199,20 @@
     margin-top: 2px;
 }
 
-/* Sección de acciones con altura fija */
+
+/* Sección de acciones compacta */
 .service-action-v2 {
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
     margin-top: auto;
     
-    /* ALTURA FIJA PARA BOTONES */
-    min-height: 130px;
-    max-height: 130px;
+    min-height: 110px; /* Reducir altura */
+    max-height: 110px;
     
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: var(--spacing-sm);
-} 
+    gap: var(--spacing-xs);
+}
 
 .btn-contact-v2 {
     width: 100%;
@@ -1281,7 +1318,7 @@
     padding: 0;
     
 }
-
+  
 .techniques-list li {
     display: flex;
     align-items: flex-start;

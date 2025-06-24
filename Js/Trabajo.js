@@ -10,7 +10,7 @@ class AoxlabTrabajo extends AoxlabWebsite {
         this.initVacanteButtons();
         this.initFileUpload();
     }
-    
+     
     initAplicacionForm() {
         const form = document.getElementById('formTrabajo');
         if (!form) return;

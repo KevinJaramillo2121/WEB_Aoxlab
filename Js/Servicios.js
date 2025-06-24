@@ -27,7 +27,7 @@
 /**
  * Función mejorada para manejar la expansión de texto
  * Expande tanto el contenido expandido como la descripción básica
- */
+ */ 
 function toggleServiceDetails(button) {
     console.log('toggleServiceDetails llamada - Versión con texto truncado');
     
