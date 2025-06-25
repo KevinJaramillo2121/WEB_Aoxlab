@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I+D+i - Investigación, Desarrollo e Innovación | Aoxlab</title>
+    <meta name="description" content="Servicios de Investigación, Desarrollo e Innovación de AOXLAB. Promovemos la ciencia, tecnología e innovación para el desarrollo sostenible y competitivo.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="Css/inicio.css">
+    <link rel="stylesheet" href="Css/investigacion.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (usar el mismo de las otras páginas) -->
+    <header class="main-header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="./index.html" aria-label="AOXLAB - Ir a inicio">
+                    <img
+                    id="logo"
+                    src="./img/Logo Aoxlab.jpg"
+                    data-logo-light="./img/Logo Aoxlab.jpg"
+                    data-logo-dark="./img/LOGO BLANCO (1).png"
+                    alt="AOXLAB Logo"
+                    width="180"
+                    height="60"
+                    >
+                    </a>
+                </div>
+
+                <!-- Navegación Principal con Menú Desplegable -->
+                <nav class="main-nav" aria-label="Navegación principal">
+                    <ul class="nav-list">
+                        <li><a href="./index.html" class="nav-link">INICIO</a></li>
+                        <li><a href="./Somos.html" class="nav-link">SOMOS</a></li>
+                        
+                        <!-- SERVICIOS con menú desplegable -->
+                        <li class="nav-item-dropdown">
+                            <a href="./Servicios.html" class="nav-link dropdown-trigger">
+                                SERVICIOS
+                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                            </a>
+                            
+                            <!-- Menú principal de servicios -->
+                            <div class="dropdown-menu services-dropdown">
+                                <div class="dropdown-container">
+                                    
+                                    <!-- Laboratorio con submenu -->
+                                    <div class="dropdown-item has-submenu">
+                                        <a href="./Servicios.html#laboratorio" class="dropdown-link">
+                                            <i class="fas fa-microscope"></i>
+                                            <span>Laboratorio</span>
+                                            <i class="fas fa-chevron-right submenu-icon"></i>
+                                        </a>
+                                        
+                                        <!-- Submenu de Laboratorio -->
+                                        <div class="submenu-dropdown">
+                                            <div class="submenu-header">
+                                                <h4>Servicios de Laboratorio</h4>
+                                                <p>Análisis especializados con tecnología de punta</p>
+                                            </div>
+                                            
+                                            <div class="submenu-grid">
+                                                <a href="./Servicios.html#microbiologicos" class="submenu-item">
+                                                    <i class="fas fa-bacteria"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Microbiológicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#fisicoquimicos" class="submenu-item">
+                                                    <i class="fas fa-flask"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Físico-Químicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#nutricionales" class="submenu-item">
+                                                    <i class="fas fa-apple-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Nutricionales</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#micotoxinas" class="submenu-item">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Micotoxinas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#alergenos" class="submenu-item">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Alérgenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Contaminantes" class="submenu-item">
+                                                    <i class="fas fa-biohazard"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Contaminantes</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Metales" class="submenu-item">
+                                                    <i class="fas fa-atom"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Metales Pesados</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#plaguicidas" class="submenu-item">
+                                                    <i class="fas fa-seedling"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Residuos de Plaguicidas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#terpenos" class="submenu-item">
+                                                    <i class="fas fa-cannabis"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Cannabinoides y Terpenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#vidautil" class="submenu-item">
+                                                    <i class="fas fa-chart-line"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Vida Útil y Estabilidad</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#biodegradabilidad" class="submenu-item">
+                                                    <i class="fas fa-leaf"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Biodegradabilidad</h5>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Certificación de Producto -->
+                                    <div class="dropdown-item">
+                                        <a href="./Certificaciones.html#producto" class="dropdown-link">
+                                            <i class="fas fa-certificate"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Certificación de Producto</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Capacitación -->
+                                    <div class="dropdown-item">
+                                        <a href="./Capacitacion.html" class="dropdown-link">
+                                            <i class="fas fa-graduation-cap"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Capacitación</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Investigación y Desarrollo -->
+                                    <div class="dropdown-item">
+                                        <a href="./Investigacion.html" class="dropdown-link">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Investigación y Desarrollo</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li><a href="./Certifcaciones.html" class="nav-link">CERTIFICACIÓN</a></li>
+                        <li><a href="./Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                        <a href="./portal-clientes.html" class="header-cta-btn portal-btn"><i class="fas fa-user-circle"></i>Portal Clientes</a>
+                        <a href="./Contacto.html" class="header-cta-btn contact-btn"><i class="fas fa-envelope"></i>Contáctanos</a>
+                    </ul>
+                </nav>
+
+                <!-- Acciones del Header -->
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Cambiar modo claro/oscuro">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="language-selector">
+                        <button id="language-btn" class="lang-btn" aria-expanded="false">
+                            <span class="flag-icon">🇪🇸</span> ES
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-options">
+                            <li><a href="#" data-lang="es"><span class="flag-icon">🇪🇸</span> Español</a></li>
+                            <li><a href="#" data-lang="en"><span class="flag-icon">🇺🇸</span> English</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Menú móvil -->
+                <button class="mobile-menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section class="idi-hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge">
+                    <i class="fas fa-flask"></i>
+                    <span>Investigación, Desarrollo e Innovación</span>
+                </div>
+                <h1 class="hero-title">
+                    Servicios de <span class="highlight-text">I+D+i</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Promovemos la ciencia, tecnología e innovación como pilares para el desarrollo sostenible y competitivo de las empresas colombianas y latinoamericanas
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Sectores Prioritarios</span>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Líneas de Investigación</span>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <span class="stat-number">50</span>
+                        <span class="stat-label">Proyectos Activos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Descripción Principal -->
+    <section class="programa-section">
+        <div class="container">
+            <div class="programa-content" data-aos="fade-up">
+                <div class="programa-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h2>Programa de I+D+i</h2>
+                <p>
+                    Nuestro programa de I+D+i articula esfuerzos del sector privado, la academia y el Estado, 
+                    para generar soluciones diferenciales, productos innovadores y conocimiento protegible, 
+                    con alto impacto científico, técnico y comercial.
+                </p>
+                <div class="programa-features">
+                    <div class="feature-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Innovación Tecnológica</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-microscope"></i>
+                        <span>Investigación Aplicada</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-rocket"></i>
+                        <span>Desarrollo Experimental</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Líneas de Servicio -->
+    <section class="lineas-servicio-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Líneas de Servicio en I+D+i</h2>
+                <p>Soluciones integrales para impulsar la innovación en diferentes sectores</p>
+            </div>
+
+            <div class="servicios-grid">
+                <!-- Servicio 1: PYMES -->
+                <div class="servicio-card expandable" data-aos="fade-up" data-aos-delay="100">
+                    <div class="servicio-header">
+                        <div class="servicio-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Consultoría para PYMES</h3>
+                        <p class="servicio-preview">Cierre de brechas y desarrollo de nuevos productos especializados para pequeñas y medianas empresas</p>
+                        <button class="expand-btn" aria-label="Expandir información">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="servicio-content">
+                        <div class="servicio-details">
+                            <h4><i class="fas fa-cogs"></i> Servicios Especializados</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Diagnóstico de capacidades técnicas, tecnológicas y normativas</li>
+                                <li><i class="fas fa-check"></i> Diseño de hojas de ruta para cerrar brechas en calidad, innovación o productividad</li>
+                                <li><i class="fas fa-check"></i> Formulación e implementación de nuevos productos o servicios</li>
+                                <li><i class="fas fa-check"></i> Apoyo en validación técnica, diseño de prototipos y pruebas de concepto</li>
+                                <li><i class="fas fa-check"></i> Asesoría en estrategias de financiación pública (MinCiencias, SENA)</li>
+                            </ul>
+                            
+                            <div class="tech-highlight">
+                                <h5><i class="fas fa-target"></i> Beneficios Clave</h5>
+                                <p>Maximizamos el potencial innovador de las PYMES a través de metodologías probadas y financiación estratégica, cerrando brechas tecnológicas de manera eficiente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 2: Empresas Privadas -->
+                <div class="servicio-card expandable" data-aos="fade-up" data-aos-delay="200">
+                    <div class="servicio-header">
+                        <div class="servicio-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Desarrollo para Empresas Privadas</h3>
+                        <p class="servicio-preview">Proyectos llave en mano con aplicación de principios de química verde y biotecnología</p>
+                        <button class="expand-btn" aria-label="Expandir información">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="servicio-content">
+                        <div class="servicio-details">
+                            <h4><i class="fas fa-flask"></i> Desarrollo Integral</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Proyectos desde formulación hasta validación en condiciones reales</li>
+                                <li><i class="fas fa-check"></i> Aplicación de principios de química verde y biotecnología</li>
+                                <li><i class="fas fa-check"></i> Innovación tecnológica y sostenibilidad</li>
+                                <li><i class="fas fa-check"></i> Integración de análisis sensorial y estudios de vida útil</li>
+                                <li><i class="fas fa-check"></i> Desarrollo de empaques y validación de seguridad</li>
+                            </ul>
+                            
+                            <div class="tech-highlight">
+                                <h5><i class="fas fa-leaf"></i> Enfoque Sostenible</h5>
+                                <p>Integramos principios de sostenibilidad y química verde en cada desarrollo, asegurando productos innovadores y ambientalmente responsables.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Servicio 3: Trinomio -->
+                <div class="servicio-card expandable" data-aos="fade-up" data-aos-delay="300">
+                    <div class="servicio-header">
+                        <div class="servicio-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Trinomio Empresa-Universidad-Estado</h3>
+                        <p class="servicio-preview">Coordinación de proyectos de investigación aplicada con instituciones académicas</p>
+                        <button class="expand-btn" aria-label="Expandir información">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="servicio-content">
+                        <div class="servicio-details">
+                            <h4><i class="fas fa-handshake"></i> Colaboración Estratégica</h4>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Participación activa en convocatorias de MinCiencias y gobernaciones</li>
+                                <li><i class="fas fa-check"></i> Co-diseño de proyectos de innovación abierta</li>
+                                <li><i class="fas fa-check"></i> Ejecución con instituciones académicas y centros tecnológicos</li>
+                                <li><i class="fas fa-check"></i> Coordinación técnica, administrativa y financiera</li>
+                                <li><i class="fas fa-check"></i> Proyectos de investigación aplicada de alto impacto</li>
+                            </ul>
+                            
+                            <div class="tech-highlight">
+                                <h5><i class="fas fa-network-wired"></i> Articulación Efectiva</h5>
+                                <p>Facilitamos la colaboración entre sectores para maximizar recursos, conocimiento y generar impacto significativo en el desarrollo científico-tecnológico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectores Transversales -->
+    <section class="sectores-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Sectores Transversales y Líneas de Investigación</h2>
+                <p>Aoxlab estructura su portafolio I+D+i sobre cuatro sectores prioritarios</p>
+            </div>
+
+            <div class="sectores-grid">
+                <!-- Sector 1: Productos Naturales -->
+                <div class="sector-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="sector-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Productos Naturales y Alimentos</h3>
+                    <div class="sector-description">
+                        <p>Investigación en calidad e inocuidad alimentaria con enfoque en sostenibilidad</p>
+                    </div>
+                    <div class="lineas-investigacion">
+                        <div class="linea-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Calidad e inocuidad</span>
+                        </div>
+                        <div class="linea-item">
+                            <i class="fas fa-recycle"></i>
+                            <span>Subproductos agroindustriales</span>
+                        </div>
+                        <div class="linea-item">
+                            <i class="fas fa-cannabis"></i>
+                            <span>Cannabis medicinal</span>
+                        </div>
+                        <div class="linea-item">
+                            <i class="fas fa-cube"></i>
+                            <span>Diseño de prototipos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sector 2: Salud y Farmacéuticas -->
+                <div class="sector-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="sector-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Salud y Ciencias Farmacéuticas</h3>
+                    <div class="sector-description">
+                        <p>Desarrollo de compuestos bioactivos y métodos analíticos avanzados</p>
+                    </div>
+                    <div class="lineas-investigacion">
+                        <div class="linea-item">
+                            <i class="fas fa-pills"></i>
+                            <span>Compuestos bioactivos</span>
+                        </div>
+                        <div class="linea-item">
+                            <i class="fas fa-plus-square"></i>
+                            <span>Nuevos productos</span>
+                        </div>
+                        <div class="linea-item">
+                            <i class="fas fa-search"></i>
+                            <span>Métodos analíticos</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sector 3: Biotecnología -->
+                <div class="sector-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="sector-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Biotecnología</h3>
+                    <div class="sector-description">
+                        <p>Escalamiento de procesos biotecnológicos y desarrollo sostenible</p>
+                    </div>
+                    <div class="lineas-investigacion">
+                        <div class="linea-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Escalamiento de procesos</span>
+                        </div>
+                        <div class="linea-item">
+                            <i class="fas fa-flask"></i>
+                            <span>Nuevos productos</span>
+                        </div>
+                        <div class="linea-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Biodegradabilidad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sector 4: Nanotecnología -->
+                <div class="sector-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="sector-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Nanotecnología</h3>
+                    <div class="sector-description">
+                        <p>Innovación en encapsulación y desarrollo de nanomateriales</p>
+                    </div>
+                    <div class="lineas-investigacion">
+                        <div class="linea-item">
+                            <i class="fas fa-capsules"></i>
+                            <span>Encapsulación</span>
+                        </div>
+                        <div class="linea-item">
+                            <i class="fas fa-pills"></i>
+                            <span>Compuestos bioactivos</span>
+                        </div>
+                        <div class="linea-item">
+                            <i class="fas fa-plus-square"></i>
+                            <span>Nuevos productos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios y Actividades -->
+    <section class="actividades-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Servicios y Actividades de I+D+i</h2>
+                <p>Portafolio integral de servicios para impulsar la innovación</p>
+            </div>
+
+            <div class="actividades-grid">
+                <div class="actividad-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="actividad-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Investigación Científica</h3>
+                    <p>Investigación científica y desarrollo experimental (I+D) de alto nivel</p>
+                </div>
+
+                <div class="actividad-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="actividad-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Capacitación Científica</h3>
+                    <p>Pasantías, tesis de maestría/doctorado y formación interna especializada</p>
+                </div>
+
+                <div class="actividad-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="actividad-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Servicios Tecnológicos</h3>
+                    <p>Recolección de datos, estudios de viabilidad y normalización</p>
+                </div>
+
+                <div class="actividad-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="actividad-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Innovación Organizacional</h3>
+                    <p>Implementación de tecnologías y diseño de líneas de producción</p>
+                </div>
+
+                <div class="actividad-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="actividad-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Adquisición de Tecnología</h3>
+                    <p>Incorporación de tecnología avanzada al capital empresarial</p>
+                </div>
+
+                <div class="actividad-card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="actividad-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>Modernización de Procesos</h3>
+                    <p>Reducción de tiempos, desechos y aplicación de métodos JIT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Red de Alianzas -->
+    <section class="alianzas-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Red de Alianzas Estratégicas</h2>
+                <p>Colaboraciones nacionales e internacionales para maximizar el impacto</p>
+            </div>
+
+            <div class="alianzas-content">
+                <div class="alianzas-grid">
+                    <div class="alianza-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="alianza-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Universidades y Centros de Investigación</h3>
+                        <p>Desarrollo conjunto de proyectos alineados con programas y convocatorias de investigación</p>
+                    </div>
+
+                    <div class="alianza-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="alianza-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <h3>Entidades Públicas</h3>
+                        <p>Alineación con políticas de cooperación científica nacional e internacional</p>
+                    </div>
+
+                    <div class="alianza-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="alianza-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Cooperación Internacional</h3>
+                        <p>Organizaciones de desarrollo y cooperación internacional</p>
+                    </div>
+
+                    <div class="alianza-card" data-aos="fade-up" data-aos-delay="250">
+                        <div class="alianza-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Sector Privado</h3>
+                        <p>Convenios de codesarrollo e innovación abierta</p>
+                    </div>
+
+                    <div class="alianza-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="alianza-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Actores Internacionales</h3>
+                        <p>Participación en redes de conocimiento y ciencia aplicada</p>
+                    </div>
+                </div>
+
+                <!-- Proyectos que fomentamos -->
+                <div class="fomento-section" data-aos="fade-up" data-aos-delay="350">
+                    <h3>Nuestros proyectos fomentan:</h3>
+                    <div class="fomento-grid">
+                        <div class="fomento-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Desarrollo sostenible</span>
+                        </div>
+                        <div class="fomento-item">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Formación de talento humano</span>
+                        </div>
+                        <div class="fomento-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Generación de nuevo conocimiento científico</span>
+                        </div>
+                        <div class="fomento-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Transferencia tecnológica y comercialización</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados Esperados -->
+    <section class="resultados-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Resultados Esperados</h2>
+                <p>Impacto tangible en ciencia, tecnología y competitividad empresarial</p>
+            </div>
+
+            <div class="resultados-grid">
+                <div class="resultado-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="resultado-icon">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <h3>Productos Validados</h3>
+                    <p>Nuevos productos con base tecnológica o natural validados y listos para comercializar</p>
+                    <div class="resultado-highlight">
+                        <span>Listos para el mercado</span>
+                    </div>
+                </div>
+
+                <div class="resultado-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="resultado-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Propiedad Intelectual</h3>
+                    <p>Propiedad intelectual registrada y protegida</p>
+                    <div class="resultado-highlight">
+                        <span>Protección garantizada</span>
+                    </div>
+                </div>
+
+                <div class="resultado-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="resultado-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Publicaciones Científicas</h3>
+                    <p>Generación de publicaciones científicas y divulgación del conocimiento</p>
+                    <div class="resultado-highlight">
+                        <span>Conocimiento compartido</span>
+                    </div>
+                </div>
+
+                <div class="resultado-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="resultado-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Competitividad Empresarial</h3>
+                    <p>Mejora de la competitividad empresarial</p>
+                    <div class="resultado-highlight">
+                        <span>Ventaja competitiva</span>
+                    </div>
+                </div>
+
+                <div class="resultado-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="resultado-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Posicionamiento</h3>
+                    <p>Posicionamiento de Aoxlab como centro articulador de ciencia y empresa en Colombia</p>
+                    <div class="resultado-highlight">
+                        <span>Liderazgo científico</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>¿Listo para innovar con nosotros?</h2>
+                <p>Contáctanos para desarrollar soluciones de I+D+i adaptadas a tus necesidades</p>
+                <div class="cta-buttons">
+                    <a href="contacto.html" class="cta-btn primary">
+                        <i class="fas fa-envelope"></i>
+                        Contáctanos
+                    </a>
+                    <a href="servicios.html" class="cta-btn secondary">
+                        <i class="fas fa-flask"></i>
+                        Ver Todos los Servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (usar el mismo de las otras páginas) -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <img src="./img/LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
+                    <p>Más que un laboratorio: un aliado en tu camino hacia la calidad.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/aoxlab_sas/?hl=es-la"target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Sección de Contacto Principal - Medellín -->
+                <div class="footer-section contact-main"><!--Números de contacto actualizados hasta 2025/06/12-->
+                    <h4>Sede Principal - Medellín</h4>
+                    <div class="contact-info-main">
+                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Antioquia</p>
+                        <p><i class="fas fa-phone"></i> (604) 604-7454</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 287 4329</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 833 8768</p>
+                        <p><i class="fas fa-envelope"></i> direccioncomercial@aoxlab.com</p>
+                    </div>
+                </div>
+                
+                <!-- Sección de Otras Ciudades -->
+                <div class="footer-section contact-cities">
+                    <h4>Otras Ciudades</h4>
+                    <div class="cities-grid">
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Bogotá</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 383 0543
+                            </p>
+                        </div>
+                        
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Cali</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 206 5380
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="certificaciones.html">Certificaciones</a></li>
+                        <li><a href="sectores.html">Sectores</a></li>
+                        <li><a href="portal-clientes.html">Portal Clientes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Políticas</h4>
+                    <ul>
+                        <li><a href="politicas.html">Tratamiento de datos</a></li>
+                        <li><a href="pqrs.html">PQRS</a></li>
+                        <li><a href="certificados.html">Certificados ISO</a></li>
+                        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Ágil, Eficiente y Flexible.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Botones Flotantes -->
+        <!--Tengo que cambiar el enlace de whasap para que me lleve al numero de la compañia y no al mío-->
+    <!-- WhatsApp Flotante -->
+        <a href="#" class="whatsapp-float" 
+        id="whatsapp-float-btn"
+        aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="tooltip">¿Necesitas ayuda?</span>
+        </a>
+
+    <!-- Botón Scroll to Top -->
+    <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Botón flotante del chatbot -->
+<div class="chatbot-float" id="chatbot-toggle">
+    <i class="fas fa-comments"></i>
+    <span class="tooltip">¿Necesitas ayuda?</span>
+    <div class="notification-dot" id="chatbot-notification"></div>
+</div>
+
+<!-- Modal del chatbot -->
+<div class="chatbot-modal" id="chatbot-modal">
+    <div class="chatbot-header">
+        <div class="chatbot-avatar">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-info">
+            <h3>Asistente AOXLAB</h3>
+            <span class="status online">En línea</span>
+        </div>
+        <button class="chatbot-close" id="chatbot-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="chatbot-body" id="chatbot-body">
+        <div class="chat-message bot-message">
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                <p>¡Hola! Soy el asistente virtual de AOXLAB. Estoy aquí para ayudarte con información sobre nuestros servicios de análisis y certificaciones. ¿En qué puedo asistirte hoy?</p>
+                <div class="quick-actions">
+                    <button class="quick-btn" data-action="servicios">Ver servicios</button>
+                    <button class="quick-btn" data-action="cotizacion">Solicitar cotización</button>
+                    <button class="quick-btn" data-action="resultados">Consultar resultados</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="chatbot-footer">    
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." maxlength="500">
+            <button id="send-message" disabled>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="typing-indicator" id="typing-indicator" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+    <!-- Modal de WhatsApp -->
+    <div class="whatsapp-modal" id="whatsapp-modal">
+        <div class="whatsapp-modal-content">
+            <div class="whatsapp-header">
+                <div class="whatsapp-logo">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>Contáctanos por WhatsApp</h3>
+                <p>Selecciona tu ciudad más cercana</p>
+                <button class="whatsapp-close" id="whatsapp-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="whatsapp-contacts">
+                <!-- Medellín - Sede Principal -->
+                <a href="https://wa.me/573102874329?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Medellín" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="medellin">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Medellín</h4>
+                        <span class="contact-label">Sede Principal</span>
+                        <span class="contact-number">+57 310 287 4329</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+                
+                <!-- Bogotá -->
+                <a href="https://wa.me/573103830543?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Bogotá" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="bogota">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Bogotá</h4>
+                        <span class="contact-label">Punto de Atención</span>
+                        <span class="contact-number">+57 310 383 0543</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+                
+                <!-- Cali -->
+                <a href="https://wa.me/573102065380?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Cali" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="cali">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Cali</h4>
+                        <span class="contact-label">Punto de Atención</span>
+                        <span class="contact-number">+57 310 206 5380</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="whatsapp-footer">
+                <p>Horario de atención: Lun - Vie 8:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/inicio.js"></script>
+    <script src="js/investigacion.js"></script>
+</body>
+</html>

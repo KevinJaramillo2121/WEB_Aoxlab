@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Clientes - AOXLAB | Tu laboratorio siempre disponible</title>
+    <title>Portal de Clientes - Aoxlab | Tu laboratorio siempre disponible</title>
     <meta name="description" content="Portal exclusivo para clientes de AOXLAB. Gestiona órdenes, descarga resultados y accede a beneficios exclusivos con seguridad SSL">
     <meta name="keywords" content="portal clientes aoxlab, resultados laboratorio, gestión órdenes, certificados digitales">
     
@@ -33,12 +33,12 @@
             <div class="header-content">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="Inicio.html" aria-label="AOXLAB - Ir a inicio">
+                    <a href="./index.html" aria-label="AOXLAB - Ir a inicio">
                     <img
                     id="logo"
-                    src="img/Logo Aoxlab.jpg"
-                    data-logo-light="img/Logo Aoxlab.jpg"
-                    data-logo-dark="img/LOGO BLANCO (1).png"
+                    src="./img/Logo Aoxlab.jpg"
+                    data-logo-light="./img/Logo Aoxlab.jpg"
+                    data-logo-dark="./img/LOGO BLANCO (1).png"
                     alt="AOXLAB Logo"
                     width="180"
                     height="60"
@@ -46,17 +46,156 @@
                     </a>
                 </div>
 
-                <!-- Navegación Principal -->
+                <!-- Navegación Principal con Menú Desplegable -->
                 <nav class="main-nav" aria-label="Navegación principal">
                     <ul class="nav-list">
-                        <li><a href="Inicio.html" class="nav-link">INICIO</a></li>
-                        <li><a href="Somos.html" class="nav-link">SOMOS</a></li>
-                        <li><a href="Servicios.html" class="nav-link">SERVICIOS</a></li>
-                        <li><a href="Certifcaciones.html" class="nav-link">CERTIFICACIONES</a></li>
-                        <li><a href="Sectores.html" class="nav-link">SECTORES</a></li>
-                        <li><a href="cliente.html" class="nav-link active">CLIENTES</a></li>
-                        <li><a href="Contacto.html" class="nav-link">CONTACTO</a></li>
-                        <li><a href="Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                        <li><a href="./index.html" class="nav-link ">INICIO</a></li>
+                        <li><a href="./Somos.html" class="nav-link">SOMOS</a></li>
+                        
+                        <!-- SERVICIOS con menú desplegable -->
+                        <li class="nav-item-dropdown">
+                            <a href="./Servicios.html" class="nav-link dropdown-trigger">
+                                SERVICIOS
+                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                            </a>
+                            
+                            <!-- Menú principal de servicios -->
+                            <div class="dropdown-menu services-dropdown">
+                                <div class="dropdown-container">
+                                    
+                                    <!-- Laboratorio con submenu -->
+                                    <div class="dropdown-item has-submenu">
+                                        <a href="./Servicios.html#laboratorio" class="dropdown-link">
+                                            <i class="fas fa-microscope"></i>
+                                            <span>Laboratorio</span>
+                                            <i class="fas fa-chevron-right submenu-icon"></i>
+                                        </a>
+                                        
+                                        <!-- Submenu de Laboratorio -->
+                                        <div class="submenu-dropdown">
+                                            <div class="submenu-header">
+                                                <h4>Servicios de Laboratorio</h4>
+                                                <p>Análisis especializados con tecnología de punta</p>
+                                            </div>
+                                            
+                                            <div class="submenu-grid">
+                                                <a href="./Servicios.html#microbiologicos" class="submenu-item">
+                                                    <i class="fas fa-bacteria"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Microbiológicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#fisicoquimicos" class="submenu-item">
+                                                    <i class="fas fa-flask"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Físico-Químicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#nutricionales" class="submenu-item">
+                                                    <i class="fas fa-apple-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Nutricionales</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#micotoxinas" class="submenu-item">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Micotoxinas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#alergenos" class="submenu-item">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Alérgenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Contaminantes" class="submenu-item">
+                                                    <i class="fas fa-biohazard"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Contaminantes</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Metales" class="submenu-item">
+                                                    <i class="fas fa-atom"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Metales Pesados</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#plaguicidas" class="submenu-item">
+                                                    <i class="fas fa-seedling"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Residuos de Plaguicidas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#terpenos" class="submenu-item">
+                                                    <i class="fas fa-cannabis"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Cannabinoides y Terpenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#vidautil" class="submenu-item">
+                                                    <i class="fas fa-chart-line"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Vida Útil y Estabilidad</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#biodegradabilidad" class="submenu-item">
+                                                    <i class="fas fa-leaf"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Biodegradabilidad</h5>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Certificación de Producto -->
+                                    <div class="dropdown-item">
+                                        <a href="./Certificaciones.html#producto" class="dropdown-link">
+                                            <i class="fas fa-certificate"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Certificación de Producto</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Capacitación -->
+                                    <div class="dropdown-item">
+                                        <a href="./Capacitacion.html" class="dropdown-link">
+                                            <i class="fas fa-graduation-cap"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Capacitación</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Investigación y Desarrollo -->
+                                    <div class="dropdown-item">
+                                        <a href="./Investigacion.html" class="dropdown-link">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Investigación y Desarrollo</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li><a href="./Certifcaciones.html" class="nav-link">CERTIFICACIÓN</a></li>
+                        <li><a href="./Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                        <a href="./cliente.html" class="header-cta-btn portal-btn"><i class="fas fa-user-circle"></i>Portal Clientes</a>
+                        <a href="./Contacto.html" class="header-cta-btn contact-btn"><i class="fas fa-envelope"></i>Contáctanos</a>
                     </ul>
                 </nav>
 
@@ -86,7 +225,11 @@
                 </button>
             </div>
         </div>
+
     </header>
+
+
+
 
     <!-- Contenido Principal -->
     <main class="portal-clientes">
@@ -95,7 +238,7 @@
             <div class="hero-carousel">
                 <div class="carousel-container">
                     <div class="carousel-slide active">
-                        <img src="img/secuencia_Adn.png" alt="Portal de clientes AOXLAB" loading="eager">
+                        <img src="img/shutterstock_2075356822.jpg" alt="Portal de clientes AOXLAB" loading="eager">
                         <div class="slide-content">
                             <h1>Tu laboratorio siempre disponible</h1>
                             <p>Gestiona, descarga y planifica con un clic</p>
@@ -112,7 +255,7 @@
                         <div class="hero-badge">
                             <span><i class="fas fa-shield-alt"></i> Conexión segura SSL 256-bit</span>
                         </div>
-                        <h2 class="hero-subtitle">Acceso exclusivo para clientes AOXLAB</h2>
+                        <h2 class="hero-subtitle">Acceso exclusivo para clientes Aoxlab</h2>
                     </div>
                 </div>
             </div>
@@ -327,7 +470,7 @@
             <div class="container">
                 <div class="cta-content" data-aos="fade-up">
                     <h2>¿Aún no tienes acceso al portal?</h2>
-                    <p>Únete a más de 2,500 clientes que ya disfrutan de la experiencia digital AOXLAB</p>
+                    <p>Únete a más de 2,500 clientes que ya disfrutan de la experiencia digital Aoxlab</p>
                     <div class="cta-buttons">
                         <a href="contacto.html" class="btn-cta primary">
                             <i class="fas fa-user-plus"></i>
@@ -343,27 +486,56 @@
         </section>
     </main>
 
-    <!-- Footer - Idéntico al inicio -->
+     <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section company-info">
-                    <img src="img/LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
+                    <img src="./img/LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
                     <p>Más que un laboratorio: un aliado en tu camino hacia la calidad.</p>
                     <div class="social-links">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/aoxlab_sas/?hl=es-la"target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone"></i> (+57) 604 7454</p>
-                        <p><i class="fas fa-envelope"></i> comercial@aoxlab.com</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Colombia</p>
+                <!-- Sección de Contacto Principal - Medellín -->
+                <div class="footer-section contact-main"><!--Números de contacto actualizados hasta 2025/06/12-->
+                    <h4>Sede Principal - Medellín</h4>
+                    <div class="contact-info-main">
+                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Antioquia</p>
+                        <p><i class="fas fa-phone"></i> (604) 604-7454</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 287 4329</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 833 8768</p>
+                        <p><i class="fas fa-envelope"></i> direccioncomercial@aoxlab.com</p>
+                    </div>
+                </div>
+                
+                <!-- Sección de Otras Ciudades -->
+                <div class="footer-section contact-cities">
+                    <h4>Otras Ciudades</h4>
+                    <div class="cities-grid">
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Bogotá</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 383 0543
+                            </p>
+                        </div>
+                        
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Cali</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 206 5380
+                            </p>
+                        </div>
                     </div>
                 </div>
                 
@@ -389,20 +561,19 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 AOXLAB S.A.S. Todos los derechos reservados. | Con Rigor, Eficiente y Flexible.</p>
+                <p>&copy; 2025 Aoxlab S.A.S. Todos los derechos reservados. | Ágil, Eficiente y Flexible.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Botones Flotantes - Idénticos al inicio -->
+<!-- Botones Flotantes -->
+        <!--Tengo que cambiar el enlace de whasap para que me lleve al numero de la compañia y no al mío-->
     <!-- WhatsApp Flotante -->
-    <a href="https://w.app/prueba_aver-sifunciona"  
-        class="whatsapp-float" 
-        target="_blank" 
+        <a href="#" class="whatsapp-float" 
+        id="whatsapp-float-btn"
         aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span class="tooltip">¿Necesitas ayuda?</span>
-    </a>
+            <i class="fab fa-whatsapp"></i>
+            <span class="tooltip">¿Necesitas ayuda?</span>
+        </a>
 
     <!-- Botón Scroll to Top -->
     <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
@@ -410,56 +581,133 @@
     </button>
 
     <!-- Botón flotante del chatbot -->
-    <div class="chatbot-float" id="chatbot-toggle">
-        <i class="fas fa-comments"></i>
-        <span class="tooltip">¿Necesitas ayuda?</span>
-        <div class="notification-dot" id="chatbot-notification"></div>
-    </div>
+<div class="chatbot-float" id="chatbot-toggle">
+    <i class="fas fa-comments"></i>
+    <span class="tooltip">¿Necesitas ayuda?</span>
+    <div class="notification-dot" id="chatbot-notification"></div>
+</div>
 
-    <!-- Modal del chatbot -->
-    <div class="chatbot-modal" id="chatbot-modal">
-        <div class="chatbot-header">
-            <div class="chatbot-avatar">
+<!-- Modal del chatbot -->
+<div class="chatbot-modal" id="chatbot-modal">
+    <div class="chatbot-header">
+        <div class="chatbot-avatar">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-info">
+            <h3>Asistente Aoxlab</h3>
+            <span class="status online">En línea</span>
+        </div>
+        <button class="chatbot-close" id="chatbot-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="chatbot-body" id="chatbot-body">
+        <div class="chat-message bot-message">
+            <div class="message-avatar">
                 <i class="fas fa-robot"></i>
             </div>
-            <div class="chatbot-info">
-                <h3>Asistente AOXLAB</h3>
-                <span class="status online">En línea</span>
+            <div class="message-content">
+                <p>¡Hola! Soy el asistente virtual de Aoxlab. Estoy aquí para ayudarte con información sobre nuestros servicios de análisis y certificaciones. ¿En qué puedo asistirte hoy?</p>
+                <div class="quick-actions">
+                    <button class="quick-btn" data-action="servicios">Ver servicios</button>
+                    <button class="quick-btn" data-action="cotizacion">Solicitar cotización</button>
+                    <button class="quick-btn" data-action="resultados">Consultar resultados</button>
+                </div>
             </div>
-            <button class="chatbot-close" id="chatbot-close">
-                <i class="fas fa-times"></i>
+        </div>
+    </div>
+    
+    <div class="chatbot-footer">    
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." maxlength="500">
+            <button id="send-message" disabled>
+                <i class="fas fa-paper-plane"></i>
             </button>
         </div>
-        
-        <div class="chatbot-body" id="chatbot-body">
-            <div class="chat-message bot-message">
-                <div class="message-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="message-content">
-                    <p>¡Hola! Soy el asistente virtual de AOXLAB. Puedo ayudarte con el portal de clientes, acceso a resultados y soporte técnico. ¿En qué puedo asistirte?</p>
-                    <div class="quick-actions">
-                        <button class="quick-btn" data-action="portal">Ayuda con el portal</button>
-                        <button class="quick-btn" data-action="resultados">Consultar resultados</button>
-                        <button class="quick-btn" data-action="soporte">Soporte técnico</button>
-                    </div>
-                </div>
-            </div>
+        <div class="typing-indicator" id="typing-indicator" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        
-        <div class="chatbot-footer">    
-            <div class="chat-input-container">
-                <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." maxlength="500">
-                <button id="send-message" disabled>
-                    <i class="fas fa-paper-plane"></i>
+    </div>
+</div>
+    <!-- Modal de WhatsApp -->
+    <div class="whatsapp-modal" id="whatsapp-modal">
+        <div class="whatsapp-modal-content">
+            <div class="whatsapp-header">
+                <div class="whatsapp-logo">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>Contáctanos por WhatsApp</h3>
+                <p>Selecciona tu ciudad más cercana</p>
+                <button class="whatsapp-close" id="whatsapp-close">
+                    <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="typing-indicator" id="typing-indicator" style="display: none;">
-                <span></span>
-                <span></span>
-                <span></span>
+            
+            <div class="whatsapp-contacts">
+                <!-- Medellín - Sede Principal -->
+                <a href="https://wa.me/573102874329?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Medellín" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="medellin">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Medellín</h4>
+                        <span class="contact-label">Sede Principal</span>
+                        <span class="contact-number">+57 310 287 4329</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+                
+                <!-- Bogotá -->
+                <a href="https://wa.me/573103830543?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Bogotá" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="bogota">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Bogotá</h4>
+                        <span class="contact-label">Punto de Atención</span>
+                        <span class="contact-number">+57 310 383 0543</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+                
+                <!-- Cali -->
+                <a href="https://wa.me/573102065380?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Cali" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="cali">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Cali</h4>
+                        <span class="contact-label">Punto de Atención</span>
+                        <span class="contact-number">+57 310 206 5380</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="whatsapp-footer">
+                <p>Horario de atención: Lun - Vie 8:00 AM - 5:00 PM</p>
             </div>
         </div>
     </div>
 </body>
+    <script src="js/Inicio.js"></script>
+    <script src="js/Clientes.js"></script>
 </html>

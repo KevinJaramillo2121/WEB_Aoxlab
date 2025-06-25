@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacitación Empresarial - Formación Técnica Especializada | AOXLAB</title>
+    <meta name="description" content="Programas de capacitación técnica y especializada de AOXLAB para empresas en sectores alimentario, cosmético, fitoterapéutico y químico.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/Capacitacion.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header (usar el mismo de las otras páginas) -->
+    <header class="main-header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="./index.html" aria-label="AOXLAB - Ir a inicio">
+                    <img
+                    id="logo"
+                    src="./img/Logo Aoxlab.jpg"
+                    data-logo-light="./img/Logo Aoxlab.jpg"
+                    data-logo-dark="./img/LOGO BLANCO (1).png"
+                    alt="AOXLAB Logo"
+                    width="180"
+                    height="60"
+                    >
+                    </a>
+                </div>
+
+                <!-- Navegación Principal con Menú Desplegable -->
+                <nav class="main-nav" aria-label="Navegación principal">
+                    <ul class="nav-list">
+                        <li><a href="./index.html" class="nav-link">INICIO</a></li>
+                        <li><a href="./Somos.html" class="nav-link">SOMOS</a></li>
+                        
+                        <!-- SERVICIOS con menú desplegable -->
+                        <li class="nav-item-dropdown">
+                            <a href="./Servicios.html" class="nav-link dropdown-trigger">
+                                SERVICIOS
+                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                            </a>
+                            
+                            <!-- Menú principal de servicios -->
+                            <div class="dropdown-menu services-dropdown">
+                                <div class="dropdown-container">
+                                    
+                                    <!-- Laboratorio con submenu -->
+                                    <div class="dropdown-item has-submenu">
+                                        <a href="./Servicios.html#laboratorio" class="dropdown-link">
+                                            <i class="fas fa-microscope"></i>
+                                            <span>Laboratorio</span>
+                                            <i class="fas fa-chevron-right submenu-icon"></i>
+                                        </a>
+                                        
+                                        <!-- Submenu de Laboratorio -->
+                                        <div class="submenu-dropdown">
+                                            <div class="submenu-header">
+                                                <h4>Servicios de Laboratorio</h4>
+                                                <p>Análisis especializados con tecnología de punta</p>
+                                            </div>
+                                            
+                                            <div class="submenu-grid">
+                                                <a href="./Servicios.html#microbiologicos" class="submenu-item">
+                                                    <i class="fas fa-bacteria"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Microbiológicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#fisicoquimicos" class="submenu-item">
+                                                    <i class="fas fa-flask"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Físico-Químicos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#nutricionales" class="submenu-item">
+                                                    <i class="fas fa-apple-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Nutricionales</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#micotoxinas" class="submenu-item">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Micotoxinas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#alergenos" class="submenu-item">
+                                                    <i class="fas fa-shield-alt"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Alérgenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Contaminantes" class="submenu-item">
+                                                    <i class="fas fa-biohazard"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Contaminantes</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#Metales" class="submenu-item">
+                                                    <i class="fas fa-atom"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Metales Pesados</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#plaguicidas" class="submenu-item">
+                                                    <i class="fas fa-seedling"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Residuos de Plaguicidas</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#terpenos" class="submenu-item">
+                                                    <i class="fas fa-cannabis"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Cannabinoides y Terpenos</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#vidautil" class="submenu-item">
+                                                    <i class="fas fa-chart-line"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Vida Útil y Estabilidad</h5>
+                                                    </div>
+                                                </a>
+                                                
+                                                <a href="./Servicios.html#biodegradabilidad" class="submenu-item">
+                                                    <i class="fas fa-leaf"></i>
+                                                    <div class="submenu-content">
+                                                        <h5>Biodegradabilidad</h5>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Certificación de Producto -->
+                                    <div class="dropdown-item">
+                                        <a href="./Certificaciones.html#producto" class="dropdown-link">
+                                            <i class="fas fa-certificate"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Certificación de Producto</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Capacitación -->
+                                    <div class="dropdown-item">
+                                        <a href="./Capacitacion.html" class="dropdown-link">
+                                            <i class="fas fa-graduation-cap"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Capacitación</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    
+                                    <!-- Investigación y Desarrollo -->
+                                    <div class="dropdown-item">
+                                        <a href="./Investigacion.html" class="dropdown-link">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <div class="dropdown-content">
+                                                <span class="dropdown-title">Investigación y Desarrollo</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <li><a href="./Certifcaciones.html" class="nav-link">CERTIFICACIÓN</a></li>
+                        <li><a href="./Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
+                        <a href="./cliente.html" class="header-cta-btn portal-btn"><i class="fas fa-user-circle"></i>Portal Clientes</a>
+                        <a href="./Contacto.html" class="header-cta-btn contact-btn"><i class="fas fa-envelope"></i>Contáctanos</a>
+                    </ul>
+                </nav>
+
+                <!-- Acciones del Header -->
+                <div class="header-actions">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Cambiar modo claro/oscuro">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <div class="language-selector">
+                        <button id="language-btn" class="lang-btn" aria-expanded="false">
+                            <span class="flag-icon">🇪🇸</span> ES
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <ul class="language-options">
+                            <li><a href="#" data-lang="es"><span class="flag-icon">🇪🇸</span> Español</a></li>
+                            <li><a href="#" data-lang="en"><span class="flag-icon">🇺🇸</span> English</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Menú móvil -->
+                <button class="mobile-menu-toggle" aria-controls="main-nav" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="capacitacion-hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Capacitación Empresarial</span>
+                </div>
+                <h1 class="hero-title">
+                    Servicios de <span class="highlight-text">Capacitación</span> Empresarial
+                </h1>
+                <p class="hero-subtitle">
+                    En AOXLAB, entendemos que el conocimiento es la base de la calidad. Ofrecemos programas de capacitación técnica y especializada para fortalecer los sistemas de gestión, el cumplimiento normativo y la competitividad empresarial.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Capacitaciones Especializadas</span>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Modalidades de Formación</span>
+                    </div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Empresas Capacitadas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introducción -->
+    <section class="introduccion-section">
+        <div class="container">
+            <div class="introduccion-content" data-aos="fade-up">
+                <div class="introduccion-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h2>Conocimiento como Base de la Calidad</h2>
+                <p>
+                    Nuestros programas están dirigidos a empresas de los sectores alimentario, cosmético, 
+                    fitoterapéutico y de productos químicos, diseñados específicamente para fortalecer 
+                    los sistemas de gestión y garantizar el cumplimiento normativo más exigente.
+                </p>
+                <div class="sectores-objetivo">
+                    <div class="sector-item">
+                        <i class="fas fa-apple-alt"></i>
+                        <span>Alimentario</span>
+                    </div>
+                    <div class="sector-item">
+                        <i class="fas fa-palette"></i>
+                        <span>Cosmético</span>
+                    </div>
+                    <div class="sector-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>Fitoterapéutico</span>
+                    </div>
+                    <div class="sector-item">
+                        <i class="fas fa-flask"></i>
+                        <span>Productos Químicos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capacitaciones Ofrecidas -->
+    <section class="capacitaciones-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Capacitaciones Ofrecidas</h2>
+                <p>Programas especializados diseñados para fortalecer las competencias técnicas de su equipo</p>
+            </div>
+
+            <div class="capacitaciones-grid">
+                <!-- HACCP -->
+                <div class="capacitacion-card expandable" data-aos="fade-up" data-aos-delay="100">
+                    <div class="capacitacion-header">
+                        <div class="capacitacion-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>HACCP</h3>
+                        <p class="capacitacion-subtitle">Análisis de Peligros y Puntos Críticos de Control</p>
+                        <p class="capacitacion-preview">
+                            Formación práctica y teórica para la identificación, evaluación y control de peligros significativos para la inocuidad de los alimentos.
+                        </p>
+                        <button class="expand-btn" aria-label="Expandir información">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="capacitacion-content">
+                        <div class="capacitacion-details">
+                            <div class="detail-section">
+                                <h4><i class="fas fa-cogs"></i> Metodología</h4>
+                                <ul class="detail-list">
+                                    <li><i class="fas fa-check"></i> Taller interactivo con ejercicios aplicados</li>
+                                    <li><i class="fas fa-check"></i> Casos prácticos de implementación</li>
+                                    <li><i class="fas fa-check"></i> Evaluación de peligros en tiempo real</li>
+                                    <li><i class="fas fa-check"></i> Desarrollo de planes HACCP personalizados</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="detail-section">
+                                <h4><i class="fas fa-target"></i> Dirigido a</h4>
+                                <div class="target-sectors">
+                                    <div class="target-item">
+                                        <i class="fas fa-industry"></i>
+                                        <span>Industrias alimentarias</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <i class="fas fa-cannabis"></i>
+                                        <span>Cannabis medicinal</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <i class="fas fa-bone"></i>
+                                        <span>Nutrición animal</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competencias-section">
+                                <h5><i class="fas fa-trophy"></i> Competencias Desarrolladas</h5>
+                                <p>Los participantes adquirirán habilidades para identificar, evaluar y controlar peligros críticos, implementando sistemas de monitoreo efectivos y planes de acción correctiva.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BPM -->
+                <div class="capacitacion-card expandable" data-aos="fade-up" data-aos-delay="200">
+                    <div class="capacitacion-header">
+                        <div class="capacitacion-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>BPM</h3>
+                        <p class="capacitacion-subtitle">Buenas Prácticas de Manufactura</p>
+                        <p class="capacitacion-preview">
+                            Capacitación en los principios fundamentales para garantizar productos seguros y de calidad, adaptable a diferentes industrias.
+                        </p>
+                        <button class="expand-btn" aria-label="Expandir información">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="capacitacion-content">
+                        <div class="capacitacion-details">
+                            <div class="detail-section">
+                                <h4><i class="fas fa-clipboard-list"></i> Contenido del Programa</h4>
+                                <ul class="detail-list">
+                                    <li><i class="fas fa-check"></i> Principios fundamentales de BPM</li>
+                                    <li><i class="fas fa-check"></i> Auditoría interna especializada</li>
+                                    <li><i class="fas fa-check"></i> Checklist para autoevaluación</li>
+                                    <li><i class="fas fa-check"></i> Implementación práctica por sectores</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="detail-section">
+                                <h4><i class="fas fa-building"></i> Aplicable a</h4>
+                                <div class="target-sectors">
+                                    <div class="target-item">
+                                        <i class="fas fa-utensils"></i>
+                                        <span>Plantas de alimentos</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <i class="fas fa-palette"></i>
+                                        <span>Cosméticos</span>
+                                    </div>
+                                    <div class="target-item">
+                                        <i class="fas fa-leaf"></i>
+                                        <span>Fitoterapéuticos</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competencias-section">
+                                <h5><i class="fas fa-award"></i> Certificación</h5>
+                                <p>Incluye certificado de participación y herramientas de evaluación continua para mantener altos estándares de calidad en la manufactura.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control de Alérgenos -->
+                <div class="capacitacion-card expandable" data-aos="fade-up" data-aos-delay="300">
+                    <div class="capacitacion-header">
+                        <div class="capacitacion-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Control Integral de Alérgenos</h3>
+                        <p class="capacitacion-subtitle">Gestión Especializada de Alérgenos</p>
+                        <p class="capacitacion-preview">
+                            Formación en identificación, prevención y monitoreo de alérgenos en alimentos y suplementos, incluyendo planes de limpieza y etiquetado.
+                        </p>
+                        <button class="expand-btn" aria-label="Expandir información">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="capacitacion-content">
+                        <div class="capacitacion-details">
+                            <div class="detail-section">
+                                <h4><i class="fas fa-microscope"></i> Módulos Especializados</h4>
+                                <ul class="detail-list">
+                                    <li><i class="fas fa-check"></i> Identificación de alérgenos críticos</li>
+                                    <li><i class="fas fa-check"></i> Diseño de planes de limpieza especializados</li>
+                                    <li><i class="fas fa-check"></i> Validaciones y verificaciones</li>
+                                    <li><i class="fas fa-check"></i> Etiquetado normativo y declaraciones</li>
+                                    <li><i class="fas fa-check"></i> Monitoreo y control continuo</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="detail-section">
+                                <h4><i class="fas fa-flask"></i> Aplicaciones Prácticas</h4>
+                                <div class="aplicaciones-grid">
+                                    <div class="aplicacion-item">
+                                        <i class="fas fa-bread-slice"></i>
+                                        <span>Productos alimentarios</span>
+                                    </div>
+                                    <div class="aplicacion-item">
+                                        <i class="fas fa-pills"></i>
+                                        <span>Suplementos nutricionales</span>
+                                    </div>
+                                    <div class="aplicacion-item">
+                                        <i class="fas fa-seedling"></i>
+                                        <span>Productos naturales</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competencias-section">
+                                <h5><i class="fas fa-shield-virus"></i> Impacto en la Seguridad</h5>
+                                <p>Capacitación crítica para proteger a consumidores sensibles y cumplir con regulaciones internacionales de etiquetado y control de alérgenos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ISO 22000:2018 -->
+                <div class="capacitacion-card expandable" data-aos="fade-up" data-aos-delay="400">
+                    <div class="capacitacion-header">
+                        <div class="capacitacion-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>ISO 22000:2018</h3>
+                        <p class="capacitacion-subtitle">Sistema de Gestión de Inocuidad Alimentaria</p>
+                        <p class="capacitacion-preview">
+                            Implementación paso a paso del sistema basado en riesgos, con integración de la norma ISO y los principios HACCP.
+                        </p>
+                        <button class="expand-btn" aria-label="Expandir información">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="capacitacion-content">
+                        <div class="capacitacion-details">
+                            <div class="detail-section">
+                                <h4><i class="fas fa-cogs"></i> Estructura del Programa</h4>
+                                <ul class="detail-list">
+                                    <li><i class="fas fa-check"></i> Talleres de documentación especializada</li>
+                                    <li><i class="fas fa-check"></i> Análisis de brechas normativas</li>
+                                    <li><i class="fas fa-check"></i> Auditoría interna certificada</li>
+                                    <li><i class="fas fa-check"></i> Integración HACCP-ISO 22000</li>
+                                    <li><i class="fas fa-check"></i> Gestión basada en riesgos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="detail-section">
+                                <h4><i class="fas fa-chart-line"></i> Beneficios de Certificación</h4>
+                                <div class="beneficios-grid">
+                                    <div class="beneficio-item">
+                                        <i class="fas fa-globe"></i>
+                                        <span>Acceso a mercados internacionales</span>
+                                    </div>
+                                    <div class="beneficio-item">
+                                        <i class="fas fa-handshake"></i>
+                                        <span>Confianza de stakeholders</span>
+                                    </div>
+                                    <div class="beneficio-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>Reducción de riesgos</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competencias-section">
+                                <h5><i class="fas fa-graduation-cap"></i> Certificación Internacional</h5>
+                                <p>Formación que prepara a los equipos para implementar y mantener sistemas de gestión reconocidos internacionalmente, facilitando procesos de certificación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control de Calidad -->
+                <div class="capacitacion-card expandable" data-aos="fade-up" data-aos-delay="500">
+                    <div class="capacitacion-header">
+                        <div class="capacitacion-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3>Plan Integral de Control de Calidad</h3>
+                        <p class="capacitacion-subtitle">Diseño e Implementación Integral</p>
+                        <p class="capacitacion-preview">
+                            Diseño e implementación de un plan robusto que articula especificaciones técnicas, cronogramas de muestreo, indicadores de desempeño y trazabilidad.
+                        </p>
+                        <button class="expand-btn" aria-label="Expandir información">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="capacitacion-content">
+                        <div class="capacitacion-details">
+                            <div class="detail-section">
+                                <h4><i class="fas fa-project-diagram"></i> Componentes del Plan</h4>
+                                <ul class="detail-list">
+                                    <li><i class="fas fa-check"></i> Especificaciones técnicas detalladas</li>
+                                    <li><i class="fas fa-check"></i> Cronogramas de muestreo optimizados</li>
+                                    <li><i class="fas fa-check"></i> Indicadores de desempeño (KPIs)</li>
+                                    <li><i class="fas fa-check"></i> Sistemas de reporte automatizados</li>
+                                    <li><i class="fas fa-check"></i> Trazabilidad completa de resultados</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="detail-section">
+                                <h4><i class="fas fa-tools"></i> Herramientas Incluidas</h4>
+                                <div class="herramientas-grid">
+                                    <div class="herramienta-item">
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Templates documentales</span>
+                                    </div>
+                                    <div class="herramienta-item">
+                                        <i class="fas fa-chart-bar"></i>
+                                        <span>Dashboard de indicadores</span>
+                                    </div>
+                                    <div class="herramienta-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Calendarios de muestreo</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="competencias-section">
+                                <h5><i class="fas fa-rocket"></i> Optimización de Procesos</h5>
+                                <p>Formación integral que permite a las empresas desarrollar sistemas de control de calidad robustos, eficientes y adaptados a sus necesidades específicas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modalidades de Capacitación -->
+    <section class="modalidades-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Modalidades de Capacitación</h2>
+                <p>Flexibilidad y adaptabilidad para satisfacer las necesidades específicas de cada empresa</p>
+            </div>
+
+            <div class="modalidades-grid">
+                <div class="modalidad-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="modalidad-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>In Company</h3>
+                    <p class="modalidad-description">
+                        Adaptada a procesos específicos y dictada en la sede del cliente
+                    </p>
+                    <ul class="modalidad-features">
+                        <li><i class="fas fa-check"></i> Personalización total del contenido</li>
+                        <li><i class="fas fa-check"></i> Aplicación directa en procesos reales</li>
+                        <li><i class="fas fa-check"></i> Horarios flexibles</li>
+                        <li><i class="fas fa-check"></i> Mayor participación del equipo</li>
+                    </ul>
+                    <div class="modalidad-badge">
+                        <span>Más Popular</span>
+                    </div>
+                </div>
+
+                <div class="modalidad-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modalidad-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Virtual Interactiva</h3>
+                    <p class="modalidad-description">
+                        En plataformas de videoconferencia con ejercicios colaborativos
+                    </p>
+                    <ul class="modalidad-features">
+                        <li><i class="fas fa-check"></i> Acceso desde cualquier ubicación</li>
+                        <li><i class="fas fa-check"></i> Grabaciones para consulta posterior</li>
+                        <li><i class="fas fa-check"></i> Herramientas digitales interactivas</li>
+                        <li><i class="fas fa-check"></i> Menor costo de implementación</li>
+                    </ul>
+                </div>
+
+                <div class="modalidad-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="modalidad-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Workshop Presencial</h3>
+                    <p class="modalidad-description">
+                        Con prácticas, simulaciones y resolución de casos
+                    </p>
+                    <ul class="modalidad-features">
+                        <li><i class="fas fa-check"></i> Interacción directa con expertos</li>
+                        <li><i class="fas fa-check"></i> Networking entre participantes</li>
+                        <li><i class="fas fa-check"></i> Experiencias prácticas intensivas</li>
+                        <li><i class="fas fa-check"></i> Material físico especializado</li>
+                    </ul>
+                </div>
+
+                <div class="modalidad-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="modalidad-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Diplomados Especializados</h3>
+                    <p class="modalidad-description">
+                        Bajo demanda, en alianza with instituciones educativas
+                    </p>
+                    <ul class="modalidad-features">
+                        <li><i class="fas fa-check"></i> Certificación académica oficial</li>
+                        <li><i class="fas fa-check"></i> Programas de larga duración</li>
+                        <li><i class="fas fa-check"></i> Especialización profunda</li>
+                        <li><i class="fas fa-check"></i> Red de contactos académicos</li>
+                    </ul>
+                    <div class="modalidad-badge premium">
+                        <span>Premium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios para las Empresas -->
+    <section class="beneficios-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Beneficios para las Empresas</h2>
+                <p>Impacto tangible en la operación y competitividad de su organización</p>
+            </div>
+
+            <div class="beneficios-grid">
+                <div class="beneficio-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Reducción de Riesgos</h3>
+                    <p>Disminución significativa de riesgos regulatorios y sanitarios mediante la implementación de mejores prácticas y sistemas de control.</p>
+                    <div class="beneficio-highlight">
+                        <span>Hasta 80% menos incidentes</span>
+                    </div>
+                </div>
+
+                <div class="beneficio-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Mejora en Eficiencia</h3>
+                    <p>Optimización de los procesos de producción y calidad, resultando en mayor productividad y reducción de desperdicios.</p>
+                    <div class="beneficio-highlight">
+                        <span>+25% productividad</span>
+                    </div>
+                </div>
+
+                <div class="beneficio-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Fortalecimiento del Equipo</h3>
+                    <p>Desarrollo de competencias técnicas del equipo en normas nacionales e internacionales, creando una base sólida de conocimiento.</p>
+                    <div class="beneficio-highlight">
+                        <span>Certificación especializada</span>
+                    </div>
+                </div>
+
+                <div class="beneficio-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="beneficio-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Competitividad Internacional</h3>
+                    <p>Aumento en la competitividad para exportar y lograr certificaciones internacionales que abran nuevos mercados.</p>
+                    <div class="beneficio-highlight">
+                        <span>Acceso a mercados globales</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso de Capacitación -->
+    <section class="proceso-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2>Nuestro Proceso de Capacitación</h2>
+                <p>Metodología probada para garantizar el máximo aprovechamiento del aprendizaje</p>
+            </div>
+
+            <div class="proceso-timeline">
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="timeline-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>1. Diagnóstico Inicial</h3>
+                        <p>Evaluación de necesidades específicas y análisis de brechas en conocimiento técnico.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                    <div class="timeline-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>2. Diseño Personalizado</h3>
+                        <p>Desarrollo de contenido adaptado a los procesos y objetivos específicos de la empresa.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="timeline-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>3. Implementación</h3>
+                        <p>Ejecución del programa con metodologías interactivas y casos prácticos aplicados.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+                    <div class="timeline-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>4. Evaluación y Seguimiento</h3>
+                        <p>Medición de resultados y acompañamiento posterior para asegurar la aplicación del conocimiento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>¿Listo para fortalecer las competencias de su equipo?</h2>
+                <p>Contáctanos para diseñar un programa de capacitación adaptado a las necesidades específicas de su empresa</p>
+                <div class="cta-buttons">
+                    <a href="contacto.html" class="cta-btn primary">
+                        <i class="fas fa-envelope"></i>
+                        Solicitar Información
+                    </a>
+                    <a href="servicios.html" class="cta-btn secondary">
+                        <i class="fas fa-flask"></i>
+                        Ver Todos los Servicios
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (usar el mismo de las otras páginas) -->
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section company-info">
+                    <img src="./img/LOGO BLANCO (1).png" alt="AOXLAB Logo" class="footer-logo">
+                    <p>Más que un laboratorio: un aliado en tu camino hacia la calidad.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/aoxlab_sas/?hl=es-la"target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://co.linkedin.com/company/aoxlab"target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Sección de Contacto Principal - Medellín -->
+                <div class="footer-section contact-main"><!--Números de contacto actualizados hasta 2025/06/12-->
+                    <h4>Sede Principal - Medellín</h4>
+                    <div class="contact-info-main">
+                        <p><i class="fas fa-map-marker-alt"></i> Calle 32F #74B-122, Laureles<br>Medellín, Antioquia</p>
+                        <p><i class="fas fa-phone"></i> (604) 604-7454</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 287 4329</p>
+                        <p><i class="fas fa-mobile-alt"></i> +57 310 833 8768</p>
+                        <p><i class="fas fa-envelope"></i> direccioncomercial@aoxlab.com</p>
+                    </div>
+                </div>
+                
+                <!-- Sección de Otras Ciudades -->
+                <div class="footer-section contact-cities">
+                    <h4>Otras Ciudades</h4>
+                    <div class="cities-grid">
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Bogotá</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 383 0543
+                            </p>
+                        </div>
+                        
+                        <div class="city-contact">
+                            <div class="city-header">
+                                <i class="fas fa-map-pin"></i>
+                                <span class="city-name">Cali</span>
+                            </div>
+                            <p class="city-phone">
+                                <i class="fas fa-mobile-alt"></i> +57 310 206 5380
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="certificaciones.html">Certificaciones</a></li>
+                        <li><a href="sectores.html">Sectores</a></li>
+                        <li><a href="portal-clientes.html">Portal Clientes</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Políticas</h4>
+                    <ul>
+                        <li><a href="politicas.html">Tratamiento de datos</a></li>
+                        <li><a href="pqrs.html">PQRS</a></li>
+                        <li><a href="certificados.html">Certificados ISO</a></li>
+                        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Aoxlab S.A.S. Todos los derechos reservados. | Ágil, Eficiente y Flexible.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botones Flotantes -->
+        <!--Tengo que cambiar el enlace de whasap para que me lleve al numero de la compañia y no al mío-->
+    <!-- WhatsApp Flotante -->
+        <a href="#" class="whatsapp-float" 
+        id="whatsapp-float-btn"
+        aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="tooltip">¿Necesitas ayuda?</span>
+        </a>
+
+    <!-- Botón Scroll to Top -->
+    <button class="scroll-top" id="scroll-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Botón flotante del chatbot -->
+<div class="chatbot-float" id="chatbot-toggle">
+    <i class="fas fa-comments"></i>
+    <span class="tooltip">¿Necesitas ayuda?</span>
+    <div class="notification-dot" id="chatbot-notification"></div>
+</div>
+
+<!-- Modal del chatbot -->
+<div class="chatbot-modal" id="chatbot-modal">
+    <div class="chatbot-header">
+        <div class="chatbot-avatar">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-info">
+            <h3>Asistente Aoxlab</h3>
+            <span class="status online">En línea</span>
+        </div>
+        <button class="chatbot-close" id="chatbot-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="chatbot-body" id="chatbot-body">
+        <div class="chat-message bot-message">
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="message-content">
+                <p>¡Hola! Soy el asistente virtual de Aoxlab. Estoy aquí para ayudarte con información sobre nuestros servicios de análisis y certificaciones. ¿En qué puedo asistirte hoy?</p>
+                <div class="quick-actions">
+                    <button class="quick-btn" data-action="servicios">Ver servicios</button>
+                    <button class="quick-btn" data-action="cotizacion">Solicitar cotización</button>
+                    <button class="quick-btn" data-action="resultados">Consultar resultados</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="chatbot-footer">    
+        <div class="chat-input-container">
+            <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." maxlength="500">
+            <button id="send-message" disabled>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="typing-indicator" id="typing-indicator" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+    <!-- Modal de WhatsApp -->
+    <div class="whatsapp-modal" id="whatsapp-modal">
+        <div class="whatsapp-modal-content">
+            <div class="whatsapp-header">
+                <div class="whatsapp-logo">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>Contáctanos por WhatsApp</h3>
+                <p>Selecciona tu ciudad más cercana</p>
+                <button class="whatsapp-close" id="whatsapp-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="whatsapp-contacts">
+                <!-- Medellín - Sede Principal -->
+                <a href="https://wa.me/573102874329?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Medellín" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="medellin">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Medellín</h4>
+                        <span class="contact-label">Sede Principal</span>
+                        <span class="contact-number">+57 310 287 4329</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+                
+                <!-- Bogotá -->
+                <a href="https://wa.me/573103830543?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Bogotá" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="bogota">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Bogotá</h4>
+                        <span class="contact-label">Punto de Atención</span>
+                        <span class="contact-number">+57 310 383 0543</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+                
+                <!-- Cali -->
+                <a href="https://wa.me/573102065380?text=Hola,%20necesito%20información%20sobre%20los%20servicios%20de%20AOXLAB%20en%20Cali" 
+                class="whatsapp-contact" 
+                target="_blank"
+                data-city="cali">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Cali</h4>
+                        <span class="contact-label">Punto de Atención</span>
+                        <span class="contact-number">+57 310 206 5380</span>
+                    </div>
+                    <div class="contact-arrow">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="whatsapp-footer">
+                <p>Horario de atención: Lun - Vie 8:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/inicio.js"></script>
+    <script src="js/Capacitacion.js"></script>
+</body>
+</html>
