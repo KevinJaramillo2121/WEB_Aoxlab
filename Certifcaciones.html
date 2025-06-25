@@ -46,6 +46,7 @@
                 </div>
 
                 <!-- Navegación Principal con Menú Desplegable -->
+                <!-- Navegación Principal con Menú Desplegable -->
                 <nav class="main-nav" aria-label="Navegación principal">
                     <ul class="nav-list">
                         <li><a href="./index.html" class="nav-link">INICIO</a></li>
@@ -53,150 +54,160 @@
                         
                         <!-- SERVICIOS con menú desplegable -->
                         <li class="nav-item-dropdown">
-                            <a href="./Servicios.html" class="nav-link dropdown-trigger">
+                            <a href="./Servicios.html" class="nav-link dropdown-trigger"     alt="Laboratorio AOXLAB especializado en análisis microbiológicos, fisicoquímicos y cannabinoides en Medellín Colombia">
                                 SERVICIOS
-                                <i class="fas fa-chevron-down dropdown-icon"></i>
+                                <i class="fas fa-chevron-downN dropdown-icon"></i>
                             </a>
                             
-                            <!-- Menú principal de servicios -->
-                            <div class="dropdown-menu services-dropdown">
-                                <div class="dropdown-container">
-                                    
-                                    <!-- Laboratorio con submenu -->
-                                    <div class="dropdown-item has-submenu">
-                                        <a href="./Servicios.html#laboratorio" class="dropdown-link">
-                                            <i class="fas fa-microscope"></i>
-                                            <span class="dropdown-title">Laboratorio</span>
-                                            <i class="fas fa-chevron-right submenu-icon"></i>
-                                        </a>
+                                <!-- Menú principal de servicios -->
+                                <div class="dropdown-menu services-dropdown">
+                                    <div class="dropdown-container">
                                         
-                                        <!-- Submenu de Laboratorio -->
-                                        <div class="submenu-dropdown">
-                                            <div class="submenu-header">
-                                                <h4>Servicios de Laboratorio</h4>
-                                                <p>Análisis especializados con tecnología de punta</p>
-                                            </div>
+                                        <!-- Laboratorio con submenu - AHORA SOMBREADO -->
+                                        <div class="dropdown-item has-submenu highlighted-item">
+                                            <a href="./Servicios.html#laboratorio" class="dropdown-link">
+                                                <i class="fas fa-microscope"></i>
+                                                <div class="dropdown-content">
+                                                    <span class="dropdown-title">Laboratorio</span>
+                                                </div>
+                                                <i class="fas fa-chevron-right submenu-icon"></i>
+                                            </a>
                                             
-                                            <div class="submenu-grid">
-                                                <a href="./Servicios.html#microbiologicos" class="submenu-item">
-                                                    <i class="fas fa-bacteria"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Microbiológicos</h5>
-                                                    </div>
-                                                </a>
+                                            <!-- Submenu de Laboratorio con diseño de dos columnas -->
+                                            <div class="submenu-dropdown compact-submenu">
+                                                <div class="submenu-header">
+                                                    <h4>Servicios de Laboratorio</h4>
+                                                    <p>Análisis especializados con tecnología de punta</p>
+                                                </div>
                                                 
-                                                <a href="./Servicios.html#fisicoquimicos" class="submenu-item">
-                                                    <i class="fas fa-flask"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Físico-Químicos</h5>
+                                                <div class="submenu-grid two-column-layout">
+                                                    <!-- COLUMNA IZQUIERDA -->
+                                                    <div class="submenu-column left-column">
+                                                        <a href="./Servicios.html#microbiologicos" class="submenu-item compact">
+                                                            <i class="fas fa-bacteria"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Microbiológicos</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#fisicoquimicos" class="submenu-item compact">
+                                                            <i class="fas fa-flask"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Fisicoquímicos</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#nutricionales" class="submenu-item compact">
+                                                            <i class="fas fa-apple-alt"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Nutricionales</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#alergenos" class="submenu-item compact">
+                                                            <i class="fas fa-shield-alt"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Alérgenos</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#micotoxinas" class="submenu-item compact">
+                                                            <i class="fas fa-exclamation-triangle"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Micotoxinas</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#plaguicidas" class="submenu-item compact">
+                                                            <i class="fas fa-seedling"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Residualidad (LMRs)</h5>
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                </a>
-                                                
-                                                <a href="./Servicios.html#nutricionales" class="submenu-item">
-                                                    <i class="fas fa-apple-alt"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Nutricionales</h5>
+                                                    
+                                                    <!-- COLUMNA DERECHA -->
+                                                    <div class="submenu-column right-column">
+                                                        <a href="./Servicios.html#Metales" class="submenu-item compact">
+                                                            <i class="fas fa-atom"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Metales Pesados</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#Contaminantes" class="submenu-item compact">
+                                                            <i class="fas fa-biohazard"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Contaminantes</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#terpenos" class="submenu-item compact">
+                                                            <i class="fas fa-cannabis"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Cannabinoides y Terpenos</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#vidautil" class="submenu-item compact">
+                                                            <i class="fas fa-chart-line"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Vida Útil y Estabilidad</h5>
+                                                            </div>
+                                                        </a>
+                                                        
+                                                        <a href="./Servicios.html#biodegradabilidad" class="submenu-item compact">
+                                                            <i class="fas fa-leaf"></i>
+                                                            <div class="submenu-content">
+                                                                <h5>Biodegradabilidad</h5>
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                </a>
-                                                
-                                                <a href="./Servicios.html#micotoxinas" class="submenu-item">
-                                                    <i class="fas fa-exclamation-triangle"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Micotoxinas</h5>
-                                                    </div>
-                                                </a>
-                                                
-                                                <a href="./Servicios.html#alergenos" class="submenu-item">
-                                                    <i class="fas fa-shield-alt"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Alérgenos</h5>
-                                                    </div>
-                                                </a>
-                                                
-                                                <a href="./Servicios.html#Contaminantes" class="submenu-item">
-                                                    <i class="fas fa-biohazard"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Contaminantes</h5>
-                                                    </div>
-                                                </a>
-                                                
-                                                <a href="./Servicios.html#Metales" class="submenu-item">
-                                                    <i class="fas fa-atom"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Metales Pesados</h5>
-                                                    </div>
-                                                </a>
-                                                
-                                                <a href="./Servicios.html#plaguicidas" class="submenu-item">
-                                                    <i class="fas fa-seedling"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Residuos de Plaguicidas</h5>
-                                                    </div>
-                                                </a>
-                                                
-                                                <a href="./Servicios.html#terpenos" class="submenu-item">
-                                                    <i class="fas fa-cannabis"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Cannabinoides y Terpenos</h5>
-                                                    </div>
-                                                </a>
-                                                
-                                                <a href="./Servicios.html#vidautil" class="submenu-item">
-                                                    <i class="fas fa-chart-line"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Vida Útil y Estabilidad</h5>
-                                                    </div>
-                                                </a>
-                                                
-                                                <a href="./Servicios.html#biodegradabilidad" class="submenu-item">
-                                                    <i class="fas fa-leaf"></i>
-                                                    <div class="submenu-content">
-                                                        <h5>Biodegradabilidad</h5>
-                                                    </div>
-                                                </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                    <!-- Certificación de Producto -->
-                                    <div class="dropdown-item">
-                                        <a href="./Certificaciones.html#producto" class="dropdown-link">
-                                            <i class="fas fa-certificate"></i>
-                                            <div class="dropdown-content">
-                                                <span class="dropdown-title">Certificación de Producto</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    
-                                    <!-- Capacitación -->
-                                    <div class="dropdown-item">
-                                        <a href="./Capacitacion.html" class="dropdown-link">
-                                            <i class="fas fa-graduation-cap"></i>
-                                            <div class="dropdown-content">
-                                                <span class="dropdown-title">Capacitación</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    
-                                    <!-- Investigación y Desarrollo -->
-                                    <div class="dropdown-item">
-                                        <a href="./Investigacion.html" class="dropdown-link">
-                                            <i class="fas fa-lightbulb"></i>
-                                            <div class="dropdown-content">
-                                                <span class="dropdown-title">Investigación y Desarrollo</span>
-                                            </div>
-                                        </a>
+                                        
+                                        <!-- Certificación de Producto -->
+                                        <div class="dropdown-item highlighted-item">
+                                            <a href="./Certificaciones.html#producto" class="dropdown-link">
+                                                <i class="fas fa-certificate"></i>
+                                                <div class="dropdown-content">
+                                                    <span class="dropdown-title">Certificación de Producto</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- Capacitación -->
+                                        <div class="dropdown-item highlighted-item">
+                                            <a href="./Capacitacion.html" class="dropdown-link">
+                                                <i class="fas fa-graduation-cap"></i>
+                                                <div class="dropdown-content">
+                                                    <span class="dropdown-title">Capacitación</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        
+                                        <!-- Investigación y Desarrollo -->
+                                        <div class="dropdown-item highlighted-item">
+                                            <a href="./investigacion.html" class="dropdown-link">
+                                                <i class="fas fa-lightbulb"></i>
+                                                <div class="dropdown-content">
+                                                    <span class="dropdown-title">Investigación y Desarrollo</span>
+                                                </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                        
+                            </li>
+                            
+                            
                         <li><a href="./Certifcaciones.html" class="nav-link active">CERTIFICACIÓN</a></li>
                         <li><a href="./Trabajo.html" class="nav-link">TRABAJA CON NOSOTROS</a></li>
                         <a href="./cliente.html" class="header-cta-btn portal-btn"><i class="fas fa-user-circle"></i>Portal Clientes</a>
                         <a href="./Contacto.html" class="header-cta-btn contact-btn"><i class="fas fa-envelope"></i>Contáctanos</a>
                     </ul>
                 </nav>
+
 
                 <!-- Acciones del Header -->
                 <div class="header-actions">

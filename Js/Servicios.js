@@ -137,7 +137,7 @@ function closeAllExpandedCards() {
     });
 }
 
-
+ 
 
 /**
  * NUEVA FUNCIÓN: Crea dinámicamente el contenido expandido si no existe

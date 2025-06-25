@@ -205,12 +205,6 @@ body {
     margin-left: 0;
 }
 
-.main-nav .nav-list {
-    display: flex;
-    list-style: none;
-    gap: var(--spacing-md);
-}
-
 .nav-link {
     text-decoration: none;
     color: var(--primary-color);
@@ -395,7 +389,236 @@ body {
         justify-content: space-between;
     }
 }
+.dropdown-menu,
+.services-dropdown,
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todos los ítems verticalmente */
+    padding: 8px 0;
+}
+.dropdown-item {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra cada ítem horizontalmente */
+    margin-bottom: 4px;
+    padding: 0;
+    text-align: center;
+}
+.dropdown-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el contenido del enlace */
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 1.08rem; /* Unifica el tamaño de letra */
+    font-family: 'Aller', Arial, sans-serif;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-align: center;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+.dropdown-link:hover {
+    background: rgba(43, 161, 212, 0.08);
+    color: var(--secondary-color);
+}
+/* Títulos dentro del dropdown */
+.dropdown-title, .dropdown-link span {
+    font-size: 1.08rem; /* Igual al enlace */
+    font-family: inherit;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+/* Submenú de dos columnas centrado */
+.compact-submenu .submenu-header h4,
+.compact-submenu .submenu-header p {
+    text-align: center;
+    width: 100%;
+}
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    justify-items: center; /* Centra los ítems en cada columna */
+    align-items: center;
+}
+
 /* ===== MENÚ DESPLEGABLE DE SERVICIOS ===== */
+/* Elemento destacado para uniformidad visual */
+.dropdown-item.highlighted-item {
+    background: rgba(43, 161, 212, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item.highlighted-item:hover {
+    background: rgba(43, 161, 212, 0.1);
+}
+
+/* Contenedor principal del dropdown con espaciado reducido */
+.dropdown-container {
+    padding: 8px 0;
+    gap: 4px;
+}
+
+/* Elementos del dropdown principal con espaciado compacto */
+.dropdown-item {
+    margin-bottom: 4px;
+    padding: 6px 12px;
+}
+
+/* Enlaces del dropdown con altura reducida */
+.dropdown-link {
+    padding: 8px 12px;
+    min-height: auto;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* Títulos compactos */
+.dropdown-title {
+    font-size: 14px;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Iconos uniformes */
+.dropdown-link i, .submenu-item.compact i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+    color: var(--secondary-color);
+}
+
+/* Icono de submenu uniforme */
+.submenu-icon {
+    font-size: 12px;
+    color: var(--medium-gray);
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+/* Corrección específica para el elemento Laboratorio */
+.dropdown-item.has-submenu .dropdown-link {
+    justify-content: space-between;
+}
+
+/* Espaciado uniforme del contenedor */
+.dropdown-container {
+    padding: 8px 0;
+    gap: 4px;
+}
+
+/* Remover cualquier alineación central que pueda estar afectando */
+.dropdown-item {
+    text-align: left !important;
+    margin-bottom: 4px;
+    padding: 0;
+}
+
+/* Responsive para mantener uniformidad en móviles */
+@media (max-width: 768px) {
+    .dropdown-link {
+        padding: 10px 12px;
+    }
+    .dropdown-title {
+        font-size: 13px;
+    }
+    .dropdown-link i {
+        font-size: 14px;
+        width: 18px;
+    }
+}
+/* ===== SUBMENU COMPACTO DE DOS COLUMNAS ===== */
+.compact-submenu {
+    width: 380px;
+    max-height: 400px;
+    overflow: visible;
+    padding: 12px;
+}
+
+.compact-submenu .submenu-header {
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(43, 161, 212, 0.2);
+}
+
+.compact-submenu .submenu-header h4 {
+    font-size: 16px;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+.compact-submenu .submenu-header p {
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.submenu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.submenu-item.compact {
+    padding: 6px 8px;
+    margin-bottom: 2px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submenu-item.compact:hover {
+    background: rgba(43, 161, 212, 0.08);
+    transform: translateX(2px);
+}
+
+.submenu-item.compact .submenu-content {
+    flex: 1;
+}
+
+.submenu-item.compact h5 {
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .compact-submenu {
+        width: 100%;
+        max-width: 320px;
+    }
+    .two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    .submenu-item.compact {
+        padding: 8px 10px;
+    }
+}
 
 /* Elemento padre del dropdown */
 .nav-item-dropdown {
@@ -494,19 +717,19 @@ body {
     margin-top: 2px;
     flex-shrink: 0;
 }
-
 .dropdown-content {
-    flex: 1;
+    text-align: left !important;
+    width: 100%;
 }
 
+/* Estilo para el título del menú desplegable */
 .dropdown-title {
-    font-weight: var(--font-weight-bold);
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    display: block;
-    margin-bottom: var(--spacing-xs);
+    font-size: 14px;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 500;
+    text-align: left !important;
 }
-
 .dropdown-description {
     font-size: 0.9rem;
     color: var(--medium-gray);
@@ -677,7 +900,12 @@ body {
     flex: 1 1 auto;
     margin-left: 0;
 }
-
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra todos los elementos del menú horizontalmente */
+    gap: 24px; /* Espacio uniforme entre elementos */
+}
 .main-nav .nav-list {
     display: flex;
     list-style: none;
