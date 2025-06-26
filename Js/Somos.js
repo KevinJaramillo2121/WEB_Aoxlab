@@ -937,7 +937,7 @@ function viewCertDetails(certType) {
             content: `
                 <div class="modal-cert-info">
                     <div class="modal-cert-header">
-                        <img src="img/logo AOXLAB-ONAC-ILAC.jpeg" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
+                        <img src="img/cert_img/logo AOXLAB-ONAC-ILAC.jpeg" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
                         <h4>Competencia de Laboratorios de Ensayo y Calibración</h4>
                     </div>
                     
@@ -976,7 +976,7 @@ function viewCertDetails(certType) {
             content: `
                 <div class="modal-cert-info">
                     <div class="modal-cert-header">
-                        <img src="img/antioquia1.png" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
+                        <img src="img/cert_img/antioquia1.png" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
                         <h4>Autorización Secretaría Seccional de Salud de Antioquia</h4>
                     </div>
                     
@@ -1031,7 +1031,7 @@ function viewCertDetails(certType) {
             content: `
                 <div class="modal-cert-info">
                     <div class="modal-cert-header">
-                        <img src="img/Ica.png" alt="ICA" style="height: 100px; margin-bottom: 20px;">
+                        <img src="img/cert_img/Ica.png" alt="ICA" style="height: 100px; margin-bottom: 20px;">
                         <h4>Instituto Colombiano Agropecuario</h4>
                     </div>
                     
@@ -1059,7 +1059,7 @@ function viewCertDetails(certType) {
             content: `
                 <div class="modal-cert-info">
                     <div class="modal-cert-header">
-                        <img src="img/Iso17065.jpg" alt="ISO 17065" style="height: 100px; margin-bottom: 20px;">
+                        <img src="img/cert_img/Iso17065.jpg" alt="ISO 17065" style="height: 100px; margin-bottom: 20px;">
                         <h4>Organismos que Certifican Productos, Procesos y Servicios</h4>
                     </div>
                     

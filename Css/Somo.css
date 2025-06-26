@@ -39,7 +39,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(135deg, rgba(43, 161, 212, 0.729), rgba(243, 118, 40, 0.429)), url("../img/Somos.jpg");
+    background-image: linear-gradient(135deg, rgba(43, 161, 212, 0.729), rgba(243, 118, 40, 0.429)), url("../img/somos_img/Somos.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

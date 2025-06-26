@@ -1269,7 +1269,6 @@
     transform: translateY(-2px);
 }
 
-
 /* Tarjeta en estado normal */
 /* ===== AJUSTE DE TARJETAS PARA 3 COLUMNAS ===== */
 .service-card-v2 {
@@ -1292,7 +1291,6 @@
     grid-column: span 1;
     grid-row: span 1;
 }
-
 
 .service-card-v2:hover {
     transform: translateY(-8px) scale(1.02);
