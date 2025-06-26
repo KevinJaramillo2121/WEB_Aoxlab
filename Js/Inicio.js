@@ -90,6 +90,7 @@ class AoxlabWebsite {
         this.initAnalyticsTracking();
         this.preloadCarouselImages();
         this.initSubmenuPositioning();
+        this.initMenuManager();
     }
     
     /**
@@ -392,7 +393,22 @@ class AoxlabWebsite {
             this.startAutoplay();
         }, 100);
     }
-
+    initMenuManager() {
+        // Si ya existe un gestor, limpiarlo primero
+        if (this.menuManager) {
+            this.menuManager.cleanup();
+        }
+        
+        // Crear nuevo gestor de menús
+        this.menuManager = new MenuManager();
+    }
+    
+    // Método para reinicializar menús si es necesario
+    reinitializeMenus() {
+        if (this.menuManager) {
+            this.menuManager.reinitialize();
+        }
+    }
     /**
      * Inicializa controles táctiles para dispositivos móviles
      * @param {Element} carousel - Elemento del carrusel
@@ -2113,6 +2129,130 @@ function initMobileMenu() {
             }
         }
     });
+}
+// SOLUCIÓN COMPLETA: Clase MenuManager
+class MenuManager {
+    constructor() {
+        this.isInitialized = false;
+        this.activeDropdown = null;
+        this.boundHandlers = new Map();
+        this.init();
+    }
+
+    init() {
+        if (this.isInitialized) {
+            this.cleanup(); // Limpiar antes de reinicializar
+        }
+        
+        this.setupDropdownEvents();
+        this.setupGlobalEvents();
+        this.isInitialized = true;
+        console.log('MenuManager initialized');
+    }
+
+    cleanup() {
+        // Remover todos los event listeners existentes
+        this.boundHandlers.forEach((handler, element) => {
+            element.removeEventListener('mouseenter', handler.mouseenter);
+            element.removeEventListener('mouseleave', handler.mouseleave);
+            element.removeEventListener('click', handler.click);
+        });
+        
+        this.boundHandlers.clear();
+        
+        if (this.globalClickHandler) {
+            document.removeEventListener('click', this.globalClickHandler);
+        }
+        
+        console.log('MenuManager cleaned up');
+    }
+
+    setupDropdownEvents() {
+        const dropdownItems = document.querySelectorAll('.nav-item-dropdown');
+        
+        dropdownItems.forEach(item => {
+            const dropdown = item.querySelector('.dropdown-menu');
+            const trigger = item.querySelector('.dropdown-trigger');
+            
+            if (!dropdown || !trigger) return;
+            
+            // Crear handlers bound para poder removerlos después
+            const handlers = {
+                mouseenter: (e) => this.showDropdown(item, dropdown),
+                mouseleave: (e) => this.hideDropdown(item, dropdown, e),
+                click: (e) => this.handleTriggerClick(e, item, dropdown)
+            };
+            
+            // Añadir event listeners
+            item.addEventListener('mouseenter', handlers.mouseenter);
+            item.addEventListener('mouseleave', handlers.mouseleave);
+            trigger.addEventListener('click', handlers.click);
+            
+            // Guardar referencias para cleanup
+            this.boundHandlers.set(item, handlers);
+        });
+    }
+
+    showDropdown(item, dropdown) {
+        // Cerrar otros menús abiertos
+        this.closeAllDropdowns();
+        
+        // Mostrar el menú actual
+        dropdown.style.opacity = '1';
+        dropdown.style.visibility = 'visible';
+        dropdown.style.transform = 'translateY(0)';
+        
+        this.activeDropdown = { item, dropdown };
+        
+        // Posicionamiento inteligente
+        this.adjustDropdownPosition(dropdown);
+    }
+
+    hideDropdown(item, dropdown, e) {
+        // Verificar si el mouse está saliendo hacia el dropdown
+        if (e.relatedTarget && (
+            item.contains(e.relatedTarget) || 
+            dropdown.contains(e.relatedTarget)
+        )) {
+            return;
+        }
+        
+        // Delay para permitir navegación al submenu
+        setTimeout(() => {
+            if (this.activeDropdown && this.activeDropdown.dropdown === dropdown) {
+                dropdown.style.opacity = '0';
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.transform = 'translateY(-20px)';
+                this.activeDropdown = null;
+            }
+        }, 100);
+    }
+
+    closeAllDropdowns() {
+        const allDropdowns = document.querySelectorAll('.dropdown-menu');
+        allDropdowns.forEach(dropdown => {
+            dropdown.style.opacity = '0';
+            dropdown.style.visibility = 'hidden';
+            dropdown.style.transform = 'translateY(-20px)';
+        });
+        this.activeDropdown = null;
+    }
+
+    adjustDropdownPosition(dropdown) {
+        const rect = dropdown.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        const buffer = 20;
+        
+        dropdown.classList.remove('position-left');
+        
+        if (rect.right > (viewportWidth - buffer)) {
+            dropdown.classList.add('position-left');
+        }
+    }
+
+    reinitialize() {
+        this.init();
+    }
 }
 
 
