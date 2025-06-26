@@ -11,7 +11,7 @@ class AoxlabContacto extends AoxlabWebsite {
         this.initSmoothScroll();
         this.initHeaderOffset();
     }
-    
+     
     initFormValidation() {
         const form = document.getElementById('contactForm');
         if (!form) return;

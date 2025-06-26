@@ -24,7 +24,7 @@
  * 
  * @param {HTMLElement} button - El botón que activó la expansión
  */
-/**
+/** 
  * Función mejorada para manejar la expansión de texto
  * Expande tanto el contenido expandido como la descripción básica
  */ 
@@ -423,6 +423,167 @@ function contactSpecificService(serviceType) {
     window.open(whatsappUrl, '_blank');
     console.log(`Contacto iniciado para servicio: ${serviceType}`);
 }
+// ===== FUNCIONALIDAD DEL CARRUSEL DE METODOLOGÍA =====
+
+/**
+ * Clase para manejar el carrusel de metodología
+ */
+class MetodologiaCarousel {
+    constructor() {
+        this.currentStep = 0;
+        this.totalSteps = 5;
+        this.carousel = null;
+        this.track = null;
+        this.slides = [];
+        this.navButtons = [];
+        this.prevBtn = null;
+        this.nextBtn = null;
+        this.progressFill = null;
+        
+        this.init();
+    }
+    
+    init() {
+        // Buscar elementos del DOM
+        this.carousel = document.querySelector('.metodologia-carousel');
+        this.track = document.querySelector('.carousel-track');
+        this.slides = document.querySelectorAll('.step-slide');
+        this.navButtons = document.querySelectorAll('.step-nav-btn');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.progressFill = document.querySelector('.progress-fill');
+        
+        if (!this.carousel || !this.track || this.slides.length === 0) {
+            console.warn('Elementos del carrusel de metodología no encontrados');
+            return;
+        }
+        
+        this.totalSteps = this.slides.length;
+        
+        // Configurar event listeners
+        this.setupEventListeners();
+        
+        // Configurar estado inicial
+        this.updateCarousel();
+        
+        console.log('Carrusel de metodología inicializado correctamente');
+    }
+    
+    setupEventListeners() {
+        // Event listeners para botones de navegación lateral
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.previousStep());
+        }
+        
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => this.nextStep());
+        }
+        
+        // Event listeners para botones de navegación de pasos
+        this.navButtons.forEach((button, index) => {
+            button.addEventListener('click', () => this.goToStep(index));
+        });
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', (e) => {
+            if (this.carousel && this.isCarouselVisible()) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    this.previousStep();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    this.nextStep();
+                }
+            }
+        });
+    }
+    
+    isCarouselVisible() {
+        if (!this.carousel) return false;
+        const rect = this.carousel.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom > 0;
+    }
+    
+    goToStep(stepIndex) {
+        if (stepIndex < 0 || stepIndex >= this.totalSteps) return;
+        
+        this.currentStep = stepIndex;
+        this.updateCarousel();
+    }
+    
+    nextStep() {
+        const newStep = (this.currentStep + 1) % this.totalSteps;
+        this.goToStep(newStep);
+    }
+    
+    previousStep() {
+        const newStep = this.currentStep === 0 ? this.totalSteps - 1 : this.currentStep - 1;
+        this.goToStep(newStep);
+    }
+    
+    updateCarousel() {
+        // Actualizar posición del track
+        if (this.track) {
+            const translateX = -this.currentStep * 100;
+            this.track.style.transform = `translateX(${translateX}%)`;
+        }
+        
+        // Actualizar slides activos
+        this.slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === this.currentStep);
+        });
+        
+        // Actualizar botones de navegación
+        this.navButtons.forEach((button, index) => {
+            button.classList.toggle('active', index === this.currentStep);
+        });
+        
+        // Actualizar barra de progreso
+        if (this.progressFill) {
+            const progressPercent = ((this.currentStep + 1) / this.totalSteps) * 100;
+            this.progressFill.style.width = `${progressPercent}%`;
+        }
+        
+        // Animar entrada del contenido
+        this.animateSlideContent();
+    }
+    
+    animateSlideContent() {
+        const activeSlide = this.slides[this.currentStep];
+        if (!activeSlide) return;
+        
+        // Animar elementos dentro del slide activo
+        const elements = activeSlide.querySelectorAll('.step-icon-large, .step-details h3, .step-details p, .feature-item');
+        
+        elements.forEach((element, index) => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            
+            setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }, index * 100 + 200);
+        });
+    }
+}
+
+// Variable global para el carrusel
+let metodologiaCarousel = null;
+
+/**
+ * Inicializa el carrusel de metodología
+ */
+function initializeMetodologiaCarousel() {
+    const metodologiaSection = document.querySelector('.metodologia-horizontal-section');
+    
+    if (metodologiaSection) {
+        metodologiaCarousel = new MetodologiaCarousel();
+        console.log('✅ Carrusel de metodología inicializado correctamente');
+    } else {
+        console.warn('⚠️ Sección de metodología no encontrada');
+    }
+}
 
 /**
  * Expande una tarjeta de servicio específica con animaciones suaves
@@ -667,7 +828,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeExpandableCards();
     animateFloatingIcons();
     initializeChatbot();
-    
+    initializeMetodologiaCarousel();
     // NUEVA FUNCIONALIDAD: Verificar estructura de contenido expandido
     verifyExpandedContentStructure();
 });

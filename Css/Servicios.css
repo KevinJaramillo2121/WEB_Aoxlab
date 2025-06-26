@@ -512,7 +512,7 @@
 
 .dropdown-item + .dropdown-item {
     margin-top: 2px; /* Espaciado mínimo entre elementos principales */
-}
+} 
 
 /* Efectos hover suaves que no interfieren con las animaciones */
 .hexagon-item:hover {
@@ -525,6 +525,320 @@
     
     /* Transición más rápida en hover */
     transition: all 0.2s ease !important;
+}
+/* ===== METODOLOGÍA HORIZONTAL CON CARRUSEL ===== */
+.metodologia-horizontal-section {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.metodologia-horizontal-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 120%;
+    height: 200%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.metodologia-horizontal-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Navegación de pasos */
+.steps-navigation {
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+.steps-nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: var(--spacing-md);
+}
+
+.step-nav-btn {
+    background: var(--white);
+    border: 2px solid var(--shadow-light);
+    border-radius: 12px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    min-width: 120px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.step-nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(43, 161, 212, 0.2);
+    border-color: var(--secondary-color);
+}
+
+.step-nav-btn.active {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(43, 161, 212, 0.3);
+}
+
+.step-nav-number {
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.step-nav-label {
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-medium);
+}
+
+/* Línea de progreso */
+.progress-line {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 4px;
+    background: var(--shadow-light);
+    border-radius: 2px;
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.6s ease;
+}
+
+/* Carrusel de contenido */
+.metodologia-carousel {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    background: var(--white);
+}
+
+.carousel-container {
+    height: 100%;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.step-slide {
+    min-width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    position: relative;
+}
+
+.step-slide.active {
+    opacity: 1;
+}
+
+.step-slide-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: var(--spacing-xxl);
+    gap: var(--spacing-xl);
+}
+
+.step-icon-large {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--white);
+    box-shadow: 0 15px 40px rgba(43, 161, 212, 0.3);
+    flex-shrink: 0;
+}
+
+.step-details {
+    flex: 1;
+    max-width: 600px;
+}
+
+.step-details h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    font-weight: var(--font-weight-bold);
+}
+
+.step-details p {
+    font-size: 1.2rem;
+    color: var(--medium-gray);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+
+.step-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    background: var(--light-gray);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(43, 161, 212, 0.1);
+    transform: translateX(5px);
+}
+
+.feature-item i {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+.feature-item span {
+    font-weight: var(--font-weight-medium);
+    color: var(--primary-color);
+}
+
+.step-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(43, 161, 212, 0.3);
+}
+
+.step-action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(43, 161, 212, 0.4);
+}
+
+.step-action-btn.secondary {
+    background: var(--white);
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.step-multiple-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+/* Controles del carrusel */
+.carousel-controls {
+    position: absolute;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.carousel-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--white);
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.carousel-btn:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .steps-nav-container {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        justify-content: center;
+    }
+    
+    .step-nav-btn {
+        min-width: 100px;
+        padding: var(--spacing-sm);
+    }
+    
+    .progress-line {
+        display: none;
+    }
+    
+    .metodologia-carousel {
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .step-slide-content {
+        flex-direction: column;
+        text-align: center;
+        padding: var(--spacing-lg);
+    }
+    
+    .step-icon-large {
+        width: 120px;
+        height: 120px;
+        font-size: 2.5rem;
+    }
+    
+    .step-details h3 {
+        font-size: 1.8rem;
+    }
+    
+    .step-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-multiple-actions {
+        justify-content: center;
+    }
 }
 
 /* Efectos en iconos durante hover */

@@ -1,5 +1,3 @@
-// IDI.js - Funcionalidades específicas para la página I+D+i
-
 class AoxlabIDI extends AoxlabWebsite {
     constructor() {
         super();
@@ -11,9 +9,10 @@ class AoxlabIDI extends AoxlabWebsite {
         this.initScrollAnimations();
         this.initParallaxEffects();
         this.initStatCounters();
+        this.initSmoothScroll(); // Agregado aquí para asegurar inicialización
         console.log('🧪 AOXLAB I+D+i - Sistema cargado exitosamente');
     }
-    
+     
     /**
      * Inicializa la funcionalidad de servicios expandibles
      */
@@ -292,42 +291,386 @@ class AoxlabIDI extends AoxlabWebsite {
     }
 }
 
-// Inicialización cuando el DOM esté listo
+// ===== CLASE METODOLOGÍA CARRUSEL MEJORADA =====
+class MetodologiaCarousel {
+    constructor() {
+        this.currentStep = 0;
+        this.totalSteps = 5;
+        this.autoPlayInterval = null;
+        this.isPaused = false;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+        this.init();
+    }
+    
+    init() {
+        // Esperar a que el DOM esté completamente cargado
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                this.setupCarousel();
+            });
+        } else {
+            this.setupCarousel();
+        }
+    }
+    
+    setupCarousel() {
+        // Verificar si los elementos del carrusel existen en la página
+        const carouselElement = document.querySelector('.metodologia-carousel');
+        if (!carouselElement) {
+            console.log('📋 Metodología Carousel: Elementos no encontrados en esta página');
+            return;
+        }
+        
+        this.setupEventListeners();
+        this.updateProgressBar();
+        this.updateNavigation();
+        this.updateCarousel();
+        this.startAutoPlay();
+        
+        console.log('🎠 Metodología Carousel: Inicializado correctamente');
+    }
+    
+    setupEventListeners() {
+        // Botones de navegación superior
+        document.querySelectorAll('.step-nav-btn').forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                this.goToStep(index);
+                IDIUtils.trackInteraction('step_navigation', 'metodologia');
+            });
+        });
+        
+        // Botones de control del carrusel
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                this.previousStep();
+                IDIUtils.trackInteraction('prev_step', 'metodologia');
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                this.nextStep();
+                IDIUtils.trackInteraction('next_step', 'metodologia');
+            });
+        }
+        
+        // Navegación por teclado
+        document.addEventListener('keydown', (e) => {
+            const carouselElement = document.querySelector('.metodologia-carousel');
+            if (!carouselElement) return;
+            
+            // Solo activar si el carrusel está visible
+            const rect = carouselElement.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (isVisible) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    this.previousStep();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    this.nextStep();
+                } else if (e.key === ' ') {
+                    e.preventDefault();
+                    this.toggleAutoPlay();
+                }
+            }
+        });
+        
+        // Soporte para eventos táctiles
+        this.setupTouchEvents();
+        
+        // Pausar auto-play cuando el cursor está sobre el carrusel
+        const carousel = document.querySelector('.metodologia-carousel');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => {
+                this.pauseAutoPlay();
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                if (!this.isPaused) {
+                    this.startAutoPlay();
+                }
+            });
+        }
+        
+        // Controlar auto-play basado en visibilidad de la página
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                this.pauseAutoPlay();
+            } else if (!this.isPaused) {
+                this.startAutoPlay();
+            }
+        });
+    }
+    
+    goToStep(stepIndex) {
+        if (stepIndex < 0 || stepIndex >= this.totalSteps || stepIndex === this.currentStep) {
+            return;
+        }
+        
+        this.currentStep = stepIndex;
+        this.updateCarousel();
+        this.updateNavigation();
+        this.updateProgressBar();
+        this.resetAutoPlay();
+        
+        // Mostrar notificación del paso actual
+        const stepTitle = this.getCurrentStepTitle();
+        if (stepTitle) {
+            this.showStepNotification(stepTitle);
+        }
+    }
+    
+    nextStep() {
+        const nextIndex = (this.currentStep + 1) % this.totalSteps;
+        this.goToStep(nextIndex);
+    }
+    
+    previousStep() {
+        const prevIndex = (this.currentStep - 1 + this.totalSteps) % this.totalSteps;
+        this.goToStep(prevIndex);
+    }
+    
+    updateCarousel() {
+        const track = document.querySelector('.carousel-track');
+        const slides = document.querySelectorAll('.step-slide');
+        
+        if (track) {
+            track.style.transform = `translateX(-${this.currentStep * 100}%)`;
+        }
+        
+        slides.forEach((slide, index) => {
+            const isActive = index === this.currentStep;
+            slide.classList.toggle('active', isActive);
+            
+            // Mejorar accesibilidad
+            slide.setAttribute('aria-hidden', !isActive);
+            if (isActive) {
+                slide.setAttribute('tabindex', '0');
+            } else {
+                slide.removeAttribute('tabindex');
+            }
+        });
+    }
+    
+    updateNavigation() {
+        document.querySelectorAll('.step-nav-btn').forEach((btn, index) => {
+            const isActive = index === this.currentStep;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', isActive);
+        });
+        
+        // Actualizar controles de navegación
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        if (prevBtn && nextBtn) {
+            // Siempre habilitados debido al comportamiento circular
+            prevBtn.disabled = false;
+            nextBtn.disabled = false;
+            
+            // Actualizar aria-labels
+            prevBtn.setAttribute('aria-label', `Ir al paso ${this.currentStep === 0 ? this.totalSteps : this.currentStep}`);
+            nextBtn.setAttribute('aria-label', `Ir al paso ${this.currentStep === this.totalSteps - 1 ? 1 : this.currentStep + 2}`);
+        }
+    }
+    
+    updateProgressBar() {
+        const progressFill = document.querySelector('.progress-fill');
+        if (progressFill) {
+            const progressPercent = ((this.currentStep + 1) / this.totalSteps) * 100;
+            progressFill.style.width = `${progressPercent}%`;
+            progressFill.setAttribute('aria-valuenow', this.currentStep + 1);
+            progressFill.setAttribute('aria-valuemax', this.totalSteps);
+        }
+    }
+    
+    setupTouchEvents() {
+        const carousel = document.querySelector('.metodologia-carousel');
+        if (!carousel) return;
+        
+        carousel.addEventListener('touchstart', (e) => {
+            this.touchStartX = e.changedTouches[0].screenX;
+            this.pauseAutoPlay();
+        }, { passive: true });
+        
+        carousel.addEventListener('touchend', (e) => {
+            this.touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe();
+            
+            // Reiniciar auto-play después del swipe
+            setTimeout(() => {
+                if (!this.isPaused) {
+                    this.startAutoPlay();
+                }
+            }, 1000);
+        }, { passive: true });
+    }
+    
+    handleSwipe() {
+        const swipeThreshold = 50;
+        const swipeDistance = this.touchStartX - this.touchEndX;
+        
+        if (Math.abs(swipeDistance) > swipeThreshold) {
+            if (swipeDistance > 0) {
+                // Swipe izquierda - siguiente paso
+                this.nextStep();
+            } else {
+                // Swipe derecha - paso anterior
+                this.previousStep();
+            }
+            
+            IDIUtils.trackInteraction('swipe_navigation', 'metodologia');
+        }
+    }
+    
+    startAutoPlay() {
+        this.pauseAutoPlay(); // Limpiar cualquier intervalo existente
+        
+        this.autoPlayInterval = setInterval(() => {
+            this.nextStep();
+        }, 8000); // 8 segundos por paso
+    }
+    
+    pauseAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+    }
+    
+    resetAutoPlay() {
+        if (!this.isPaused) {
+            this.pauseAutoPlay();
+            // Pequeño delay antes de reiniciar para permitir interacciones del usuario
+            setTimeout(() => {
+                this.startAutoPlay();
+            }, 2000);
+        }
+    }
+    
+    toggleAutoPlay() {
+        this.isPaused = !this.isPaused;
+        
+        if (this.isPaused) {
+            this.pauseAutoPlay();
+            IDIUtils.showInterestNotification('Auto-play pausado');
+        } else {
+            this.startAutoPlay();
+            IDIUtils.showInterestNotification('Auto-play reanudado');
+        }
+        
+        IDIUtils.trackInteraction('toggle_autoplay', 'metodologia');
+    }
+    
+    getCurrentStepTitle() {
+        const currentSlide = document.querySelector(`.step-slide[data-step="${this.currentStep}"]`);
+        if (currentSlide) {
+            const titleElement = currentSlide.querySelector('h3');
+            return titleElement ? titleElement.textContent : null;
+        }
+        return null;
+    }
+    
+    showStepNotification(stepTitle) {
+        // Usar la función de notificación existente de IDIUtils
+        IDIUtils.showInterestNotification(`Paso actual: ${stepTitle}`);
+    }
+    
+    // Método público para controlar el carrusel externamente
+    goToStepByName(stepName) {
+        const stepMap = {
+            'solicitar': 0,
+            'aprobar': 1,
+            'diligenciar': 2,
+            'enviar': 3,
+            'consultar': 4
+        };
+        
+        const stepIndex = stepMap[stepName.toLowerCase()];
+        if (stepIndex !== undefined) {
+            this.goToStep(stepIndex);
+        }
+    }
+    
+    // Método para obtener información del estado actual
+    getCarouselState() {
+        return {
+            currentStep: this.currentStep,
+            totalSteps: this.totalSteps,
+            isAutoPlaying: this.autoPlayInterval !== null,
+            isPaused: this.isPaused,
+            currentStepTitle: this.getCurrentStepTitle()
+        };
+    }
+}
+
+// ===== INICIALIZACIÓN DE COMPONENTES =====
 document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar componente principal I+D+i
     new AoxlabIDI();
+    
+    // Inicializar carrusel de metodología
+    new MetodologiaCarousel();
+    
+    console.log('🚀 AOXLAB I+D+i: Todos los componentes inicializados correctamente');
 });
 
-// Manejo de errores específicos para I+D+i
+// ===== MANEJO DE ERRORES ESPECÍFICOS =====
 window.addEventListener('error', (e) => {
-    console.error('Error en AOXLAB I+D+i:', e.error);
+    console.error('❌ Error en AOXLAB I+D+i:', e.error);
+    
+    // Notificar error si es crítico
+    if (e.error && e.error.message.includes('AOXLAB')) {
+        IDIUtils.showInterestNotification('Error del sistema detectado', 'error');
+    }
 });
 
-// Funciones de utilidad para I+D+i
+// Manejo de errores de promesas no capturadas
+window.addEventListener('unhandledrejection', (e) => {
+    console.error('❌ Promise rechazada en AOXLAB I+D+i:', e.reason);
+});
+
+// ===== FUNCIONES DE UTILIDAD PARA I+D+i (MANTENIDAS COMO ESTABAN) =====
 const IDIUtils = {
     /**
      * Muestra notificación de interés en servicios
      */
-    showInterestNotification(serviceName) {
+    showInterestNotification(serviceName, type = 'success') {
         const notification = document.createElement('div');
-        notification.className = 'idi-notification';
+        notification.className = `idi-notification ${type}`;
+        
+        const icon = type === 'error' ? 'fas fa-exclamation-triangle' : 'fas fa-check-circle';
+        
         notification.innerHTML = `
             <div class="notification-content">
-                <i class="fas fa-check-circle"></i>
-                <span>Interés registrado en ${serviceName}</span>
+                <i class="${icon}"></i>
+                <span>${serviceName}</span>
             </div>
         `;
+        
+        const backgroundColor = type === 'error' 
+            ? 'linear-gradient(135deg, #dc3545, #c82333)' 
+            : 'linear-gradient(135deg, var(--idi-primary), var(--idi-secondary))';
         
         notification.style.cssText = `
             position: fixed;
             top: 20px;
             right: 20px;
-            background: linear-gradient(135deg, var(--idi-primary), var(--idi-secondary));
+            background: ${backgroundColor};
             color: white;
             padding: 1rem 1.5rem;
             border-radius: 8px;
             z-index: 10000;
             animation: slideInRight 0.3s ease;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            max-width: 300px;
+            word-wrap: break-word;
         `;
         
         document.body.appendChild(notification);
@@ -335,7 +678,9 @@ const IDIUtils = {
         setTimeout(() => {
             notification.style.animation = 'slideOutRight 0.3s ease';
             setTimeout(() => {
-                notification.remove();
+                if (notification.parentNode) {
+                    notification.remove();
+                }
             }, 300);
         }, 3000);
     },
@@ -347,14 +692,26 @@ const IDIUtils = {
         if (typeof gtag !== 'undefined') {
             gtag('event', action, {
                 event_category: category,
-                event_label: window.location.pathname
+                event_label: window.location.pathname,
+                value: 1
             });
         }
+        
         console.log(`📊 Track: ${category} - ${action}`);
+        
+        // También enviar a dataLayer si existe (Google Tag Manager)
+        if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({
+                event: 'custom_interaction',
+                interaction_category: category,
+                interaction_action: action,
+                page_location: window.location.href
+            });
+        }
     }
 };
 
-// Estilos CSS adicionales para notificaciones
+// ===== ESTILOS CSS ADICIONALES PARA NOTIFICACIONES (MANTENIDOS) =====
 const idiStyles = document.createElement('style');
 idiStyles.textContent = `
     @keyframes slideInRight {
@@ -384,6 +741,10 @@ idiStyles.textContent = `
         font-weight: 500;
     }
     
+    .idi-notification.error {
+        background: linear-gradient(135deg, #dc3545, #c82333) !important;
+    }
+    
     .notification-content {
         display: flex;
         align-items: center;
@@ -392,7 +753,41 @@ idiStyles.textContent = `
     
     .notification-content i {
         font-size: 1.2rem;
+        flex-shrink: 0;
     }
 `;
 
-document.head.appendChild(idiStyles);
+// Solo agregar estilos si no existen
+if (!document.querySelector('#idi-styles')) {
+    idiStyles.id = 'idi-styles';
+    document.head.appendChild(idiStyles);
+}
+
+// ===== FUNCIONES GLOBALES PARA COMPATIBILIDAD =====
+
+// Función para expansión de detalles de pasos (mantenida para compatibilidad)
+function toggleStepDetails(button) {
+    console.log('🔄 Toggle step details solicitado:', button);
+    IDIUtils.trackInteraction('toggle_step_details', 'metodologia');
+    
+    // Funcionalidad adicional si se necesita expansión de detalles
+    // Esta función puede ser expandida según necesidades futuras
+}
+
+// Exponer funciones útiles globalmente para debugging
+window.AoxlabDebug = {
+    getCarouselState: () => {
+        const carousel = window.metodologiaCarousel;
+        return carousel ? carousel.getCarouselState() : null;
+    },
+    goToStep: (step) => {
+        const carousel = window.metodologiaCarousel;
+        if (carousel) carousel.goToStep(step);
+    },
+    toggleAutoPlay: () => {
+        const carousel = window.metodologiaCarousel;
+        if (carousel) carousel.toggleAutoPlay();
+    }
+};
+
+console.log('✅ AOXLAB I+D+i JavaScript: Cargado completamente con todas las funcionalidades');

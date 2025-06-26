@@ -1816,7 +1816,6 @@ function setupMobileDropdown() {
     }
 }
 
-  
 /**
  * Inicializa el posicionamiento inteligente de menús
  */
