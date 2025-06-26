@@ -9,10 +9,6 @@
     overflow: hidden;
 }
 
-.portal-hero .hero-overlay {
-    background: linear-gradient(45deg, rgba(35, 31, 32, 0.4), rgba(43, 161, 212, 0.2));
-}
-
 .portal-hero .slide-content h1 {
     font-size: clamp(2.2rem, 4vw, 3.5rem);
     color: var(--white);
@@ -440,6 +436,7 @@
     position: relative;
     overflow: hidden;
     border: 1px solid rgba(43, 161, 212, 0.1);
+    background-color: #2BA1D4;
 }
 
 .portal-stats .stat-card::before {
