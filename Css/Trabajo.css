@@ -156,6 +156,161 @@
     background: linear-gradient(135deg, var(--primary-color), var(--dark-gray));
     color: var(--white);
 }
+/* ===== TÍTULO POSICIONADO A LA DERECHA - VERSIÓN MEJORADA ===== */
+
+.hero-section.trabajo-hero {
+    position: relative !important;
+    width: 100% !important;
+    height: 900px !important;
+    z-index: 1 !important;
+    overflow: hidden !important;
+}
+
+/* Contenedor del carrusel */
+.hero-section.trabajo-hero .hero-carousel {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Slide */
+.hero-section.trabajo-hero .carousel-slide {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Imagen */
+.hero-section.trabajo-hero .carousel-slide img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* TÍTULO POSICIONADO A LA DERECHA - MÁXIMA ESPECIFICIDAD */
+.hero-section.trabajo-hero .carousel-slide .trabajo-slide-content {
+    position: absolute !important;
+    top: 50% !important;
+    right: 10% !important;
+    left: auto !important;
+    transform: translateY(-50%) !important;
+    z-index: 10 !important;
+    
+    /* Configuración del contenedor */
+    width: auto !important;
+    max-width: 450px !important;
+    min-width: 300px !important;
+    
+    /* Alineación a la derecha */
+    text-align: right;
+    
+    /* Sin fondos ni decoraciones */
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* TÍTULO PRINCIPAL - NEGRO Y GRANDE */
+.hero-section.trabajo-hero .carousel-slide .trabajo-slide-content h1 {
+    font-size: 4rem !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.1 !important;
+    
+    /* Alineación específica */
+    text-align: right center;
+    
+    /* Eliminar efectos */
+    text-shadow: none !important;
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: #000000 !important;
+    background-clip: initial !important;
+    
+    /* Evitar salto de línea */
+    white-space: nowrap !important;
+    
+    /* Fuente del sitio */
+    font-family: 'Aller', Arial, sans-serif !important;
+}
+
+/* SUBTÍTULO POSICIONADO A LA DERECHA */
+.hero-section.trabajo-hero .carousel-slide .trabajo-slide-content p {
+    font-size: 1.5rem !important;
+    color: #333333 !important;
+    margin: 0.5rem 0 0 0 !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    
+    /* Alineación específica */
+    text-align: left !important;
+    
+    /* Sin efectos */
+    text-shadow: none !important;
+    font-weight: 400 !important;
+    font-family: 'Aller', Arial, sans-serif !important;
+}
+
+/* OVERLAY SIMPLIFICADO */
+.hero-section.trabajo-hero .trabajo-overlay {
+    background: none !important;
+    z-index: 2 !important;
+}
+
+/* ===== RESPONSIVE MEJORADO ===== */
+@media (max-width: 1200px) {
+    .hero-section.trabajo-hero .carousel-slide .trabajo-slide-content {
+        right: 3% !important;
+        max-width: 400px !important;
+    }
+    
+    .hero-section.trabajo-hero .carousel-slide .trabajo-slide-content h1 {
+        font-size: 3.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section.trabajo-hero .carousel-slide .trabajo-slide-content {
+        right: 5% !important;
+        left: 5% !important;
+        max-width: none !important;
+        text-align: center !important;
+        top: 65% !important;
+    }
+    
+    .hero-section.trabajo-hero .carousel-slide .trabajo-slide-content h1 {
+        font-size: 2.5rem !important;
+        text-align: center !important;
+        white-space: normal !important;
+    }
+    
+    .hero-section.trabajo-hero .carousel-slide .trabajo-slide-content p {
+        text-align: center !important;
+        font-size: 1.1rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section.trabajo-hero .carousel-slide .trabajo-slide-content {
+        right: 3% !important;
+        left: 3% !important;
+    }
+    
+    .hero-section.trabajo-hero {
+        height: 70vh !important;
+        min-height: 500px !important;
+    }
+    
+    .hero-section.trabajo-hero .carousel-slide .trabajo-slide-content h1 {
+        font-size: 2rem !important;
+    }
+}
 
 .testimonios-grid {
     display: grid;
@@ -351,7 +506,7 @@
         transform: translateY(0);
     }
 }
- 
+
 /* Estilo para el botón de scroll hacia arriba */
 .scroll-top {
     position: fixed;
@@ -378,6 +533,7 @@
     background: var(--primary-color);
     transform: scale(1.1);
 }
+
 .trabajo-hero {
     position: relative; /* Asegúrate de que no sea fixed */
     height: 70vh; /* O la altura que necesites */
