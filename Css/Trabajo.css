@@ -548,3 +548,235 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* Altura del header si es fijo */
 }
+/* Estilos para las instrucciones de CV */
+.cv-instructions {
+    margin-bottom: var(--spacing-xl);
+}
+
+.instruction-card {
+    background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+    border-left: 4px solid var(--secondary-color);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    margin-bottom: var(--spacing-lg);
+}
+
+.instruction-card i {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.instruction-content h4 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+}
+
+.instruction-content p {
+    color: var(--text-color);
+    line-height: 1.5;
+    margin-bottom: var(--spacing-xs);
+}
+
+.instruction-content strong {
+    color: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Mejorar el disclaimer */
+.disclaimer {
+    background: var(--light-gray);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: center;
+    margin-top: var(--spacing-md);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.disclaimer strong {
+    color: #e74c3c;
+    font-weight: var(--font-weight-bold);
+}
+
+/* Estilos para el recordatorio de CV */
+.cv-reminder {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 400px;
+    z-index: 1000;
+    animation: slideInRight 0.5s ease-out;
+}
+
+.reminder-content {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    position: relative;
+}
+
+.reminder-content i {
+    font-size: 2rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.reminder-content h4 {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-weight: var(--font-weight-bold);
+}
+
+.reminder-content p {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.reminder-content button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.reminder-content button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive para instrucciones */
+@media (max-width: 768px) {
+    .instruction-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .instruction-card i {
+        align-self: center;
+        margin-top: 0;
+    }
+    
+    .cv-reminder {
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+/* Estilos para validación de espacios */
+.field-error {
+    color: #e74c3c;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: slideIn 0.3s ease;
+}
+
+.field-warning-message {
+    color: #f39c12;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: slideIn 0.3s ease;
+}
+
+.field-info-message {
+    color: #2ecc71;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: slideIn 0.3s ease;
+}
+
+/* Estados de los campos */
+.form-aplicacion input.error,
+.form-aplicacion select.error,
+.form-aplicacion textarea.error {
+    border-color: #e74c3c !important;
+    background-color: rgba(231, 76, 60, 0.1) !important;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2) !important;
+}
+
+.form-aplicacion input.field-warning,
+.form-aplicacion select.field-warning,
+.form-aplicacion textarea.field-warning {
+    border-color: #f39c12 !important;
+    background-color: rgba(243, 156, 18, 0.1) !important;
+    box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.2) !important;
+}
+
+/* Animación para mensajes */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mejoras en el formulario */
+.form-aplicacion input:focus,
+.form-aplicacion select:focus,
+.form-aplicacion textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    background-color: rgba(74, 144, 226, 0.02);
+}
+
+/* Placeholder mejorado */
+.form-aplicacion input::placeholder,
+.form-aplicacion textarea::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* Responsive para mensajes de validación */
+@media (max-width: 768px) {
+    .field-error,
+    .field-warning-message,
+    .field-info-message {
+        font-size: 0.8rem;
+    }
+}

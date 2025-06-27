@@ -661,7 +661,6 @@ body {
     transform-origin: top left;
 }
 
-
 /* NUEVA CLASE: Para posicionamiento automático a la izquierda */
 .dropdown-menu.position-left {
     left: auto;
@@ -772,9 +771,6 @@ body {
     will-change: transform, left, right;
     transform-origin: top left;
 }
-
-
-
 
 /* NUEVA CLASE: Para posicionamiento del submenú a la izquierda */
 .submenu-dropdown.position-left {
@@ -892,8 +888,6 @@ body {
         transform: translateY(0);
     }
 }
-
-
 
 /* Navegación */
 .main-nav {

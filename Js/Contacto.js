@@ -10,8 +10,9 @@ class AoxlabContacto extends AoxlabWebsite {
         this.initAgendarCita();
         this.initSmoothScroll();
         this.initHeaderOffset();
+        this.initWeb3FormsIntegration(); // Nueva función
     }
-     
+
     initFormValidation() {
         const form = document.getElementById('contactForm');
         if (!form) return;
@@ -103,7 +104,145 @@ class AoxlabContacto extends AoxlabWebsite {
             });
         }
     }
+      initWeb3FormsIntegration() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!this.validateForm()) return;
+            
+            try {
+                this.showLoadingState(true);
+                
+                // Agregar timestamp y datos adicionales
+                this.addHiddenFormData();
+                
+                const formData = new FormData(form);
+                
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    this.showNotification('¡Mensaje enviado correctamente! Te responderemos pronto.', 'success');
+                    form.reset();
+                } else {
+                    throw new Error(data.message || 'Error al enviar');
+                }
+                
+            } catch (error) {
+                this.showNotification('Error al enviar el mensaje. Inténtalo nuevamente.', 'error');
+                console.error('Error:', error);
+            } finally {
+                this.showLoadingState(false);
+            }
+        });
+    }
+    
+    addHiddenFormData() {
+        const form = document.getElementById('contactForm');
+        
+        // Agregar timestamp
+        let timestampInput = form.querySelector('input[name="timestamp"]');
+        if (!timestampInput) {
+            timestampInput = document.createElement('input');
+            timestampInput.type = 'hidden';
+            timestampInput.name = 'timestamp';
+            form.appendChild(timestampInput);
+        }
+        timestampInput.value = new Date().toLocaleString('es-CO', {
+            timeZone: 'America/Bogota'
+        });
+        
+        // Agregar información del navegador
+        let browserInput = form.querySelector('input[name="browser_info"]');
+        if (!browserInput) {
+            browserInput = document.createElement('input');
+            browserInput.type = 'hidden';
+            browserInput.name = 'browser_info';
+            form.appendChild(browserInput);
+        }
+        browserInput.value = navigator.userAgent.substring(0, 100);
+        
+        // Agregar URL de origen
+        let urlInput = form.querySelector('input[name="page_url"]');
+        if (!urlInput) {
+            urlInput = document.createElement('input');
+            urlInput.type = 'hidden';
+            urlInput.name = 'page_url';
+            form.appendChild(urlInput);
+        }
+        urlInput.value = window.location.href;
+    }
+    
+    validateForm() {
+        let isValid = true;
+        const form = document.getElementById('contactForm');
+        const requiredFields = form.querySelectorAll('[required]');
+        
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                this.showFieldError(field, 'Este campo es requerido');
+                isValid = false;
+            } else {
+                this.clearFieldError(field);
+            }
+        });
+        
+        // Validación específica para email
+        const emailField = form.querySelector('input[name="email"]');
+        if (emailField && emailField.value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailField.value)) {
+                this.showFieldError(emailField, 'Ingrese un correo electrónico válido');
+                isValid = false;
+            }
+        }
+        
+        return isValid;
+    }
+    
+    showFieldError(field, message) {
+        this.clearFieldError(field);
+        
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'field-error';
+        errorDiv.style.color = '#e74c3c';
+        errorDiv.style.fontSize = '0.85rem';
+        errorDiv.style.marginTop = '5px';
+        errorDiv.textContent = message;
+        
+        field.parentNode.appendChild(errorDiv);
+        field.style.borderColor = '#e74c3c';
+    }
+    
+    clearFieldError(field) {
+        const existingError = field.parentNode.querySelector('.field-error');
+        if (existingError) {
+            existingError.remove();
+        }
+        field.style.borderColor = '';
+    }
+    
+    showLoadingState(show) {
+        const submitBtn = document.querySelector('button[type="submit"]');
+        if (show) {
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+        } else {
+            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar mensaje';
+            submitBtn.disabled = false;
+        }
+    }
+    
+    // ... resto de métodos existentes (initPQRSF, etc.)
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
     new AoxlabContacto();

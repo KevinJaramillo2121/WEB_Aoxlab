@@ -290,7 +290,7 @@
                     </div>
                     <div class="timeline-content">
                         <h4>Respuesta</h4>
-                        <p>Te enviamos la respuesta en máximo 15 días hábiles</p>
+                        <p>Te enviamos la respuesta en máximo 30 días.</p>
                     </div>
                 </div>
             </div>
@@ -386,8 +386,6 @@
     </div>
 </div>
 
-
-
         <!-- Sección de Contacto -->
         <section class="seccion-contacto">
             <div class="container">
@@ -395,37 +393,44 @@
                     <!-- Formulario -->
                     <div class="formulario-contacto">
                         <h2>Envíanos tu consulta</h2>
-                        <form id="contactForm" class="form-contacto">
+                        <form action="https://api.web3forms.com/submit" method="POST" class="form-contacto" id="contactForm">
+
+                            <input type="hidden" name="access_key" value="53d270db-c22d-4502-97ad-c1bafe8ee62b">
+                            
+                            <!-- Configuraciones adicionales -->
+                            <input type="hidden" name="subject" value="Nueva consulta desde AOXLAB">
+                            <input type="hidden" name="from_name" value="Formulario AOXLAB">
+                            
                             <div class="input-group">
                                 <label for="nombre"><i class="fas fa-user"></i> Nombre completo</label>
-                                <input type="text" id="nombre" name="nombre" required>
+                                <input type="text" id="nombre" name="name" required>
                             </div>
                             
                             <div class="input-duo">
                                 <div class="input-group">
                                     <label for="email"><i class="fas fa-envelope"></i> Correo electrónico</label>
-                                    <input type="email" id="email" name="email" required>
+                                    <input type="email" id="email" name="Correo electrónico" required>
                                 </div>
                                 <div class="input-group">
                                     <label for="telefono"><i class="fas fa-phone"></i> Teléfono</label>
-                                    <input type="tel" id="telefono" name="telefono">
+                                    <input type="tel" id="telefono" name="Teléfono">
                                 </div>
                             </div>
                             
                             <div class="input-group">
                                 <label for="asunto"><i class="fas fa-tag"></i> Asunto</label>
-                                <select id="asunto" name="asunto" required>
-                                    <option value="">PQRSF</option>
-                                    <option value="cotizacion">Cotización de servicios</option>
-                                    <option value="soporte">Soporte técnico</option>
-                                    <option value="certificaciones">Certificaciones ISO</option>
-                                    <option value="empleo">Trabaja con nosotros</option>
+                                <select id="asunto" name="subject_type" required>
+                                    <option value="PQRSF">PQRSF</option>
+                                    <option value="Cotización de servicio">Cotización de servicio</option>
+                                    <option value="Soporte técnico">Soporte técnico</option>
+                                    <option value="Certificaciones">Certificaciones</option>
+                                    <option value="Sugerencia">Sugerencia</option>
                                 </select>
                             </div>
                             
                             <div class="input-group">
-                                <label for="mensaje"><i class="fas fa-comment"></i>Describa su solicitud</label>
-                                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                                <label for="mensaje"><i class="fas fa-comment"></i> Describa su solicitud</label>
+                                <textarea id="mensaje" name="message" rows="5" required></textarea>
                             </div>
                             
                             <button type="submit" class="cta-btn primary">

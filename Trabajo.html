@@ -244,7 +244,6 @@
             </div>
         </section>
 
-
         <!-- Sección de Vacantes -->
         <section class="vacantes-section" id="vacantes">
             <div class="container">
@@ -434,78 +433,152 @@
                             <i class="fas fa-handshake"></i>
                             <div class="step-number">4</div>
                         </div>
-                        <h3>onboarding</h3>
-                        <p>Programa de inducción y bienvenida al equipo Aoxlab</p>
+                        <h3>Inducción</h3>
+                        <p>Programa de onboarding y bienvenida al equipo Aoxlab</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Formulario de Aplicación -->
-        <section class="formulario-section" id="formulario">
-            <div class="container">
-                <div class="form-container" data-aos="fade-up">
-                    <h2>Envía tu Hoja de Vida</h2>
-                    <form id="formTrabajo" class="form-aplicacion">
-                        <div class="input-duo">
-                            <div class="input-group">
-                                <label for="nombre"><i class="fas fa-user"></i> Nombre Completo</label>
-                                <input type="text" id="nombre" name="nombre" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        
-                        <div class="input-duo">
-                            <div class="input-group">
-                                <label for="telefono"><i class="fas fa-phone"></i> Teléfono de Contacto</label>
-                                <input type="tel" id="telefono" name="telefono" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="vacante"><i class="fas fa-briefcase"></i> Vacante a la que aplica</label>
-                                <select id="vacante" name="vacante" required>
-                                    <option value="">Seleccione una vacante</option>
-                                    <option value="analista-laboratori">Analista de Laboratorio – Fisicoquímico</option>
-                                    <option value="analistaMicrobiología">Analista de Laboratorio – Microbiología</option>
-                                    <option value="analista-instrumental">Analista Instrumental (HPLC, GC-MS, ICP-OES) </option>
-                                    <option value="asesor-comercial">Asesor(a) Comercial</option>
-                                    <option value="auditor-interno">Auditor Interno</option>
-                                    <option value="auxiliar-administrativo">Auxiliar Administrativo</option>
-                                    <option value="auxiliar-contable">Auxiliar Contable</option>
-                                    <option value="dirección de calidad">Dirección de Calidad</option>
-                                    <option value="direccion-tecnica">Dirección Técnica</option>
-                                    <option value="direccion-validaciones">Dirección de validaciones</option>
-                                    <option value="jefe-laboratorio">Jefe de Laboratorio</option>
-                                    <option value="lide-investigación">Líder de investigación</option>
-                                    <option value="lider-mantenimiento">Líder de Mantenimiento y metrología</option>
-                                    <option value="tomador-muestras">Tomador(a) de Muestras</option>
-                                    <option value="vendedor">Vendedor(a)</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="cv"><i class="fas fa-file-pdf"></i> Adjuntar CV (PDF, máximo 5MB)</label>
-                            <input type="file" id="cv" name="cv" accept=".pdf" required>
-                        </div>
-
-                        <div class="input-group">
-                            <label for="mensaje"><i class="fas fa-comment"></i> Mensaje Adicional</label>
-                            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
-                        </div>
-
-                        <div class="form-footer">
-                            <button type="submit" class="cta-btn primary">
-                                <i class="fas fa-paper-plane"></i> Enviar Aplicación
-                            </button>
-                            <p class="disclaimer">Al enviar, aceptas nuestro <a href="politicas.html">tratamiento de datos</a></p>
-                        </div>
-                    </form>
+        <!-- Formulario de Aplicación Actualizado -->
+<!-- Formulario de Aplicación Actualizado -->
+<section class="formulario-section" id="formulario">
+    <div class="container">
+        <div class="form-container" data-aos="fade-up">
+            <h2>Envía tu Hoja de Vida</h2>
+            
+            <!-- Instrucciones para CV -->
+            <div class="cv-instructions">
+                <div class="instruction-card">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="instruction-content">
+                        <h4>📧 Instrucciones para envío de CV</h4>
+                        <p><strong>Después de completar este formulario:</strong></p>
+                        <p>1. Envía tu CV en formato PDF (máximo 5MB) al correo: <strong>gerencia@aoxlab.com</strong></p>
+                        <p>2. <strong>Asunto requerido:</strong> "CV - [Tu Nombre] - [Vacante]"</p>
+                        <p>3. <strong>Ejemplo:</strong> CV - María García - Analista Laboratorio</p>
+                    </div>
                 </div>
             </div>
-        </section>
+            
+            <form action="https://api.web3forms.com/submit" method="POST" id="formTrabajo" class="form-aplicacion">
+                <!-- Clave de acceso Web3Forms -->
+                <input type="hidden" name="access_key" value="078cfeb4-6846-46da-b5f0-8d945e0d5b60">
+                
+                <!-- Configuraciones en español -->
+                <input type="hidden" name="subject" value="Nueva Aplicación Laboral - AOXLAB">
+                <input type="hidden" name="from_name" value="Portal de Empleo AOXLAB">
+                
+                <div class="input-duo">
+                    <div class="input-group">
+                        <label for="nombre"><i class="fas fa-user"></i> Nombre Completo</label>
+                        <input type="text" 
+                            id="nombre" 
+                            name="Nombre_Completo" 
+                            required 
+                            data-min-length="2"
+                            data-normalize-spaces="true"
+                            placeholder="Ingrese su nombre completo">
+                    </div>
+                    <div class="input-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico</label>
+                        <input type="email" 
+                            id="email" 
+                            name="Correo_Electronico" 
+                            required
+                            placeholder="ejemplo@correo.com">
+                    </div>
+                </div>
+                
+                <div class="input-duo">
+                    <div class="input-group">
+                        <label for="telefono"><i class="fas fa-phone"></i> Teléfono de Contacto</label>
+                        <input type="tel" 
+                            id="telefono" 
+                            name="Telefono_Contacto" 
+                            required
+                            data-min-length="7"
+                            placeholder="+57 310 123 4567">
+                    </div>
+                    <div class="input-group">
+                        <label for="vacante"><i class="fas fa-briefcase"></i> Vacante a la que aplica</label>
+                        <select id="vacante" name="Vacante_Seleccionada" required>
+                            <option value="">Seleccione una vacante</option>
+                            <option value="analista-laboratorio">Analista de Laboratorio – Fisicoquímico</option>
+                            <option value="analistaMicrobiologia">Analista de Laboratorio – Microbiología</option>
+                            <option value="analista-instrumental">Analista Instrumental (HPLC, GC-MS, ICP-OES)</option>
+                            <option value="asesor-comercial">Asesor(a) Comercial</option>
+                            <option value="auditor-interno">Auditor Interno</option>
+                            <option value="auxiliar-administrativo">Auxiliar Administrativo</option>
+                            <option value="auxiliar-contable">Auxiliar Contable</option>
+                            <option value="direccion-calidad">Dirección de Calidad</option>
+                            <option value="direccion-tecnica">Dirección Técnica</option>
+                            <option value="direccion-validaciones">Dirección de validaciones</option>
+                            <option value="jefe-laboratorio">Jefe de Laboratorio</option>
+                            <option value="lider-investigacion">Líder de investigación</option>
+                            <option value="lider-mantenimiento">Líder de Mantenimiento y metrología</option>
+                            <option value="tomador-muestras">Tomador(a) de Muestras</option>
+                            <option value="vendedor">Vendedor(a)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="cv-confirmacion"><i class="fas fa-file-pdf"></i> Confirmación de envío de CV</label>
+                    <select id="cv-confirmacion" name="Confirmacion_Envio_CV" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="Si, enviaré mi CV a gerencia@aoxlab.com">Sí, enviaré mi CV a gerencia@aoxlab.com</option>
+                        <option value="Ya envié mi CV anteriormente">Ya envié mi CV anteriormente</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="experiencia"><i class="fas fa-briefcase"></i> Años de experiencia en el área</label>
+                    <select id="experiencia" name="Años_Experiencia">
+                        <option value="">Seleccione años de experiencia</option>
+                        <option value="0-1">0-1 años</option>
+                        <option value="2-3">2-3 años</option>
+                        <option value="4-5">4-5 años</option>
+                        <option value="6-10">6-10 años</option>
+                        <option value="10+">Más de 10 años</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="habilidades"><i class="fas fa-tools"></i> Habilidades principales (separadas por comas)</label>
+                    <input type="text" 
+                        id="habilidades" 
+                        name="Habilidades_Clave" 
+                        data-normalize-spaces="true"
+                        placeholder="Ej: GC-MS, HPLC, análisis fisicoquímico, microbiología...">
+                </div>
+
+                <div class="input-group">
+                    <label for="mensaje"><i class="fas fa-comment"></i> Experiencia Relevante / Comentarios Adicionales</label>
+                    <textarea id="mensaje" 
+                            name="Experiencia_y_Comentarios" 
+                            rows="5" 
+                            data-min-length="10"
+                            data-normalize-spaces="true"
+                            placeholder="Describa brevemente su experiencia relevante para la posición..."></textarea>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="cta-btn primary">
+                        <i class="fas fa-paper-plane"></i> Enviar Aplicación
+                    </button>
+                    <p class="disclaimer">
+                        Al enviar, aceptas nuestro <a href="politicas.html">tratamiento de datos</a>. 
+                        <strong>🔴 IMPORTANTE: Recuerda enviar tu CV a gerencia@aoxlab.com</strong>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
     </main>
 
     <!-- Footer -->
