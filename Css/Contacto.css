@@ -194,3 +194,426 @@
     z-index: -1;
 }
 
+/* Estilos para la Sección del Proceso PQRSF */
+.proceso-pqrsf-section {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+    margin-top: var(--spacing-xl);
+}
+
+.proceso-header {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.proceso-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--white);
+}
+
+.proceso-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.proceso-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Timeline Resumen */
+.timeline-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xxl);
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    backdrop-filter: blur(10px);
+    transition: all var(--transition-medium);
+    cursor: pointer;
+}
+
+.timeline-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.timeline-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.timeline-content h4 {
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.3rem;
+}
+
+.timeline-content p {
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* Modal del Proceso */
+.proceso-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.proceso-modal-content {
+    background: var(--white);
+    margin: 2% auto;
+    padding: 0;
+    border-radius: var(--border-radius-xl);
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.proceso-modal-header {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.proceso-close {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+}
+
+.proceso-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Stepper */
+.proceso-stepper {
+    padding: var(--spacing-xl);
+}
+
+.stepper-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+.stepper-nav::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--light-gray);
+    z-index: 1;
+}
+
+.step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+    position: relative;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--light-gray);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-xs);
+    transition: all var(--transition-medium);
+}
+
+.step-indicator.active .step-number,
+.step-indicator.completed .step-number {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.step-label {
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--text-light);
+    font-weight: var(--font-weight-medium);
+}
+
+.step-indicator.active .step-label {
+    color: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Contenido del Stepper */
+.step-content {
+    display: none;
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--light-gray);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.step-content.active {
+    display: block;
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.step-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-color);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.step-content h4 {
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.step-content ul {
+    list-style: none;
+    padding: 0;
+    margin: var(--spacing-lg) 0;
+    text-align: left;
+}
+
+.step-content li {
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    padding-left: var(--spacing-lg);
+}
+
+.step-content li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.step-time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-lg);
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Footer del Modal */
+.proceso-modal-footer {
+    padding: var(--spacing-lg);
+    border-top: 1px solid var(--light-gray);
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+    font-weight: var(--font-weight-medium);
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .stepper-nav {
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+    }
+    
+    .proceso-modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+    
+    .proceso-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-indicator {
+        margin-bottom: var(--spacing-md);
+    }
+}
+/* Estilos específicos para destacar el botón de descarga PDF */
+#descargar-pdf-btn {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%) !important;
+    color: #000000 !important;
+    border: 2px solid #ff6b35 !important;
+    font-weight: 700 !important;
+    text-shadow: none !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+#descargar-pdf-btn:hover {
+    background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%) !important;
+    color: #000000 !important;
+    border-color: #f7931e !important;
+    transform: translateY(-3px) scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4) !important;
+}
+
+#descargar-pdf-btn:active {
+    transform: translateY(-1px) scale(1.02) !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3) !important;
+}
+
+#descargar-pdf-btn:focus {
+    outline: 3px solid rgba(255, 107, 53, 0.5) !important;
+    outline-offset: 2px !important;
+}
+
+/* Efecto de brillo al hacer hover */
+#descargar-pdf-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+#descargar-pdf-btn:hover::before {
+    left: 100%;
+}
+
+/* Icono del botón */
+#descargar-pdf-btn i {
+    color: #000000 !important;
+    margin-right: 8px !important;
+    transition: transform 0.3s ease !important;
+}
+
+#descargar-pdf-btn:hover i {
+    transform: translateY(-2px) !important;
+}
+
+/* Animación de pulsación para llamar la atención */
+@keyframes pulse-orange {
+    0% {
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(255, 107, 53, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    }
+}
+
+#descargar-pdf-btn {
+    animation: pulse-orange 2s ease-in-out infinite;
+}
+
+#descargar-pdf-btn:hover {
+    animation: none !important;
+}
+
+/* Para dispositivos móviles */
+@media (max-width: 768px) {
+    #descargar-pdf-btn {
+        font-size: 0.9rem !important;
+        padding: 12px 20px !important;
+    }
+    
+    #descargar-pdf-btn:hover {
+        transform: translateY(-2px) scale(1.02) !important;
+    }
+}

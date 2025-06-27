@@ -9,8 +9,8 @@
     <!-- Fuentes y estilos -->
     <link href="https://fonts.cdnfonts.com/css/aller" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/inicio.css">
-    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="Css/inicio.css">
+    <link rel="stylesheet" href="Css/Contacto.css">
 </head>
 <body>
     <!-- Header idéntico al inicio -->
@@ -237,6 +237,156 @@
             
             
         </section>
+
+        <!-- Nueva Sección del Proceso PQRSF -->
+<section class="proceso-pqrsf-section">
+    <div class="container">
+        <div class="proceso-header text-center">
+            <h2>Proceso de PQRSF</h2>
+            <p class="proceso-subtitle">Conoce paso a paso cómo gestionamos tus Peticiones, Quejas, Reclamos, Sugerencias y Felicitaciones</p>
+            <div class="proceso-actions">
+                <a href="./img/PQRS/ANEXO1.-Descripcion-del-proceso-de-quejas-scaled.jpeg" target="_blank" class="cta-btn outline" id="descargar-pdf-btn">
+                    <i class="fas fa-download"></i> Ver proceso completo
+                </a>
+            </div>
+        </div>
+
+        <!-- Resumen Visual del Proceso -->
+        <div class="proceso-resumen">
+            <div class="timeline-container">
+                <div class="timeline-item" data-step="1">
+                    <div class="timeline-icon">
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Recepción</h4>
+                        <p>Recibimos tu PQRSF por cualquier canal disponible</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-step="2">
+                    <div class="timeline-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Validación</h4>
+                        <p>Verificamos que la información esté completa</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-step="3">
+                    <div class="timeline-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Proceso</h4>
+                        <p>Analizamos y gestionamos tu solicitud</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-step="4">
+                    <div class="timeline-icon">
+                        <i class="fas fa-reply"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Respuesta</h4>
+                        <p>Te enviamos la respuesta en máximo 15 días hábiles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Modal del Proceso PQRSF Detallado -->
+<div class="proceso-modal" id="procesoModal">
+    <div class="proceso-modal-content">
+        <div class="proceso-modal-header">
+            <h3>Proceso Detallado de PQRSF</h3>
+            <button class="proceso-close" id="procesoClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="proceso-stepper">
+            <div class="stepper-nav">
+                <div class="step-indicator active" data-step="1">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Recepción</span>
+                </div>
+                <div class="step-indicator" data-step="2">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Diligenciamiento</span>
+                </div>
+                <div class="step-indicator" data-step="3">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Revisión</span>
+                </div>
+                <div class="step-indicator" data-step="4">
+                    <span class="step-number">4</span>
+                    <span class="step-label">Requerimiento</span>
+                </div>
+                <div class="step-indicator" data-step="5">
+                    <span class="step-number">5</span>
+                    <span class="step-label">Gestión</span>
+                </div>
+                <div class="step-indicator" data-step="6">
+                    <span class="step-number">6</span>
+                    <span class="step-label">Respuesta</span>
+                </div>
+            </div>
+            
+            <div class="stepper-content">
+                <!-- Paso 1 -->
+                <div class="step-content active" id="step-1">
+                    <div class="step-icon">
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <h4>1. Recepción de la PQRSF</h4>
+                    <ul>
+                        <li>Se recibe por correo electrónico, teléfono, presencial o página web</li>
+                        <li>Se verifica si fue enviada por medios digitales</li>
+                        <li>Se procede a revisar el formato y diligenciamiento</li>
+                    </ul>
+                    <div class="step-time">
+                        <i class="fas fa-clock"></i>
+                        <span>Tiempo estimado: Inmediato</span>
+                    </div>
+                </div>
+                
+                <!-- Paso 2 -->
+                <div class="step-content" id="step-2">
+                    <div class="step-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h4>2. Diligenciamiento del Formato</h4>
+                    <ul>
+                        <li>Se revisa que toda la información esté completa</li>
+                        <li>Se verifica la veracidad de los datos proporcionados</li>
+                        <li>Si falta información, se procede al paso de requerimiento</li>
+                    </ul>
+                    <div class="step-time">
+                        <i class="fas fa-clock"></i>
+                        <span>Tiempo estimado: 1-2 días hábiles</span>
+                    </div>
+                </div>
+                
+                <!-- Continúa con los demás pasos... -->
+                
+            </div>
+        </div>
+        
+        <div class="proceso-modal-footer">
+            <button class="nav-btn" id="prevStep" disabled>
+                <i class="fas fa-chevron-left"></i> Anterior
+            </button>
+            <button class="nav-btn" id="nextStep">
+                Siguiente <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+
 
         <!-- Sección de Contacto -->
         <section class="seccion-contacto">

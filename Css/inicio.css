@@ -1028,6 +1028,11 @@ body {
         transform: scale(1);
     }
 }
+/* ——— Desactivar animación de aparición en el banner ——— */
+.hero-section .slide-content,
+.hero-section .slide-content > * {
+    animation: none !important;     /* elimina fadeInUp */
+}
 
 /* Asegurar que los anclas no queden ocultos bajo el header */
 .service-card.expandable {
