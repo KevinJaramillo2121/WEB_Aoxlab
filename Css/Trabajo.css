@@ -1,8 +1,21 @@
 /* trabajo.css */
 /* Estilos específicos para Trabaja con Nosotros - Cohesión con inicio.css */
 .trabajo-hero .slide-content h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    text-shadow: 2px 2px 8px rgba(35, 31, 32, 0.8);
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.8);
+    color: var(--white);
+}
+
+.hero-section.trabajo-hero .carousel-slide .trabajo-slide-content h1 {
+    line-height: 1.1 !important;
+    /* Alineación específica */
+    background-clip: initial !important;
+    /* Evitar salto de línea */
+    white-space: nowrap !important;
+    /* Fuente del sitio */
+    font-family: 'Aller', Arial, sans-serif !important;
 }
 
 .vacantes-section {
@@ -145,12 +158,6 @@
     font-weight: var(--font-weight-bold);
 }
 
-.testimonios-section .section-header h2,
-.testimonios-section .section-header p {
-    color: #fff !important;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.25); /* Opcional: mejora la legibilidad */
-}
-
 .testimonios-section {
     padding: var(--spacing-xxl) 0;
     background: linear-gradient(135deg, var(--primary-color), var(--dark-gray));
@@ -161,7 +168,7 @@
 .hero-section.trabajo-hero {
     position: relative !important;
     width: 100% !important;
-    height: 900px !important;
+    height: 680px !important;
     z-index: 1 !important;
     overflow: hidden !important;
 }
@@ -215,30 +222,7 @@
 }
 
 /* TÍTULO PRINCIPAL - NEGRO Y GRANDE */
-.hero-section.trabajo-hero .carousel-slide .trabajo-slide-content h1 {
-    font-size: 4rem !important;
-    font-weight: 800 !important;
-    color: #000000 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1.1 !important;
-    
-    /* Alineación específica */
-    text-align: right center;
-    
-    /* Eliminar efectos */
-    text-shadow: none !important;
-    background: none !important;
-    -webkit-background-clip: initial !important;
-    -webkit-text-fill-color: #000000 !important;
-    background-clip: initial !important;
-    
-    /* Evitar salto de línea */
-    white-space: nowrap !important;
-    
-    /* Fuente del sitio */
-    font-family: 'Aller', Arial, sans-serif !important;
-}
+
 
 /* SUBTÍTULO POSICIONADO A LA DERECHA */
 .hero-section.trabajo-hero .carousel-slide .trabajo-slide-content p {
