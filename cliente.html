@@ -27,7 +27,7 @@
     <script src="Js/Clientes.js"></script>
 </head>
 <body>
-   <!-- Header Principal -->
+    <!-- Header Principal -->
     <header class="main-header" id="header">
         <div class="container">
             <div class="header-content">
@@ -208,7 +208,6 @@
                     </ul>
                 </nav>
 
-
                 <!-- Acciones del Header -->
                 <div class="header-actions">
                     <button id="theme-toggle" class="theme-btn" aria-label="Cambiar modo claro/oscuro">
@@ -237,9 +236,6 @@
         </div>
 
     </header>
-
-
-
 
     <!-- Contenido Principal -->
     <main class="portal-clientes">
@@ -271,92 +267,62 @@
             </div>
         </section>
 
-        <!-- Panel de Acceso -->
-        <!-- Sección Portal Acceso - Solo con formulario -->
-<!-- ====== Acceso a Resultados en Línea ====== -->
-    <section class="portal-resultados" id="portal-resultados">
+    <section class="servicios-linea-v3" id="servicios-linea-v3">
     <div class="container">
-        <div class="section-header">
-        <h2>Resultados en Línea</h2>
-        <p>Realice sus consultas en línea</p>
+
+        <!-- Fichas principales -->
+        <div class="fichas-principales">
+        <!-- Resultados -->
+        <article class="ficha-principal resultados" data-aos="zoom-in-right">
+            <i class="fas fa-chart-line"></i>
+            <h3>Resultados en Línea</h3>
+            <p>Explora y descarga tus reportes al instante.</p>
+            <a  href="https://analitica-aoxlab.com/analitica/" target="_blank" class="btn-principal">
+            Ingresar <i class="fas fa-sign-in-alt"></i>
+            </a>
+        </article>
+
+        <!-- Orden -->
+        <article class="ficha-principal orden" data-aos="zoom-in-left">
+            <i class="fas fa-file-medical"></i>
+            <h3>Orden de Servicio</h3>
+            <p>Solicita nuevos análisis de forma rápida y segura.</p>
+            <a href="https://www.analitica-aoxlab.com/analitica/forms/ordenservicio/frordser.php"
+            target="_blank" class="btn-principal">
+            Crear Orden <i class="fas fa-plus-circle"></i>
+            </a>
+        </article>
         </div>
 
-        <div class="cta-resultados">
-        <a href="https://analitica-aoxlab.com/analitica/" target="_blank" class="btn-resultados" rel="noopener">
-            <i class="fas fa-sign-in-alt"></i>
-            Ingresar al Sistema
-        </a>
+        <!-- Beneficios en un mismo eje -->
+        <div class="beneficios-horiz">
+        <div class="beneficio-h" data-aos="fade-up" data-aos-delay="0">
+            <i class="fas fa-clock"></i>
+            <h4>Ultra Rápido</h4>
+            <p>Menos de 2 minutos para cualquier acción.</p>
         </div>
-    </div>
-    <!-- Tarjetas informativas – Resultados en Línea -->
-    <div class="resultados-info-grid">
-    <!-- Tarjeta 1 -->
-    <div class="resultado-item" data-aos="fade-up" data-aos-delay="0">
-        <i class="fas fa-file-download"></i>
-        <h4>Descarga inmediata</h4>
-        <p>Obtén tus certificados y reportes al instante en PDF o Excel.</p>
-    </div>
+        <div class="beneficio-h" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-shield-alt"></i>
+            <h4>Seguridad SSL</h4>
+            <p>Cifrado 256-bit y autenticación reforzada.</p>
+        </div>
+        <div class="beneficio-h" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-download"></i>
+            <h4>Descarga Directa</h4>
+            <p>Informes en PDF, Excel o CSV.</p>
+        </div>
+        <div class="beneficio-h" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-headset"></i>
+            <h4>Soporte 24/7</h4>
+            <p>Asistencia por chat o WhatsApp.</p>
+        </div>
+        </div>
 
-    <!-- Tarjeta 2 -->
-    <div class="resultado-item" data-aos="fade-up" data-aos-delay="100">
-        <i class="fas fa-history"></i>
-        <h4>Historial completo</h4>
-        <p>Consulta resultados de todas tus órdenes anteriores cuando lo necesites.</p>
     </div>
-
-    <!-- Tarjeta 3 -->
-    <div class="resultado-item" data-aos="fade-up" data-aos-delay="200">
-        <i class="fas fa-shield-alt"></i>
-        <h4>Seguridad SSL</h4>
-        <p>Conexión cifrada 256-bit que protege tu información sensible.</p>
-    </div>
-
-    <!-- Tarjeta 4 -->
-    
-    </div>
-
     </section>
 
-<!-- Sección Orden de Servicio - Solo Botón de Acceso -->
-<section class="orden-servicio-acceso" id="orden-servicio">
-    <div class="container">
-        <div class="section-header">
-            <h2>Orden de Servicio</h2>
-            <p>Solicita tus análisis de laboratorio de forma rápida y eficiente</p>
-        </div>
 
-        <div class="cta-orden-servicio">
-            <a href="https://www.analitica-aoxlab.com/analitica/forms/ordenservicio/frordser.php" 
-               class="btn-orden-servicio" 
-               target="_blank"
-               rel="noopener noreferrer">
-                <i class="fas fa-file-medical"></i>
-                Crear Orden de Servicio
-            </a>
-        </div>
-        
-        <!-- Información adicional opcional -->
-        <div class="orden-info-grid">
-            <div class="info-item">
-                <i class="fas fa-clock"></i>
-                <h4>Proceso Rápido</h4>
-                <p>Completa tu orden en menos de 5 minutos</p>
-            </div>
-            
-            <div class="info-item">
-                <i class="fas fa-shield-alt"></i>
-                <h4>Seguro y Confiable</h4>
-                <p>Conexión directa al sistema LIMS</p>
-            </div>
-            
-            <div class="info-item">
-                <i class="fas fa-envelope"></i>
-                <h4>Confirmación Automática</h4>
-                <p>Recibirás confirmación por correo electrónico</p>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 
 <!-- Nueva Sección Separada para Beneficios -->
@@ -534,7 +500,7 @@
         </section>
     </main>
 
-     <!-- Footer -->
+        <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
