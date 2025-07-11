@@ -1571,7 +1571,6 @@ body {
     .hero-title-portal-clientes,
     .hero-title-certificacion,
     .hero-title-equipo,
-    .hero-title-vida-util,
     .hero-title-microbiologia,
     .hero-title-biodegradabilidad {
         font-size: clamp(1.8rem, 7vw, 2.5rem);
@@ -2265,17 +2264,50 @@ body {
     
 }
 /* Slide 4: Vida Útil - Posicionamiento hacia la derecha */
+/* Slide 4: Vida Útil - Posicionamiento completamente a la derecha */
 .carousel-slide[data-slide="vida-util"] .slide-content {
     position: absolute;
     top: 45%;
-    right: var(--spacing-xl); /* Cambio de left a right */
+    right: var(--spacing-xl); /* Mantener a la derecha */
     left: auto; /* Resetear left */
     transform: translateY(-50%);
-    text-align: 900px; /* Cambio de left a right */
-    max-width: 600px; /* Reducido ligeramente para mejor balance */
+    text-align: right; /* CORREGIDO: era 900px que es inválido */
+    max-width: 550px; /* Reducido para dejar espacio al botón */
     z-index: 4;
-    padding-left: var(--spacing-lg); /* Añadir padding izquierdo para separación */
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-sm); /* Espacio del borde derecho */
+    
+    /* NUEVO: Flexbox para alineación perfecta a la derecha */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Alinear todos los elementos a la derecha */
+    justify-content: center;
 }
+
+/* CORRECCIÓN DEFINITIVA: Vida Útil siempre a la derecha */
+@media (min-width: 769px) {
+    .carousel-slide[data-slide="vida-util"] .slide-content {
+        left: auto !important;
+        /* CAMBIAR A: */
+        right: calc(var(--spacing-xl) - -40px) !important;
+        transform: translateY(-40%) !important;
+        text-align: right !important;
+        align-items: flex-end !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+    
+    .carousel-slide[data-slide="vida-util"] .hero-actions {
+        align-items: flex-end !important;
+    }
+    
+    .carousel-slide[data-slide="vida-util"] .hero-badge {
+        align-self: flex-end !important;
+    }
+}
+
+
 
 .hero-title-vida-util {
     white-space: nowrap;
@@ -6008,7 +6040,6 @@ color: var(--white)
     .hero-title-portal-clientes,
     .hero-title-certificacion,
     .hero-title-equipo,
-    .hero-title-vida-util,
     .hero-title-microbiologia,
     .hero-title-biodegradabilidad {
         font-size: clamp(1.5rem, 6vw, 2.2rem) !important; /* Tamaño de fuente más pequeño */
@@ -6640,6 +6671,43 @@ color: var(--white)
         white-space: normal !important;
         left: auto !important;
     }
+
+    .carousel-slide:nth-child(7) .slide-content {
+   position: absolute;
+   top: 50%;
+   left: 38% !important;          /* ⬅ lo fija algo centrado */
+   transform: translate(-50%, -50%);
+   text-align: left !important;
+   max-width: 90vw !important;
+   z-index: 4;
+   padding: 0 var(--spacing-md);
+}
+/* --- Corrección final slide “Certificaciones” --- */
+.carousel-slide:nth-child(7) .slide-content{
+    left: calc(50% + 60px) !important; /* mueve 60 px hacia la derecha */
+    /* Si necesitas más o menos espacio ajusta 60px */
+}
+.carousel-slide:nth-child(7) .slide-content {
+    position: absolute !important;
+    top: 50% !important;
+    left: calc(50% + 60px) !important; /* Misma corrección que funcionó para slide 3 */
+    transform: translate(-50%, -50%) !important;
+    text-align: left !important;
+    max-width: 90vw !important;
+    z-index: 4;
+    padding: 0 var(--spacing-md);
+}
+}
+/* CORRECCIÓN: Slide Certificación de producto */
+.carousel-slide[data-slide="certificacion-producto"] .slide-content {
+    position: absolute !important;
+    top: 50% !important;
+    left: calc(23% + 60px) !important;
+    transform: translate(-50%, -50%) !important;
+    text-align: left !important;
+    max-width: 90vw !important;
+    z-index: 4;
+    padding: 0 var(--spacing-md);
 }
 
 /* Solución CSS para ocultar el menú desplegable en móviles */
