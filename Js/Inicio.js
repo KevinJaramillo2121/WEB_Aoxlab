@@ -50,6 +50,16 @@ INSTRUCCIONES:
 // ====================================================================
 // CLASE PRINCIPAL DEL SITIO WEB
 // ====================================================================
+// Función global para llamar al backend Gemini
+async function callGemini(userMessage) {
+    const response = await fetch('http://localhost:3000/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMessage })
+    });
+    const data = await response.json();
+    return data.message;
+    }
 
 /**
  * Clase principal que maneja todas las funcionalidades del sitio web de AOXLAB
@@ -856,11 +866,8 @@ class AoxlabWebsite {
             try {
                 // Llamar a la API de OpenAI (si está configurada)
                 let response;
-                if (OPENAI_CONFIG.apiKey) {
-                    response = await this.callOpenAI(message);
-                } else {
-                    response = this.generateBotResponse(message);
-                }
+                // Llama a la IA Gemini si no tienes clave de OpenAI
+                response = await callGemini(message);
                 
                 // Ocultar indicador y mostrar respuesta
                 this.hideTypingIndicator();
@@ -882,31 +889,6 @@ class AoxlabWebsite {
      * @param {string} userMessage - Mensaje del usuario
      * @returns {Promise<string>} - Respuesta del bot
      */
-    async callOpenAI(userMessage) {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${OPENAI_CONFIG.apiKey}`
-            },
-            body: JSON.stringify({
-                model: OPENAI_CONFIG.model,
-                messages: [
-                    { role: 'system', content: CHATBOT_SYSTEM_PROMPT },
-                    { role: 'user', content: userMessage }
-                ],
-                max_tokens: OPENAI_CONFIG.maxTokens,
-                temperature: OPENAI_CONFIG.temperature
-            })
-        });
-        
-        if (!response.ok) {
-            throw new Error(`Error ${response.status}: ${response.statusText}`);
-        }
-        
-        const data = await response.json();
-        return data.choices[0].message.content;
-    }
     
     /**
      * Genera respuestas automáticas del bot (fallback)
@@ -2381,5 +2363,215 @@ window.testMobileMenu = function() {
         console.error('No se pueden encontrar los elementos necesarios para probar el menú');
     }
 };
+function verificarChatbot() {
+    console.log('🔍 Verificando elementos del chatbot...');
+    
+    const elementos = {
+        'chat-input': document.getElementById('chat-input'),
+        'send-message': document.getElementById('send-message'),
+        'chatbot-body': document.getElementById('chatbot-body'),
+        'typing-indicator': document.getElementById('typing-indicator')
+    };
+    
+    for (const [nombre, elemento] of Object.entries(elementos)) {
+        if (elemento) {
+            console.log(`✅ ${nombre}: encontrado`);
+        } else {
+            console.error(`❌ ${nombre}: NO ENCONTRADO`);
+        }
+    }
+    
+    // Verificar el backend
+    fetch('http://localhost:3000/api/health')
+        .then(response => response.json())
+        .then(data => {
+            console.log('✅ Backend funcionando:', data);
+        })
+        .catch(error => {
+            console.error('❌ Backend no responde:', error);
+        });
+}
+
+window.addEventListener('load', verificarChatbot);
 
 
+// Diccionario completo de traducciones
+const translations = {
+    es: {
+        // Navegación
+        "INICIO": "INICIO",
+        "SOMOS": "SOMOS", 
+        "SERVICIOS": "SERVICIOS",
+        "CERTIFICACIÓN": "CERTIFICACIÓN",
+        "TRABAJA CON NOSOTROS": "TRABAJA CON NOSOTROS",
+        "Contáctanos": "Contáctanos",
+        "Portal Clientes": "Portal Clientes",
+        
+        // Títulos principales
+        "title": "Aoxlab - Laboratorio de Análisis y Certificación | Medellín, Colombia",
+        "hero-title": "Entregamos valor a la industria y a la ciencia con servicios analíticos",
+        "cta-quote": "Cotiza tu análisis",
+        "team-title": "Únete a nuestro equipo",
+        "team-subtitle": "Crecemos con mentes brillantes comprometidas con la excelencia",
+        
+        // Servicios
+        "laboratory-services": "Servicios de Laboratorio",
+        "microbiological": "Microbiológicos",
+        "physicochemical": "Fisicoquímicos",
+        "nutritional": "Nutricionales",
+        "allergens": "Alérgenos",
+        "mycotoxins": "Micotoxinas",
+        "heavy-metals": "Metales Pesados",
+        "contaminants": "Contaminantes",
+        "cannabinoids": "Cannabinoides y Terpenos",
+        "shelf-life": "Vida Útil y Estabilidad",
+        "biodegradability": "Biodegradabilidad",
+        
+        // Estadísticas
+        "stats-title": "Números que nos respaldan",
+        "stats-subtitle": "Más de una década entregando resultados confiables y oportunos",
+        "years-experience": "AÑOS DE EXPERIENCIA",
+        "lab-equipment": "EQUIPOS DE LABORATORIO",
+        "satisfied-clients": "CLIENTES SATISFECHOS",
+        "annual-results": "RESULTADOS ANUALES",
+        "on-time-results": "RESULTADOS A TIEMPO",
+        
+        // Footer
+        "main-office": "Sede Principal - Medellín",
+        "other-cities": "Otras Ciudades",
+        "quick-links": "Enlaces Rápidos",
+        "policies": "Políticas",
+        "rights-reserved": "Todos los derechos reservados",
+        "company-slogan": "Ágil, Eficiente y Flexible"
+    },
+    
+    en: {
+        // Navegación
+        "INICIO": "HOME",
+        "SOMOS": "ABOUT US",
+        "SERVICIOS": "SERVICES", 
+        "CERTIFICACIÓN": "CERTIFICATION",
+        "TRABAJA CON NOSOTROS": "WORK WITH US",
+        "Contáctanos": "Contact Us",
+        "Portal Clientes": "Client Portal",
+        
+        // Títulos principales
+        "title": "Aoxlab - Analysis and Certification Laboratory | Medellín, Colombia",
+        "hero-title": "We deliver value to industry and science with analytical services",
+        "cta-quote": "Quote your analysis",
+        "team-title": "Join our team",
+        "team-subtitle": "We grow with brilliant minds committed to excellence",
+        
+        // Servicios
+        "laboratory-services": "Laboratory Services",
+        "microbiological": "Microbiological",
+        "physicochemical": "Physicochemical",
+        "nutritional": "Nutritional",
+        "allergens": "Allergens",
+        "mycotoxins": "Mycotoxins",
+        "heavy-metals": "Heavy Metals",
+        "contaminants": "Contaminants",
+        "cannabinoids": "Cannabinoids and Terpenes",
+        "shelf-life": "Shelf Life and Stability",
+        "biodegradability": "Biodegradability",
+        
+        // Estadísticas
+        "stats-title": "Numbers that support us",
+        "stats-subtitle": "More than a decade delivering reliable and timely results",
+        "years-experience": "YEARS OF EXPERIENCE",
+        "lab-equipment": "LABORATORY EQUIPMENT",
+        "satisfied-clients": "SATISFIED CLIENTS",
+        "annual-results": "ANNUAL RESULTS",
+        "on-time-results": "RESULTS ON TIME",
+        
+        // Footer
+        "main-office": "Main Office - Medellín",
+        "other-cities": "Other Cities",
+        "quick-links": "Quick Links",
+        "policies": "Policies",
+        "rights-reserved": "All rights reserved",
+        "company-slogan": "Agile, Efficient and Flexible"
+    }
+};
+
+// Función principal de traducción
+function translatePage(targetLanguage) {
+    const elements = document.querySelectorAll('[data-translate]');
+    
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[targetLanguage] && translations[targetLanguage][key]) {
+            
+            // Manejar diferentes tipos de elementos
+            if (element.tagName === 'INPUT' && element.type === 'text') {
+                element.placeholder = translations[targetLanguage][key];
+            } else if (element.tagName === 'IMG') {
+                element.alt = translations[targetLanguage][key];
+            } else if (element.hasAttribute('aria-label')) {
+                element.setAttribute('aria-label', translations[targetLanguage][key]);
+            } else if (element.hasAttribute('data-tooltip')) {
+                element.setAttribute('data-tooltip', translations[targetLanguage][key]);
+            } else {
+                element.textContent = translations[targetLanguage][key];
+            }
+        }
+    });
+    
+    // Cambiar el título de la página
+    if (translations[targetLanguage]['title']) {
+        document.title = translations[targetLanguage]['title'];
+    }
+    
+    // Actualizar meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription && translations[targetLanguage]['meta-description']) {
+        metaDescription.setAttribute('content', translations[targetLanguage]['meta-description']);
+    }
+    
+    // Guardar idioma seleccionado
+    localStorage.setItem('selectedLanguage', targetLanguage);
+    
+    // Actualizar selector de idioma
+    updateLanguageSelector(targetLanguage);
+}
+
+// Función para actualizar el selector de idioma
+function updateLanguageSelector(language) {
+    const langBtn = document.getElementById('language-btn');
+    const flagIcon = langBtn.querySelector('.flag-icon');
+    const langText = langBtn.querySelector('span:not(.flag-icon)');
+    
+    if (language === 'en') {
+        flagIcon.textContent = '🇺🇸';
+        langText.textContent = ' EN';
+    } else {
+        flagIcon.textContent = '🇪🇸';
+        langText.textContent = ' ES';
+    }
+}
+
+// Inicializar al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    const savedLanguage = localStorage.getItem('selectedLanguage') || 'es';
+    translatePage(savedLanguage);
+    
+    // Configurar event listeners
+    setupLanguageToggle();
+});
+
+// Configurar el toggle de idioma
+function setupLanguageToggle() {
+    const languageOptions = document.querySelectorAll('.language-options a');
+    
+    languageOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.preventDefault();
+            const selectedLang = this.getAttribute('data-lang');
+            translatePage(selectedLang);
+            
+            // Cerrar dropdown
+            const dropdown = document.querySelector('.language-options');
+            dropdown.classList.remove('show');
+        });
+    });
+}

@@ -4908,7 +4908,7 @@ color: var(--white)
 .scroll-top {
     position: fixed;
     bottom: var(--spacing-lg);
-    left: var(--spacing-lg);
+    
     width: 50px;
     height: 50px;
     background: var(--accent-color);
@@ -4920,6 +4920,29 @@ color: var(--white)
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
+    
+}
+.scroll-top {
+  /* Posición fija */
+  position: fixed;
+  /* Calcular bottom: altura de whatsapp (60px) + separación deseada (10px) */
+  bottom: calc(25px + 60px + 10px);
+  right: 25px;
+  /* Tamaño del botón */
+  width: 50px;
+  height: 50px;
+  /* Z-index superior para que quede sobre WhatsApp */
+  z-index: 1001;
+  /* Sin mostrar por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 /* Responsive para botones flotantes */
 @media (max-width: 768px) {

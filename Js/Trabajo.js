@@ -548,6 +548,157 @@ class AoxlabTrabajo extends AoxlabWebsite {
     }
 }
 
+
+/**
+ * Funcionalidad para scroll suave hacia el formulario al aplicar a vacantes
+ * Se ejecuta cuando se hace clic en los botones "Aplicar ahora"
+ */
+
+// Función principal para manejar la aplicación a vacantes
+function aplicarVacante(vacanteId) {
+    // 1. Hacer scroll suave hacia el formulario
+    const formularioSection = document.getElementById('formulario');
+    
+    if (formularioSection) {
+        // Mostrar indicador de scroll (opcional)
+        mostrarIndicadorScroll();
+        
+        // Scroll suave con comportamiento nativo del navegador
+        formularioSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest'
+        });
+        
+        // 2. Esperar a que termine el scroll y luego preseleccionar la vacante
+        setTimeout(() => {
+            preseleccionarVacante(vacanteId);
+            resaltarFormulario();
+            ocultarIndicadorScroll();
+        }, 800); // 800ms para que termine la animación de scroll
+        
+    } else {
+        console.error('No se encontró el formulario con ID "formulario"');
+    }
+}
+
+// Función para preseleccionar la vacante en el select
+function preseleccionarVacante(vacanteId) {
+    const selectVacante = document.getElementById('vacante');
+    
+    if (selectVacante && vacanteId) {
+        // Buscar la opción correspondiente y seleccionarla
+        const option = selectVacante.querySelector(`option[value="${vacanteId}"]`);
+        
+        if (option) {
+            selectVacante.value = vacanteId;
+            
+            // Disparar evento change para cualquier listener que pueda existir
+            const changeEvent = new Event('change', { bubbles: true });
+            selectVacante.dispatchEvent(changeEvent);
+            
+            // Agregar clase para resaltar temporalmente
+            selectVacante.classList.add('highlighted');
+            setTimeout(() => {
+                selectVacante.classList.remove('highlighted');
+            }, 2000);
+            
+            console.log(`Vacante "${vacanteId}" preseleccionada correctamente`);
+        } else {
+            console.warn(`No se encontró la opción para la vacante: ${vacanteId}`);
+        }
+    }
+}
+
+// Función para resaltar visualmente el formulario
+function resaltarFormulario() {
+    const formularioContainer = document.querySelector('.form-container');
+    
+    if (formularioContainer) {
+        // Agregar clase de resaltado
+        formularioContainer.classList.add('form-highlighted');
+        
+        // Remover la clase después de 3 segundos
+        setTimeout(() => {
+            formularioContainer.classList.remove('form-highlighted');
+        }, 3000);
+    }
+}
+
+// Función para mostrar indicador de scroll
+function mostrarIndicadorScroll() {
+    let indicator = document.getElementById('scroll-indicator');
+    
+    if (!indicator) {
+        // Crear el indicador si no existe
+        indicator = document.createElement('div');
+        indicator.id = 'scroll-indicator';
+        indicator.className = 'smooth-scroll-indicator';
+        indicator.innerHTML = '<i class="fas fa-arrow-down"></i> Dirigiéndote al formulario...';
+        document.body.appendChild(indicator);
+    }
+    
+    indicator.classList.add('show');
+}
+
+// Función para ocultar indicador de scroll
+function ocultarIndicadorScroll() {
+    const indicator = document.getElementById('scroll-indicator');
+    if (indicator) {
+        indicator.classList.remove('show');
+    }
+}
+
+// Función para inicializar los event listeners
+function inicializarAplicacionVacantes() {
+    // Buscar todos los botones de aplicar
+    const botonesAplicar = document.querySelectorAll('.btn-aplicar');
+    
+    botonesAplicar.forEach(boton => {
+        boton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevenir comportamiento por defecto
+            
+            // Agregar clase de procesamiento temporalmente
+            this.classList.add('processing');
+            setTimeout(() => {
+                this.classList.remove('processing');
+            }, 1000);
+            
+            // Obtener el ID de la vacante del atributo data-vacante
+            const vacanteId = this.getAttribute('data-vacante');
+            
+            if (vacanteId) {
+                aplicarVacante(vacanteId);
+                
+                // Opcional: Tracking de analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        'event_category': 'vacantes',
+                        'event_label': vacanteId,
+                        'value': 1
+                    });
+                }
+            } else {
+                console.warn('Botón de aplicar sin atributo data-vacante');
+            }
+        });
+    });
+    
+    console.log(`Inicializados ${botonesAplicar.length} botones de aplicación`);
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    inicializarAplicacionVacantes();
+});
+
+// También inicializar si el DOM ya está cargado
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', inicializarAplicacionVacantes);
+} else {
+    inicializarAplicacionVacantes();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     new AoxlabTrabajo();
 });

@@ -1,0 +1,36 @@
+/* Hero sección */
+        .policies-hero{margin-top:80px;padding:100px 0;background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));color:var(--white);text-align:center}
+        .policies-hero .hero-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;margin:.5rem 0}
+        .policies-hero .hero-subtitle{font-size:1.25rem;opacity:.9}
+        .policies-hero .hero-badge{display:inline-flex;gap:.5rem;background:rgba(0,0,0,.3);padding:.4rem .9rem;border-radius:10px;font-size:.9rem}
+        /* Contenedor general */
+        .policies-content{background:var(--white);padding:4rem 0}
+        .policies-wrapper{display:grid;grid-template-columns:280px 1fr;gap:2.5rem}
+        @media(max-width:992px){.policies-wrapper{grid-template-columns:1fr}}
+        /* Sidebar índice */
+        .policies-sidebar{position:sticky;top:110px}
+        .policies-sidebar h3{font-size:1.1rem;color:var(--secondary-color);margin-bottom:1rem}
+        .policies-nav{list-style:none;padding:0;margin:0}
+        .policies-nav .nav-item{display:flex;align-items:center;gap:.5rem;padding:.4rem 0;color:var(--primary-color);text-decoration:none;font-weight:600;transition:.2s}
+        .policies-nav .nav-item:hover{color:var(--secondary-color);transform:translateX(4px)}
+        /* Tarjeta de contacto rápido */
+        .quick-contact{margin-top:2rem;padding:1rem;border-left:4px solid var(--secondary-color);background:var(--light-gray);border-radius:8px}
+        .quick-contact .contact-btn{display:block;margin:.4rem 0;color:var(--secondary-color);font-weight:600;text-decoration:none}
+        /* Secciones */
+        .policy-section{margin-bottom:3rem}
+        .section-header{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem}
+        .section-header h2{font-size:1.4rem;font-weight:700;color:var(--primary-color)}
+        .section-header i{color:var(--secondary-color)}
+        .content-card{background:rgba(0,0,0,.02);padding:2rem;border-radius:12px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+        .content-card ul{margin:1rem 0;padding-left:1.2rem}
+        .content-card li{margin:.4rem 0;list-style:disc}
+        /* Grid de finalidades / derechos */
+        .purposes-grid,.rights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.3rem;margin-top:1.5rem}
+        .purpose-card,.right-card{background:var(--white);padding:1.3rem;border:1px solid var(--shadow-light);border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,.04);transition:.2s}
+        .purpose-card:hover,.right-card:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,0,0,.08)}
+        .purpose-card i,.right-card i{font-size:1.4rem;color:var(--secondary-color)}
+        .purpose-card h4,.right-card h4{margin:.6rem 0;font-size:1.05rem;font-weight:700}
+        /* Avisos destacados */
+        .highlight-box,.warning-box
+        {border-left:4px solid var(--accent-color);background:rgba(243,119,40,.07);padding:1rem;border-radius:8px;margin-top:1.5rem}
+        /* Botón volver arriba (ya tienes uno – se respeta) */

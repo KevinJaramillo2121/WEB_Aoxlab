@@ -922,6 +922,8 @@ function initializeCertModal() {
         }
     });
 }
+window.addEventListener('resize', debounce(handleResize,200));
+function debounce(fn,wait){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),wait)};}
 
 /**
  * Mostrar detalles de certificación en modal
@@ -1106,6 +1108,188 @@ function closeCertModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
 }
+/**
+ * Función para descargar certificaciones y resoluciones
+ * @param {string} fileUrl - URL del archivo a descargar
+ * @param {string} fileName - Nombre sugerido para el archivo descargado
+ */
+function downloadCertificate(fileUrl, fileName) {
+    try {
+        // Verificar que los parámetros sean válidos
+        if (!fileUrl || !fileName) {
+            console.error('Error: URL del archivo o nombre de archivo no proporcionados');
+            showDownloadNotification('Error al descargar el archivo', 'error');
+            return;
+        }
+
+        // Mostrar indicador de descarga iniciando
+        showDownloadNotification('Iniciando descarga...', 'info');
+
+        // Método 1: Usar download attribute (más confiable)
+        const link = document.createElement('a');
+        link.href = fileUrl;
+        link.download = fileName;
+        link.target = '_blank'; // Fallback en caso de que download no funcione
+        
+        // Agregar el enlace al DOM temporalmente
+        document.body.appendChild(link);
+        
+        // Simular el clic
+        link.click();
+        
+        // Limpiar el DOM
+        document.body.removeChild(link);
+        
+        // Mostrar confirmación de descarga
+        setTimeout(() => {
+            showDownloadNotification('Descarga iniciada correctamente', 'success');
+        }, 500);
+        
+        // Analíticas (opcional)
+        trackDownload(fileName, fileUrl);
+        
+    } catch (error) {
+        console.error('Error durante la descarga:', error);
+        
+        // Método alternativo: window.open como fallback
+        try {
+            window.open(fileUrl, '_blank');
+            showDownloadNotification('Archivo abierto en nueva pestaña', 'info');
+        } catch (fallbackError) {
+            console.error('Error en método alternativo:', fallbackError);
+            showDownloadNotification('Error al descargar el archivo', 'error');
+        }
+    }
+}
+
+/**
+ * Función para mostrar notificaciones de descarga
+ * @param {string} message - Mensaje a mostrar
+ * @param {string} type - Tipo de notificación (success, error, info)
+ */
+function showDownloadNotification(message, type = 'info') {
+    // Crear elemento de notificación
+    const notification = document.createElement('div');
+    notification.className = `download-notification ${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas ${getNotificationIcon(type)}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    // Agregar estilos inline para asegurar visibilidad
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${getNotificationColor(type)};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        font-family: 'Aller', sans-serif;
+        font-size: 14px;
+        max-width: 300px;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateX(100%);
+    `;
+    
+    // Agregar al DOM
+    document.body.appendChild(notification);
+    
+    // Animar entrada
+    setTimeout(() => {
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Remover después de 4 segundos
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                document.body.removeChild(notification);
+            }
+        }, 300);
+    }, 4000);
+}
+
+/**
+ * Función auxiliar para obtener el ícono de notificación
+ * @param {string} type - Tipo de notificación
+ * @returns {string} Clase del ícono
+ */
+function getNotificationIcon(type) {
+    switch(type) {
+        case 'success': return 'fa-check-circle';
+        case 'error': return 'fa-exclamation-circle';
+        case 'info': return 'fa-info-circle';
+        default: return 'fa-info-circle';
+    }
+}
+
+/**
+ * Función auxiliar para obtener el color de notificación
+ * @param {string} type - Tipo de notificación
+ * @returns {string} Color de fondo
+ */
+function getNotificationColor(type) {
+    switch(type) {
+        case 'success': return '#10b981';
+        case 'error': return '#ef4444';
+        case 'info': return '#3b82f6';
+        default: return '#3b82f6';
+    }
+}
+
+/**
+ * Función para tracking de descargas (opcional)
+ * @param {string} fileName - Nombre del archivo descargado
+ * @param {string} fileUrl - URL del archivo
+ */
+function trackDownload(fileName, fileUrl) {
+    // Aquí puedes agregar código de analytics si lo necesitas
+    console.log(`Descarga rastreada: ${fileName} desde ${fileUrl}`);
+    
+    // Ejemplo con Google Analytics (si está implementado)
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'download', {
+            'event_category': 'certificaciones',
+            'event_label': fileName,
+            'value': 1
+        });
+    }
+}
+
+/**
+ * Función alternativa para navegadores más antiguos
+ * @param {string} fileUrl - URL del archivo
+ * @param {string} fileName - Nombre del archivo
+ */
+function downloadCertificateFallback(fileUrl, fileName) {
+    // Para navegadores que no soportan download attribute
+    const form = document.createElement('form');
+    form.method = 'GET';
+    form.action = fileUrl;
+    form.target = '_blank';
+    
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+}
+
+// Inicialización cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Sistema de descarga de certificaciones inicializado correctamente');
+    
+    // Verificar que existan los botones de descarga
+    const downloadButtons = document.querySelectorAll('.cert-btn.primary');
+    console.log(`Se encontraron ${downloadButtons.length} botones de descarga`);
+});
 
 /**
  * Observador para animaciones de certificaciones

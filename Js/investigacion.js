@@ -12,7 +12,7 @@ class AoxlabIDI extends AoxlabWebsite {
         this.initSmoothScroll(); // Agregado aquí para asegurar inicialización
         console.log('🧪 AOXLAB I+D+i - Sistema cargado exitosamente');
     }
-     
+    
     /**
      * Inicializa la funcionalidad de servicios expandibles
      */

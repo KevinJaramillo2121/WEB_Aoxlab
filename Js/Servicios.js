@@ -832,6 +832,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // NUEVA FUNCIONALIDAD: Verificar estructura de contenido expandido
     verifyExpandedContentStructure();
 });
+/**
+ * Función para redirigir a la orden de servicio en línea
+ * FUNCIÓN GLOBAL para uso desde HTML
+ */
+function irAOrdenServicio() {
+    // URL del formulario de orden de servicio
+    const urlOrdenServicio = 'https://www.analitica-aoxlab.com/analitica/forms/ordenservicio/frordser.php';
+    
+    // Abrir en nueva ventana/pestaña
+    window.open(urlOrdenServicio, '_blank');
+    
+    // Log para seguimiento analítico
+    console.log('Redirigiendo a orden de servicio en línea');
+}
 
 /**
  * NUEVA FUNCIÓN: Verifica y corrige la estructura del contenido expandido
@@ -885,6 +899,27 @@ function initializeExpandableCards() {
             closeAllExpandedCards();
         }
     });
+}
+
+class TouchCarousel extends MetodologiaCarousel {
+    setupTouchEvents() {
+        let startX = 0;
+        let distX = 0;
+        
+        this.carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        
+        this.carousel.addEventListener('touchend', () => {
+            if (Math.abs(distX) > 50) {
+                if (distX > 0) {
+                    this.previousStep();
+                } else {
+                    this.nextStep();
+                }
+            }
+        });
+    }
 }
 
 // [Resto de funciones existentes permanecen igual...]

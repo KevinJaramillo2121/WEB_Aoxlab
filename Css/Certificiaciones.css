@@ -2,13 +2,14 @@
 /*Es importante recordar que todos y cada uno de los apartados deben estar debidamente comentados con el fin de mejorar su legibilidad y posterior actualización ademas que estos hace parte de la documentacion*/
 /* Hero Section Certificaciones */
 .cert-hero {
-    padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xxl);
+    padding: var(--space-lg) 0;
     background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 100%);
     position: relative;
     overflow: hidden;
-    min-height: 85vh;
-    display: flex;
+    min-height: auto;
+    display: grid;
     align-items: center;
+    grid-template-columns: 1fr 1fr;
 }
 
 
@@ -80,7 +81,7 @@
 
 /* Hero Section Certificaciones con imagen desde HTML */
 .cert-hero {
-    padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xxl);
+    padding: var(--space-lg) 0;
     position: relative;
     overflow: hidden;
     min-height: 85vh;
@@ -198,70 +199,6 @@
 .cert-hero .hero-badge i {
     color: var(--accent-color);
     margin-right: var(--spacing-xs);
-}
-
-/* Responsive para dispositivos móviles */
-@media (max-width: 768px) {
-    .cert-hero {
-        padding: calc(60px + var(--spacing-xl)) 0 var(--spacing-xl);
-        min-height: 70vh;
-    }
-    
-    .cert-hero .hero-content {
-        padding: 0 var(--spacing-md);
-    }
-    
-    .cert-hero .hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .cert-hero .hero-actions .cta-btn {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .cert-hero {
-        min-height: 60vh;
-    }
-    
-    .cert-hero .hero-content h1 {
-        font-size: clamp(1.8rem, 4vw, 2.5rem);
-    }
-    
-    .cert-hero .hero-subtitle {
-        font-size: 1rem;
-    }
-}
-/* Ajustes responsivos */
-@media (max-width: 768px) {
-    .cert-hero .hero-content {
-        max-width: 100%;
-        padding: 0 var(--spacing-md);
-        margin: 0 auto; /* Centrado en móviles */
-    }
-    
-    .cert-hero .hero-actions {
-        justify-content: center; /* Centrado en móviles */
-    }
-    
-    /* En móviles, el texto puede volver a centrarse para mejor legibilidad */
-    .cert-hero .hero-content h1,
-    .cert-hero .hero-subtitle {
-        text-align: center;
-        max-width: 100%;
-    }
-    
-    .cert-hero .hero-badge {
-        align-self: center;
-    }
-}
-.cert-animation {
-    position: relative;
-    width: 100%;
-    height: 100%;
 }
 
 .cert-badge-floating {
@@ -595,20 +532,6 @@
     flex-grow: 1; /* Para que ocupe el espacio disponible */
 }
 
-/* Ajuste para dispositivos móviles */
-@media (max-width: 768px) {
-    .proceso-quejas {
-        flex-direction: column;
-    }
-    
-    .proceso-card {
-        margin-bottom: var(--spacing-lg);
-    }
-    
-    .proceso-card p {
-        min-height: auto;
-    }
-}
 
 .proceso-steps li {
     display: flex;
@@ -835,21 +758,7 @@
     background: var(--accent-color);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .derechos-deberes-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .tabs-nav {
-        flex-wrap: wrap;
-    }
-    
-    .tab-btn {
-        flex: 1 1 50%;
-        text-align: center;
-    }
-}
+
 /* === NUEVO DISEÑO PREMIUM PARA APARTADOS CLAVE DE CERTIFICACIONES === */
 
     /* Fondo suave con glassmorphism para secciones */
@@ -975,50 +884,6 @@
     }
 
     /* Animación de entrada suave para tarjetas */
-    @media (prefers-reduced-motion: no-preference) {
-    .explanation-cards .expl-card,
-    .beneficios-grid .beneficio-card,
-    .reglas-grid .regla-card {
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.8s forwards;
-    }
-    .explanation-cards .expl-card:nth-child(1) { animation-delay: 0.1s; }
-    .explanation-cards .expl-card:nth-child(2) { animation-delay: 0.3s; }
-    .explanation-cards .expl-card:nth-child(3) { animation-delay: 0.5s; }
-    .beneficios-grid .beneficio-card:nth-child(1) { animation-delay: 0.1s; }
-    .beneficios-grid .beneficio-card:nth-child(2) { animation-delay: 0.25s; }
-    .beneficios-grid .beneficio-card:nth-child(3) { animation-delay: 0.4s; }
-    .beneficios-grid .beneficio-card:nth-child(4) { animation-delay: 0.55s; }
-    .reglas-grid .regla-card:nth-child(1) { animation-delay: 0.1s; }
-    .reglas-grid .regla-card:nth-child(2) { animation-delay: 0.25s; }
-    .reglas-grid .regla-card:nth-child(3) { animation-delay: 0.4s; }
-    .reglas-grid .regla-card:nth-child(4) { animation-delay: 0.55s; }
-    }
-
-    @keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: none;
-    }
-    }
-
-    /* Responsive: tarjetas apiladas y paddings suaves */
-    @media (max-width: 900px) {
-    .beneficios-grid, .reglas-grid, .explanation-cards {
-        grid-template-columns: 1fr !important;
-        gap: 2em !important;
-    }
-    section.que-es-section,
-    section.beneficios-cert-section,
-    section.alcance-section,
-    section.reglas-section {
-        padding: 40px 0;
-    }
-    .expl-card, .beneficio-card, .regla-card {
-        padding: 1.5em 1em;
-    }
-    }
 
     /* Bordes de color para destacar tarjetas según sección */
     section.que-es-section .expl-card { border-left: 6px solid var(--secondary-color); }
@@ -1525,38 +1390,7 @@
     box-shadow: 0 15px 35px rgba(43, 161, 212, 0.4);
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-/* Responsive */
-@media (max-width: 768px) {
-    .alcance-tabs {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-    
-    .sectors-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .floating-cta {
-        position: relative;
-        bottom: auto;
-        left: auto;
-        transform: none;
-        margin-top: var(--spacing-xl);
-        text-align: center;
-    }
-}
 /* Estilos para Reglas y Acuerdos de Certificación - OPTIMIZADO */
 .reglas-section {
     padding: var(--spacing-lg) 0; /* Reducido de --spacing-xxl */
@@ -1686,6 +1520,87 @@
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
 }
+/* css/prerregistro.css */
+:root{
+  --azul:#2ba1d4;
+  --azul-oscuro:#196a8f;
+  --gris:#666;
+  --verde:#27ae60;
+  --rojo:#e74c3c;
+  --radius:8px;
+  --dur:0.3s;
+  font-family:'Segoe UI',Verdana,sans-serif;
+}
+
+/* Contenedor */
+.pre-container{
+  max-width:600px;
+  margin:60px auto;
+  padding:0 1rem;
+}
+h1{font-size:1.8rem;margin-bottom:1.5rem;text-align:center;color:var(--azul-oscuro)}
+
+/* Formulario */
+form{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:var(--radius);
+  padding:2rem;
+  box-shadow:0 8px 24px rgba(0,0,0,.07);
+}
+
+/* Campos */
+.field{margin-bottom:1.2rem}
+.field label{display:block;font-weight:600;margin-bottom:.3rem;color:#222}
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  padding:.65rem .8rem;
+  border:1.5px solid #ccc;
+  border-radius:var(--radius);
+  font-size:1rem;
+  transition:border var(--dur) ease;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--azul);
+  outline:none;
+}
+
+/* Dos columnas */
+.two-col{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+
+/* Checkbox */
+.field.checkbox label{display:flex;align-items:center;font-weight:400}
+.field.checkbox input{margin-right:.5rem}
+
+/* Botón */
+.btn-primary{
+  width:100%;
+  padding:.9rem 1rem;
+  border:none;
+  background:var(--azul);
+  color:#fff;
+  font-size:1rem;
+  font-weight:600;
+  border-radius:var(--radius);
+  cursor:pointer;
+  transition:background var(--dur) ease;
+}
+.btn-primary:hover{background:var(--azul-oscuro)}
+.btn-primary.loading{background:var(--gris);cursor:progress}
+
+/* Mensajes */
+#form-msg{
+  margin-top:1rem;
+  font-weight:600;
+  text-align:center;
+}
+#form-msg.ok{color:var(--verde)}
+#form-msg.error{color:var(--rojo)}
+
 
 .acuerdo-card-3d:hover .acuerdo-card-inner {
     transform: rotateY(180deg);
@@ -2355,83 +2270,7 @@
     font-size: 1.1rem;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .reglas-tabs {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-    
-    .acuerdos-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .responsabilidades-comparativa {
-        grid-template-columns: 1fr;
-    }
-    
-    .marca-timeline::before {
-        left: 20px;
-    }
-    
-    .timeline-marker {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-    
-    .timeline-item {
-        gap: var(--spacing-md);
-    }
-    
-    .reglas-quick-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .quick-action-btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-     
-    .manual-download-area {
-        flex-direction: column;
-        gap: var(--spacing-md);
-        text-align: center;
-    }
-    
-    .declaracion-actions {
-        flex-direction: column;
-    }
-    
-    .marca-gallery {
-        flex-direction: column;
-    }
-}
 
-@media (max-width: 480px) {
-    .reglas-content-wrapper {
-        padding: var(--spacing-md);
-    }
-    
-    .acuerdo-card-3d {
-        height: 250px;
-    }
-    
-    .timeline-content {
-        padding: var(--spacing-md);
-    }
-    
-    .marca-specs {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
-    
-    .consecuencias-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 .card-badge.premium {
     background: linear-gradient(135deg, var(--accent-color), #ff6b6b);
@@ -2481,31 +2320,7 @@
     align-items: center;
     margin-top: auto; /* Para empujar al fondo */
 }
-/* Responsive para mejor aprovechamiento del espacio */
-@media (min-width: 1200px) {
-    .alcances-grid {
-        grid-template-columns: repeat(3, 1fr); /* Forzar 3 columnas en pantallas grandes */
-        max-width: 1400px;
-    }
-}
 
-@media (min-width: 900px) and (max-width: 1199px) {
-    .alcances-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
-        max-width: 1000px;
-    }
-}
-
-@media (max-width: 899px) {
-    .alcances-grid {
-        grid-template-columns: 1fr; /* 1 columna en móviles */
-        max-width: 500px;
-    }
-    
-    .features-list {
-        grid-template-columns: 1fr; /* Una sola columna en móviles */
-    }
-}
 
 
 
@@ -3458,34 +3273,89 @@
 }
 
 
-@media (max-width: 480px) {
-    .cert-hero .hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .directorio-filters {
-        justify-content: flex-start;
-        overflow-x: auto;
-        padding-bottom: var(--spacing-sm);
-    }
-    
-    .filter-btn {
-        white-space: nowrap;
-        flex-shrink: 0;
-    }
-    
-    .cert-actions {
-        flex-direction: column;
-    }
-    
-    .cta-final .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .cta-stats {
-        flex-direction: column;
-        gap: var(--spacing-md);
-    }
+:root {
+  /* Breakpoints */
+  --bp-xs: 576px;
+  --bp-sm: 768px;
+  --bp-md: 992px;
+  --bp-lg:1200px;
+
+  /* Espaciados fluidos */
+  --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 2vw, 1rem);
+  --space-md: clamp(1rem, 3vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 4vw, 2rem);
+
+  /* Tipografía fluida */
+  --fs-100: clamp(0.875rem, 2vw, 1rem);
+  --fs-200: clamp(1rem, 2.5vw, 1.25rem);
+  --fs-300: clamp(1.5rem, 4vw, 2rem);
+}
+
+.cert-hero .hero-bg-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (max-width: var(--bp-sm)) {
+  .cert-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: var(--space-md) 0;
+  }
+  .cert-hero .hero-content {
+    padding: 0 var(--space-sm);
+  }
+}
+.que-es-section .content-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  padding: 0 var(--space-sm);
+}
+.que-es-section .expl-card {
+  font-size: var(--fs-200);
+}
+.beneficios-grid,
+.alcances-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  padding: 0 var(--space-sm);
+}
+.tabs-nav,
+.reglas-tabs,
+.alcance-tabs {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  padding: var(--space-sm) 0;
+}
+.tab-btn {
+  flex: 0 0 auto;
+  padding: var(--space-xs) var(--space-sm);
+}
+.acuerdos-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--space-md);
+  scroll-snap-type: x mandatory;
+}
+.acuerdo-card-3d {
+  flex: 0 0 clamp(250px, 80%, 300px);
+  scroll-snap-align: start;
+}
+.prerregistro-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.btn-submit {
+  width: 100%;
+  min-height: 44px;
 }

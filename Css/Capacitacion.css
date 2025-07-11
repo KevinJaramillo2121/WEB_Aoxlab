@@ -809,105 +809,7 @@
     transform: translateY(-3px);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .capacitacion-hero {
-        height: 60vh;
-        min-height: 500px;
-    }
-    
-    .hero-stats {
-        gap: var(--spacing-md);
-    }
-    
-    .stat-item {
-        min-width: 150px;
-        padding: var(--spacing-md);
-    }
-    
-    .sectores-objetivo {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .capacitaciones-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-    
-    .modalidades-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-    
-    .beneficios-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-    
-    .proceso-timeline::before {
-        left: 30px;
-    }
-    
-    .timeline-item {
-        flex-direction: row !important;
-        padding-left: 80px;
-    }
-    
-    .timeline-icon {
-        left: 30px;
-        transform: translateX(-50%);
-    }
-    
-    .timeline-content {
-        width: 100%;
-        margin: 0 !important;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .cta-btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-}
 
-@media (max-width: 480px) {
-    .capacitacion-hero {
-        height: 50vh;
-        min-height: 400px;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .stat-item {
-        width: 100%;
-        max-width: 200px;
-    }
-    
-    .capacitacion-header {
-        padding: var(--spacing-lg);
-    }
-    
-    .modalidad-card,
-    .beneficio-card {
-        padding: var(--spacing-lg);
-    }
-    
-    .target-sectors,
-    .aplicaciones-grid,
-    .beneficios-grid,
-    .herramientas-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* Animaciones adicionales */
 @keyframes fadeInUp {
@@ -949,4 +851,169 @@
 .modalidad-card:hover .modalidad-icon i,
 .beneficio-card:hover .beneficio-icon i {
     animation: rotateIcon 0.6s ease;
+}
+
+:root {
+  /* Breakpoints */
+  --bp-xs: 576px;
+  --bp-sm: 768px;
+  --bp-md: 992px;
+  --bp-lg: 1200px;
+
+  /* Espaciados fluidos */
+  --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 2vw, 1rem);
+  --space-md: clamp(1rem, 3vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 4vw, 2rem);
+  --space-xl: clamp(2rem, 5vw, 3rem);
+
+  /* Tipografía fluida */
+  --fs-100: clamp(0.875rem, 2vw, 1rem);
+  --fs-200: clamp(1rem, 2.5vw, 1.25rem);
+  --fs-300: clamp(1.5rem, 4vw, 2rem);
+  --fs-400: clamp(2rem, 5vw, 2.5rem);
+}
+
+.capacitacion-hero {
+  position: relative;
+  width: 100%;
+  height: clamp(50vh, 60vh, 75vh);
+  min-height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.capacitacion-hero .hero-background {
+  background-attachment: scroll; /* Mejor rendimiento en móvil */
+}
+
+@media (max-width: var(--bp-sm)) {
+  .capacitacion-hero {
+    padding: var(--space-md) var(--space-sm);
+    text-align: center;
+  }
+  .capacitacion-hero .hero-title {
+    font-size: var(--fs-400);
+    white-space: normal;
+  }
+  .capacitacion-hero .hero-badge {
+    padding: var(--space-xs) var(--space-md);
+  }
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.stat-item {
+  flex: 1 1 clamp(140px, 25%, 200px);
+  max-width: clamp(140px, 30%, 250px);
+  padding: var(--space-md);
+}
+
+@media (max-width: var(--bp-sm)) {
+  .stat-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.capacitaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+@media (max-width: var(--bp-sm)) {
+  .capacitaciones-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.capacitacion-card {
+  padding: var(--space-lg);
+  border-radius: var(--space-xs);
+  transition: transform 0.3s ease;
+}
+
+.capacitacion-header {
+  padding: var(--space-md);
+}
+
+.expand-btn {
+  width: clamp(32px, 4vw, 40px);
+  height: clamp(32px, 4vw, 40px);
+}
+
+.capacitacion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
+
+.capacitacion-card.expanded .capacitacion-content {
+  max-height: 100vh; /* suficiente para cualquier pantalla */
+}
+
+@media (max-width: var(--bp-sm)) {
+  .capacitacion-card {
+    padding: var(--space-md);
+  }
+  .expand-btn {
+    top: var(--space-sm);
+    right: var(--space-sm);
+  }
+}
+
+.target-sectors,
+.aplicaciones-grid,
+.beneficios-grid,
+.herramientas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+  padding: 0 var(--space-sm);
+}
+
+@media (max-width: var(--bp-sm)) {
+  .target-sectors,
+  .aplicaciones-grid,
+  .beneficios-grid,
+  .herramientas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.proceso-timeline {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.proceso-timeline::before {
+  left: 50%;
+}
+
+.timeline-item {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: var(--space-xl);
+}
+
+@media (max-width: var(--bp-sm)) {
+  .proceso-timeline::before {
+    display: none;
+  }
+  .timeline-item {
+    margin: var(--space-lg) 0;
+  }
+  .timeline-content {
+    width: 100%;
+    padding: var(--space-md);
+  }
 }

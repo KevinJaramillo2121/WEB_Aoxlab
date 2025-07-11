@@ -612,6 +612,54 @@ function submitPrerregistro(form) {
         submitBtn.disabled = false;
     }, 2000);
 }
+/* js/prerregistro.js */
+document.addEventListener('DOMContentLoaded', () => {
+  const form       = document.getElementById('prerregistro-form');
+  const btn        = document.getElementById('submit-btn');
+  const msgArea    = document.getElementById('form-msg');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    msg('');
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Estado de envío
+    toggleBtn(true);
+
+    try {
+      const res  = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+      const json = await res.json();
+
+      if (json.success) {
+        msg('✅ Prerregistro enviado. Te contactaremos pronto.', 'ok');
+        form.reset();
+      } else {
+        throw new Error(json.message || 'Error desconocido');
+      }
+    } catch (err) {
+      console.error(err);
+      msg('❌ No se pudo enviar el formulario. Intenta más tarde.', 'error');
+    } finally {
+      toggleBtn(false);
+    }
+  });
+
+  // Helpers
+  function toggleBtn(loading) {
+    btn.disabled = loading;
+    btn.firstElementChild.textContent = loading ? 'Enviando…' : 'Enviar prerregistro';
+    btn.classList.toggle('loading', loading);
+  }
+
+  function msg(text = '', type = '') {
+    msgArea.textContent = text;
+    msgArea.className   = type;
+  }
+});
 
 // Mejorar badges de certificación flotantes
 function enhanceCertBadges() {

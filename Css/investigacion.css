@@ -15,7 +15,7 @@
     position: relative;
     height: 75vh;
     min-height: 600px;
-    overflow: hidden;
+    overflow: hidden;   
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +29,7 @@
     width: 100%;
     height: 100%;
     background-image:
-                        url("../img/Investigacion.jpg");
+                        url("../img/investigacion_img/Investigacion.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -790,95 +790,6 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .idi-hero {
-        height: 60vh;
-        min-height: 500px;
-    }
-    
-    .hero-stats {
-        gap: var(--spacing-md);
-    }
-    
-    .stat-item {
-        min-width: 120px;
-        padding: var(--spacing-md);
-    }
-    
-    .programa-features {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .servicios-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-    
-    .sectores-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-    
-    .actividades-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: var(--spacing-md);
-    }
-    
-    .alianzas-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-    
-    .fomento-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .resultados-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-lg);
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .cta-btn {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .idi-hero {
-        height: 50vh;
-        min-height: 400px;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .stat-item {
-        width: 100%;
-        max-width: 200px;
-    }
-    
-    .servicio-header {
-        padding: var(--spacing-lg);
-    }
-    
-    .sector-card,
-    .actividad-card,
-    .alianza-card,
-    .resultado-card {
-        padding: var(--spacing-lg);
-    }
-}
-
 /* Animaciones adicionales */
 @keyframes fadeInUp {
     from {
@@ -913,4 +824,113 @@
 
 .servicio-card.expanded .servicio-content {
     animation: fadeInUp 0.4s ease 0.2s both;
+}
+
+:root {
+  /* Breakpoints */
+  --bp-xs: 576px;
+  --bp-sm: 768px;
+  --bp-md: 992px;
+  --bp-lg: 1200px;
+
+  /* Espaciados fluidos */
+  --space-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 2vw, 1rem);
+  --space-md: clamp(1rem, 3vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 4vw, 2rem);
+  --space-xl: clamp(2rem, 5vw, 3rem);
+
+  /* Tipografía fluida */
+  --fs-100: clamp(0.875rem, 2vw, 1rem);
+  --fs-200: clamp(1rem, 2.5vw, 1.25rem);
+  --fs-300: clamp(1.5rem, 4vw, 2rem);
+  --fs-400: clamp(2rem, 5vw, 2.5rem);
+}
+
+.idi-hero {
+  position: relative;
+  width: 100%;
+  height: clamp(50vh, 60vh, 75vh);
+  min-height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Desactivar fixed background para móviles */
+.idi-hero .hero-background {
+  background-attachment: scroll;
+}
+
+@media (max-width: var(--bp-sm)) {
+  .idi-hero {
+    text-align: center;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .idi-hero .hero-badge {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--fs-100);
+  }
+  .idi-hero .hero-stats {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+}
+
+.stat-item {
+  flex: 1 1 clamp(140px, 25%, 200px);
+  max-width: clamp(140px, 30%, 250px);
+  padding: var(--space-md);
+}
+
+@media (max-width: var(--bp-sm)) {
+  .stat-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.programa-content {
+  max-width: min(1000px, 90vw);
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+
+
+.servicio-card {
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-lg);
+}
+
+.servicio-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
+
+.servicio-card.expanded .servicio-content {
+  max-height: 100vh;
+}
+
+@media (max-width: var(--bp-sm)) {
+  .servicio-card {
+    padding: var(--space-md);
+  }
+  .expand-btn {
+    width: clamp(32px, 4vw, 40px);
+    height: clamp(32px, 4vw, 40px);
+    top: var(--space-sm);
+    right: var(--space-sm);
+  }
+}
+
+@media (max-width: var(--bp-sm)) {
+  .sectores-grid,
+  .actividades-grid,
+  .alianzas-grid,
+  .resultados-grid {
+    grid-template-columns: 1fr;
+  }
 }
