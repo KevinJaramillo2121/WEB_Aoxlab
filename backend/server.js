@@ -1,15 +1,14 @@
-// server.js
+// backend/server.js
 
 // 1. Importar las dependencias que instalamos
 const express = require('express');
 const OpenAI = require('openai');
 const cors = require('cors');
 require('dotenv').config(); // Carga las variables del archivo .env
-const path = require('path'); // <-- ¡Esta línea debe ir aquí arriba para que 'path' esté disponible!
+const path = require('path'); // <--- ¡Mover esta línea AQUI ARRIBA! Es crucial que 'path' esté disponible.
 
 // 2. Inicializar el servidor Express y OpenAI
 const app = express();
-// const port = 3000; // Comenta o elimina esta línea
 const port = process.env.PORT || 3000; // Usa la variable de entorno PORT si existe, sino 3000
 
 const openai = new OpenAI({
@@ -19,14 +18,6 @@ const openai = new OpenAI({
 // 3. Configurar los Middlewares
 app.use(cors()); // Permite peticiones desde tu frontend
 app.use(express.json()); // Permite al servidor entender JSON que envía el frontend
-
-// === CORRECCIONES CLAVE PARA SERVIR EL FRONTEND ===
-// 1. Sirve los archivos estáticos desde la raíz de tu repositorio.
-//    path.join(__dirname, '..') sube un directorio desde 'backend/' a la raíz del proyecto.
-app.use(express.static(path.join(__dirname, '..')));
-
-// 2. Define tus rutas de API ANTES de la ruta comodín (*).
-//    Esto asegura que las solicitudes a /api/chat sean manejadas por el chatbot primero.
 
 // 4. Definir el prompt del sistema para el asistente de Aoxlab
 const systemPrompt = `Eres un asistente virtual experto de AOXLAB, un laboratorio de análisis y certificación en Medellín, Colombia. Tu nombre es Andi.
@@ -39,7 +30,7 @@ Tu misión es ser profesional, amable, y conciso.
 - Si te preguntan por una cotización, un servicio muy específico o algo que no sepas, dirige amablemente al usuario a los canales oficiales: "Para darte información precisa sobre tu cotización, te recomiendo contactar a nuestro equipo comercial al correo direccioncomercial@aoxlab.com o a través de nuestro WhatsApp."
 - Sé breve y directo. No uses más de 150 palabras por respuesta.`;
 
-// 5. Crear la ruta (endpoint) para el chat
+// 5. Crear las rutas (endpoints) de la API. Estas DEBEN ir ANTES de las rutas para servir el frontend.
 app.post('/api/chat', async (req, res) => {
     try {
         const userMessage = req.body.message;
@@ -73,12 +64,21 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'Server is running healthy!' });
 });
 
-// 3. Esta es la ruta comodín. Debe ir DESPUÉS de todas tus rutas de API.
-//    Asegura que si ninguna ruta anterior coincide, se envíe el index.html.
+// === CONFIGURACIÓN PARA SERVIR EL FRONTEND ESTATICO ===
+// Importante: Estas líneas deben ir DESPUÉS de tus rutas de API.
+
+// 1. Sirve todos los archivos estáticos desde la raíz de tu repositorio.
+//    path.join(__dirname, '..') es la clave: sube un nivel desde 'backend/'
+//    para apuntar a la carpeta principal donde están index.html, Css/, Js/, etc.
+app.use(express.static(path.join(__dirname, '..')));
+
+// 2. Para cualquier otra solicitud GET que no coincida con una ruta de API o un archivo estático,
+//    siempre devuelve tu 'index.html'. Esto es fundamental para las SPA (Single Page Applications)
+//    y para que la URL principal del sitio web cargue tu página.
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
-// =========================================================
+// ======================================================
 
 // 6. Iniciar el servidor
 app.listen(port, () => {
