@@ -26,6 +26,8 @@ app.use(express.static(__dirname)); // Sirve archivos de la raíz del proyecto
 // O si tu frontend está en una carpeta 'public' o 'frontend':
 // app.use(express.static('public'));
 
+const path = require('path'); // Añade esta línea al principio de server.js
+
 // 4. Definir el prompt del sistema para el asistente de Aoxlab
 const systemPrompt = `Eres un asistente virtual experto de AOXLAB, un laboratorio de análisis y certificación en Medellín, Colombia. Tu nombre es Andi.
 Tu misión es ser profesional, amable, y conciso.
