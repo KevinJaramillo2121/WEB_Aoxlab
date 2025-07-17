@@ -9,7 +9,11 @@ const path = require('path'); // <--- ¡Mover esta línea AQUI ARRIBA! Es crucia
 
 // 2. Inicializar el servidor Express y OpenAI
 const app = express();
-const port = process.env.PORT || 3000; // Usa la variable de entorno PORT si existe, sino 3000
+const port = process.env.PORT; // Elimina el fallback a 3000
+if (!port) {
+    console.error("Error: PORT environment variable is not set by Render.");
+    process.exit(1); // Salir si el puerto no está definido
+} // Usa la variable de entorno PORT si existe, sino 3000
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY, // Carga la API Key de forma segura
