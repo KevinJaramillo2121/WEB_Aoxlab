@@ -70,14 +70,14 @@ app.get('/api/health', (req, res) => {
 // 1. Sirve todos los archivos estáticos desde la raíz de tu repositorio.
 //    path.join(__dirname, '..') es la clave: sube un nivel desde 'backend/'
 //    para apuntar a la carpeta principal donde están index.html, Css/, Js/, etc.
-//app.use(express.static(path.join(__dirname, '..')));
+app.use(express.static(path.join(__dirname, '..')));
 
 // 2. Para cualquier otra solicitud GET que no coincida con una ruta de API o un archivo estático,
 //    siempre devuelve tu 'index.html'. Esto es fundamental para las SPA (Single Page Applications)
 //    y para que la URL principal del sitio web cargue tu página.
-//  app.get('*', (req, res) => {
-//      res.sendFile(path.join(__dirname, '..', 'index.html'));
-//  });
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, '..', 'index.html'));
+    });
 // ======================================================
 
 // 6. Iniciar el servidor
