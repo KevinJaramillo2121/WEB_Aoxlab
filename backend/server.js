@@ -75,9 +75,9 @@ app.use(express.static(path.join(__dirname, '..')));
 // 2. Para cualquier otra solicitud GET que no coincida con una ruta de API o un archivo estático,
 //    siempre devuelve tu 'index.html'. Esto es fundamental para las SPA (Single Page Applications)
 //    y para que la URL principal del sitio web cargue tu página.
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'index.html'));
-});
+//  app.get('*', (req, res) => {
+//      res.sendFile(path.join(__dirname, '..', 'index.html'));
+//  });
 // ======================================================
 
 // 6. Iniciar el servidor

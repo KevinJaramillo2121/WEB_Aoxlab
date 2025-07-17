@@ -833,7 +833,7 @@ async sendChatMessage() {
 
         try {
             // AQUÍ ESTÁ EL CAMBIO PRINCIPAL: Llamada a tu propio backend
-            const response = await fetch('http://localhost:3000/api/chat', {
+            const response = await fetch('/api/chat', { // CAMBIO: Usar ruta relativa
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
