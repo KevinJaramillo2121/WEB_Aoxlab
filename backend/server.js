@@ -1,11 +1,11 @@
-// backend/server.js
+// server.js
 
 // 1. Importar las dependencias que instalamos
 const express = require('express');
 const OpenAI = require('openai');
 const cors = require('cors');
 require('dotenv').config(); // Carga las variables del archivo .env
-const path = require('path'); // <-- ¡MOVER ESTA LÍNEA AQUÍ ARRIBA!
+const path = require('path'); // <-- ¡Esta línea debe ir aquí arriba para que 'path' esté disponible!
 
 // 2. Inicializar el servidor Express y OpenAI
 const app = express();
@@ -20,19 +20,13 @@ const openai = new OpenAI({
 app.use(cors()); // Permite peticiones desde tu frontend
 app.use(express.json()); // Permite al servidor entender JSON que envía el frontend
 
-// === NUEVAS Y CORREGIDAS LÍNEAS PARA SERVIR EL FRONTEND ===
-// La ruta 'path.join(__dirname, '..')' es crucial.
-// '__dirname' es 'backend/'
-// '..' sube un nivel, apuntando a la raíz de tu repositorio donde está index.html
+// === CORRECCIONES CLAVE PARA SERVIR EL FRONTEND ===
+// 1. Sirve los archivos estáticos desde la raíz de tu repositorio.
+//    path.join(__dirname, '..') sube un directorio desde 'backend/' a la raíz del proyecto.
 app.use(express.static(path.join(__dirname, '..')));
 
-// Para cualquier otra solicitud GET que no haya sido manejada por una ruta anterior,
-// devuelve el index.html. Esto es para que al visitar https://web-aoxlab.onrender.com
-// se cargue tu página principal.
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'index.html'));
-});
-// =========================================================
+// 2. Define tus rutas de API ANTES de la ruta comodín (*).
+//    Esto asegura que las solicitudes a /api/chat sean manejadas por el chatbot primero.
 
 // 4. Definir el prompt del sistema para el asistente de Aoxlab
 const systemPrompt = `Eres un asistente virtual experto de AOXLAB, un laboratorio de análisis y certificación en Medellín, Colombia. Tu nombre es Andi.
@@ -46,8 +40,6 @@ Tu misión es ser profesional, amable, y conciso.
 - Sé breve y directo. No uses más de 150 palabras por respuesta.`;
 
 // 5. Crear la ruta (endpoint) para el chat
-// ¡IMPORTANTE!: Esta ruta '/api/chat' debe estar definida ANTES del 'app.get('*')'
-// para que el servidor intente coincidir con '/api/chat' primero.
 app.post('/api/chat', async (req, res) => {
     try {
         const userMessage = req.body.message;
@@ -80,6 +72,13 @@ app.post('/api/chat', async (req, res) => {
 app.get('/api/health', (req, res) => {
     res.json({ status: 'Server is running healthy!' });
 });
+
+// 3. Esta es la ruta comodín. Debe ir DESPUÉS de todas tus rutas de API.
+//    Asegura que si ninguna ruta anterior coincide, se envíe el index.html.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
+});
+// =========================================================
 
 // 6. Iniciar el servidor
 app.listen(port, () => {
