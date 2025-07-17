@@ -24,42 +24,11 @@ const OPENAI_CONFIG = {
 /**
  * Prompt del sistema para el chatbot de AOXLAB
  */
-const CHATBOT_SYSTEM_PROMPT = `Eres un asistente virtual especializado de AOXLAB, un laboratorio de análisis y certificación en Medellín, Colombia. 
-
-INFORMACIÓN SOBRE AOXLAB:
-- Laboratorio especializado en análisis microbiológicos, metales pesados y cannabinoides
-- Certificaciones ISO/IEC 17025:2017 y próximamente ISO 17065
-- 13 años de experiencia, más de 300 equipos, 2500+ clientes satisfechos
-- Ubicación: Calle 32F #74B-122, Laureles, Medellín
-- Teléfono: (+57) 604 7454
-- Email: comercial@aoxlab.com
-
-SERVICIOS PRINCIPALES:
-1. Análisis Microbiológicos (recuento de aerobios, detección de patógenos, análisis de agua)
-2. Metales Pesados (plomo, mercurio, cadmio por ICP-MS)
-3. Perfil de Cannabinoides (CBD, THC, CBG, CBN, terpenos)
-4. Certificación ISO 17065 (productos ecológicos, agroindustriales, cosméticos)
-
-INSTRUCCIONES:
-- Responde de manera profesional, amigable y concisa
-- Enfócate en los servicios y capacidades de AOXLAB
-- Si no tienes información específica, dirige al cliente a contactar directamente
-- Usa un tono técnico pero accesible
-- Máximo 100 palabras por respuesta`;
 
 // ====================================================================
 // CLASE PRINCIPAL DEL SITIO WEB
 // ====================================================================
 // Función global para llamar al backend Gemini
-async function callGemini(userMessage) {
-    const response = await fetch('http://localhost:3000/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage })
-    });
-    const data = await response.json();
-    return data.message;
-    }
 
 /**
  * Clase principal que maneja todas las funcionalidades del sitio web de AOXLAB
@@ -846,43 +815,53 @@ class AoxlabWebsite {
     /**
      * Envía un mensaje del chat
      */
-    async sendChatMessage() {
-        if (this.isTyping) return;
-        
-        const chatInput = document.getElementById('chat-input');
-        const message = chatInput?.value.trim();
-        
-        if (message) {
-            // Agregar mensaje del usuario
-            this.addChatMessage(message, 'user');
-            chatInput.value = '';
-            
-            const sendBtn = document.getElementById('send-message');
-            if (sendBtn) sendBtn.disabled = true;
-            
-            // Mostrar indicador de escritura
-            this.showTypingIndicator();
-            
-            try {
-                // Llamar a la API de OpenAI (si está configurada)
-                let response;
-                // Llama a la IA Gemini si no tienes clave de OpenAI
-                response = await callGemini(message);
-                
-                // Ocultar indicador y mostrar respuesta
-                this.hideTypingIndicator();
-                this.addChatMessage(response, 'bot');
-                
-            } catch (error) {
-                console.error('Error al comunicarse con la IA:', error);
-                this.hideTypingIndicator();
-                this.addChatMessage(
-                    'Disculpa, tengo dificultades técnicas. Por favor contacta directamente a comercial@aoxlab.com o llama al (+57) 604 7454.',
-                    'bot'
-                );
+    // Reemplaza esta función en tu clase AoxlabWebsite dentro de Inicio.js
+
+async sendChatMessage() {
+    if (this.isTyping) return;
+
+    const chatInput = document.getElementById('chat-input');
+    const message = chatInput?.value.trim();
+
+    if (message) {
+        this.addChatMessage(message, 'user');
+        chatInput.value = '';
+        const sendBtn = document.getElementById('send-message');
+        if (sendBtn) sendBtn.disabled = true;
+
+        this.showTypingIndicator();
+
+        try {
+            // AQUÍ ESTÁ EL CAMBIO PRINCIPAL: Llamada a tu propio backend
+            const response = await fetch('http://localhost:3000/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message }),
+            });
+
+            if (!response.ok) {
+                // Si el servidor responde con un error (ej. 500)
+                throw new Error(`Error del servidor: ${response.statusText}`);
             }
+
+            const data = await response.json();
+            const botMessage = data.message;
+
+            this.hideTypingIndicator();
+            this.addChatMessage(botMessage, 'bot');
+
+        } catch (error) {
+            console.error('Error al comunicarse con el backend:', error);
+            this.hideTypingIndicator();
+            this.addChatMessage(
+                'Disculpa, en este momento no puedo conectarme de manera correcta con el servidor. Por favor, contacta a nuestro equipo directamente por correo o WhatsApp.',
+                'bot'
+            );
         }
     }
+}
     
     /**
      * Llama a la API de OpenAI para generar respuestas

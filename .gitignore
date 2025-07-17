@@ -1,1 +1,3 @@
-"Portafolios/" 
+.env
+node_modules/
+Portafolios/

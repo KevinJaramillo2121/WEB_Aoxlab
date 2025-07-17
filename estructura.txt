@@ -1,0 +1,6 @@
+Listado de rutas de carpetas para el volumen respaldo
+El número de serie del volumen es 0418-6F1C
+R:\PAGINAWEBAOXLABPRACTICAS\-A
+Ruta de acceso no válida: \PAGINAWEBAOXLABPRACTICAS\-A
+No existe ninguna subcarpeta 
+

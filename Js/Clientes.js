@@ -13,7 +13,9 @@ class AoxlabPortalClientes extends AoxlabWebsite {
         this.initFormValidation();
         this.initPortalAnimations();
         this.updateChatbotForPortal();
+        this.initThemeToggle(); // <-- LÓGICA DEL MODO OSCURO AÑADIDA
     }
+
         
     // === FORMULARIO DE LOGIN ===
     initLoginForm() {
@@ -397,15 +399,7 @@ class AoxlabPortalClientes extends AoxlabWebsite {
     }
 }
 
-// Inicializar la clase cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        const portalClientes = new AoxlabPortalClientes();
-        
-        // Hacer disponible globalmente para debugging
-        window.portalClientes = portalClientes;
-    }, 100);
-});
+
 
 // Estilos CSS adicionales para notificaciones
 const portalNotificationStyles = document.createElement('style');
@@ -444,75 +438,4 @@ portalNotificationStyles.textContent = `
 `;
 document.head.appendChild(portalNotificationStyles);
 // JavaScript para mejorar la experiencia del botón de orden de servicio
-document.addEventListener('DOMContentLoaded', () => {
-    const btnOrdenServicio = document.querySelector('.btn-orden-servicio');
-    
-    if (btnOrdenServicio) {
-        // Agregar feedback visual al hacer clic
-        btnOrdenServicio.addEventListener('click', function(e) {
-            // Mostrar notificación de redirección
-            showNotification('Redirigiendo al sistema de orden de servicio...', 'info');
-            
-            // Opcional: Tracking de analytics
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'click', {
-                    'event_category': 'Orden de Servicio',
-                    'event_label': 'Acceso desde portal',
-                    'value': 1
-                });
-            }
-        });
-        
-        // Agregar tooltip informativo
-        btnOrdenServicio.setAttribute('title', 'Se abrirá en una nueva pestaña el formulario de orden de servicio');
-    }
-    
-    // Función para mostrar notificaciones
-    function showNotification(message, type = 'info') {
-        const notification = document.createElement('div');
-        notification.className = `orden-notification ${type}`;
-        
-        const icons = {
-            'success': 'fas fa-check-circle',
-            'error': 'fas fa-exclamation-circle',
-            'info': 'fas fa-info-circle'
-        };
-        
-        const colors = {
-            'success': '#28a745',
-            'error': '#dc3545',
-            'info': '#2BA1D4'
-        };
-        
-        notification.innerHTML = `
-            <i class="${icons[type]}"></i>
-            <span>${message}</span>
-        `;
-        
-        notification.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${colors[type]};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: var(--font-primary);
-            font-weight: 500;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            animation: slideInRight 0.3s ease;
-            max-width: 350px;
-        `;
-        
-        document.body.appendChild(notification);
-        
-        setTimeout(() => {
-            notification.style.animation = 'slideOutRight 0.3s ease';
-            setTimeout(() => notification.remove(), 300);
-        }, 3000);
-    }
-});
+// Inicializar la clase cuando el DOM esté listo

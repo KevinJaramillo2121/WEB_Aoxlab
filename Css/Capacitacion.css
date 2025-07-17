@@ -237,9 +237,10 @@
 
 .capacitaciones-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: var(--spacing-xl);
 }
+
 
 /* Capacitación Cards Expandibles */
 .capacitacion-card {
@@ -249,7 +250,11 @@
     box-shadow: 0 8px 30px var(--shadow-light);
     transition: all var(--transition-medium);
     border: 2px solid transparent;
+    min-width: 500px;    /* Nuevo ancho mínimo */
+    max-width: 700px;    /* Opcional, para limitar el ancho máximo */
+    margin: 0 auto;      /* Centra la tarjeta si hay espacio */
 }
+
 
 .capacitacion-card:hover {
     transform: translateY(-5px);
@@ -580,9 +585,11 @@
 
 .beneficios-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-xl);
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Ajusta el valor para el ancho mínimo a tu gusto */
+    gap: 2.5rem; /* Controla la separación entre tarjetas en filas y columnas */
+    padding: 0 1rem; /* Opcional: añade espacio lateral en el contenedor */
 }
+
 
 .beneficio-card {
     background: var(--white);
@@ -594,7 +601,18 @@
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+    min-width: 250px; /* Permite que el grid ajuste el ancho automáticamente */
+    max-width: 700px;   /* Puedes ajustar a tu gusto */
+    margin: 0 auto;     /* Esto centra la tarjeta */
+    
 }
+@media (max-width: 768px) {
+    .beneficios-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+}
+
 
 .beneficio-card::before {
     content: '';
@@ -925,10 +943,11 @@
 
 .capacitaciones-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-xl);
-  padding: 0 var(--space-md);
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* ancho ya ajustado */
+  gap: 2.5rem; /* aumenta la separación entre tarjetas */
+  padding: 0 1rem; /* un poco de relleno lateral opcional */
 }
+
 
 @media (max-width: var(--bp-sm)) {
   .capacitaciones-grid {

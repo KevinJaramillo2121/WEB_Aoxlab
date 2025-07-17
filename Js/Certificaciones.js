@@ -11,11 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Inicializar funcionalidades
-    initializeFilters();
-    initializeCostCalculator();
+    // --- LÓGICA DEL FORMULARIO DE PRERREGISTRO ---
     initializePrerregistroForm();
+
+    // --- OTRAS FUNCIONALIDADES DE LA PÁGINA ---
+    initializeFilters();
     enhanceCertBadges();
+    initializeTabs('.politicas-tabs .tab-btn', '.politicas-tabs .tabs-content .tab-pane');
+    initializeTabs('.reglas-tabs .tab-btn', '.reglas-tabs-content .tab-content');
+    // Si tienes otras inicializaciones, pueden ir aquí.
 });
 
 
@@ -522,21 +526,255 @@ function animateNumbers() {
     });
 }
 
-// Formulario de prerregistro
+document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar AOS si está disponible
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
+    
+    // --- LÓGICA DEL FORMULARIO DE PRERREGISTRO ---
+    initializePrerregistroForm();
+
+    // --- OTRAS FUNCIONALIDADES DE LA PÁGINA ---
+    initializeFilters();
+    enhanceCertBadges();
+    initializeTabs('.politicas-tabs .tab-btn', '.politicas-tabs .tabs-content .tab-pane');
+    initializeTabs('.reglas-tabs .tab-btn', '.reglas-tabs-content .tab-content');
+});
+
+
+/**
+ * Inicializa la lógica para el formulario de prerregistro de certificación.
+ */
 function initializePrerregistroForm() {
     const form = document.getElementById('prerregistro-form');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+    if (!form) return;
+
+    const btn = document.getElementById('submit-btn');
+    const msgArea = document.getElementById('form-msg');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        msgArea.textContent = '';
+        msgArea.className = '';
+
+        if (!validatePrerregistroForm(form)) {
+            msgArea.textContent = 'Por favor, corrige los errores antes de enviar.';
+            msgArea.className = 'error';
+            return;
+        }
+
+        toggleBtn(btn, true);
+
+        try {
+            // Añadir datos ocultos para validación del servidor
+            addHiddenDataToCertForm(form);
+
+            const formData = new FormData(form);
+            const response = await fetch(form.action, { method: 'POST', body: formData });
             
-            if (validateForm(this)) {
-                submitPrerregistro(this);
+            if (!response.ok) {
+                throw new Error(`Error del servidor: ${response.status} ${response.statusText}`);
             }
-        });
+
+            const json = await response.json();
+
+            if (json.success) {
+                msgArea.textContent = '✅ ¡Prerregistro enviado con éxito! Nos pondremos en contacto contigo pronto.';
+                msgArea.className = 'ok';
+                form.reset();
+            } else {
+                throw new Error(json.message || 'El servidor indicó un error en el envío.');
+            }
+        } catch (err) {
+            console.error(err);
+            msgArea.textContent = `❌ Hubo un problema con el envío. Por favor, intenta de nuevo más tarde o contáctanos directamente.`;
+            msgArea.className = 'error';
+        } finally {
+            toggleBtn(btn, false);
+        }
+    });
+}
+
+/**
+ * Añade campos ocultos al formulario antes de enviarlo.
+ * @param {HTMLFormElement} form - El formulario.
+ */
+function addHiddenDataToCertForm(form) {
+    const empresa = form.querySelector('#empresa')?.value || 'N/A';
+    const certificacion = form.querySelector('#certificacion option:checked')?.text || 'N/A';
+
+    addHiddenField(form, 'Fecha_Prerregistro', new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }));
+    addHiddenField(form, 'Navegador_Usuario', getBrowserInfo());
+    addHiddenField(form, 'Pagina_Origen', window.location.href);
+    addHiddenField(form, 'Asunto_Sugerido', `Prerregistro Certificación - ${empresa} - ${certificacion}`);
+}
+
+/**
+ * Crea o actualiza un campo oculto en un formulario.
+ * @param {HTMLFormElement} form - El formulario.
+ * @param {string} name - El nombre del campo.
+ * @param {string} value - El valor del campo.
+ */
+function addHiddenField(form, name, value) {
+    let input = form.querySelector(`input[name="${name}"]`);
+    if (!input) {
+        input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = name;
+        form.appendChild(input);
+    }
+    input.value = value;
+}
+
+/**
+ * Obtiene información básica del navegador del usuario.
+ * @returns {string} - El nombre del navegador.
+ */
+function getBrowserInfo() {
+    const userAgent = navigator.userAgent;
+    if (userAgent.includes('Chrome')) return 'Google Chrome';
+    if (userAgent.includes('Firefox')) return 'Mozilla Firefox';
+    if (userAgent.includes('Safari')) return 'Safari';
+    if (userAgent.includes('Edge')) return 'Microsoft Edge';
+    return 'Otro navegador';
+}
+
+
+/**
+ * Valida los campos del formulario de prerregistro.
+ * @param {HTMLFormElement} form - El formulario a validar.
+ * @returns {boolean} - True si el formulario es válido, false en caso contrario.
+ */
+function validatePrerregistroForm(form) {
+    let isValid = true;
+    const requiredFields = form.querySelectorAll('[required]');
+
+    requiredFields.forEach(field => {
+        const parent = field.closest('.field');
+        const errorMsg = parent.querySelector('.field-error');
+        if(errorMsg) errorMsg.remove();
+        field.style.borderColor = '';
+
+        let hasError = false;
+        if (field.type === 'checkbox') {
+            if (!field.checked) {
+                hasError = true;
+            }
+        } else {
+            if (!field.value.trim()) {
+                hasError = true;
+            }
+        }
+        
+        if (hasError) {
+            isValid = false;
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'field-error';
+            errorDiv.style.color = '#e74c3c';
+            errorDiv.style.fontSize = '0.8rem';
+            errorDiv.style.marginTop = '4px';
+            errorDiv.textContent = 'Este campo es obligatorio.';
+            parent.appendChild(errorDiv);
+            field.style.borderColor = '#e74c3c';
+        }
+    });
+
+    return isValid;
+}
+
+/**
+ * Activa/desactiva el estado de carga de un botón.
+ * @param {HTMLButtonElement} btn - El botón a modificar.
+ * @param {boolean} loading - True para estado de carga, false para estado normal.
+ */
+function toggleBtn(btn, loading) {
+    btn.disabled = loading;
+    const span = btn.querySelector('span');
+    if (span) {
+       span.textContent = loading ? 'Enviando…' : 'Enviar prerregistro';
+    }
+    if(loading) {
+        btn.classList.add('loading');
+    } else {
+        btn.classList.remove('loading');
     }
 }
 
+
+/**
+ * Inicializa un sistema de pestañas (tabs).
+ * @param {string} btnSelector - Selector para los botones de las pestañas.
+ * @param {string} contentSelector - Selector para los paneles de contenido.
+ */
+function initializeTabs(btnSelector, contentSelector) {
+    const tabBtns = document.querySelectorAll(btnSelector);
+    const tabContents = document.querySelectorAll(contentSelector);
+    
+    if (tabBtns.length === 0) return;
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const tabId = this.getAttribute('data-tab');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === `${tabId}` || content.id === `${tabId}-tab`) {
+                    content.classList.add('active');
+                }
+            });
+        });
+    });
+}
+
+/**
+ * Inicializa los filtros del directorio de empresas.
+ */
+function initializeFilters() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const companies = document.querySelectorAll('.cert-company');
+    
+    if (filterButtons.length === 0) return;
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            companies.forEach(company => {
+                const category = company.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    company.style.display = 'block';
+                } else {
+                    company.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+
+/**
+ * Mejora visual de las insignias de certificación.
+ */
+function enhanceCertBadges() {
+    const badges = document.querySelectorAll('.cert-badge-floating');
+    badges.forEach((badge) => {
+        badge.addEventListener('click', function() {
+            const alcancesSection = document.getElementById('alcances');
+            if (alcancesSection) {
+                alcancesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+}
 function validateForm(form) {
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
@@ -613,53 +851,53 @@ function submitPrerregistro(form) {
     }, 2000);
 }
 /* js/prerregistro.js */
-document.addEventListener('DOMContentLoaded', () => {
-  const form       = document.getElementById('prerregistro-form');
-  const btn        = document.getElementById('submit-btn');
-  const msgArea    = document.getElementById('form-msg');
+    document.addEventListener('DOMContentLoaded', () => {
+    const form       = document.getElementById('prerregistro-form');
+    const btn        = document.getElementById('submit-btn');
+    const msgArea    = document.getElementById('form-msg');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    msg('');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        msg('');
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
+        if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+        }
+
+        // Estado de envío
+        toggleBtn(true);
+
+        try {
+        const res  = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+        const json = await res.json();
+
+        if (json.success) {
+            msg('✅ Prerregistro enviado. Te contactaremos pronto.', 'ok');
+            form.reset();
+        } else {
+            throw new Error(json.message || 'Error desconocido');
+        }
+        } catch (err) {
+        console.error(err);
+        msg('❌ No se pudo enviar el formulario. Intenta más tarde.', 'error');
+        } finally {
+        toggleBtn(false);
+        }
+    });
+
+    // Helpers
+    function toggleBtn(loading) {
+        btn.disabled = loading;
+        btn.firstElementChild.textContent = loading ? 'Enviando…' : 'Enviar prerregistro';
+        btn.classList.toggle('loading', loading);
     }
 
-    // Estado de envío
-    toggleBtn(true);
-
-    try {
-      const res  = await fetch(form.action, { method: 'POST', body: new FormData(form) });
-      const json = await res.json();
-
-      if (json.success) {
-        msg('✅ Prerregistro enviado. Te contactaremos pronto.', 'ok');
-        form.reset();
-      } else {
-        throw new Error(json.message || 'Error desconocido');
-      }
-    } catch (err) {
-      console.error(err);
-      msg('❌ No se pudo enviar el formulario. Intenta más tarde.', 'error');
-    } finally {
-      toggleBtn(false);
+    function msg(text = '', type = '') {
+        msgArea.textContent = text;
+        msgArea.className   = type;
     }
-  });
-
-  // Helpers
-  function toggleBtn(loading) {
-    btn.disabled = loading;
-    btn.firstElementChild.textContent = loading ? 'Enviando…' : 'Enviar prerregistro';
-    btn.classList.toggle('loading', loading);
-  }
-
-  function msg(text = '', type = '') {
-    msgArea.textContent = text;
-    msgArea.className   = type;
-  }
-});
+    });
 
 // Mejorar badges de certificación flotantes
 function enhanceCertBadges() {

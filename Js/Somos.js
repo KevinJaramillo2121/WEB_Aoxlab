@@ -929,172 +929,254 @@ function debounce(fn,wait){let t;return(...a)=>{clearTimeout(t);t=setTimeout(()=
  * Mostrar detalles de certificación en modal
  */
 function viewCertDetails(certType) {
+    const lang = document.documentElement.lang || 'es'; // Detecta el idioma, por defecto 'es'
     const modal = document.getElementById('cert-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalBody = document.getElementById('modal-body');
-    
-    const certDetails = {
+
+    // Objeto con todo el contenido en ambos idiomas
+    const allCertDetails = {
         iso17025: {
-            title: 'ISO/IEC 17025:2017 - Acreditación ONAC',
-            content: `
-                <div class="modal-cert-info">
-                    <div class="modal-cert-header">
-                        <img src="img/cert_img/logo AOXLAB-ONAC-ILAC.jpeg" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
-                        <h4>Competencia de Laboratorios de Ensayo y Calibración</h4>
-                    </div>
-                    
-                    <div class="modal-details">
-                        <h5><i class="fas fa-info-circle"></i> Descripción</h5>
-                        <p>Esta acreditación certifica que AOXLAB cumple con los requisitos técnicos y de gestión necesarios para demostrar competencia técnica en la realización de ensayos específicos.</p>
-                        
-                        <h5><i class="fas fa-list"></i> Alcance Acreditado</h5>
-                        <ul>
-                            <li>Análisis microbiológicos de alimentos y aguas</li>
-                            <li>Análisis fisicoquímicos de matrices alimentarias</li>
-                            <li>Análisis de cannabis medicinal</li>
-                        </ul>
-                        
-                        <h5><i class="fas fa-certificate"></i> Información de la Acreditación</h5>
-                        <div class="info-grid">
-                            <div class="info-item">
-                                <strong>Código:</strong> 20-LAB-011
-                            </div>
-                            <div class="info-item">
-                                <strong>Organismo:</strong> ONAC (Organismo Nacional de Acreditación)
-                            </div>
-                            <div class="info-item">
-                                <strong>Vigencia:</strong> Permanente con renovaciones periódicas
-                            </div>
-                            <div class="info-item">
-                                <strong>Reconocimiento:</strong> Internacional bajo ILAC
+            title: {
+                es: 'ISO/IEC 17025:2017 - Acreditación ONAC',
+                en: 'ISO/IEC 17025:2017 - ONAC Accreditation'
+            },
+            content: {
+                es: `
+                    <div class="modal-cert-info">
+                        <div class="modal-cert-header">
+                            <img src="../img/cert_img/logo AOXLAB-ONAC-ILAC.jpeg" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
+                            <h4>Competencia de Laboratorios de Ensayo y Calibración</h4>
+                        </div>
+                        <div class="modal-details">
+                            <h5><i class="fas fa-info-circle"></i> Descripción</h5>
+                            <p>Esta acreditación certifica que AOXLAB cumple con los requisitos técnicos y de gestión necesarios para demostrar competencia técnica en la realización de ensayos específicos.</p>
+                            <h5><i class="fas fa-list"></i> Alcance Acreditado</h5>
+                            <ul>
+                                <li>Análisis microbiológicos de alimentos y aguas</li>
+                                <li>Análisis fisicoquímicos de matrices alimentarias</li>
+                                <li>Análisis de cannabis medicinal</li>
+                            </ul>
+                            <h5><i class="fas fa-certificate"></i> Información de la Acreditación</h5>
+                            <div class="info-grid">
+                                <div class="info-item"><strong>Código:</strong> 20-LAB-011</div>
+                                <div class="info-item"><strong>Organismo:</strong> ONAC</div>
+                                <div class="info-item"><strong>Vigencia:</strong> Permanente con renovaciones periódicas</div>
+                                <div class="info-item"><strong>Reconocimiento:</strong> Internacional bajo ILAC</div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            `
+                    </div>`,
+                en: `
+                    <div class="modal-cert-info">
+                        <div class="modal-cert-header">
+                            <img src="../img/cert_img/logo AOXLAB-ONAC-ILAC.jpeg" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
+                            <h4>Competence of Testing and Calibration Laboratories</h4>
+                        </div>
+                        <div class="modal-details">
+                            <h5><i class="fas fa-info-circle"></i> Description</h5>
+                            <p>This accreditation certifies that AOXLAB meets the technical and management requirements necessary to demonstrate technical competence in performing specific tests.</p>
+                            <h5><i class="fas fa-list"></i> Accredited Scope</h5>
+                            <ul>
+                                <li>Microbiological analysis of food and water</li>
+                                <li>Physicochemical analysis of food matrices</li>
+                                <li>Analysis of medicinal cannabis</li>
+                            </ul>
+                            <h5><i class="fas fa-certificate"></i> Accreditation Information</h5>
+                            <div class="info-grid">
+                                <div class="info-item"><strong>Code:</strong> 20-LAB-011</div>
+                                <div class="info-item"><strong>Body:</strong> ONAC (National Accreditation Body of Colombia)</div>
+                                <div class="info-item"><strong>Validity:</strong> Permanent with periodic renewals</div>
+                                <div class="info-item"><strong>Recognition:</strong> International under ILAC</div>
+                            </div>
+                        </div>
+                    </div>`
+            }
         },
         salud: {
-            title: 'Certificación Seccional de Salud',
-            content: `
-                <div class="modal-cert-info">
-                    <div class="modal-cert-header">
-                        <img src="img/cert_img/antioquia1.png" alt="ISO 17025" style="height: 100px; margin-bottom: 20px;">
-                        <h4>Autorización Secretaría Seccional de Salud de Antioquia</h4>
-                    </div>
-                    
-                    <div class="modal-details">
-                        <h5><i class="fas fa-info-circle"></i> Descripción</h5>
-                        <p>Certificación que autoriza a AOXLAB para operar como laboratorio de análisis clínicos y ambientales en el departamento de Antioquia.</p>
-                        
-                        <h5><i class="fas fa-list"></i> Servicios Autorizados</h5>
-                        <ul>
-                            <li>Análisis microbiológicos de aguas</li>
-                            <li>Análisis fisicoquímicos ambientales</li>
-                            <li>Análisis de alimentos para consumo humano</li>
-                            <li>Análisis de cosméticos y productos de aseo</li>
-                        </ul>
-                        
-                        <h5><i class="fas fa-map-marker-alt"></i> Jurisdicción</h5>
-                        <p>Departamento de Antioquia, Colombia</p>
-                    </div>
-                </div>
-            `
+            title: {
+                es: 'Certificación Seccional de Salud',
+                en: 'Departmental Health Certification'
+            },
+            content: {
+                es: `
+                    <div class="modal-cert-info">
+                        <div class="modal-cert-header">
+                            <img src="../img/cert_img/antioquia1.png" alt="Logo Antioquia" style="height: 100px; margin-bottom: 20px;">
+                            <h4>Autorización Secretaría Seccional de Salud de Antioquia</h4>
+                        </div>
+                        <div class="modal-details">
+                            <h5><i class="fas fa-info-circle"></i> Descripción</h5>
+                            <p>Certificación que autoriza a AOXLAB para operar como laboratorio de análisis clínicos y ambientales en el departamento de Antioquia.</p>
+                            <h5><i class="fas fa-list"></i> Servicios Autorizados</h5>
+                            <ul>
+                                <li>Análisis microbiológicos de aguas</li>
+                                <li>Análisis fisicoquímicos ambientales</li>
+                                <li>Análisis de alimentos para consumo humano</li>
+                            </ul>
+                            <h5><i class="fas fa-map-marker-alt"></i> Jurisdicción</h5>
+                            <p>Departamento de Antioquia, Colombia</p>
+                        </div>
+                    </div>`,
+                en: `
+                    <div class="modal-cert-info">
+                        <div class="modal-cert-header">
+                            <img src="../img/cert_img/antioquia1.png" alt="Antioquia Logo" style="height: 100px; margin-bottom: 20px;">
+                            <h4>Authorization from the Departmental Health Secretariat of Antioquia</h4>
+                        </div>
+                        <div class="modal-details">
+                            <h5><i class="fas fa-info-circle"></i> Description</h5>
+                            <p>Certification authorizing AOXLAB to operate as a clinical and environmental analysis laboratory in the department of Antioquia.</p>
+                            <h5><i class="fas fa-list"></i> Authorized Services</h5>
+                            <ul>
+                                <li>Microbiological water analysis</li>
+                                <li>Environmental physicochemical analysis</li>
+                                <li>Analysis of food for human consumption</li>
+                            </ul>
+                            <h5><i class="fas fa-map-marker-alt"></i> Jurisdiction</h5>
+                            <p>Department of Antioquia, Colombia</p>
+                        </div>
+                    </div>`
+            }
         },
         resolucion: {
-            title: 'Resolución No. 229 de 2024',
-            content: `
-                <div class="modal-cert-info">
-                    <div class="modal-cert-header">
-                        <div class="resolution-icon-large">
-                            <i class="fas fa-file-contract"></i>
+            title: {
+                es: 'Resolución No. 229 de 2024',
+                en: 'Resolution No. 229 of 2024'
+            },
+            content: {
+                es: `
+                    <div class="modal-cert-info">
+                         <div class="modal-cert-header">
+                            <div class="resolution-icon-large"><i class="fas fa-file-contract"></i></div>
+                            <h4>Ministerio de Salud y Protección Social</h4>
                         </div>
-                        <h4>Ministerio de Salud y Protección Social</h4>
-                    </div>
-                    
-                    <div class="modal-details">
-                        <h5><i class="fas fa-info-circle"></i> Descripción</h5>
-                        <p>Resolución que autoriza a AOXLAB como laboratorio competente para realizar análisis de aguas destinadas al consumo humano.</p>
-                        
-                        <h5><i class="fas fa-tint"></i> Parámetros Autorizados</h5>
-                        <ul>
-                            <li>Análisis microbiológicos de agua potable</li>
-                            <li>Parámetros fisicoquímicos de calidad</li>
-                            <li>Determinación de metales pesados</li>
-                        </ul>
-                        
-                        <h5><i class="fas fa-calendar"></i> Vigencia</h5>
-                        <p>Válida desde 2024 con renovaciones según normativa vigente</p>
-                    </div>
-                </div>
-            `
+                        <div class="modal-details">
+                            <h5><i class="fas fa-info-circle"></i> Descripción</h5>
+                            <p>Resolución que autoriza a AOXLAB como laboratorio competente para realizar análisis de aguas destinadas al consumo humano.</p>
+                            <h5><i class="fas fa-tint"></i> Parámetros Autorizados</h5>
+                            <ul>
+                                <li>Análisis microbiológicos de agua potable</li>
+                                <li>Parámetros fisicoquímicos de calidad</li>
+                            </ul>
+                            <h5><i class="fas fa-calendar"></i> Vigencia</h5>
+                            <p>Válida desde 2024 con renovaciones según normativa vigente.</p>
+                        </div>
+                    </div>`,
+                en: `
+                    <div class="modal-cert-info">
+                        <div class="modal-cert-header">
+                            <div class="resolution-icon-large"><i class="fas fa-file-contract"></i></div>
+                            <h4>Ministry of Health and Social Protection</h4>
+                        </div>
+                        <div class="modal-details">
+                            <h5><i class="fas fa-info-circle"></i> Description</h5>
+                            <p>Resolution authorizing AOXLAB as a competent laboratory to perform analyses of water intended for human consumption.</p>
+                            <h5><i class="fas fa-tint"></i> Authorized Parameters</h5>
+                            <ul>
+                                <li>Microbiological analysis of drinking water</li>
+                                <li>Physicochemical quality parameters</li>
+                            </ul>
+                            <h5><i class="fas fa-calendar"></i> Validity</h5>
+                            <p>Valid from 2024 with renewals according to current regulations.</p>
+                        </div>
+                    </div>`
+            }
         },
         ica: {
-            title: 'Certificación ICA',
-            content: `
-                <div class="modal-cert-info">
-                    <div class="modal-cert-header">
-                        <img src="img/cert_img/Ica.png" alt="ICA" style="height: 100px; margin-bottom: 20px;">
-                        <h4>Instituto Colombiano Agropecuario</h4>
-                    </div>
-                    
-                    <div class="modal-details">
-                        <h5><i class="fas fa-info-circle"></i> Descripción</h5>
-                        <p>Autorización del ICA para realizar análisis de alimentos para animales, muestras de origen animal y productos agrícolas.</p>
-                        
-                        <h5><i class="fas fa-seedling"></i> Sectores Autorizados</h5>
-                        <ul>
-                            <li>Alimentos para animales (concentrados, forrajes)</li>
-                            <li>Productos de origen animal</li>
-                            <li>Productos agrícolas y vegetales</li>
-                            <li>Materias primas pecuarias</li>
-                        </ul>
-                        
-                        <h5><i class="fas fa-certificate"></i> Registro</h5>
-                        <p><strong>Número:</strong> LB0000032025<br>
-                        <strong>Fecha:</strong> 14 de abril de 2025</p>
-                    </div>
-                </div>
-            `
+            title: {
+                es: 'Certificación ICA',
+                en: 'ICA Certification'
+            },
+            content: {
+                es: `
+                    <div class="modal-cert-info">
+                        <div class="modal-cert-header">
+                             <img src="../img/cert_img/Ica.png" alt="ICA" style="height: 100px; margin-bottom: 20px;">
+                            <h4>Instituto Colombiano Agropecuario</h4>
+                        </div>
+                        <div class="modal-details">
+                            <h5><i class="fas fa-info-circle"></i> Descripción</h5>
+                            <p>Autorización del ICA para realizar análisis de alimentos para animales, muestras de origen animal y productos agrícolas.</p>
+                            <h5><i class="fas fa-seedling"></i> Sectores Autorizados</h5>
+                            <ul>
+                                <li>Alimentos para animales</li>
+                                <li>Productos de origen animal</li>
+                                <li>Productos agrícolas y vegetales</li>
+                            </ul>
+                            <h5><i class="fas fa-certificate"></i> Registro</h5>
+                            <p><strong>Número:</strong> LB0000032025<br><strong>Fecha:</strong> 14 de abril de 2025</p>
+                        </div>
+                    </div>`,
+                en: `
+                    <div class="modal-cert-info">
+                        <div class="modal-cert-header">
+                            <img src="../img/cert_img/Ica.png" alt="ICA" style="height: 100px; margin-bottom: 20px;">
+                            <h4>Colombian Agricultural Institute</h4>
+                        </div>
+                        <div class="modal-details">
+                            <h5><i class="fas fa-info-circle"></i> Description</h5>
+                            <p>Authorization from the ICA to perform analyses of animal feed, samples of animal origin, and agricultural products.</p>
+                            <h5><i class="fas fa-seedling"></i> Authorized Sectors</h5>
+                            <ul>
+                                <li>Animal feed</li>
+                                <li>Products of animal origin</li>
+                                <li>Agricultural and vegetable products</li>
+                            </ul>
+                            <h5><i class="fas fa-certificate"></i> Registration</h5>
+                            <p><strong>Number:</strong> LB0000032025<br><strong>Date:</strong> April 14, 2025</p>
+                        </div>
+                    </div>`
+            }
         },
         iso17065: {
-            title: 'ISO 17065 - Próximamente',
-            content: `
-                <div class="modal-cert-info">
-                    <div class="modal-cert-header">
-                        <img src="img/cert_img/Iso17065.jpg" alt="ISO 17065" style="height: 100px; margin-bottom: 20px;">
-                        <h4>Organismos que Certifican Productos, Procesos y Servicios</h4>
-                    </div>
-                    
-                    <div class="modal-details">
-                        <h5><i class="fas fa-info-circle"></i> Descripción</h5>
-                        <p>AOXLAB está en proceso de obtener la acreditación ISO 17065:2012 para actuar como organismo certificador de productos, procesos y servicios.</p>
-                        
-                        <h5><i class="fas fa-cogs"></i> Servicios Futuros</h5>
-                        <ul>
-                            <li>Certificación de productos ecológicos</li>
-                            <li>Certificación de procesos agroindustriales</li>
-                            <li>Verificación de sistemas de gestión</li>
-                            <li>Auditorías de conformidad</li>
-                        </ul>
-                        
-                        <h5><i class="fas fa-calendar-plus"></i> Estado del Proceso</h5>
-                        <p>Actualmente en fase de implementación y preparación para la evaluación de acreditación.</p>
-                        
-                        <div class="progress-indicator">
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 75%"></div>
-                            </div>
-                            <span>75% Completado</span>
+            title: {
+                es: 'ISO 17065 - Próximamente',
+                en: 'ISO 17065 - Coming Soon'
+            },
+            content: {
+                es: `
+                    <div class="modal-cert-info">
+                        <div class="modal-cert-header">
+                            <img src="../img/cert_img/Iso17065.jpg" alt="ISO 17065" style="height: 100px; margin-bottom: 20px;">
+                            <h4>Organismos que Certifican Productos, Procesos y Servicios</h4>
                         </div>
-                    </div>
-                </div>
-            `
+                        <div class="modal-details">
+                             <h5><i class="fas fa-info-circle"></i> Descripción</h5>
+                            <p>AOXLAB está en proceso de obtener la acreditación ISO 17065:2012 para actuar como organismo certificador.</p>
+                            <h5><i class="fas fa-calendar-plus"></i> Estado del Proceso</h5>
+                            <p>Actualmente en fase de implementación y preparación para la evaluación de acreditación.</p>
+                            <div class="progress-indicator">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+                                <span>75% Completado</span>
+                            </div>
+                        </div>
+                    </div>`,
+                en: `
+                    <div class="modal-cert-info">
+                        <div class="modal-cert-header">
+                            <img src="../img/cert_img/Iso17065.jpg" alt="ISO 17065" style="height: 100px; margin-bottom: 20px;">
+                            <h4>Organisms that Certify Products, Processes, and Services</h4>
+                        </div>
+                        <div class="modal-details">
+                            <h5><i class="fas fa-info-circle"></i> Description</h5>
+                            <p>AOXLAB is in the process of obtaining ISO 17065:2012 accreditation to act as a certification body.</p>
+                            <h5><i class="fas fa-calendar-plus"></i> Process Status</h5>
+                            <p>Currently in the implementation and preparation phase for the accreditation assessment.</p>
+                            <div class="progress-indicator">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+                                <span>75% Complete</span>
+                            </div>
+                        </div>
+                    </div>`
+            }
         }
     };
     
-    if (certDetails[certType]) {
-        modalTitle.textContent = certDetails[certType].title;
-        modalBody.innerHTML = certDetails[certType].content;
+    const details = allCertDetails[certType];
+
+    if (details) {
+        modalTitle.textContent = details.title[lang];
+        modalBody.innerHTML = details.content[lang];
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
