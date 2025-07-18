@@ -2125,68 +2125,7 @@ font-size: clamp(1rem, 3vw, 1.2rem);
 margin-bottom: var(--spacing-lg);
 }
 
-/* --- Línea de Tiempo (Revisado para Móviles) --- /
-.timeline-section {
-padding: var(--spacing-lg) 0; / Reducir un poco el padding vertical */
 
-
-.timeline-expandable .timeline-line {
-left: 25px !important; /* Ajustar la posición de la línea */
-transform: translateX(0) !important;
-}
-
-.timeline-item.expandable {
-display: flex;
-flex-direction: column; /* Apilar los elementos /
-align-items: flex-start; / Alinear al inicio */
-margin-bottom: var(--spacing-xl);
-padding-left: 0;
-}
-
-.timeline-item.expandable .timeline-content {
-display: flex;
-flex-direction: column;
-text-align: left;
-align-items: flex-start;
-width: 100%;
-}
-
-.timeline-marker {
-position: absolute;
-left: 25px !important;
-top: 0;
-transform: translateX(-50%);
-z-index: 10;
-}
-
-.timeline-card {
-margin-left: 50px !important; /* Espacio para el marcador /
-margin-right: 0 !important;
-width: calc(100% - 50px) !important;
-box-sizing: border-box; / Asegurar que el padding no aumente el ancho */
-}
-
-.timeline-header {
-padding: var(--spacing-md);
-}
-
-.timeline-year-range {
-display: block; /* Asegurar que el rango de años esté en su propia línea */
-margin-bottom: var(--spacing-sm);
-}
-
-.timeline-header h3 {
-font-size: 1.1rem;
-}
-
-.timeline-content > * {
-margin-bottom: var(--spacing-sm);
-}
-
-/* Ocultar los conectores laterales en móviles */
-.timeline-item.expandable:not(:last-child)::after {
-content: none;
-}
 /* ====================================================================
    AJUSTES RESPONSIVE PARA LA BARRA DE NAVEGACIÓN
    ==================================================================== */
@@ -2253,5 +2192,76 @@ content: none;
     .dark-mode .main-nav {
         background-color: var(--primary-color);
         border-top-color: var(--medium-gray);
+    }
+}
+/* ====================================================================
+   SOLUCIÓN DEFINITIVA PARA LÍNEA DE TIEMPO RESPONSIVE
+   ==================================================================== */
+
+/* Para tablets y móviles (a partir de 992px hacia abajo) */
+@media (max-width: 992px) {
+
+    .timeline-section .section-header h2 {
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+    }
+
+    .timeline-expandable {
+        padding: 0 var(--spacing-md); /* Añadir un poco de espacio lateral */
+        max-width: 100%;
+    }
+
+    /* 1. Mover la línea a la izquierda */
+    .timeline-expandable .timeline-line {
+        left: 35px; /* Distancia desde el borde izquierdo */
+        transform: none;
+    }
+
+    /* 2. Resetear la estructura de cada item */
+    .timeline-item.expandable {
+        position: relative;
+        /* Elimina la necesidad de calcular márgenes complejos */
+        padding-left: 70px; 
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 3. Posicionar TODOS los marcadores sobre la nueva línea */
+    .timeline-marker,
+    .timeline-item:nth-child(odd) .timeline-marker,
+    .timeline-item:nth-child(even) .timeline-marker {
+        left: 35px;
+        top: 0;
+        transform: translateX(-50%); /* Centra el marcador sobre la línea */
+        width: 50px;
+        height: 50px;
+    }
+    
+    .timeline-marker i {
+        font-size: 1.5rem;
+    }
+    
+    /* 4. Forzar que TODAS las tarjetas ocupen el 100% del ancho y eliminar márgenes */
+    .timeline-item:nth-child(odd) .timeline-card,
+    .timeline-item:nth-child(even) .timeline-card {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        max-width: 100%;
+        text-align: left; /* Asegurar que el texto esté alineado a la izquierda */
+    }
+
+    /* 5. Asegurar que el contenido de las tarjetas no se alterne */
+    .timeline-item.expandable:nth-child(odd) .timeline-content,
+    .timeline-item.expandable:nth-child(even) .timeline-content {
+        flex-direction: column; /* Apila el contenido verticalmente */
+        text-align: left;
+    }
+
+    /* 6. Ajustar fuentes para mejor lectura */
+    .timeline-header h3 {
+        font-size: clamp(1.1rem, 4vw, 1.4rem);
+    }
+    .timeline-summary {
+        font-size: clamp(0.9rem, 3vw, 1rem);
     }
 }

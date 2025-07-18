@@ -3359,3 +3359,99 @@ form{
   width: 100%;
   min-height: 44px;
 }
+/* ====================================================================
+   AJUSTES RESPONSIVE PARA PÁGINA DE CERTIFICACIONES
+   ==================================================================== */
+
+/* Tablets y pantallas medianas (hasta 992px) */
+@media (max-width: 992px) {
+    /* --- Hero Section --- */
+    .cert-hero {
+        text-align: center;
+        min-height: 60vh;
+    }
+
+    .cert-hero .container {
+        left: 0; /* Centramos el contenedor */
+        justify-content: center;
+    }
+
+    .cert-hero .hero-content {
+        text-align: center; /* Centramos el texto */
+        margin-right: 0;
+        padding-left: 0;
+        max-width: 90%;
+    }
+
+    .cert-hero .hero-actions {
+        justify-content: center; /* Centramos los botones */
+    }
+
+    .cert-hero .hero-badge {
+        align-self: center; /* Centramos el badge */
+    }
+
+    /* --- Secciones de Contenido General --- */
+    .que-es-section .content-layout,
+    .prerregistro-content,
+    .derechos-deberes-container {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+    }
+
+    /* --- Tarjetas de Explicación y Procesos --- */
+    .explanation-cards,
+    .proceso-quejas {
+        flex-direction: column; /* Apila las tarjetas verticalmente */
+    }
+}
+
+
+/* Móviles (hasta 768px) */
+@media (max-width: 768px) {
+    /* --- Ajustes generales de espaciado y fuentes --- */
+    .section-header h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+
+    .section-header p {
+        font-size: clamp(1rem, 4vw, 1.1rem);
+    }
+    
+    /* --- Hero Section --- */
+    .cert-hero .hero-subtitle {
+        white-space: normal; /* Permite que el subtítulo se divida en varias líneas */
+    }
+
+    /* --- Pestañas (Tabs) --- */
+    .tabs-nav, .reglas-tabs, .alcance-tabs {
+        justify-content: flex-start; /* Evita que las pestañas se centren */
+        overflow-x: auto; /* Permite scroll horizontal si no caben */
+    }
+
+    /* --- Acuerdos Contractuales (Tarjetas 3D) --- */
+    .acuerdos-grid {
+        padding-bottom: var(--spacing-md); /* Espacio para la barra de scroll */
+    }
+
+    .acuerdo-card-3d {
+        flex: 0 0 clamp(280px, 80vw, 320px); /* Ancho flexible para las tarjetas */
+    }
+    
+    /* --- Formulario de Prerregistro --- */
+    .prerregistro-form {
+        padding: var(--spacing-lg);
+    }
+
+    .prerregistro-content {
+        gap: var(--spacing-lg);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr; /* Apila los campos del formulario */
+    }
+
+    /* --- Sección de Derechos y Deberes --- */
+    .derechos-deberes-container {
+        gap: var(--spacing-lg);
+    }
+}
