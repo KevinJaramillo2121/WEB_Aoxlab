@@ -1969,3 +1969,132 @@ color: #000;
 .equipo-grid{
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 }
+/* ====================================================================
+   MEDIA QUERIES PARA RESPONSIVE - PÁGINA SOMOS
+   ==================================================================== */
+
+/* Tablets y dispositivos medianos (hasta 992px) */
+@media (max-width: 992px) {
+    .somos-hero .container {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-left: 0; /* Elimina el margen negativo */
+        padding: 0 var(--spacing-md);
+    }
+    
+    .somos-hero .hero-image {
+        display: none; /* Ocultamos la imagen para dar prioridad al texto */
+    }
+
+    .vision-content {
+        grid-template-columns: 1fr; /* Una columna para la sección Visión */
+    }
+
+    .vision-image {
+        margin: var(--spacing-xl) auto 0;
+        width: 100%;
+        max-width: 500px; /* Controla el tamaño de la imagen */
+        height: auto;
+        margin-right: 0;
+    }
+}
+
+/* Móviles (hasta 768px) */
+@media (max-width: 768px) {
+    .somos-hero {
+        min-height: 70vh;
+        /* Mejora de rendimiento en móviles */
+        background-attachment: scroll; 
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.2rem, 8vw, 3rem); /* Título más adaptable */
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+
+    .somos-hero .hero-stats {
+        gap: 1.5rem;
+        justify-content: center;
+    }
+}
+
+/* --- Media Query para Móviles (continuación) --- */
+@media (max-width: 768px) {
+    
+    /* --- Línea de Tiempo --- */
+    .timeline-section {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .timeline-expandable .timeline-line {
+        left: 20px; /* Mueve la línea a la izquierda */
+        transform: translateX(0);
+    }
+
+    .timeline-item.expandable:nth-child(odd) .timeline-content,
+    .timeline-item.expandable:nth-child(even) .timeline-content {
+        flex-direction: column; /* Apila los elementos verticalmente */
+        text-align: left;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-card,
+    .timeline-item:nth-child(even) .timeline-card {
+        margin-left: 45px; /* Alinea todas las tarjetas a la derecha de la línea */
+        margin-right: 0;
+        width: calc(100% - 45px); /* Ocupa el espacio restante */
+    }
+
+    .timeline-marker {
+        left: 20px; /* Alinea los marcadores con la línea */
+        top: 0;
+        width: 40px;
+        height: 40px;
+        transform: translateX(-50%);
+    }
+
+    .timeline-marker i {
+        font-size: 1rem;
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-marker,
+    .timeline-item:nth-child(even) .timeline-marker {
+        left: 20px;
+        transform: translateX(-50%);
+    }
+
+    .timeline-header {
+        padding: var(--spacing-md);
+    }
+
+    .timeline-year-range {
+        font-size: 1rem;
+    }
+
+    .timeline-header h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Tablets y dispositivos medianos (hasta 992px) - continuación */
+@media (max-width: 992px) {
+    /* --- Valores Corporativos --- */
+    .valores-grid-dynamic.has-expanded {
+        grid-template-columns: repeat(4, 1fr); /* Ajuste para tablets */
+    }
+
+    .valor-card-dynamic.expanded {
+        grid-column: span 4; /* Ocupa todo el ancho */
+        min-height: 500px;
+        max-height: 500px;
+    }
+
+    .valor-card-dynamic.expanded .expanded-content {
+        max-height: calc(500px - var(--spacing-lg) * 2);
+    }
+}
