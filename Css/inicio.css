@@ -4224,7 +4224,7 @@ color: var(--white)
 }
 
 .service-info h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
     font-weight: var(--font-weight-bold);
@@ -6728,5 +6728,144 @@ color: var(--white)
     /* Asegurar que el enlace de SERVICIOS se comporte como un enlace normal */
     .nav-item-dropdown .dropdown-trigger {
         pointer-events: auto;
+    }
+}
+/* Solución completa para centrar todos los slides en móviles */
+@media (max-width: 768px) {
+    /* Regla general para todos los slides */
+    .slide-content {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90% !important;
+        max-width: 450px !important;
+        padding: 0 !important;
+        text-align: center !important;
+        z-index: 10 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+    }
+    
+    /* Asegurar que los slides problemáticos también estén centrados */
+    .carousel-slide[data-slide="portal-clientes"] .slide-content,
+    .carousel-slide:nth-child(3) .slide-content,
+    .carousel-slide:nth-child(4) .slide-content,
+    .carousel-slide[data-slide="vida-util"] .slide-content,
+    .carousel-slide[data-slide="microbiologia-anual"] .slide-content,
+    .carousel-slide[data-slide="biodegradabilidad"] .slide-content {
+        /* Heredan todas las propiedades de .slide-content de arriba */
+        /* No se necesitan reglas adicionales aquí gracias a la unificación */
+    }
+    
+    /* Ajustar todos los títulos para móviles */
+    .hero-title, .hero-title-servicios-centered, .hero-title-portal-clientes, .hero-title-certificacion, .hero-title-equipo, .hero-title-vida-util, .hero-title-microbiologia, .hero-title-biodegradabilidad {
+        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+        margin-bottom: 0.8rem !important;
+        white-space: normal !important;
+        text-align: center !important;
+        padding-left: 0 !important;
+        line-height: 1.3 !important;
+        width: 100% !important;
+    }
+    
+    /* Ajustar párrafos */
+    .slide-content p {
+        font-size: 0.95rem !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 100% !important;
+    }
+    
+    /* Ajustar badges (etiquetas como ISO/IEC 17025) */
+    .hero-badge {
+        font-size: 0.8rem !important;
+        padding: 4px 10px !important;
+        margin-bottom: 0.8rem !important;
+        align-self: center !important;
+        margin-left: 0 !important; /* Reset de estilos de escritorio */
+    }
+    
+    /* Ajustar contenedor de botones de acción */
+    .hero-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.8rem !important;
+        width: 100% !important;
+        margin-top: 1rem !important;
+    }
+    
+    /* Ajustar todos los botones CTA del carrusel */
+    .cta-btn {
+        min-width: auto !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        padding: 0.8rem 1rem !important;
+        font-size: 0.95rem !important;
+        justify-content: center !important;
+    }
+
+    /* Mejorar contraste para asegurar legibilidad */
+    .carousel-slide::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45); /* Overlay oscuro para mejorar contraste */
+        z-index: 2;
+    }
+}
+/* Solución para menú desplegable en móviles */
+@media (max-width: 768px) {
+    /* Ocultar completamente el menú desplegable de escritorio */
+    .nav-item-dropdown .dropdown-menu {
+        display: none !important;
+    }
+    
+    /* Ocultar el icono de flecha hacia abajo en móviles */
+    .nav-item-dropdown .dropdown-icon {
+        display: none !important;
+    }
+    
+    /* Asegurar que el enlace "SERVICIOS" sea clickeable */
+    .nav-item-dropdown .dropdown-trigger {
+        pointer-events: auto; /* Permite hacer clic en el enlace */
+    }
+}
+/* Responsive para botones flotantes */
+@media (max-width: 768px) {
+    .whatsapp-float,
+    .chatbot-float,
+    .scroll-top {
+        width: 50px;      /* Más pequeños */
+        height: 50px;
+        bottom: 15px;     /* Más cerca del borde */
+    }
+
+    .whatsapp-float {
+        right: 15px;
+    }
+
+    .chatbot-float {
+        /* Ocultarlo si interfiere mucho o moverlo */
+        left: 15px; 
+    }
+    
+    .scroll-top {
+        /* Ajustar posición para no solapar con WhatsApp */
+        right: 75px; 
+    }
+
+    .whatsapp-float i,
+    .chatbot-float i,
+    .scroll-top i {
+        font-size: 1.3rem; /* Iconos más pequeños */
     }
 }
