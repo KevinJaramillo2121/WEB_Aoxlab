@@ -2098,3 +2098,160 @@ color: #000;
         max-height: calc(500px - var(--spacing-lg) * 2);
     }
 }
+
+.somos-hero .container {
+grid-template-columns: 1fr !important; /* Forzar una sola columna */
+text-align: center;
+padding-top: var(--spacing-xl);
+padding-bottom: var(--spacing-xl);
+}
+
+.hero-content {
+margin-left: 0 !important; /* Eliminar cualquier margen izquierdo */
+padding: 0 var(--spacing-md);
+}
+
+.somos-hero .hero-image {
+display: none; /* Ocultar la imagen en móviles para priorizar el texto */
+}
+
+.hero-content h1 {
+font-size: clamp(2.2rem, 7vw, 3rem); /* Ajustar tamaño del título */
+margin-bottom: var(--spacing-md);
+}
+
+.hero-subtitle {
+font-size: clamp(1rem, 3vw, 1.2rem);
+margin-bottom: var(--spacing-lg);
+}
+
+/* --- Línea de Tiempo (Revisado para Móviles) --- /
+.timeline-section {
+padding: var(--spacing-lg) 0; / Reducir un poco el padding vertical */
+
+
+.timeline-expandable .timeline-line {
+left: 25px !important; /* Ajustar la posición de la línea */
+transform: translateX(0) !important;
+}
+
+.timeline-item.expandable {
+display: flex;
+flex-direction: column; /* Apilar los elementos /
+align-items: flex-start; / Alinear al inicio */
+margin-bottom: var(--spacing-xl);
+padding-left: 0;
+}
+
+.timeline-item.expandable .timeline-content {
+display: flex;
+flex-direction: column;
+text-align: left;
+align-items: flex-start;
+width: 100%;
+}
+
+.timeline-marker {
+position: absolute;
+left: 25px !important;
+top: 0;
+transform: translateX(-50%);
+z-index: 10;
+}
+
+.timeline-card {
+margin-left: 50px !important; /* Espacio para el marcador /
+margin-right: 0 !important;
+width: calc(100% - 50px) !important;
+box-sizing: border-box; / Asegurar que el padding no aumente el ancho */
+}
+
+.timeline-header {
+padding: var(--spacing-md);
+}
+
+.timeline-year-range {
+display: block; /* Asegurar que el rango de años esté en su propia línea */
+margin-bottom: var(--spacing-sm);
+}
+
+.timeline-header h3 {
+font-size: 1.1rem;
+}
+
+.timeline-content > * {
+margin-bottom: var(--spacing-sm);
+}
+
+/* Ocultar los conectores laterales en móviles */
+.timeline-item.expandable:not(:last-child)::after {
+content: none;
+}
+/* ====================================================================
+   AJUSTES RESPONSIVE PARA LA BARRA DE NAVEGACIÓN
+   ==================================================================== */
+
+/* Estilos para la vista de tablet y móvil (a partir de 992px hacia abajo) */
+@media (max-width: 992px) {
+    .header-content {
+        justify-content: space-between; /* Alinea logo a la izq. y menú/acciones a la der. */
+    }
+
+    /* Ocultamos la navegación principal y los botones de acción del header */
+    .main-nav {
+        display: none; /* Oculta el menú por defecto */
+        position: absolute;
+        top: 100%; /* Justo debajo del header */
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        padding: var(--spacing-md);
+        border-top: 1px solid var(--shadow-light);
+    }
+    
+    .header-actions {
+        display: none; /* Ocultamos los botones de idioma y tema en la barra principal */
+    }
+
+    /* Mostramos el menú cuando se hace clic en la hamburguesa */
+    .main-nav.mobile-open {
+        display: block;
+    }
+
+    /* Convertimos la lista horizontal en vertical */
+    .main-nav .nav-list {
+        flex-direction: column;
+        align-items: flex-start; /* Alinea los ítems a la izquierda */
+        gap: var(--spacing-sm);
+    }
+    
+    .nav-link {
+        width: 100%; /* Ocupa todo el ancho */
+        justify-content: flex-start;
+        padding: var(--spacing-sm);
+    }
+
+    /* Hacemos visibles los botones CTA dentro del menú móvil */
+    .nav-item-cta {
+        width: 100%;
+        margin-top: var(--spacing-sm);
+    }
+
+    .header-cta-btn {
+        width: 100%;
+        justify-content: center; /* Centra el texto del botón */
+        padding: var(--spacing-md);
+    }
+
+    /* Mostramos y estilizamos el botón de hamburguesa */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* En modo oscuro, el fondo del menú móvil también debe cambiar */
+    .dark-mode .main-nav {
+        background-color: var(--primary-color);
+        border-top-color: var(--medium-gray);
+    }
+}
