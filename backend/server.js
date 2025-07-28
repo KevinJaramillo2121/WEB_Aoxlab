@@ -19,6 +19,12 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY, // Carga la API Key de forma segura
 });
 
+// === NUEVAS CONSTANTES DE CONFIGURACIÓN DE OPENAI PARA EL BACKEND ===
+const OPENAI_MODEL = 'gpt-3.5-turbo'; // Asegúrate de que este sea el modelo que deseas usar
+const OPENAI_MAX_TOKENS = 150;        // Puedes ajustar este valor si necesitas respuestas más largas
+const OPENAI_TEMPERATURE = 0.7;       // Puedes ajustar la temperatura para variar la creatividad (0.0 a 1.0)
+// ====================================================================
+
 // 3. Configurar los Middlewares
 app.use(cors()); // Permite peticiones desde tu frontend
 app.use(express.json()); // Permite al servidor entender JSON que envía el frontend
@@ -45,14 +51,14 @@ app.post('/api/chat', async (req, res) => {
 
         // Realizar la petición a la API de OpenAI
         const completion = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
-            messages: [
-                { role: "system", content: systemPrompt },
-                { role: "user", content: userMessage }
-            ],
-            max_tokens: 150,
-            temperature: 0.7,
-        });
+        model: OPENAI_MODEL, // <-- ¡Cambio aquí!
+        messages: [
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userMessage }
+        ],
+        max_tokens: OPENAI_MAX_TOKENS, // <-- ¡Cambio aquí!
+        temperature: OPENAI_TEMPERATURE // <-- ¡Cambio aquí!
+    });
 
         const botResponse = completion.choices[0].message.content;
         res.json({ message: botResponse.trim() });
